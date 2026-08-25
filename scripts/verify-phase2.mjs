@@ -115,7 +115,12 @@ const after3 = await page.evaluate(() => ({
 ok('section label follows the slide', after3.index === '04' && after3.title === 'Third Floor', `${after3.index} / ${after3.title}`);
 
 console.log('\n--- intro headline fit, measured against the shipped .intro__title rule ---');
-for (const [w, h] of [[390, 844], [650, 900], [768, 1024], [1024, 768], [1440, 900], [1920, 1080]]) {
+// Landscape in the 650-1100 band was the blind spot: the >=650 rule gives it
+// 10rem while the root is pinned to the 8px floor. Both orientations now.
+for (const [w, h] of [
+  [390, 844], [650, 400], [650, 900], [700, 420], [768, 1024], [768, 460],
+  [850, 510], [1024, 768], [1024, 1400], [1100, 660], [1101, 660], [1440, 900], [1920, 1080],
+]) {
   await page.setViewportSize({ width: w, height: h });
   await page.goto(URL, { waitUntil: 'domcontentloaded' });
   const r = await page.evaluate(() => {
@@ -133,9 +138,9 @@ for (const [w, h] of [[390, 844], [650, 900], [768, 1024], [1024, 768], [1440, 9
     return { widest, avail: window.innerWidth - root * 4, size, em };
   });
   ok(
-    `intro headline fits at ${w}px (${r.size} / ${r.em}em)`,
+    `intro headline fits at ${w}x${h} (${r.size} / ${r.em}em)`,
     r.widest <= r.avail,
-    `${Math.round(r.widest)}px into ${Math.round(r.avail)}px${r.widest > r.avail ? ` — over by ${Math.round(r.widest - r.avail)}px` : ''}`,
+    `${Math.round(r.widest)}px into ${Math.round(r.avail)}px — ${r.widest > r.avail ? `OVER by ${Math.round(r.widest - r.avail)}px` : `${(((r.avail - r.widest) / r.avail) * 100).toFixed(1)}% margin`}`,
   );
 }
 
