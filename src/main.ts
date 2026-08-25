@@ -23,17 +23,22 @@ const layers = slides.map((slide, i) => {
   const layer = document.createElement('div');
   layer.className = 'slide';
 
-  const img = document.createElement('img');
-  img.className = 'slide__img';
-  img.src = slide.src;
-  img.alt = slide.alt;
-  img.draggable = false;
-  // The first two are the gate; the rest can arrive while you look at the hero.
-  img.loading = i < 2 ? 'eager' : 'lazy';
-  img.decoding = 'async';
-  if (i < 2) img.fetchPriority = 'high';
+  if (slide.src) {
+    const img = document.createElement('img');
+    img.className = 'slide__img';
+    img.src = slide.src;
+    img.alt = slide.alt ?? '';
+    img.draggable = false;
+    // The first two are the gate; the rest can arrive while you look at the hero.
+    img.loading = i < 2 ? 'eager' : 'lazy';
+    img.decoding = 'async';
+    if (i < 2) img.fetchPriority = 'high';
+    layer.appendChild(img);
+  } else {
+    // Contact lands on the warm ground; its card arrives in Phase 3.
+    layer.classList.add('slide--ground');
+  }
 
-  layer.appendChild(img);
   stage.appendChild(layer);
   return layer;
 });
@@ -56,7 +61,8 @@ const machine = new SlideMachine({
 async function ready(): Promise<void> {
   const first = layers
     .slice(0, 2)
-    .map((layer) => layer.querySelector('img') as HTMLImageElement)
+    .map((layer) => layer.querySelector('img'))
+    .filter((img): img is HTMLImageElement => img !== null)
     .map((img) => (img.complete ? img.decode().catch(() => undefined) : loaded(img)));
 
   await Promise.all(first);

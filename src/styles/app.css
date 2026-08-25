@@ -97,6 +97,15 @@ body {
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: var(--ls-label);
+  /*
+   * The reference sets its chrome in plain white and gets away with it because
+   * its imagery is art-directed dark at the edges. Ours is not — the hero has a
+   * blown-out sky exactly where this sits. Difference blending keeps the
+   * scaffolding legible over any frame without introducing a fourth colour or
+   * the shadow the design system does not have. Phase 2 replaces this with the
+   * pip rail, by which point the imagery should be art-directed properly.
+   */
+  mix-blend-mode: difference;
 }
 
 .counter { font-variant-numeric: tabular-nums; }
@@ -133,4 +142,9 @@ body {
   .hint {
     transition-duration: 0.01s;
   }
+}
+
+/* The contact slide has no photograph — it lands on the ground colour. */
+.slide--ground {
+  background: var(--c-warm);
 }

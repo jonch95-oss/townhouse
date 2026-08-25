@@ -1,7 +1,24 @@
 /* ==========================================================================
-   tokens.css — design tokens read out of quadplex80.com's computed CSS
-   Captured 25 Aug 2026. Values are the site's real values, not approximations.
-   Adapted for reuse: names are generic, so drop this in and re-skin.
+   tokens.css — 223 Waverly Avenue
+
+   Structure, scale and motion are taken from the quadplex80.com teardown
+   (the unmodified capture is at docs/capture/tokens.css — that file is the
+   specification and should not be edited). The palette is ours.
+
+   RE-SKIN, per REBUILD.md §4 "steal the structure, not the hue":
+
+   - Their one brand colour `#7c7262` is replaced by `--c-warm: #715f47`,
+     sampled from the StudioSC interior renderings. The plaster and oak in
+     those images cluster tightly at hue 34-36 deg, 22-25% saturation; this is
+     that hue at a lightness dark enough to set type in. It reads as clay and
+     oak rather than bronze, and it clears 6.12:1 on white where theirs
+     managed 4.73:1.
+   - Their slate-blue scrim `#3c6278` is gone. It was chosen to sit under a
+     sky; against warm brick and plaster it reads cold, and it was a fourth
+     colour in a three-colour system. The scrim is now black at low alpha,
+     which is what the brief asks for and what the imagery needs.
+
+   Three colours: the warm neutral, white, and black used only at low alpha.
    ========================================================================== */
 
 :root {
@@ -15,31 +32,31 @@
   --rem-cap: 12px;
 
   /* ---------------------------------------------------------------------
-     2. COLOUR — the whole site runs on three colours. That is the point.
+     2. COLOUR — three, and only three.
      --------------------------------------------------------------------- */
-  --c-gold: #7c7262;        /* rgb(124 114 98) — warm taupe/bronze.
-                               Body text on light, borders, preloader, contact card,
-                               gallery captions, buttons. The only "brand" colour. */
+  --c-warm: #715f47;        /* rgb(113 95 71) — clay/oak, sampled from the
+                               interior renderings. Type on light, hairline
+                               borders, contact card, captions, buttons.
+                               The only brand colour. */
   --c-white: #ffffff;       /* page ground, contact card, curtain masks */
   --c-black: #000000;       /* only ever used at low alpha, never solid */
 
-  /* the exact alpha steps they use — no others exist in the stylesheet */
-  --c-gold-20: rgb(124 114 98 / 0.20);    /* hairline borders (contact card, rules) */
-  --c-gold-40: rgb(124 114 98 / 0.40);    /* preloader rule, button borders, gallery arrows */
-  --c-black-10: rgb(0 0 0 / 0.10);        /* intro scrim over the cloud scene */
+  /* The two alpha steps. Resist adding a third — the discipline is the point. */
+  --c-warm-20: rgb(113 95 71 / 0.20);     /* hairline borders, rules */
+  --c-warm-40: rgb(113 95 71 / 0.40);     /* button borders, gallery arrows */
+  --c-black-10: rgb(0 0 0 / 0.10);        /* light scrim */
   --c-black-50: rgb(0 0 0 / 0.50);        /* lightbox backdrop */
   --c-white-10: rgb(255 255 255 / 0.10);
   --c-white-40: rgb(255 255 255 / 0.40);
 
-  /* the one accent, used only in the bottom scrim over the sky */
-  --c-scrim: #3c6278;                     /* slate blue */
-  --scrim-desktop: linear-gradient(180deg, rgb(60 98 120 / 0), rgb(60 98 120 / 0.30));
-  --scrim-mobile:  linear-gradient(180deg, rgb(60 98 120 / 0), rgb(60 98 120 / 0.60));
+  /* The bottom scrim that lifts white type off the imagery. Black, not a
+     fourth hue — see the re-skin note above. */
+  --scrim-desktop: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.34));
+  --scrim-mobile:  linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.60));
   --scrim-h-desktop: 17rem;
   --scrim-h-mobile: 40rem;
 
-  /* NO DARK MODE. There is no `prefers-color-scheme` rule and no [data-theme]
-     anywhere in the 31.9 KB of CSS. The site is light-only by design. */
+  /* NO DARK MODE — light-only by design, as the reference is. */
 
   /* ---------------------------------------------------------------------
      3. TYPE
@@ -89,7 +106,7 @@
   --radius-sm: .3rem;      /* small square buttons, gallery arrows */
   --radius-md: .4rem;      /* contact card, inputs */
   --radius-lg: .5rem;      /* floorplan preview boxes */
-  --border-hairline: 1px solid var(--c-gold-20);
+  --border-hairline: 1px solid var(--c-warm-20);
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.10);   /* the ONLY box-shadow in the stylesheet */
 
   /* ---------------------------------------------------------------------
