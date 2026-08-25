@@ -64,6 +64,13 @@ npm run dev &
 node scripts/verify-overlay.mjs
 ```
 
+If your environment already has a Chromium that Playwright did not install — some CI
+images and sandboxes do — point the scripts at it instead:
+
+```bash
+CHROME=/path/to/chrome node scripts/verify-root.mjs
+```
+
 ## Layout
 
 ```

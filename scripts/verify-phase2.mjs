@@ -1,10 +1,10 @@
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/browser.mjs';
 const URL = 'http://localhost:4173/';
 const EXE = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const results = [];
 const ok = (name, pass, d) => { results.push(pass); console.log(`${pass ? 'PASS' : 'FAIL'}  ${name}${d ? ` — ${d}` : ''}`); };
 
-const browser = await chromium.launch({ executablePath: EXE });
+const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(URL, { waitUntil: 'networkidle' });
 await page.waitForSelector('body.is-ready');

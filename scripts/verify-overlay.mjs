@@ -3,10 +3,10 @@
  * Built against a throwaway overlay so the primitive is proven before anything
  * depends on it.
  */
-import { chromium } from 'playwright';
-const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+import { launchChromium } from './lib/browser.mjs';
+const b = await launchChromium();
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
-await p.goto('http://localhost:4173/', { waitUntil: 'networkidle' });
+await p.goto(process.env.URL ?? 'http://localhost:5173/', { waitUntil: 'networkidle' });
 await p.waitForSelector('body.is-ready');
 
 const results = [];
