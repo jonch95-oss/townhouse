@@ -33,8 +33,7 @@ export class PipRail {
         <svg class="pip__svg" viewBox="0 0 22 22" aria-hidden="true" focusable="false">
           <circle class="pip__ring" cx="11" cy="11" r="10" fill="none"
                   stroke="currentColor" stroke-width="1" />
-          <rect class="pip__dot" x="9" y="8.5" width="4" height="5"
-                transform="rotate(45 11 11)" fill="currentColor" />
+          <rect class="pip__dot" x="9" y="8.5" width="4" height="5" fill="currentColor" />
         </svg>`;
       button.addEventListener('click', () => onSelect(i));
       this.el.appendChild(button);

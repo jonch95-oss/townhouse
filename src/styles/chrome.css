@@ -79,15 +79,23 @@
 /* --------------------------------------------------------------------------
    Pip rail. Right edge, vertically centred.
    -------------------------------------------------------------------------- */
+/*
+ * responsive.md §3: the pip rail is absent below 650px. The section-label bar
+ * carries navigation on mobile instead.
+ */
 .pips {
+  display: none;
   position: absolute;
   right: var(--gutter);
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
   flex-direction: column;
   gap: var(--gutter) 0;
   color: var(--c-white);
+}
+
+@media (min-width: 650px) {
+  .pips { display: flex; }
 }
 
 .pip {
@@ -103,9 +111,17 @@
 
 .pip__svg { display: block; width: 100%; height: 100%; }
 
-.pip__dot { transition: transform var(--dur-base) var(--ease-expo-out); transform-origin: center; }
-
-.pip[aria-current='true'] .pip__dot { transform: rotate(45deg) scale(1); transform-box: fill-box; }
+/*
+ * The rotation lives entirely in CSS. Setting transform-origin on an element
+ * that also carries an SVG `transform="rotate(45 11 11)"` attribute makes the
+ * two origins compound, and the square lands off-centre and clipped — which is
+ * what it was doing on every pip except the active one.
+ */
+.pip__dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(45deg);
+}
 
 /* --------------------------------------------------------------------------
    "Scroll to explore". Bottom centre, above the section label on mobile.
@@ -165,6 +181,7 @@
 }
 
 .section-label__index {
+  display: none;
   font-family: var(--font-display);
   font-size: var(--t-30);
   line-height: var(--lh-tight);
@@ -174,10 +191,22 @@
 }
 
 .section-label__rule {
+  display: none;
   width: 1px;
   height: 2.5rem;
   background: var(--c-warm-20);
   flex-shrink: 0;
+}
+
+/*
+ * responsive.md §3: the index and its rule are hidden below 650px, where the
+ * bar goes full width and carries navigation instead. This block has to sit
+ * after both display:none declarations — same specificity, so source order
+ * decides.
+ */
+@media (min-width: 650px) {
+  .section-label__index,
+  .section-label__rule { display: block; }
 }
 
 .section-label__title { flex: 1; }
@@ -231,7 +260,8 @@
 .hero__col {
   grid-column: 1 / -1;
   text-align: center;
-  padding-bottom: 11rem;
+  /* Clears the scroll hint at 9.5rem and the 7rem label bar beneath it. */
+  padding-bottom: 16rem;
 }
 
 @media (min-width: 650px) {
