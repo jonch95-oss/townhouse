@@ -177,6 +177,26 @@ support. Use it.
 
 None of these is a CSS problem. They are all waiting on photography.
 
+### Highest priority: the intro gate needs its own image
+
+The intro gate has no usable frame, and the problem is not resolution.
+
+The image currently standing in contains **a traffic cone, a parked car and a chain-link
+fence**. The headline is set over mid-tone brick coursing whose horizontal banding runs at
+roughly the same visual frequency as the `.375em` letterspacing, so the type and the
+masonry compete instead of separating.
+
+More fundamentally: **it shows the building.** The reference's gate shows only sky. The
+tower is withheld through the gate, revealed across the entrance descent, and fully seen
+only once you reach the hero. Our gate is currently doing the hero's job one screen early
+and spending the reveal before it has been set up.
+
+What is needed is an **atmospheric frame that earns the words without spending the
+reveal** — sky, the street, or the terracotta in close-up. No site furniture in shot. The
+facade belongs on the hero, not before it.
+
+### The rest
+
 | What | Status |
 |---|---|
 | **Hero / exterior rendering** | The only exterior that exists is a **735 × 633** crop from the Landmarks deck (`assets/exterior/`). It is visibly soft upscaled to a 1440px stage. High-resolution originals have been requested from StudioSC. Longest-lead item in the project. |
@@ -213,7 +233,7 @@ flourish on top of it (`spec/sections.md`, "The word count").
 |---|---|
 | Hero headline — `Built For / This Street` | **Chosen.** |
 | Contact headline — `COME / AND / SEE` | **Chosen.** |
-| Intro headline — `BRICK / AND / TERRACOTTA` | **Chosen, ordering still open.** Two variants rendered at 390 in `docs/review/intro-390-a-brick-first.png` and `-b-terracotta-first.png`. (a) is in the code. |
+| Intro headline — `TERRACOTTA / AND / BRICK` | **Chosen.** Both orderings were rendered at 390 first (`docs/review/intro-390-a-brick-first.png` and `-b-terracotta-first.png`); (b) won. At 10, 3 and 5 characters the stack narrows as it descends and resolves on a hard monosyllable, where the reverse keeps opening. It also matches the order the Landmarks deck lists the materials in. |
 | Paragraphs | **Draft.** Written to the word budget and factually grounded, but not signed off. |
 | Facts marked `TK` | price, interior square footage as marketed, bed/bath count as marketed, completion date, contact email, contact phone. They render visibly on purpose. See the `TK` export at the bottom of `copy.ts`. |
 
