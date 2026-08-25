@@ -1,0 +1,148 @@
+/* ==========================================================================
+   tokens.css — design tokens read out of quadplex80.com's computed CSS
+   Captured 25 Aug 2026. Values are the site's real values, not approximations.
+   Adapted for reuse: names are generic, so drop this in and re-skin.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     1. THE FLUID ROOT — this is the single most important token on the site.
+     1rem = 10px at the design width, scaling linearly with the viewport,
+     hard-capped at 12px so it stops growing on very large monitors.
+     Everything else is expressed in rem, so the entire layout scales as one.
+     --------------------------------------------------------------------- */
+  --design-width: 390;                    /* mobile design width in px */
+  --rem-cap: 12px;
+
+  /* ---------------------------------------------------------------------
+     2. COLOUR — the whole site runs on three colours. That is the point.
+     --------------------------------------------------------------------- */
+  --c-gold: #7c7262;        /* rgb(124 114 98) — warm taupe/bronze.
+                               Body text on light, borders, preloader, contact card,
+                               gallery captions, buttons. The only "brand" colour. */
+  --c-white: #ffffff;       /* page ground, contact card, curtain masks */
+  --c-black: #000000;       /* only ever used at low alpha, never solid */
+
+  /* the exact alpha steps they use — no others exist in the stylesheet */
+  --c-gold-20: rgb(124 114 98 / 0.20);    /* hairline borders (contact card, rules) */
+  --c-gold-40: rgb(124 114 98 / 0.40);    /* preloader rule, button borders, gallery arrows */
+  --c-black-10: rgb(0 0 0 / 0.10);        /* intro scrim over the cloud scene */
+  --c-black-50: rgb(0 0 0 / 0.50);        /* lightbox backdrop */
+  --c-white-10: rgb(255 255 255 / 0.10);
+  --c-white-40: rgb(255 255 255 / 0.40);
+
+  /* the one accent, used only in the bottom scrim over the sky */
+  --c-scrim: #3c6278;                     /* slate blue */
+  --scrim-desktop: linear-gradient(180deg, rgb(60 98 120 / 0), rgb(60 98 120 / 0.30));
+  --scrim-mobile:  linear-gradient(180deg, rgb(60 98 120 / 0), rgb(60 98 120 / 0.60));
+  --scrim-h-desktop: 17rem;
+  --scrim-h-mobile: 40rem;
+
+  /* NO DARK MODE. There is no `prefers-color-scheme` rule and no [data-theme]
+     anywhere in the 31.9 KB of CSS. The site is light-only by design. */
+
+  /* ---------------------------------------------------------------------
+     3. TYPE
+     --------------------------------------------------------------------- */
+  --font-display: teodor, Georgia, "Times New Roman", serif;   /* Teodor Regular 400 */
+  --font-sans: sans, "Helvetica Neue", Helvetica, Arial, sans-serif; /* Neue Haas Grotesk Text Pro */
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  /* the type ramp, in rem (so it is fluid via --design-width above) */
+  --t-12: 1.2rem;   --t-13: 1.3rem;  --t-14: 1.4rem;  --t-15: 1.5rem;
+  --t-16: 1.6rem;   --t-18: 1.8rem;  --t-22: 2.2rem;  --t-26: 2.6rem;
+  --t-30: 3rem;     --t-35: 3.5rem;  --t-40: 4rem;    --t-45: 4.5rem;
+  --t-50: 5rem;     --t-80: 8rem;    --t-90: 9rem;    --t-100: 10rem;
+
+  --lh-tight: 1;          /* display headings */
+  --lh-hero: 1.05;        /* hero headline */
+  --lh-snug: 1.1;         /* menu links */
+  --lh-body: 1.4;         /* body copy AND the uppercase contact headline */
+  --lh-h5: 1.3;
+
+  --ls-tight: -0.025em;   /* display headings (h3/h4/h5) */
+  --ls-hero: -0.02em;     /* hero headline */
+  --ls-label: 0.1em;      /* small-caps label */
+  --ls-wide: 0.2em;       /* contact headline */
+  --ls-widest: 0.375em;   /* intro "ABOVE THE CLOUDS" */
+  --ls-03: 0.03em;
+
+  /* ---------------------------------------------------------------------
+     4. SPACE, GRID, CONTAINER
+     --------------------------------------------------------------------- */
+  --gutter: 2rem;               /* .site-max horizontal padding — the ONLY page gutter */
+  --grid-gap: 2rem;
+  --grid-cols: 6;               /* mobile */
+  /* .site-max has NO max-width — it is full-bleed with a 2rem gutter.
+     "Container width" is expressed through column spans, not a max-width. */
+
+  --sp-4: .4rem;   --sp-5: .5rem;   --sp-10: 1rem;  --sp-12: 1.2rem;
+  --sp-15: 1.5rem; --sp-20: 2rem;   --sp-25: 2.5rem; --sp-30: 3rem;
+  --sp-40: 4rem;   --sp-45: 4.5rem; --sp-50: 5rem;  --sp-60: 6rem;
+  --sp-70: 7rem;   --sp-75: 7.5rem; --sp-80: 8rem;  --sp-100: 10rem;
+  --sp-110: 11rem; --sp-200: 20rem;
+
+  /* ---------------------------------------------------------------------
+     5. BORDERS, RADII, SHADOW
+     --------------------------------------------------------------------- */
+  --radius-sm: .3rem;      /* small square buttons, gallery arrows */
+  --radius-md: .4rem;      /* contact card, inputs */
+  --radius-lg: .5rem;      /* floorplan preview boxes */
+  --border-hairline: 1px solid var(--c-gold-20);
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.10);   /* the ONLY box-shadow in the stylesheet */
+
+  /* ---------------------------------------------------------------------
+     6. MOTION — the durations and curves that give the site its character
+     --------------------------------------------------------------------- */
+  --ease-expo-out: cubic-bezier(.19, 1, .22, 1);      /* THE signature CSS curve.
+                                                         Used for every hover, underline,
+                                                         icon rotation and image scale. */
+  --ease-in-out-circ: cubic-bezier(.785, .135, .15, .86);  /* button fill wipe */
+  --ease-in-out-sine: cubic-bezier(.455, .03, .515, .955); /* button arrow swap */
+  --ease-out: ease-out;                                /* fades only */
+
+  --dur-fade: .35s;        /* menu-link dim */
+  --dur-fast: .5s;         /* opacity fades, Vue <Transition name="fade"> */
+  --dur-base: .75s;        /* underlines, cursor states, most hovers */
+  --dur-slow: 1s;          /* menu-toggle icon, plus icon */
+  --dur-slower: 1.5s;      /* image hover scale */
+  --dur-progress: .25s;    /* preloader bar step */
+}
+
+/* Fluid root: 10px per --design-width, capped at 12px. */
+html {
+  font-size: clamp(1px, 10 * 100vw / var(--design-width), var(--rem-cap));
+}
+
+@media (min-width: 650px) {
+  :root { --design-width: 1500; --grid-cols: 24; }
+}
+@media (orientation: portrait) and (min-width: 650px) and (max-width: 1100px) {
+  :root { --design-width: 834; }
+}
+
+/* --------------------------------------------------------------------------
+   Type roles, verbatim from the site's own utility classes.
+   -------------------------------------------------------------------------- */
+.h3 { font-family: var(--font-display); font-size: 4rem; letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }
+@media (min-width: 1100px) { .h3 { font-size: 6rem; } }
+.h3.--menu { font-size: 4rem; }
+@media (min-width: 650px)  { .h3.--menu { font-size: 3.5rem; } }
+@media (min-width: 1100px) { .h3.--menu { font-size: 5rem; } }
+
+.h4 { font-family: var(--font-display); font-size: 4rem; letter-spacing: var(--ls-tight); line-height: var(--lh-tight); }
+@media (min-width: 650px) { .h4 { font-size: 5rem; } }
+
+.h5 { font-family: var(--font-display); font-size: 2.6rem; letter-spacing: var(--ls-tight); line-height: var(--lh-h5); }
+
+.label { font-size: 1.4rem; font-weight: var(--fw-medium); text-transform: uppercase; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  overflow: hidden;             /* the page never scrolls — see motion-spec.md */
+  overscroll-behavior: none;
+}

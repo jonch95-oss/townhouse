@@ -1,0 +1,21 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+await page.goto('http://localhost:4173/', { waitUntil: 'networkidle' });
+await page.waitForSelector('body.is-ready');
+await page.evaluate(() => {
+  window.__log = []; window.__started = 0;
+  const m = window.waverly, r = m.options.renderer, oc = r.change.bind(r);
+  r.change = (f, t) => { window.__started = performance.now(); oc(f, t); };
+  const oo = m.options.onChange;
+  m.options.onChange = (c, p) => { window.__log.push({ c, ms: performance.now() - window.__started }); oo?.(c, p); };
+});
+console.log('reducedMotion matched:', await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches));
+await page.keyboard.press('ArrowDown');
+await page.waitForTimeout(600);
+const log = await page.evaluate(() => window.__log);
+const ms = log[0]?.ms ?? -1;
+console.log(`hero transition under reduced motion: ${Math.round(ms)}ms (index ${log[0]?.c})`);
+console.log(ms >= 0 && ms < 200 ? 'PASS  hard cut, no 2.75s wait' : 'FAIL');
+await browser.close();
+process.exit(ms >= 0 && ms < 200 ? 0 : 1);

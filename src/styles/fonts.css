@@ -1,0 +1,15 @@
+/* ==========================================================================
+   fonts.css — stand-ins only.
+
+   The reference site runs on Teodor (Pangram Pangram) and Neue Haas Grotesk
+   Text Pro (Monotype), both licensed. Until those licences land we substitute
+   the free pairing REBUILD.md §4 suggests, overriding nothing but the two
+   family variables. Swap these two declarations for @font-face blocks and this
+   file is the only thing that changes.
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500&display=swap');
+
+:root {
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}

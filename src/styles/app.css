@@ -1,0 +1,136 @@
+/* ==========================================================================
+   app.css — Phase 1: the stage and the slide layers. Every value comes from
+   tokens.css; there are no literals here beyond 0, 100% and the two
+   full-viewport units.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  /* font-size comes from tokens.css — the fluid rem root. */
+  height: 100%;
+  background: var(--c-black);
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  min-height: 100svh;
+  color: var(--c-white);
+  background: var(--c-black);
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  /* overflow: hidden and overscroll-behavior: none come from tokens.css */
+}
+
+/* --------------------------------------------------------------------------
+   The stage — exactly one viewport, never scrolled.
+   -------------------------------------------------------------------------- */
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+
+.slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* The bottom scrim that lifts white copy off the image (tokens.css §2). */
+.stage::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  height: var(--scrim-h-mobile);
+  background: var(--scrim-mobile);
+  pointer-events: none;
+}
+
+@media (min-width: 650px) {
+  .stage::after {
+    height: var(--scrim-h-desktop);
+    background: var(--scrim-desktop);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Chrome. Phase 1 scaffolding only: a slide counter so the pacing can be
+   judged, and a one-time hint. Both are replaced by the pip rail and the
+   slide-down button in Phase 2.
+   -------------------------------------------------------------------------- */
+.chrome {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  padding: var(--gutter);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gutter);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.is-ready .chrome { opacity: 1; }
+
+.counter,
+.hint {
+  font-size: var(--t-14);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+}
+
+.counter { font-variant-numeric: tabular-nums; }
+
+.counter__total { opacity: 0.4; }
+
+.hint {
+  opacity: 0.7;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.is-moved .hint { opacity: 0; }
+
+/* --------------------------------------------------------------------------
+   Loading gate. No percentage counter — REBUILD.md §3 is explicit that a
+   progress readout is theatre without 6.9 MB of textures behind it.
+   -------------------------------------------------------------------------- */
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: var(--c-white);
+  transition: opacity var(--dur-slower) var(--ease-out);
+}
+
+.is-ready .gate {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate,
+  .chrome,
+  .hint {
+    transition-duration: 0.01s;
+  }
+}
