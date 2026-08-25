@@ -9,12 +9,14 @@ import { registerReveal } from './lib/reveal';
 import { applyMotionPreference } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
-import { slides } from './data/slides';
+import { slides, galleries } from './data/slides';
 import { Hero } from './ui/hero';
 import { PipRail } from './ui/pips';
 import { MenuToggle } from './ui/nav';
 import { SectionLabel } from './ui/section-label';
 import { ScrollHint } from './ui/scroll-hint';
+import { Menu } from './ui/menu';
+import { Lightbox } from './ui/lightbox';
 
 registerEases();
 registerReveal();
@@ -77,7 +79,44 @@ const machine = new SlideMachine({
 });
 
 const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
-const menuToggle = new MenuToggle();
+
+/**
+ * Overlays own the wheel while they are open — motion-spec.md §1.3 lists this
+ * among the guards. Without it the slide behind an open menu still advances.
+ */
+const setOverlayOpen = (open: boolean) => { machine.overlayOpen = open; };
+
+const lightbox = new Lightbox(() => setOverlayOpen(false));
+const menu = new Menu(
+  labels,
+  (i) => machine.instant(i),
+  () => {
+    setOverlayOpen(false);
+    menuToggle.setOpen(false);
+  },
+);
+document.body.append(menu.el, lightbox.el);
+
+const menuToggle = new MenuToggle((open) => {
+  setOverlayOpen(open);
+  if (open) menu.show();
+  else menu.close();
+});
+
+/** Clicking an interior slide opens that floor's gallery, where one exists. */
+stage.addEventListener('click', () => {
+  if (menu.isOpen || lightbox.isOpen) return;
+  const ids = galleries[machine.current];
+  if (!ids?.length) return;
+  setOverlayOpen(true);
+  lightbox.show(
+    ids.map((id, n) => ({
+      src: `/renders/source/${id}.jpeg`,
+      alt: `${labels[machine.current]} — view ${n + 1} of ${ids.length}.`,
+      caption: `${labels[machine.current]} — ${n + 1} / ${ids.length}`,
+    })),
+  );
+});
 const sectionLabel = new SectionLabel(labels);
 const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
 
