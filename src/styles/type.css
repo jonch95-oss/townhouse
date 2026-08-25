@@ -145,16 +145,19 @@
 }
 
 /*
- * The 650-1100 band, both orientations. tokens.md §3 steps 8rem here and only
- * for portrait, which is not enough for a ten-character word: at 650 the root
- * is pinned to the 8px floor, so 8rem is 64px and TERRACOTTA needs 658px into
- * 618px. Landscape is worse — the >=650 rule gives it 10rem, or 822px into
- * 618px.
+ * The 650-1100 band. tokens.md §3 steps 8rem here but scopes it to portrait,
+ * which leaves landscape on the >=650 rule while the root is pinned to the 8px
+ * floor — 10rem is 80px at 650, and TERRACOTTA needs 671px into 618px. So the
+ * step is right and the scope is not: 8rem applies to both orientations here.
  *
- * 6.5rem clears every width in the band with at least 13% to spare. Spending a
- * size step rather than tracking is deliberate: .375em is what makes the gate
- * read as a threshold, and only the sub-650 override gives it up.
+ * That makes our ladder 4 / 8 / 10 against the reference's 5 / 8 / 10, which
+ * tracks. An earlier pass used 6.5rem, but that number was chosen while the
+ * webfonts were failing to load and the measurements were against a fallback
+ * serif much wider than Instrument Serif. In the real face 8rem clears the
+ * whole band with ~13% to spare, and the gate is the one screen where scale is
+ * the entire argument — three words and a button, with nothing else to carry
+ * it. Under-sizing the threshold costs more than under-sizing anything else.
  */
 @media (min-width: 650px) and (max-width: 1100px) {
-  .intro__title { font-size: 6.5rem; }
+  .intro__title { font-size: var(--t-80); }
 }
