@@ -503,8 +503,14 @@
 }
 
 @media (min-width: 1100px) {
-  .menu-link__index { position: absolute; transform: translateX(-8rem); }
+  /*
+   * The index sits in the left margin of the link list. The reference offsets
+   * it -8rem into empty space; ours has the panel image there, so the column
+   * is padded to give the offset somewhere to land.
+   */
+  .menu__links { padding-left: 8rem; }
   .menu-link { position: relative; }
+  .menu-link__index { position: absolute; transform: translateX(-8rem); }
 }
 
 .menu-link__label { display: block; }
