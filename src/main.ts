@@ -8,6 +8,7 @@ import { registerEases } from './lib/eases';
 import { registerReveal } from './lib/reveal';
 import { applyMotionPreference } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
+import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
 import { slides, galleries } from './data/slides';
 import { Hero } from './ui/hero';
@@ -66,9 +67,30 @@ const chrome = document.createElement('div');
 chrome.className = 'chrome';
 document.body.appendChild(chrome);
 
+/**
+ * The transition shader is built but OFF. The crossfade is the shipping path.
+ *
+ * Four of seven screens are still placeholders, and tuning a wipe against
+ * stand-in imagery is wasted work — so the shader exists, is proven to run,
+ * and is not tuned. Enable with ?shader=1 to look at it.
+ */
+const SHADER_ENABLED = new URLSearchParams(location.search).get('shader') === '1';
+
+let renderer: SlideRenderer;
+if (SHADER_ENABLED) {
+  const { ShaderRenderer } = await import('./lib/shader-renderer');
+  const shader = new ShaderRenderer(slides.map((s) => s.src));
+  stage.prepend(shader.canvas);
+  for (const layer of layers) layer.style.display = 'none';
+  shader.show(0);
+  renderer = shader;
+} else {
+  renderer = new CrossfadeRenderer(layers);
+}
+
 const machine = new SlideMachine({
   count: slides.length,
-  renderer: new CrossfadeRenderer(layers),
+  renderer,
   onChange: (current, previous) => {
     pips.change(current, previous);
     sectionLabel.set(current);

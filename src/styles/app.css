@@ -122,3 +122,13 @@ body {
 .slide--ground {
   background: var(--c-warm);
 }
+
+/* The transition shader's quad, when it is enabled. */
+.gl-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
