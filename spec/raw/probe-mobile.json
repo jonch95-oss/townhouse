@@ -1,0 +1,75 @@
+[
+ {
+  "shot": "390-D-hero",
+  "vw": 390,
+  "vh": 844,
+  "root": "10px",
+  "mq": {
+   "s650": false,
+   "l1100": false,
+   "small": true,
+   "medium": true,
+   "mouse": false,
+   "portrait": true,
+   "ar169": false,
+   "ar21": false
+  },
+  "gridCols": null,
+  "gutter": null,
+  "logoH": 70,
+  "heroTitle": null,
+  "heroEyebrow": null,
+  "heroText": null,
+  "pips": 0,
+  "inquire": false,
+  "menuToggle": {
+   "x": 338,
+   "y": 30
+  },
+  "imgs": [],
+  "videos": [],
+  "text": "OVERVIEW",
+  "docH": 844,
+  "canvases": 2
+ },
+ {
+  "shot": "390-J-menu-open",
+  "vw": 390,
+  "vh": 844,
+  "root": "10px",
+  "mq": {
+   "s650": false,
+   "l1100": false,
+   "small": true,
+   "medium": true,
+   "mouse": false,
+   "portrait": true,
+   "ar169": false,
+   "ar21": false
+  },
+  "gridCols": 10,
+  "gutter": "20px",
+  "logoH": 70,
+  "heroTitle": null,
+  "heroEyebrow": null,
+  "heroText": null,
+  "pips": 0,
+  "inquire": false,
+  "menuToggle": {
+   "x": 338,
+   "y": 30
+  },
+  "imgs": [
+   {
+    "src": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+    "nw": 0,
+    "nh": 0,
+    "sizes": ""
+   }
+  ],
+  "videos": [],
+  "text": "01 Home 02 Entertaining Suite 03 Guest Suite 04 Primary Suite 05 Crown Suite 06 Floorplans 07 Contact VISIT MAIN SITE CREDITS LEGAL 212-935-5757 OVERVIEW",
+  "docH": 844,
+  "canvases": 2
+ }
+]

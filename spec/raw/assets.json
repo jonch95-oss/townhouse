@@ -1,0 +1,1255 @@
+[
+ {
+  "asset": "www.datocms-assets.com/143478/1743602009-og-image.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1743602009-og-image.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 418844,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1730731306-favicon.png",
+  "rep_url": "https://www.datocms-assets.com/143478/1730731306-favicon.png",
+  "ctype": "image/png",
+  "bytes": 20801,
+  "status": "200",
+  "n_variants": 5,
+  "widths": [
+   16,
+   32,
+   96,
+   192
+  ],
+  "params": [
+   "auto=format",
+   "h=16",
+   "w=16",
+   "h=32",
+   "w=32",
+   "h=96",
+   "w=96",
+   "h=192",
+   "w=192"
+  ]
+ },
+ {
+  "asset": "stream.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/high.mp4",
+  "rep_url": "https://stream.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/high.mp4",
+  "ctype": "video/mp4",
+  "bytes": 7787727,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "image.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/thumbnail.jpg",
+  "rep_url": "https://image.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/thumbnail.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 306926,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772208514-quadplex-8.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 138864,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 105578,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1769008987-2-111_w_57_80-nfield-22.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1769008987-2-111_w_57_80-nfield-22.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 131121,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [
+   1000
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "h=800",
+   "q=85",
+   "w=1000"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 161846,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 131564,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 157309,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 136523,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 115126,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 158002,
+  "status": "200",
+  "n_variants": 9,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 118997,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 131855,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 146476,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 143175,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 179269,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 188521,
+  "status": "200",
+  "n_variants": 9,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 100499,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160005-f1-gr.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160005-f1-gr.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 111470,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160245-111w57_quadplex80_floor-plans-1.pdf",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160245-111w57_quadplex80_floor-plans-1.pdf",
+  "ctype": "application/pdf",
+  "bytes": 631428,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772208547-quadplex-10.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 116663,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772448554-guest-suite.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 89434,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772451888-primary-suite-thumb.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772451888-primary-suite-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 118987,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [
+   1000
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "h=800",
+   "q=85",
+   "w=1000"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 131610,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 103501,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 115850,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1741893262-guest-suites.png",
+  "rep_url": "https://www.datocms-assets.com/143478/1741893262-guest-suites.png",
+  "ctype": "image/png",
+  "bytes": 137377,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "stream.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/high.mp4",
+  "rep_url": "https://stream.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/high.mp4",
+  "ctype": "video/mp4",
+  "bytes": 11036098,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "image.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/thumbnail.jpg",
+  "rep_url": "https://image.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/thumbnail.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 347906,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772208451-quadplex-9.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 144795,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772448581-primary-suite.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 65102,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1739205618-9-111_w_57-nfield-13.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1739205618-9-111_w_57-nfield-13.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 136624,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [
+   1000
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "h=800",
+   "q=85",
+   "w=1000"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 149981,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 114856,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 142180,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 104480,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160062-f3-ps.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160062-f3-ps.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 102668,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160212-111w57_quadplex80_floor-plans-3.pdf",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160212-111w57_quadplex80_floor-plans-3.pdf",
+  "ctype": "application/pdf",
+  "bytes": 590260,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772208577-quadplex-12.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 153904,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772448657-terrace.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 85995,
+  "status": "200",
+  "n_variants": 7,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772450672-terrace-thumb.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772450672-terrace-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 136708,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [
+   1000
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "h=800",
+   "q=85",
+   "w=1000"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160087-f4-cs.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160087-f4-cs.jpg",
+  "ctype": "image/jpeg",
+  "bytes": 97905,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743160197-111w57_quadplex80_floor-plans-4.pdf",
+  "rep_url": "https://www.datocms-assets.com/143478/1743160197-111w57_quadplex80_floor-plans-4.pdf",
+  "ctype": "application/pdf",
+  "bytes": 619460,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 64065,
+  "status": "200",
+  "n_variants": 9,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772466458-111-thumb.jpg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772466458-111-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 118259,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [
+   1000
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "h=800",
+   "q=85",
+   "w=1000"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 178391,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 157611,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 186378,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 285923,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 180775,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 156051,
+  "status": "200",
+  "n_variants": 10,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg",
+  "rep_url": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+  "ctype": "image/jpeg",
+  "bytes": 166095,
+  "status": "200",
+  "n_variants": 9,
+  "widths": [
+   1000,
+   1440,
+   1500,
+   2440
+  ],
+  "params": [
+   "auto=format",
+   "fit=max",
+   "q=85",
+   "h=2440",
+   "w=2440",
+   "h=1440",
+   "w=1440",
+   "h=800",
+   "w=1000",
+   "h=1500",
+   "w=1500",
+   "dpr=0.25"
+  ]
+ },
+ {
+  "asset": "www.datocms-assets.com/143478/1741544774-quadplex-plans.pdf",
+  "rep_url": "https://www.datocms-assets.com/143478/1741544774-quadplex-plans.pdf",
+  "ctype": "application/pdf",
+  "bytes": 372323,
+  "status": "200",
+  "n_variants": 1,
+  "widths": [],
+  "params": []
+ }
+]

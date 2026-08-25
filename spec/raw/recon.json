@@ -1,0 +1,764 @@
+{
+ "info": {
+  "href": "https://quadplex80.com/",
+  "title": "Quadplex 80 | Luxury Penthouse in Manhattan | 111 West 57th",
+  "gsapVersion": null,
+  "gsapPlugins": null,
+  "stGetAll": null,
+  "present": {
+   "matchMedia": "function"
+  },
+  "unusualGlobals": [
+   "ScrollTimeline",
+   "SVGAnimationElement",
+   "SVGAnimatedTransformList",
+   "SVGAnimatedString",
+   "SVGAnimatedRect",
+   "SVGAnimatedPreserveAspectRatio",
+   "SVGAnimatedNumberList",
+   "SVGAnimatedNumber",
+   "SVGAnimatedLengthList",
+   "SVGAnimatedLength",
+   "SVGAnimatedInteger",
+   "SVGAnimatedEnumeration",
+   "SVGAnimatedBoolean",
+   "SVGAnimatedAngle",
+   "SVGAnimateTransformElement",
+   "SVGAnimateMotionElement",
+   "SVGAnimateElement",
+   "PerformanceLongAnimationFrameTiming",
+   "ChannelSplitterNode",
+   "CSSAnimation",
+   "AnimationTimeline",
+   "AnimationPlaybackEvent",
+   "AnimationEvent",
+   "AnimationEffect",
+   "Animation",
+   "scrollbars",
+   "scrollX",
+   "scrollY",
+   "onscroll",
+   "onscrollend",
+   "onwebkitanimationend",
+   "onwebkitanimationiteration",
+   "onwebkitanimationstart",
+   "onanimationend",
+   "onanimationiteration",
+   "onanimationstart",
+   "cancelAnimationFrame",
+   "requestAnimationFrame",
+   "scroll",
+   "scrollBy",
+   "scrollTo",
+   "webkitCancelAnimationFrame",
+   "webkitRequestAnimationFrame",
+   "ondevicemotion",
+   "DeviceMotionEvent",
+   "DeviceMotionEventAcceleration",
+   "DeviceMotionEventRotationRate",
+   "onscrollsnapchange",
+   "onscrollsnapchanging",
+   "__NUXT__",
+   "__VUE_INSTANCE_SETTERS__",
+   "__VUE_SSR_SETTERS__",
+   "__buildAssetsURL",
+   "__publicAssetsURL",
+   "__unctx__",
+   "__unctx_async_handlers__",
+   "gsapVersions",
+   "__THREE__",
+   "__VUE__",
+   "useNuxtApp",
+   "__unhead_injection_handler__"
+  ],
+  "scripts": [
+   "https://www.googletagmanager.com/gtm.js?id=GTM-NS77TXS8",
+   "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/script.js",
+   "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/banner.js",
+   "https://quadplex80.com/_nuxt/2_41x0yF.js"
+  ],
+  "inlineScripts": [
+   {
+    "type": "",
+    "len": 338,
+    "head": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTag"
+   },
+   {
+    "type": "application/json",
+    "len": 15,
+    "head": "{\"title\":\"111\"}"
+   },
+   {
+    "type": "application/json",
+    "len": 112703,
+    "head": "[{\"state\":1,\"once\":4,\"_errors\":5,\"serverRendered\":7,\"path\":8,\"pinia\":9,\"prerenderedAt\":671},[\"Reactive\",2],{\"$stransitio"
+   },
+   {
+    "type": "",
+    "len": 186,
+    "head": "window.__NUXT__={};window.__NUXT__.config={public:{BASE_URL:\"https://quadplex80.com\"},app:{baseURL:\"/\",buildId:\"47bc8daf"
+   }
+  ],
+  "styleLinks": [
+   {
+    "rel": "stylesheet",
+    "href": "https://quadplex80.com/_nuxt/default.yszG4t5A.css",
+    "as": "",
+    "type": ""
+   },
+   {
+    "rel": "stylesheet",
+    "href": "https://quadplex80.com/_nuxt/index.YD0GVcUS.css",
+    "as": "",
+    "type": ""
+   },
+   {
+    "rel": "stylesheet",
+    "href": "https://quadplex80.com/_nuxt/index.ChO3nADu.css",
+    "as": "",
+    "type": ""
+   },
+   {
+    "rel": "preload",
+    "href": "https://quadplex80.com/_payload.json?47bc8daf-8e76-46df-aa01-99dee24ca061",
+    "as": "fetch",
+    "type": ""
+   },
+   {
+    "rel": "modulepreload",
+    "href": "https://quadplex80.com/_nuxt/2_41x0yF.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "modulepreload",
+    "href": "https://quadplex80.com/_nuxt/TftDpBEz.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "modulepreload",
+    "href": "https://quadplex80.com/_nuxt/c5CUzFO6.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "modulepreload",
+    "href": "https://quadplex80.com/_nuxt/DCH3qWrV.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "modulepreload",
+    "href": "https://quadplex80.com/_nuxt/DSAvPL-S.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "prefetch",
+    "href": "https://quadplex80.com/_nuxt/BUBAsu-Y.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "prefetch",
+    "href": "https://quadplex80.com/_nuxt/y1eztCjN.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "prefetch",
+    "href": "https://quadplex80.com/_nuxt/DfaHgTM_.js",
+    "as": "script",
+    "type": ""
+   },
+   {
+    "rel": "icon",
+    "href": "https://www.datocms-assets.com/143478/1730731306-favicon.png",
+    "as": "",
+    "type": "image/png"
+   },
+   {
+    "rel": "canonical",
+    "href": "https://quadplex80.com/",
+    "as": "",
+    "type": ""
+   },
+   {
+    "rel": "preload",
+    "href": "https://quadplex80.com/_nuxt/builds/meta/47bc8daf-8e76-46df-aa01-99dee24ca061.json",
+    "as": "fetch",
+    "type": ""
+   }
+  ],
+  "inlineStyleTags": [
+   {
+    "len": 17260,
+    "id": "",
+    "head": "*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-"
+   },
+   {
+    "len": 7411,
+    "id": "",
+    "head": "@font-face{font-display:swap;font-family:sans;font-style:normal;font-weight:500;src:url(/_nuxt/NHaas"
+   },
+   {
+    "len": 158,
+    "id": "",
+    "head": ".logo{height:7rem}@media(min-width:650px){.logo{height:7rem}@media(min-aspect-ratio:16/9){.logo{heig"
+   },
+   {
+    "len": 252,
+    "id": "",
+    "head": ".menu-image{aspect-ratio:.75;max-height:calc(100svh - 10rem)}@media(min-width:1100px){.menu-image{ma"
+   },
+   {
+    "len": 106,
+    "id": "",
+    "head": ".intro__line[data-v-140c621f]{--scale:0;transform:scaleX(var(--scale));transition:transform .25s eas"
+   },
+   {
+    "len": 366,
+    "id": "",
+    "head": ".interiors-gradient[data-v-30b9ca74]:after,.interiors-gradient[data-v-30b9ca74]:before{content:\"\";he"
+   },
+   {
+    "len": 21919,
+    "id": "cky-style",
+    "head": ".cky-overlay{background:#000;opacity:.4;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9"
+   }
+  ],
+  "docH": 900,
+  "vh": 900,
+  "htmlAttrs": [
+   "lang=en",
+   "data-capo="
+  ],
+  "bodyAttrs": [],
+  "topLevel": [
+   {
+    "tag": "DIV",
+    "id": "",
+    "cls": "cky-hide cky-overlay",
+    "h": 0
+   },
+   {
+    "tag": "DIV",
+    "id": "",
+    "cls": "cky-consent-container cky-box-bottom-left",
+    "h": 210
+   },
+   {
+    "tag": "DIV",
+    "id": "",
+    "cls": "cky-modal",
+    "h": 711
+   },
+   {
+    "tag": "DIV",
+    "id": "__nuxt",
+    "cls": "",
+    "h": 89
+   },
+   {
+    "tag": "DIV",
+    "id": "teleports",
+    "cls": "",
+    "h": 0
+   },
+   {
+    "tag": "SCRIPT",
+    "id": "__NUXT_DATA__",
+    "cls": "",
+    "h": 0
+   },
+   {
+    "tag": "SCRIPT",
+    "id": "",
+    "cls": "",
+    "h": 0
+   },
+   {
+    "tag": "CANVAS",
+    "id": "",
+    "cls": "",
+    "h": 900
+   }
+  ],
+  "sections": [],
+  "meta": [
+   {
+    "n": "viewport",
+    "c": "width=device-width, initial-scale=1"
+   },
+   {
+    "n": "description",
+    "c": "Resting atop 111 West 57th, Quadplex 80 is the premier luxury penthouse in Manhattan. For more information or to arrange a tour, contact us at info@111w57.com."
+   },
+   {
+    "n": "og:type",
+    "c": "website"
+   },
+   {
+    "n": "og:title",
+    "c": "Quadplex 80 | Luxury Penthouse in Manhattan | 111 West 57th"
+   },
+   {
+    "n": "og:description",
+    "c": "Resting atop 111 West 57th, Quadplex 80 is the premier luxury penthouse in Manhattan. For more information or to arrange a tour, contact us at info@111w57.com."
+   },
+   {
+    "n": "og:image",
+    "c": "https://www.datocms-assets.com/143478/1743602009-og-image.jpg"
+   },
+   {
+    "n": "og:url",
+    "c": "https://quadplex80.com/"
+   },
+   {
+    "n": "og:site_name",
+    "c": ""
+   },
+   {
+    "n": "og:locale",
+    "c": "en_us"
+   },
+   {
+    "n": "og:image:type",
+    "c": "image/jpeg"
+   },
+   {
+    "n": "og:image:width",
+    "c": "1200"
+   },
+   {
+    "n": "og:image:height",
+    "c": "630"
+   },
+   {
+    "n": "twitter:card",
+    "c": "summary_large_image"
+   },
+   {
+    "n": "twitter:title",
+    "c": "Quadplex 80 | Luxury Penthouse in Manhattan | 111 West 57th"
+   },
+   {
+    "n": "twitter:description",
+    "c": "Resting atop 111 West 57th, Quadplex 80 is the premier luxury penthouse in Manhattan. For more information or to arrange a tour, contact us at info@111w57.com."
+   },
+   {
+    "n": "twitter:image",
+    "c": "https://www.datocms-assets.com/143478/1743602009-og-image.jpg"
+   }
+  ]
+ },
+ "reqs": [
+  {
+   "url": "https://quadplex80.com/",
+   "type": "document",
+   "status": 200,
+   "ct": "text/html; charset=UTF-8",
+   "len": "32728"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/default.yszG4t5A.css",
+   "type": "stylesheet",
+   "status": 200,
+   "ct": "text/css; charset=UTF-8",
+   "len": "560"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/index.YD0GVcUS.css",
+   "type": "stylesheet",
+   "status": 200,
+   "ct": "text/css; charset=UTF-8",
+   "len": "790"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/index.ChO3nADu.css",
+   "type": "stylesheet",
+   "status": 200,
+   "ct": "text/css; charset=UTF-8",
+   "len": "869"
+  },
+  {
+   "url": "https://quadplex80.com/_payload.json?47bc8daf-8e76-46df-aa01-99dee24ca061",
+   "type": "other",
+   "status": 200,
+   "ct": "application/json",
+   "len": "69"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/script.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/2_41x0yF.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "350202"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/TftDpBEz.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "13704"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/builds/meta/47bc8daf-8e76-46df-aa01-99dee24ca061.json",
+   "type": "other",
+   "status": 200,
+   "ct": "application/json",
+   "len": "142"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/BUBAsu-Y.js",
+   "type": "other",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "496"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/c5CUzFO6.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "3045"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/DCH3qWrV.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "390"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/banner.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/DSAvPL-S.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "10515"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/y1eztCjN.js",
+   "type": "other",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/BUBAsu-Y.js",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "496"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/NHaasGroteskTXPro-65Md.obxsJaSp.woff2",
+   "type": "font",
+   "status": 200,
+   "ct": "font/woff2",
+   "len": "28900"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/NHaasGroteskTXPro-55Rg.DjjIn3vU.woff2",
+   "type": "font",
+   "status": 200,
+   "ct": "font/woff2",
+   "len": "27168"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/Teodor-Regular.DWUeTY31.woff2",
+   "type": "font",
+   "status": 200,
+   "ct": "font/woff2",
+   "len": "39252"
+  },
+  {
+   "url": "https://quadplex80.com/_nuxt/DfaHgTM_.js",
+   "type": "other",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/sothebys_111w57_reflection_Blurred.jpg",
+   "type": "fetch",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "22505"
+  },
+  {
+   "url": "blob:https://quadplex80.com/5c5c651f-3909-42eb-befc-c85b9886b78a",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "15779"
+  },
+  {
+   "url": "blob:https://quadplex80.com/f9bbd45e-d63a-49f7-9149-82303afdbe1d",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "6726"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/HDR_AboveTheClouds.test.jpg",
+   "type": "fetch",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "1967497"
+  },
+  {
+   "url": "https://log.cookieyes.com/api/v1/log",
+   "type": "ping",
+   "status": 200,
+   "ct": "text/plain; charset=utf-8",
+   "len": "2"
+  },
+  {
+   "url": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+   "type": "image",
+   "status": 200,
+   "ct": "image/avif",
+   "len": "348868"
+  },
+  {
+   "url": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+   "type": "image",
+   "status": 200,
+   "ct": "image/avif",
+   "len": "253306"
+  },
+  {
+   "url": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+   "type": "image",
+   "status": 200,
+   "ct": "image/avif",
+   "len": "406824"
+  },
+  {
+   "url": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+   "type": "image",
+   "status": 200,
+   "ct": "image/avif",
+   "len": "593497"
+  },
+  {
+   "url": "blob:https://quadplex80.com/ef21b968-4145-40ca-b41f-1cbe58dad46f",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "67906"
+  },
+  {
+   "url": "blob:https://quadplex80.com/a3284dbf-5199-4c04-90fe-eeacc19a14dd",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "1899591"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/xmjZv1MY.json",
+   "type": "fetch",
+   "status": 200,
+   "ct": "application/json",
+   "len": "44"
+  },
+  {
+   "url": "https://quadplex80.com/sound/ambient.mp3",
+   "type": "media",
+   "status": 206,
+   "ct": "audio/mpeg",
+   "len": "769412"
+  },
+  {
+   "url": "https://www.googletagmanager.com/gtm.js?id=GTM-NS77TXS8",
+   "type": "script",
+   "status": 200,
+   "ct": "application/javascript; charset=UTF-8",
+   "len": "130883"
+  },
+  {
+   "url": "https://quadplex80.com/sound/background.mp3",
+   "type": "media",
+   "status": 206,
+   "ct": "audio/mpeg",
+   "len": "573759"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/flare/flare-1.jpg",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "2332"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/cnoise.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "104200"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/building0.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "265896"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/intro-cloud.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "382107"
+  },
+  {
+   "url": "https://quadplex80.com/gl/sothebys_111w57_04.glb",
+   "type": "fetch",
+   "status": 200,
+   "ct": "application/octet-stream",
+   "len": "6025928"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/flare/flare-2.jpg",
+   "type": "image",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "1921"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/building1.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "338550"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/Cloud-tint-8.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "305585"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/layer0.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "402272"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/config/m0_lRPS8.json",
+   "type": "fetch",
+   "status": 200,
+   "ct": "application/json",
+   "len": ""
+  },
+  {
+   "url": "blob:https://quadplex80.com/7d863df1-8d9c-42f3-b5cc-918b91463f44",
+   "type": "fetch",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "431008"
+  },
+  {
+   "url": "blob:https://quadplex80.com/bbf8cbaa-77e4-45d1-bb06-1bfcd7719244",
+   "type": "fetch",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "305732"
+  },
+  {
+   "url": "blob:https://quadplex80.com/36744ced-626a-4e99-9d50-95fd63ce167b",
+   "type": "fetch",
+   "status": 200,
+   "ct": "image/jpeg",
+   "len": "982028"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/building2.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "318638"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/layer1.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "620347"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/translations/4iZ8TwPo.json",
+   "type": "fetch",
+   "status": 200,
+   "ct": "application/json",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/building3new.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "78152"
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/layer2.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "938418"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/client_data/237fcdc817a96717c3ef5a9d/audit-table/p4rzGeaA.json",
+   "type": "fetch",
+   "status": 200,
+   "ct": "application/json",
+   "len": ""
+  },
+  {
+   "url": "https://cdn-cookieyes.com/assets/images/close.svg",
+   "type": "image",
+   "status": 200,
+   "ct": "image/svg+xml",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/layer3.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "696372"
+  },
+  {
+   "url": "https://cdn-cookieyes.com/assets/images/poweredbtcky.svg",
+   "type": "image",
+   "status": 200,
+   "ct": "image/svg+xml",
+   "len": ""
+  },
+  {
+   "url": "https://quadplex80.com/gl/images/layer4.png",
+   "type": "image",
+   "status": 200,
+   "ct": "image/png",
+   "len": "809555"
+  }
+ ]
+}

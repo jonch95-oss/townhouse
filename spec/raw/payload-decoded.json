@@ -1,0 +1,1514 @@
+{
+ "state": {
+  "$stransition-type": "page"
+ },
+ "once": [],
+ "_errors": {},
+ "serverRendered": true,
+ "path": "/",
+ "pinia": {
+  "main": {
+   "flags": {
+    "loaded": false,
+    "menu": false,
+    "started": false,
+    "entered": false,
+    "interiors": false,
+    "content": false,
+    "zoomed": false
+   },
+   "site": {
+    "globalSeo": {
+     "siteName": "111 West 57th Street",
+     "titleSuffix": "",
+     "twitterAccount": null,
+     "fallbackSeo": {
+      "description": "111 West 57th Street is the premier residential property in Manhattan offering\nextraordinary views and an unparalleled level of privacy and highly-personalized services. ",
+      "title": "111 West 57th Street ",
+      "twitterCard": "summary_large_image",
+      "image": {
+       "url": "https://www.datocms-assets.com/143478/1743602009-og-image.jpg"
+      }
+     }
+    },
+    "favicon": {
+     "mimeType": "image/png",
+     "url": "https://www.datocms-assets.com/143478/1730731306-favicon.png"
+    },
+    "faviconMetaTags": [
+     {
+      "attributes": {
+       "sizes": "16x16",
+       "type": "image/png",
+       "rel": "icon",
+       "href": "https://www.datocms-assets.com/143478/1730731306-favicon.png?auto=format&h=16&w=16"
+      },
+      "content": null,
+      "tag": "link"
+     },
+     {
+      "attributes": {
+       "sizes": "32x32",
+       "type": "image/png",
+       "rel": "icon",
+       "href": "https://www.datocms-assets.com/143478/1730731306-favicon.png?auto=format&h=32&w=32"
+      },
+      "content": null,
+      "tag": "link"
+     },
+     {
+      "attributes": {
+       "sizes": "96x96",
+       "type": "image/png",
+       "rel": "icon",
+       "href": "https://www.datocms-assets.com/143478/1730731306-favicon.png?auto=format&h=96&w=96"
+      },
+      "content": null,
+      "tag": "link"
+     },
+     {
+      "attributes": {
+       "sizes": "192x192",
+       "type": "image/png",
+       "rel": "icon",
+       "href": "https://www.datocms-assets.com/143478/1730731306-favicon.png?auto=format&h=192&w=192"
+      },
+      "content": null,
+      "tag": "link"
+     }
+    ]
+   },
+   "interiors": [
+    {
+     "id": "LkkJ6GIrSZ-Ie7X8onRh-Q",
+     "slug": "great-room",
+     "title": "Entertaining Suite",
+     "floor": 80,
+     "floorDisplay": "80th Floor",
+     "eyebrow": "",
+     "titleSecondary": "Entertaining Suite",
+     "timelapse": {
+      "video": {
+       "mp4high": "https://stream.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/high.mp4",
+       "thumbnailUrl": "https://image.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/thumbnail.jpg"
+      }
+     },
+     "image": {
+      "id": "flXEllZNQ8u6IyjDEsBd0A",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 3000,
+      "height": 1900,
+      "src": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=2440&q=85&w=2440 2440w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 2440px) 100vw, 2440px",
+       "src": "https://www.datocms-assets.com/143478/1772208514-quadplex-8.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 2440,
+       "height": 1545,
+       "aspectRatio": 1.5789473684210527,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFQ4VDhsOFQ0NFhUNFRUNFxkZGBYfFhUaHysjHR0oHRUWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg4OHA0MFS8cFhw7Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAZAAABBQAAAAAAAAAAAAAAAAAEAAECBQb/xAAdEAACAgEFAAAAAAAAAAAAAAAAAgEEBQMSFBUi/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwIB/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAMRAgH/2gAMAwEAAhEDEQA/ANdkMs3Jgl20ssQBXVV9caNKDMM5CGpZS5oX/QgCrG1hB6byj5SyH//Z",
+       "bgColor": "#6d9eca"
+      },
+      "video": null
+     },
+     "imageMobile": {
+      "id": "Ah-9NRkJTFeb0Ev9e0N1JA",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 786,
+      "height": 1364,
+      "src": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 196w,https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 393w,https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 589w,https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440 786w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 786px) 100vw, 786px",
+       "src": "https://www.datocms-assets.com/143478/1772448505-entertaining-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 786,
+       "height": 1364,
+       "aspectRatio": 0.5762463343108505,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLCgoLDiQQGBUNDh0YEhUNFx0mHRYTFhUdHysjGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OFhAQHC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkADgMBIgACEQEDEQH/xAAXAAADAQAAAAAAAAAAAAAAAAADBQYE/8QAJBAAAQMCBAcAAAAAAAAAAAAAAQACBAMRBQYSMwcTFBUhIzH/xAAVAQEBAAAAAAAAAAAAAAAAAAAEA//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhEhBP/aAAwDAQACEQMRAD8AoejlN8PNkZmEGqNReEvxPvDh6wVnixcxPZcalaPa6IPl0BPzdLotuaaFE4kSKbC3lhLMa2ippn0oqgqGyen/2Q==",
+       "bgColor": "#6e9eca"
+      },
+      "video": null
+     },
+     "map": null,
+     "thumbnail": {
+      "thumbnail": "https://www.datocms-assets.com/143478/1769008987-2-111_w_57_80-nfield-22.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "video": null
+     },
+     "modal": [
+      {
+       "id": "EqCDWhRjQhiP4yE71hjcQw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770202923-1-hero-photo-1-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLChYLDhEQDRUNDhUVFg4OFxUZGBYTFiEaJisjGh0oHRUWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0PFQ0NHC8cIhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAEBAAMBAAAAAAAAAAAAAAAABgMEBQL/xAAeEAABBAIDAQAAAAAAAAAAAAAAAQIDBBESBTIzE//EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAXEQEBAQEAAAAAAAAAAAAAAAAAEQIi/9oADAMBAAIRAxEAPwC9W8yZiqpr1rcH3VqqcBedrMXXY105SuyXfYa5LNK59+tWlzkEhJy1aw/G4By00l5fY9SdACS7BW9lAARf/9k=",
+        "bgColor": "#709dcf"
+       },
+       "video": null
+      },
+      {
+       "id": "NkpkX5tGRXSt4x50i-qz7Q",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770116568-2-111_w_57_80-nfield-22-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLChYXDiEQGg0ZGigVFhUOHhcZHRYfFhUdHysjHR0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA4NHS8dFh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAbAAACAQUAAAAAAAAAAAAAAAAABgUBAgMEB//EACIQAAICAgAGAwAAAAAAAAAAAAABAgQDBREiMjRBQwYSFP/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgT/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQIRMQP/2gAMAwEAAhEDEQA/AH7TXc35pfZ+CyG0lCzJOSEfFvb9fC4pMilvr7tSk+IpsfOMqOq6+7OVxviAh6f5JnVnmAEDTs1s/QyI9rKARM0czNre7AAGsJen/9k=",
+        "bgColor": "#896a3a"
+       },
+       "video": null
+      },
+      {
+       "id": "IplzGyYUSH-8k7pIB5fBXQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770116891-2a-111_w_57_80-nfield-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgSEhIXGBUNFw0NDh4OFg4SFxYZGBYfFhUdHysjGh0oHRUWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0PEA0OGi8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAABAUBAgb/xAAhEAACAQMDBQAAAAAAAAAAAAAAAQIDBAUTIUUREhUzRP/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/xAAXEQEBAQEAAAAAAAAAAAAAAAAAEwES/9oADAMBAAIRAxEAPwDttOn49tE5ShotM1o5GCxz7mLRyNs6L3JSPTVGdtbzs+rYCNW+ou02kZDIvepXGsmw9bAC2ga+QyAGB//Z",
+        "bgColor": "#bfa871"
+       },
+       "video": null
+      },
+      {
+       "id": "NyATCaKoToihYDH6ksZ6LA",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770116922-3-111_w_57_80-nfield-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhQICAgLEhYSDg8NDQ4NDh0NDQ0NFx0ZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA8NHC8dFh0vLy8vLy8vNS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAADAQEBAAAAAAAAAAAAAAAABQYEAwH/xAAgEAABBAEEAwAAAAAAAAAAAAAAAQMEBQIREjI0EyEz/8QAFgEBAQEAAAAAAAAAAAAAAAAABAMF/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERMQL/2gAMAwEAAhEDEQA/AKpnB1qR6U0+eTg/qhGwrK0ee1VFGGNhYrI27VJVJlI4Op78t/PQCfmWdiw5xUB/PagZ8unWq+gww7YAZr0asM1vzPAAXzgd6f/Z",
+        "bgColor": "#baab53"
+       },
+       "video": null
+      },
+      {
+       "id": "Rn4Kgy1lRQKw7p3qUY27JA",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770116942-4-111_w_57_80-nfield-23-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLChYTDhgNFg0OFhgODhENFyUZGCITFiEdHy0jGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHRALFi8dIhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABQYEAf/EACEQAAEEAgEFAQAAAAAAAAAAAAABAgQFA0ESETIzNYEx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/EABcRAQEBAQAAAAAAAAAAAAAAAAABExL/2gAMAwEAAhEDEQA/AHV6yI3j0XY2jYI76Dqi6JCysIsjGjkeN8FlhbRq1r9FdalxGmsiR38k5J+nSdiWi4lcqO2dE1ocRMP8CDyN6n4AAOxYO1QABGf/2Q==",
+        "bgColor": "#3b6388"
+       },
+       "video": null
+      },
+      {
+       "id": "YcpuCvB6RaKO7k3KD9twmA",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 6586,
+       "height": 4391,
+       "src": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770117001-4a-0g6a2941-draft-2-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1626,
+        "aspectRatio": 1.4998861307219313,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIEggXCg8QERoODQoNDhMNDQ4NFxMZGCIVFhUaHysjGikoHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQFS8cFh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAABQEEBgL/xAAgEAABAwQCAwAAAAAAAAAAAAAAAQMRAgQFMgY0FSEx/8QAGAEAAgMAAAAAAAAAAAAAAAAAAwQAAgX/xAAaEQACAgMAAAAAAAAAAAAAAAAAAQIEBRUx/9oADAMBAAIRAxEAPwB2/j1qaiRd4ihavonueVvRElOrkj6KiyNxyUkAlVTNO/iG22ZkBOmbcft09kltvIipoytxshw5ohIGMxx9Gln1kAAAMKj/2Q==",
+        "bgColor": "#0b82d8"
+       },
+       "video": null
+      },
+      {
+       "id": "FBxAjaFGTJWbjzhqazHUmw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770117036-7-111_w_57_80-nfield-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIEAgLFhELDhINDQ0WDh0NDg0YFxcZGBYTFhUmHysjJh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OFQ4QGi8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABQYEAf/EACEQAAIBAwMFAAAAAAAAAAAAAAABAgMEBRIiNAYRExUz/8QAGAEAAgMAAAAAAAAAAAAAAAAAAQIAAwT/xAAYEQEBAQEBAAAAAAAAAAAAAAAAEQISAf/aAAwDAQACEQMRAD8Ar1C3cU9SNs5UfBHciHhkpxorcxnbXVSvbp6mDzk00a9T1KPqEtSOk/1DG4qY5LuzpLks0Sv4IeYnjIAKmlqzPAQABAf/2Q==",
+        "bgColor": "#c7aa79"
+       },
+       "video": null
+      },
+      {
+       "id": "VGNB6h3cRWaUE8jI4QMaiQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770117503-7a-111_w_57_80-nfield-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgVEgoWDhgcFw0ZDhcNEBUUFx8ZGBYVFhUmHysjGh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDgsPFRANGy8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAABQb/xAAjEAABAwIFBQAAAAAAAAAAAAAAAQIFAwQGERJRcSEiMjQ2/8QAGAEBAAMBAAAAAAAAAAAAAAAAAwEEBQD/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIDEhP/2gAMAwEAAhEDEQA/ANRI3TaDXtTYz2FaueIHuXcoSCOdVdq2I0FdU6c45iL1zOjIiKhlSeuKCzfc4E2cj6tzL62KBuqD0ZakPN3BkYf6VeQDPguUay599AAKEf/Z",
+        "bgColor": "#c29e63"
+       },
+       "video": null
+      },
+      {
+       "id": "Fw70pTzETr-qULczsveafw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770118119-8-111_w_57_80-nfield-25-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoRCAgWDQ0QDhENGg0NGBgNDg0YFxUZGBYVFhUaHysjGh0oKRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBANGjUcFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAAAwQFAv/EAB4QAAICAgIDAAAAAAAAAAAAAAADAQQCEhEhMjNB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQIxAxETBP/aAAwDAQACEQMRAD8A3EZJbWnsrqrL2y4kzqjdUTxkSKYzLnWRI5kkHykdvq4yyewVGzY36AL9C2KsEiKt6S/S+gAKh1Z2zzABM7KVR//Z",
+        "bgColor": "#5c85b9"
+       },
+       "video": null
+      },
+      {
+       "id": "H12mvJeeQZehhGTbHcsGlg",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770118142-9-111_w_57_80-nfield-15-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLDgoPERgQDg0NEhoNFg4NFxUoGCIVFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBALFS8cFiUvMi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAABAUGA//EACEQAAECBgIDAAAAAAAAAAAAAAABAwIEBQYSMhFCISIz/8QAFQEBAQAAAAAAAAAAAAAAAAAABAP/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQIEETFBBf/aAAwDAQACEQMRAD8A1k/bkKtr7oZ+Ythte6FLMXLW3PC5EeOs1XhMshsbskgjrJl/BQW2YNkBwp7k9OMoq8gjL0ZZKKosEOPY5TGqAA+COmkt/wCKAAHLYiOj/9k=",
+        "bgColor": "#378ac6"
+       },
+       "video": null
+      },
+      {
+       "id": "E6_dVDAEQ6uOQhHn6ywD8A",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770118160-9a-travis-mark-18-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIEwgLCgoRDhUQDA0VGRcODg0NFxYZGBYVFhUaKysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLBQ0OHQ0QHDsoHigvLy8vLzw7OzsvLy8vLy8vLy8vNTUyLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABAUBAv/EACIQAAIBAgUFAAAAAAAAAAAAAAABAgMRBAUGEjIhIjEzNP/EABcBAQEBAQAAAAAAAAAAAAAAAAUBAwD/xAAZEQACAwEAAAAAAAAAAAAAAAAABAECBRX/2gAMAwEAAhEDEQA/AKEtMQcr7kcrTXdbcJvOcXF+WdwzbGNN9ROuq5IXbISHI6XTlzRpHnn+PjWauwO6bhIx0zKvIYoetgARQZsT6n0M0ANCwf/Z",
+        "bgColor": "#0588e2"
+       },
+       "video": null
+      },
+      {
+       "id": "eLYFMfhGRDajvBUtJzZGJQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 6720,
+       "height": 4480,
+       "src": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770118224-16b-q4a3492-draft-3-19-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1626,
+        "aspectRatio": 1.5000000000000002,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoOCwsLDwoOFQ0QDg4NDhIJDQgOFx8ZGBYTFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHRAKEC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAEAQMGAP/EABoQAQEBAQADAAAAAAAAAAAAAAMAAQIEERL/xAAXAQADAQAAAAAAAAAAAAAAAAABAwUA/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAEUFQIEBf/aAAwDAQACEQMRAD8AynjgPuaRD9VIdBuSR0t7qOPTaFvUFng0x0Q+Nujas0VH/9k=",
+        "bgColor": "#0763c8"
+       },
+       "video": null
+      },
+      {
+       "id": "TSXfpsVTTmacB2jWxPKIDA",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770118246-10-111_w_57_80-nfield-17-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoPEBMLCg0ODhUHDgcNChENDQ0NFxUZGBYVIhUmHysjGh0oHRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0PFQ4OFS8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAAAwQBBQb/xAAdEAADAQABBQAAAAAAAAAAAAAAAQIDMwQFERIy/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwIA/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQASAv/aAAwDAQACEQMRAD8A6d4paE3cMU0UtXWojrYvyjdBblaCMvUB1xcwYDyTbbbxyi+s+0ACMJTb8YABFd//2Q==",
+        "bgColor": "#955d26"
+       },
+       "video": null
+      }
+     ],
+     "floorplan": {
+      "url": "https://www.datocms-assets.com/143478/1743160005-f1-gr.jpg"
+     },
+     "floorplanPdf": {
+      "url": "https://www.datocms-assets.com/143478/1743160245-111w57_quadplex80_floor-plans-1.pdf"
+     },
+     "desc": "<p><span>The residence features direct elevator entry to a grand receiving hall with white macauba stone \ufb02ooring leading to the expansive Great Room with custom smoke-gray solid oak \ufb02oors in an intricate pattern. An ideal place for dining and entertaining, this space is complemented by a sophisticated library area to the South, offering expansive views of the Manhattan skyline. </span></p>\n<p><span>The corner south-facing kitchen offers stunning city skyline views, custom cabinetry designed by Studio So\ufb01eld, crystallo white quartzite countertops and backsplash, and a full suite of Gaggenau appliances, including a gas cooktop with a fully vented hood, steam oven, and wine refrigerator. This kitchen seamlessly connects to the private Sunset Lounge and outdoor terrace, facilitating effortless indoor-outdoor living at an extraordinary elevation.</span></p>",
+     "hotspot": {
+      "posX": 30,
+      "posY": 50
+     }
+    },
+    {
+     "id": "WBQv9VMCQv-AnplxYXXa2w",
+     "slug": "guest-suite",
+     "title": "Guest Suite",
+     "floor": 81,
+     "floorDisplay": "81st Floor",
+     "eyebrow": "",
+     "titleSecondary": "Guest Suite",
+     "timelapse": {
+      "video": {
+       "mp4high": "https://stream.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/high.mp4",
+       "thumbnailUrl": "https://image.mux.com/02m02xcpw102SbsAq402lDR02VvougICRYSA5/thumbnail.jpg"
+      }
+     },
+     "image": {
+      "id": "PjikWxQvRiyxQSWFXHGOkQ",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 3000,
+      "height": 1900,
+      "src": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=2440&q=85&w=2440 2440w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 2440px) 100vw, 2440px",
+       "src": "https://www.datocms-assets.com/143478/1772208547-quadplex-10.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 2440,
+       "height": 1545,
+       "aspectRatio": 1.5789473684210527,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLEBULGBUYCg0NGhQQEg0VFx8dGBYVFiEaHysjGh0oHSEWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0OHBANFS8oIhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAXAAADAQAAAAAAAAAAAAAAAAAEBQYA/8QAHxAAAQQCAgMAAAAAAAAAAAAAAQADBAUCESJCBhIh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwD/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEC/9oADAMBAAIRAxEAPwCujxY/zkED5JAYcjADJM2KaQOxQF7Xv44AeynK5Wm8KppuLvayZSK53GADtZFhMdN//9k=",
+       "bgColor": "#d5a270"
+      },
+      "video": null
+     },
+     "imageMobile": {
+      "id": "JvdokC-KSTu8xOXiZ30sRg",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 786,
+      "height": 1364,
+      "src": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 196w,https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 393w,https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 589w,https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440 786w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 786px) 100vw, 786px",
+       "src": "https://www.datocms-assets.com/143478/1772448554-guest-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 786,
+       "height": 1364,
+       "aspectRatio": 0.5762463343108505,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLChULDh0QDg0VGikOFhUYFysdGBYTFiEdHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA4NHDscFhw7Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkADgMBIgACEQEDEQH/xAAXAAEAAwAAAAAAAAAAAAAAAAAFAwQG/8QAIBAAAQQBBAMAAAAAAAAAAAAAAQACAwUEERIhNAYxM//EABYBAQEBAAAAAAAAAAAAAAAAAAQDAf/EABcRAAMBAAAAAAAAAAAAAAAAAAECEQD/2gAMAwEAAhEDEQA/ANW69zfW0o/I8hzGP5arZk1l2loRVqQyYcBa5E01t0FhYzQ5gACEubLJMrSNUrb98Ie2+jUNmMyQou//2Q==",
+       "bgColor": "#5f94c5"
+      },
+      "video": null
+     },
+     "map": null,
+     "thumbnail": {
+      "thumbnail": "https://www.datocms-assets.com/143478/1772451888-primary-suite-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "video": null
+     },
+     "modal": [
+      {
+       "id": "S8tVwDKaSKKaal1_XmnqAw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772449177-16-111_w_57_ph76-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLCgoWDhQODg0NDiIVDRUYFxMlHSIVFiEdHysjHR0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHQ0OHC8dFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAABAUGAf/EAB8QAAICAgIDAQAAAAAAAAAAAAABAgQDEQUxISIzEv/EABcBAQEBAQAAAAAAAAAAAAAAAAIDAQD/xAAXEQEBAQEAAAAAAAAAAAAAAAACAAEx/9oADAMBAAIRAxEAPwDYPBii01JE6EN1/VmQrXrGWG9smw5OzDG0tiKyKKrHJin+n5BnLPL3IyetgzXl2BXeO+JLXTAJHldVfb7AANll/9k=",
+        "bgColor": "#b9973c"
+       },
+       "video": null
+      },
+      {
+       "id": "QLysMFQeTiO7CEw9mI5mcQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770124777-14-111_w_57_80-nfield-11-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgXFRENDhgNDg0PExINDg0OFxQZGCIVFhUaHysjGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHAoNHC8cFhw7NS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABAYFAf/EAB8QAAICAgEFAAAAAAAAAAAAAAADAQIEESEFIjIzNP/EABcBAQEBAQAAAAAAAAAAAAAAAAMCAQD/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIxEf/aAAwDAQACEQMRAD8AqK1Sp8dw3Nl7idkvjubkZMcmzZTIpHJctcItV0eZjLyp1sBBL2JvzJwNtdESrhj9K+iClt4wAHThtaIt9gAAb0WcP//Z",
+        "bgColor": "#b9b069"
+       },
+       "video": null
+      },
+      {
+       "id": "F-WyRg2aSKuLRn3R_-XDGw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772449222-18-111_w_57_ph76-nfield-12-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgOFRYTDhgXDw0NDhIPEg0OFx8ZGBYVFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLBQUFEAUFEC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAABwQFBgH/xAAkEAABBAECBgMAAAAAAAAAAAAAAQIEBQM1USIzQWFxcgYRFP/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Ah02N/wC5iLuMWVEa2AxzthXU9m51pjTuNKdLYtUxXL0JUrczcCxvpVAp7G4ixo/E4AMLS6rj8jTstIZ6gAC3+SchToAB/9k=",
+        "bgColor": "#88713a"
+       },
+       "video": null
+      }
+     ],
+     "floorplan": {
+      "url": "https://www.datocms-assets.com/143478/1741893262-guest-suites.png"
+     },
+     "floorplanPdf": null,
+     "desc": "<p><span>Each of the four private bedrooms offer striking views in all directions. Every suite is generously proportioned with ample closet space and en-suite bathrooms \ufb01nished in distinctive crystallo gold quartzite and custom Studio So\ufb01eld-designed \ufb01xtures. This level includes a private Sunset Lounge and wet bar and a full laundry room for ultimate convenience.</span></p>",
+     "hotspot": {
+      "posX": null,
+      "posY": null
+     }
+    },
+    {
+     "id": "EN8cmxrGRQauCGrUiXbBUQ",
+     "slug": "sunset-lounge",
+     "title": "Primary Suite",
+     "floor": 82,
+     "floorDisplay": "82nd Floor",
+     "eyebrow": "",
+     "titleSecondary": "Primary Suite",
+     "timelapse": {
+      "video": {
+       "mp4high": "https://stream.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/high.mp4",
+       "thumbnailUrl": "https://image.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/thumbnail.jpg"
+      }
+     },
+     "image": {
+      "id": "QANiNDtCRo6heaS_1fy5vg",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 3000,
+      "height": 1900,
+      "src": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=2440&q=85&w=2440 2440w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 2440px) 100vw, 2440px",
+       "src": "https://www.datocms-assets.com/143478/1772208451-quadplex-9.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 2440,
+       "height": 1545,
+       "aspectRatio": 1.5789473684210527,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIDwgLDQ0LDhgQDg0PDhENDQ0YFxcZGBYTFiEdHysjGh0oHRUiJDUlKDkvMjIyGSI4PTcwPCsxMi8BCgsLAg0OHAoNFS8cFhw7Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAAAwEEBv/EAB0QAAEEAgMAAAAAAAAAAAAAAAIAAQMFESEEFEH/xAAXAQADAQAAAAAAAAAAAAAAAAACAwQA/8QAGREAAwEBAQAAAAAAAAAAAAAAAgURAAMB/9oADAMBAAIRAxEAPwDXnYyMecJRWkru+lASxl4kFNELlpbmaOYCFnc6us5e2+kKhX2EQ852whTGaO5w+M5v/9k=",
+       "bgColor": "#6499ca"
+      },
+      "video": null
+     },
+     "imageMobile": {
+      "id": "eWUrebzPQOeSTEMMOTDAYQ",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 786,
+      "height": 1364,
+      "src": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 196w,https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 393w,https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 589w,https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440 786w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 786px) 100vw, 786px",
+       "src": "https://www.datocms-assets.com/143478/1772448581-primary-suite.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 786,
+       "height": 1364,
+       "aspectRatio": 0.5762463343108505,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLEBYWDhEWFRUNGBcNEA0YFxUZGCIVFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHAsQHS8oFh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkADgMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAFBgP/xAAdEAACAgIDAQAAAAAAAAAAAAACAwABBRESMTIE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgD/xAAWEQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhEDEQA/AK4Qas+oNl0OY+r1GFffbL3Yw3JZUAdqxhRkFMglA1qqqDZLGi53KouPcxd6ktkcv//Z",
+       "bgColor": "#789fd2"
+      },
+      "video": null
+     },
+     "map": null,
+     "thumbnail": {
+      "thumbnail": "https://www.datocms-assets.com/143478/1739205618-9-111_w_57-nfield-13.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "video": null
+     },
+     "modal": [
+      {
+       "id": "aJg6zioqSi-zrHu-FB8Brg",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770203409-1-hero-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoRDxESCgoLDhgHDg4OFxEOFggNFxUZGCITFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA0NHTUcFh0vLy8vLy81Ly8vLy8vLzUvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAaAAEAAgMBAAAAAAAAAAAAAAAABAUCAwYB/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAQBAgMFMjP/xAAYAQADAQEAAAAAAAAAAAAAAAABAgMEAP/EABoRAAICAwAAAAAAAAAAAAAAAAACETEBAxL/2gAMAwEAAhEDEQA/AOuWZ0yqeXe1m0mhfWbGLW9cokGrnGBdnUkjFq1tAVaz8TrIJsyyOuGglqkbkusgA10c9lYp6yADM9llo//Z",
+        "bgColor": "#7aa9e2"
+       },
+       "video": null
+      },
+      {
+       "id": "KJLP-HPWSKC4mxgo_nKq7g",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770124907-11-111_w_57_80-nfield-10-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAsXDhALEQ8OGhINEhkNDQwNFx4bGBYVIhUmHysjGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA4QHS8cFig1Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAEAAwEBAAAAAAAAAAAAAAAAAgQFBgP/xAAdEAABBAMBAQAAAAAAAAAAAAAAAQIDBAURMzIT/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwQC/8QAGREAAwADAAAAAAAAAAAAAAAAAAECESEx/9oADAMBAAIRAxEAPwDsK8joolJw3HPfoyaz7MzFQh9Zq0yK4W2g5TN6Vr9bQHlDkEfCmwSPA+yrjvKlTJ9ABq4ZknX5IACdin//2Q==",
+        "bgColor": "#c8a772"
+       },
+       "video": null
+      },
+      {
+       "id": "PQCrjwtYRnqhrvwUvr33EQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770124929-12a-evan-joseph-7-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoUCAgLDgsLDRgODg4NFx0NFg4NFxMZGCIVIhUaHysjGh0oHSEiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA0NHDUcFh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABAUBA//EAB8QAAEEAQUBAAAAAAAAAAAAAAABAgMEQQUTITEzFP/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwH/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIRMf/aAAwDAQACEQMRAD8Aq6QyWJeTvPufSQqeoW9zpRmSxcfKnChOYbSosrUfYyaT4rdyLCgTeaOlQhS9Si31QwAnhShl+AABH0dcP//Z",
+        "bgColor": "#3889d4"
+       },
+       "video": null
+      },
+      {
+       "id": "I-hQRaetRsKT0GscZNXpcw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1770124951-13-111_w_57_80-nfield-9-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoPCAgLCg0QDg8NDA0ODhENFhENFxUeGBYfFhUmHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OERAFEi8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAEAAwEAAAAAAAAAAAAAAAAABAUGA//EACEQAAEDAgcBAAAAAAAAAAAAAAABAgMFIQQGERIzNFEy/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgT/xAAXEQEBAQEAAAAAAAAAAAAAAAABABIC/9oADAMBAAIRAxEAPwDURwwpFZSRE1uyxlkr8KN+iXHXWbE0UOiRy3TNEaphLArswVN02CTQD0QeWyfhZwcbQCeqKRU+ggAHBv/Z",
+        "bgColor": "#c45d2c"
+       },
+       "video": null
+      }
+     ],
+     "floorplan": {
+      "url": "https://www.datocms-assets.com/143478/1743160062-f3-ps.jpg"
+     },
+     "floorplanPdf": {
+      "url": "https://www.datocms-assets.com/143478/1743160212-111w57_quadplex80_floor-plans-3.pdf"
+     },
+     "desc": "<p class=\"p1\"><span>The magni\ufb01cent, luxuriously appointed private Primary Suite offers an entire floor of private programming, a respite above exciting city life. The approximately 2,947 square-foot full \ufb02oor suite offers northern, perfectly centered Central Park views and double primary bathrooms facing north with views of the park. </span></p>\n<p class=\"p1\"><span>One primary bath is fully clad in hand-selected white onyx, while the other is clad in veined gray onyx. Both feature custom freestanding polished nickel bathtubs by William Holland, and beautiful custom-designed \ufb01xtures hand-cast by P.E. Guerin. The primary suite also features two large dressing halls with spacious closets. Added conveniences include a full custom wet bar and coffee station, an intimate Sunset Lounge to enjoy the views, and a serene private office space.&nbsp;</span></p>",
+     "hotspot": {
+      "posX": 25,
+      "posY": 45
+     }
+    },
+    {
+     "id": "KL-Om_jmTLqRtHS5eLZJPQ",
+     "slug": "crown-suite",
+     "title": "Crown Suite",
+     "floor": 83,
+     "floorDisplay": "83rd Floor",
+     "eyebrow": "",
+     "titleSecondary": "",
+     "timelapse": {
+      "video": {
+       "mp4high": "https://stream.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/high.mp4",
+       "thumbnailUrl": "https://image.mux.com/7ANZVAlrGoXAceb71s8U01B5FUQPt5Rx3/thumbnail.jpg"
+      }
+     },
+     "image": {
+      "id": "KYX_n9XkR8mj4vtCVHPqPA",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 3000,
+      "height": 1900,
+      "src": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=2440&q=85&w=2440 2440w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 2440px) 100vw, 2440px",
+       "src": "https://www.datocms-assets.com/143478/1772208577-quadplex-12.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 2440,
+       "height": 1545,
+       "aspectRatio": 1.5789473684210527,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLExILDhwVDg8WDh0RDRYYFxMZGBYTFiEaKysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBALHDsoFigvLy8vLzsvOy8vLy8vLy8vLy8vLzs7Oy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAFBgADB//EAB4QAAAGAwEBAAAAAAAAAAAAAAABAgMEBRETkSEG/8QAFAEBAAAAAAAAAAAAAAAAAAAAA//EABgRAAMBAQAAAAAAAAAAAAAAAAECBAAR/9oADAMBAAIRAxEAPwDRJFRWkyZbU9AGR89XqVnYnoSitrN0sG6ropk2dg3gtquhVqYDC0ik5zfp4LLXjhCADCanT4xGbh9EBm5u5BCvN//Z",
+       "bgColor": "#4989b4"
+      },
+      "video": null
+     },
+     "imageMobile": {
+      "id": "Wts7w68HR1y77_qYRud6TQ",
+      "alt": null,
+      "title": null,
+      "focalPoint": {
+       "x": 0.5,
+       "y": 0.5
+      },
+      "width": 786,
+      "height": 1364,
+      "src": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "srcMobile": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+      "thumbnail": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "medium": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+      "modal": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "responsiveImage": {
+       "srcSet": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 196w,https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 393w,https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 589w,https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=2440&q=85&w=2440 786w",
+       "webpSrcSet": "",
+       "sizes": "(max-width: 786px) 100vw, 786px",
+       "src": "https://www.datocms-assets.com/143478/1772448657-terrace.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "width": 786,
+       "height": 1364,
+       "aspectRatio": 0.5762463343108505,
+       "alt": null,
+       "title": null,
+       "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFhUVDhUQGA0VDhYWFg4OFxodGCITFhYaHy0jGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDsoFhwvLy8vLzs7Oy8vLy8vLy8vLy81LzU7Oy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkADgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAEBwUA/8QAHxAAAQMEAwEAAAAAAAAAAAAAAQACAwQFERIHITMG/8QAFQEBAQAAAAAAAAAAAAAAAAAABAX/xAAYEQEBAQEBAAAAAAAAAAAAAAABAAMRAv/aAAwDAQACEQMRAD8Aoc1DLKM6o4ons6whHkOibH3hGZ97RSknISTWJ6x7TaojgkhOr11vtoewncoUfktu0eBQVqIF/9k=",
+       "bgColor": "#d0a274"
+      },
+      "video": null
+     },
+     "map": null,
+     "thumbnail": {
+      "thumbnail": "https://www.datocms-assets.com/143478/1772450672-terrace-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "video": null
+     },
+     "modal": [],
+     "floorplan": {
+      "url": "https://www.datocms-assets.com/143478/1743160087-f4-cs.jpg"
+     },
+     "floorplanPdf": {
+      "url": "https://www.datocms-assets.com/143478/1743160197-111w57_quadplex80_floor-plans-4.pdf"
+     },
+     "desc": "<p>The residence's pinnacle floor offers an expansive, meticulously curated private entertainment space, ideal for memorable events and gatherings. The crown suite boasts a magnificent bar, billiards table, screening room, service kitchen, private indoor Sunset Lounge, powder room, and a private terrace, ensuring a complete and luxurious entertainment experience.</p>",
+     "hotspot": {
+      "posX": 30,
+      "posY": 40
+     }
+    }
+   ],
+   "penthouse": {
+    "menuImage": {
+     "id": "MCt1OBgIQ8qXwYRVJkt8LQ",
+     "alt": null,
+     "title": null,
+     "focalPoint": {
+      "x": 0.5,
+      "y": 0.5
+     },
+     "width": 3334,
+     "height": 5000,
+     "src": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+     "srcMobile": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=1440&q=85&w=1440",
+     "thumbnail": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+     "medium": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=1500&q=85&w=1500",
+     "modal": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+     "responsiveImage": {
+      "srcSet": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 406w,https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 813w,https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=2440&q=85&w=2440 1626w,https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 3253w",
+      "webpSrcSet": "",
+      "sizes": "(max-width: 1626px) 100vw, 1626px",
+      "src": "https://www.datocms-assets.com/143478/1743600979-111-comp-nav-new-2x.jpg?auto=format&fit=max&h=2440&q=85&w=2440",
+      "width": 1626,
+      "height": 2440,
+      "aspectRatio": 0.6668,
+      "alt": null,
+      "title": null,
+      "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgQERMPDhUQDQ8NDhINDQ0NFxMZGCITIhUaHysjHR0oHRUWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0CGg0NEC8cFigvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAEAMBIgACEQEDEQH/xAAZAAABBQAAAAAAAAAAAAAAAAABAAIEBQb/xAAdEAABBAIDAAAAAAAAAAAAAAADAAECBAUREhQj/8QAFAEBAAAAAAAAAAAAAAAAAAAABP/EABoRAAEFAQAAAAAAAAAAAAAAAAABEyY2RgT/2gAMAwEAAhEDEQA/ANE/jR0yNSciVtKN24kradAORgEfHSa9KQKc8eKKtk4OF0yGQHMjskkjpaRufP/Z",
+      "bgColor": "#e3a42f"
+     },
+     "video": null
+    },
+    "home": {
+     "title": "Your Sanctuary \nIn The Clouds",
+     "text": "The most iconic of all Manhattan addresses will now be the location of the grandest residence of all.",
+     "textMobile": "The most iconic of all Manhattan addresses will now be the location of the grandest residence of all. Scroll to explore this extraordinary residence.",
+     "price": "Offered at $98,000,000"
+    },
+    "overview": {
+     "title": "Overview",
+     "slug": "overview",
+     "titleSecondary": "Manhattan\u2019s\nNewest Landmark",
+     "desc": "<p class=\"p1\"><span>Manhattan&rsquo;s most extraordinary residential offering at the crown of 111 West 57th Street, an architectural masterpiece by SHoP Architects with interior architecture by Studio Sofield. Across four floors, Quadplex 80 offers over 11,480 square feet of meticulously designed interior space and 618 square feet of breathtaking south-facing exterior terraces. The grand residence offers \ufb01ve bedrooms, six full bathrooms, and two powder rooms, providing plentiful space for refined living and entertaining.</span></p>\n<p class=\"p1\"><span> A private internal elevator and custom circular staircase offers access to a world of re\ufb01ned elegance, where 360&deg; open views reveal the splendor of the perfectly centered views of Central Park, dazzling city skyline, and river to river experience. Towering ceiling heights of up to 14 feet, coupled with \ufb02oor-to-ceiling windows, \ufb02ood the space with natural light, showcasing the exquisite custom design details throughout. This is a once-in-a-lifetime purchasing opportunity.</span></p>\n<p>Quadplex 80 Residence Highlights:</p>\n<ul>\n<li>360-degree views overlooking Central Park, Manhattan skyline, and river to river</li>\n<li>Full \ufb02oor 2,947 square-foot Primary Suite</li>\n<li>Crown Suite \ufb02oor complete with billiards, full bar, screening room and sunset lounge</li>\n<li>2 Private Terraces</li>\n<li>Floor-to-ceiling windows</li>\n<li>Ceiling heights up to 14&rsquo;</li>\n<li>Custom spiral staircase</li>\n<li>White macauba stone \ufb02oor at entry</li>\n<li>Custom smoke gray solid oak \ufb02oors with intricate patterns in the Great Room</li>\n<li>9&rsquo; custom doors and transoms throughout with custom bronze door handles and hinges</li>\n<li>Zoned year-round fan coil HVAC system</li>\n<li>Private internal elevator</li>\n</ul>\n<p class=\"p1\"></p>",
+     "price": "Offered at $98,000,000",
+     "thumbnail": {
+      "thumbnail": "https://www.datocms-assets.com/143478/1772466458-111-thumb.jpg?auto=format&fit=max&h=800&q=85&w=1000",
+      "video": null
+     },
+     "modal": [
+      {
+       "id": "HnJl2AppRqqG7U8AHJHHbQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772463413-8-evan-joseph-4-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLFhQLDiIQFw0NGicVFhEYHRUdHRYrFi0iHyslLh0oHRUWJDUlKC0vMjUyGSI4PTcwPCsxMi8BCgsLDg0OHBANHS8dFh0vNS8vLy8vNS8vLy8vLy8vLy8vLy8vLy8vLzUvLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAABQYBAwT/xAAhEAABBAMAAQUAAAAAAAAAAAAAAQIEBgMFEXETIjI0Nf/EABgBAQADAQAAAAAAAAAAAAAAAAMBAgQA/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAIBITH/2gAMAwEAAhEDEQA/AOLSbbHgjdRyFJiszXRedIKtVrY5oKucjikh1yV6atXpmZbHV6Nu43+BY3uchgQ2isTWRut6AsLQUtZeVX8xRpF+S+QAhtOXBdaPqmAAvGBzp//Z",
+        "bgColor": "#c26f22"
+       },
+       "video": null
+      },
+      {
+       "id": "PPzE8p2CSW-YFS9ZXngIcQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 7980,
+       "height": 5323,
+       "src": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772463295-111-pool-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499154612060868,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLEhMWDhcWDRIZFBcWFhEPFxMaGBYfIhUdNysjHR0oHRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLBQ0OHAoOHDsdFhw7Oy8vLy8vLy8vLy8vNTUvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAAAQUCBAb/xAAiEAACAQMCBwAAAAAAAAAAAAAAAQMCBBEFIhITFCMyM0H/xAAYAQACAwAAAAAAAAAAAAAAAAADBAEFBv/EABwRAAIBBQEAAAAAAAAAAAAAAAAEAwUREjEyAv/aAAwDAQACEQMRAD8AmxzvjTaK71DsKlEmW9s6VtwLroeXnJMMTlgTDNMyKEt1LVFtQGFrqdq48VYAB7jcuNRtU3E5CT4bNPpGBdxaMux0O28WAAL+9jEfJ//Z",
+        "bgColor": "#2786a1"
+       },
+       "video": null
+      },
+      {
+       "id": "EfkjLU8HSgyXzrezTOo3uQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772465523-111_w_57_ph76-nfield-13-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIEggLFQ0PDhcLDg4NFhUNFhEOFxgZGCIfFhUaHysjHR0oHRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OFg8RHDUcFigvLy8vLy8vLy8vLy8vLy8vLy8vLy81Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABQYEAf/EACIQAAEDAgYDAAAAAAAAAAAAAAABAgUDBBEUITI0gRITMf/EABgBAAIDAAAAAAAAAAAAAAAAAAMFAQIE/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEwP/2gAMAwEAAhEDEQA/ANMTbPc1RDPWlTO9lVF+bGLoIZt1XNquBlfeWGrixStlW9aaHTQt89rUTACdJK5sso7YoimuQoALUMLEdb6AAGQE/9k=",
+        "bgColor": "#d38835"
+       },
+       "video": null
+      },
+      {
+       "id": "NEjZYs8oQxSMQbvY7XEa2w",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772465588-14a-111-w-57-terrace3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoRCAgLEQ4VDw8NDg4VDxENDg0OFx8aGCIVFhUaIysjGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHQ0NHC8dFhwvNS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAZAAEBAQADAAAAAAAAAAAAAAAABQYBAwT/xAAhEAABBAEDBQAAAAAAAAAAAAAAAQMEBQIRIUMUFTEzNP/EABcBAQEBAQAAAAAAAAAAAAAAAAIEAwD/xAAYEQEAAwEAAAAAAAAAAAAAAAAAAgMTAf/aAAwDAQACEQMRAD8AZ0kfGVsdmNI0rxpoNYzJkeSl2RpHV0IuVxU7WMXHp2Or3UF/OrXCeuigOMT3seyj95d5lOAaxBMc+9QAcT//2Q==",
+        "bgColor": "#e89921"
+       },
+       "video": null
+      },
+      {
+       "id": "AXN34HJSQki5TuzPj3YcUQ",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772465657-15-evan-joseph-6-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLCg8XDhUXFQ0NFBQKEg0NFxMZGBYVFiEaHysjHR0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHQ4NGi8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAbAAACAQUAAAAAAAAAAAAAAAAABgECAwQFB//EACEQAAICAAUFAAAAAAAAAAAAAAABAgMEBQYRExIhMjM0/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwEC/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEhH/2gAMAwEAAhEDEQA/AHhtWW9pIjn4relsQI6lxdN+0myqeprZ3rdhtUWOD5PGV1z3ckBzrM9Q2KKakSZzQmka7G/QYsvegAdgSWs08EAAUrP/2Q==",
+        "bgColor": "#90a829"
+       },
+       "video": null
+      },
+      {
+       "id": "J4ar_BPKRPGbDDpti9_8mw",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 8192,
+       "height": 5464,
+       "src": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w,https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&dpr=3&fit=max&h=2440&q=85&w=2440 7320w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772465918-13-evan-joseph-3-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1627,
+        "aspectRatio": 1.499267935578331,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBg8ICAgLEBYWDg8QDQ0NFxUNDQ0YFxMZGBYVFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0PEhAQHC8oFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABEAGAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAAABAUDAv/EAB8QAAICAgEFAAAAAAAAAAAAAAADBAUBITQCERQxM//EABcBAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAZEQEAAgMAAAAAAAAAAAAAAAAAARECAxP/2gAMAwEAAhEDEQA/APEO1VhBoPt1Yg6M6NWx+qP3xkpdWq8P2SjbgFwsrbLDY+gcqtKY6NgbpgNwjgcYvZwwDOhJwV8AAOL/2Q==",
+        "bgColor": "#b9cb54"
+       },
+       "video": null
+      },
+      {
+       "id": "S2XJKRigRzO5uWlaKpC28w",
+       "alt": null,
+       "title": null,
+       "focalPoint": {
+        "x": 0.5,
+        "y": 0.5
+       },
+       "width": 6300,
+       "height": 4200,
+       "src": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "srcMobile": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=1440&q=85&w=1440",
+       "thumbnail": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=800&q=85&w=1000",
+       "medium": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=1500&q=85&w=1500",
+       "modal": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+       "responsiveImage": {
+        "srcSet": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&dpr=0.25&fit=max&h=2440&q=85&w=2440 610w,https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&dpr=0.5&fit=max&h=2440&q=85&w=2440 1220w,https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&dpr=0.75&fit=max&h=2440&q=85&w=2440 1830w,https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440 2440w,https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&dpr=1.5&fit=max&h=2440&q=85&w=2440 3660w,https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&dpr=2&fit=max&h=2440&q=85&w=2440 4880w",
+        "webpSrcSet": "",
+        "sizes": "(max-width: 2440px) 100vw, 2440px",
+        "src": "https://www.datocms-assets.com/143478/1772466010-4-111w57-lobby-by-adrian-gaut-copy.jpeg?auto=format&fit=max&h=2440&q=85&w=2440",
+        "width": 2440,
+        "height": 1626,
+        "aspectRatio": 1.5,
+        "alt": null,
+        "title": null,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgXDRYSDhMXDQ0NExENDQoNFxUZGBYVFhUaHysjGikoHRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg4OHA0QEC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABAAGAMBIgACEQEDEQH/xAAYAAACAwAAAAAAAAAAAAAAAAAEBQABA//EABsQAAEFAQEAAAAAAAAAAAAAAAMAAQIEERMS/8QAFQEBAQAAAAAAAAAAAAAAAAAABAL/xAAWEQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhEDEQA/ALFY5nzUXI0t9JEeJRW210XK3LniDplF20i9T47qJYEhJWHfVFeGnXf/2Q==",
+        "bgColor": "#bc7535"
+       },
+       "video": null
+      }
+     ],
+     "floorplan": null,
+     "floorplanPdf": {
+      "url": "https://www.datocms-assets.com/143478/1741544774-quadplex-plans.pdf"
+     }
+    },
+    "contact": {
+     "eyebrow": "Contact us",
+     "title": "Endless\nhorizons\nawait",
+     "subtitle": "For more information or to arrange a viewing please get in touch."
+    },
+    "info": [
+     {
+      "id": "BDqlu75eRrGerNKlqRrrAg",
+      "title": "Interior Sq Ft / Sq M",
+      "text": "11,480 sq ft"
+     },
+     {
+      "id": "GDOFOhDoR6uOuCamJZQoDA",
+      "title": "Exterior Sq Ft / Sq M",
+      "text": "618 sq ft"
+     },
+     {
+      "id": "YH-nZUN5REui6X9tKRCgWg",
+      "title": "Exposure",
+      "text": "N,E,S,W"
+     },
+     {
+      "id": "fkl89fGhTiKs-bT-gM7v3A",
+      "title": "Bedroom/Bathroom",
+      "text": "5/6"
+     },
+     {
+      "id": "RChKZCAhRhqKzXA5ildVRw",
+      "title": "Powder Room",
+      "text": "2"
+     }
+    ],
+    "credits": {
+     "title": "A world-class team of experts, \n visionaries, designers & artists",
+     "items": [
+      {
+       "id": "B3b5jjAcQCeQ5tuS5v7LOA",
+       "title": "JDS Development Group",
+       "text": "<p><span>JDS Development Group is a team of innovators and builders pioneering progressive new forms of large-scale urban development that challenge the status quo of the real estate industry. Founded in 2002 and headquartered in New York and Miami, JDS is a national firm focused on acquisition, development, and construction, recognized for its architecturally significant mixed-use projects that respond to each community and push the boundaries of engineering and design. JDS projects include 111 West 57th Street, The Brooklyn Tower, The American Copper Buildings, Walker Tower, 888 Brickell Dolce &amp; Gabbana Miami, Mercedes-Benz Places Miami, Monad Terrace and other award-winning collaborations with the world&rsquo;s top architects and designers.</span></p>",
+       "url": "https://jdsdevelopment.com/"
+      },
+      {
+       "id": "ela2zwbnT42objaU5J_BkQ",
+       "title": "Property Markets Group",
+       "text": "<p><span>Property Markets Group (PMG) was founded by Kevin Maloney in 1991 and is a premier real estate investment, development, and general construction firm. The company is headquartered in New York with offices in Miami and Chicago. PMG is one of the few remaining full-service, large-scale development companies with staff capable of maneuvering all facets of the development process. With direct hands-on experience in the acquisition, renovation,financing, operation, and marketing of commercial and residential real estate, PMG has completed 85 residential buildings in New York, Florida, and Chicago, and over 150 real estate projects throughout the United States. During its 27-year history, PMG has developed projects across all asset types and distinguished itself by focusing on premier luxury residential properties.</span></p>",
+       "url": "https://propertymg.com/"
+      },
+      {
+       "id": "e-HZ18hgSF-6GbJpvxdWjQ",
+       "title": "SHoP",
+       "text": "<p><span>SHoP harnesses the power of interdisciplinary expertise to create architecture that makes our cities more vibrant, more beautiful, and more rewarding places for all to live. Operating from its studios in New York&rsquo;s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects completed or underway on four continents. At the heart of SHoP&rsquo;s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements for the world of today.</span></p>",
+       "url": "https://www.shoparc.com/"
+      },
+      {
+       "id": "eQ0fbhJqTqiLxljnx4H_7g",
+       "title": "Studio Sofield ",
+       "text": "<p><span>Studio Sofield, led by Principal William Sofield, is a design firm with the reputation for a thoughtful, multi-disciplined approach to design characterized by working in response to not only the project locale but the unique needs of the client. All of Sofield&rsquo;s projects imbue a restrained luxury in design through choices in materials and craft as well as through a process of discovery where clients decipher their very own concept of luxury. With 111 West 57th Street, William Sofield has incorporated this philosophy with his Historicist training to develop a considerate and contemporary response to the&nbsp;changing New York City skyline.</span></p>",
+       "url": "https://www.studiosofield.com/"
+      },
+      {
+       "id": "Eh9CH4M_Se2crLQteiDAFA",
+       "title": "Apollo Commercial Real Estate Finance, Inc (\u201cARI\u201d)",
+       "text": "<p><span>Apollo Commercial Real Estate Finance, Inc.(&ldquo;ARI&rdquo;) is a real estate investment trust that primarily originates and invests in senior mortgages, mezzanine loans and other commercial real estate-related debt investments collateralized by properties throughout the United States&nbsp;and Europe. As of June 30, 2024, ARI&rsquo;s diversified&nbsp;loan portfolio&nbsp;totaled ~$9.0 billion and as of August1, 2024,&nbsp;ARI&rsquo;s&nbsp;market cap was ~$1.6 billion.&nbsp;ARI&rsquo;s&nbsp;externally managed by ACREFI&nbsp;Management, LLC,&nbsp;an indirect subsidiary of Apollo&nbsp;Global Management, Inc. (&ldquo;Apollo&rdquo;), a leading&nbsp;global alternative&nbsp;investment manager with AUM of~$696 billion as of June 30, 2024. Since 2009, Apollo&rsquo;s&nbsp;real estate credit group has invested over $81 billion of capital into commercial real estate debt investments, $23 billion of which was on behalf of ARI. ARI is led by an&nbsp;experienced team&nbsp;of senior real estate professionals who&nbsp;have significant&nbsp;experience in commercial&nbsp;property ownership&nbsp;and finance.&nbsp;ARI&rsquo;s&nbsp;relationship with Apollo provides significant advantages in insourcing, evaluating, underwriting and managing investments.</span></p>",
+       "url": "https://www.apollocref.com/"
+      },
+      {
+       "id": "cLrXismASPWCGi6QmSiJTw",
+       "title": "Sotheby\u2019s International Realty",
+       "text": "<p>Sotheby's International Realty was founded in 1976 as a real estate service for discerning clients of Sotheby's auction house. Today, the company's global footprint spans 1,115 offices located in 84 countries and territories worldwide, including 49 company-owned brokerage offices in key metropolitan and resort markets. In February 2004, Anywhere Real Estate Inc. entered a long-term strategic alliance with Sotheby&rsquo;s, the operator of the auction house. The agreement provided for the licensing of the Sotheby&rsquo;s International Realty name and the development of a franchise system. The franchise system consists of an affiliate network, where each office is independently owned and operated. Sotheby&rsquo;s International Realty supports its affiliates and agents with a host of operational, marketing, recruiting, educational and business development resources. Affiliates and agents also benefit from an association with the venerable Sotheby&rsquo;s auction house, established in 1744. For more information, visit www.sothebysrealty.com.</p>\n<p>&nbsp;The affiliate network is operated by Sotheby&rsquo;s International Realty Affiliates LLC, and the company owned brokerages are operated by Sotheby's International Realty, Inc. Both entities are subsidiaries of Anywhere Real Estate Inc. (NYSE: HOUS) a global leader in real estate franchising and provider of real estate brokerage, relocation and settlement services. Both Sotheby&rsquo;s International Realty Affiliates LLC and Sotheby&rsquo;s International Realty, Inc. fully support the principles of the Fair Housing Act and the Equal Opportunity Act.&nbsp;</p>",
+       "url": "https://www.sothebysrealty.com/eng"
+      },
+      {
+       "id": "aNfeD9FdQJCaRsKs1t7taA",
+       "title": "Outpost",
+       "text": "<p class=\"p1\">Outpost is a design studio crafting true digital expressions of brands that leave a lasting impression. Harnessing insight, strategy and creativity to drive innovation and brand transformation to create digital experiences that connect with consumers and drive engagement. Collaborating with best teams and talent all over the world, Outpost has a deep desire to push boundaries and deliver amazing results for their clients.</p>",
+       "url": "https://outpost.design/"
+      },
+      {
+       "id": "Nqp300BoQIi77IP_X7BQhQ",
+       "title": "Hayes Davidson",
+       "text": "<p><span>Hayes Davidson is one of the world&rsquo;s leading visualisation studios. Collaborative to our core, we partner with the most respected and visionary architects, developers, planners and agencies, to create exceptional ways to help them communicate their ideas and ambitions.</span></p>",
+       "url": "https://www.hayesdavidson.com/"
+      }
+     ]
+    },
+    "features": "<ul>\n<li id=\"markdown-section--2\" class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\"><span>Direct</span><span> elevator entry</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\"><span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\">White macauba stone floor at</span><span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\"> entry</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Ceiling heights up to 14<span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\">'</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Floor-to-ceiling windows</li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Custom smoke-gray solid oak floors<span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\"> with intricate pattern in Great Room</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">9' custom doors and transoms<span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\"> throughout with custom, bronze door handles and hinges</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Zoned<span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\">, year round fan coil HVAC system</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Private internal elevator</li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Custom<span style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 0.9375rem; letter-spacing: 0px;\"> staircase</span></li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Private outdoor space</li>\n<li class=\"markdown-section\" data-markdown-raw=\"\nDirect elevator entry\" data-section-index=\"2\">Observatory</li>\n</ul>",
+    "seo": {
+     "title": "Quadplex 80 | Luxury Penthouse in Manhattan | 111 West 57th",
+     "description": "Resting atop 111 West 57th, Quadplex 80 is the premier luxury penthouse in Manhattan. For more information or to arrange a tour, contact us at info@111w57.com.",
+     "image": null
+    }
+   },
+   "global": {
+    "phone": "212-935-5757 ",
+    "email": "info@111w57.com"
+   },
+   "slides": {
+    "current": 0,
+    "total": 0,
+    "last": 0
+   },
+   "gallery": {
+    "active": false,
+    "items": []
+   },
+   "plans": {
+    "active": false,
+    "item": {}
+   },
+   "info": {
+    "active": false,
+    "content": {
+     "id": "R-EclE53T7K2xsqKi0xrtg",
+     "slug": "legal",
+     "title": "Terms & conditions",
+     "sections": [
+      {
+       "id": "VRd10MpbRk6mSV5Ke1fjnw",
+       "title": "Disclaimer",
+       "text": "<p class=\"p1\">Current pricing, renderings and related copy depict fully integrated and built out Quadplex 80. Sponsor to customize Quadplex 80 per owner&rsquo;s request. Pricing is subject to change based on the owner&rsquo;s floorplan specifications.</p>"
+      },
+      {
+       "id": "M8fH8yuGSLO2s2AXC7LVCw",
+       "title": "Standardized Operating Procedures",
+       "text": "<p>Standardized Operating Procedures for Prospective Homebuyers in Order to Receive Services from Sotheby&rsquo;s International Realty, Inc.:</p>\n<ul>\n<li>There is no general requirement to provide photo identification prior to working with us. However, prior to entry to a Sotheby&rsquo;s International Realty, Inc. office, customers and clients may be required to present photo identification pursuant to the building&rsquo;s security policies or pursuant to applicable local government requirements. Also, individual property owners (or their listing agents) may require photo identification prior to a showing, and we will communicate this information to buyers in advance of such showing.</li>\n<li>An exclusive buyer representation agreement is not required.</li>\n<li>A pre-approval for a mortgage loan is not required to work with us, per se, however, individual property owners may require one &ndash; and if so, we will communicate that to buyers as applicable for any properties buyers may wish to view.</li>\n</ul>\n<p>Effective Date: 4/20/22</p>"
+      },
+      {
+       "id": "ct_kw5p-TnqD8mU5fW0lOQ",
+       "title": "Legal",
+       "text": "<p><span>The artist and computer renderings and depictions of personal and/or condominium property (including, without limitation, interior and exterior decorations, finishes, fixtures, appliances, landscaping, and furnishings) are for illustrative and conceptual purposes only. Compuer and/or artist renderings reflect the planned scale and spirit of the Building. Sponsor makes no representations, warranties, or guarantees (including, without limitation, regarding: (1) future construction in the neighborhood surrounding the property and the continued existence of any views and/or light from any windows, amenity spaces, units, terraces, balconies, or other areas of the property; (2) any named establishments, attractions, points of interest, transportation lines, or other means of transportation depicted or referred to herein, including, without limitation, the continued existence of such things; (3) the continued offering, availability, or use of any amenities or facilities described herein; (4) the content of third parties that may be linked to or referenced herein, and Sponsor shall have no liability with respect thereto), except as may be set forth in the offering plan, as amended (&ldquo;Plan&rdquo;). All dimensions, sizes, and square footages are approximate and subject to normal construction variances and tolerances. Plans, layouts, and dimensions may contain variations from floor-to-floor. Square footages exceed useable floor area. Ceiling heights are approximate and variable. Sponsor reserves the right to make substitutions or changes to, among other things, materials, equipment, fixtures, finishes, appliances, and/or other design or construction details in accordance with the terms of the Plan. Certain facilities (including, without limitation, the golf simulator, padel court and related facilities, bar, and multi-purpose room) are part of Non-Residential Unit 2 and are owned and controlled by the Unit Owner of Non-Residential Unit 2; additional terms and fees may apply. Valet parking services will be provided by a third-party parking garage operator and at the sole cost and expense of the resident. The terms of valet parking services are to be determined by and between the resident and garage operator directly. Neither Sponsor, the Condominium, nor the Managing Agent will be responsible for any theft, damage, or other losses, costs, or expenses relating to or stemming from valet parking services. Sponsor makes no representations, warranties, or guarantees (including, without limitation, with respect to any valet parking services, food or beverage services or products, spa services or products), except as may be set forth in Plan. </span><span style=\"background-color: transparent; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; letter-spacing: 0px;\">THE COMPLETE OFFERING TERMS ARE IN AN OFFERING PLAN AVAILABLE FROM SPONSOR. FILE NO. CD15-0146. 111 WEST 57TH PROPERTY OWNER LLC,&nbsp;</span><a href=\"https://url.usb.m.mimecastprotect.com/s/RrINCxoWNMF9G00mYt8foHy3ZgD?domain=google.com\" id=\"OWA005472b0-3630-fb53-78a2-2effefea30ad\" class=\"OWAAutoLink\" data-auth=\"NotApplicable\" style=\"letter-spacing: 0px;\">120 NE 27TH STREET, SUITE 200, MIAMI, FL 33137</a><span style=\"background-color: transparent; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; font-weight: inherit; letter-spacing: 0px;\">. EQUAL HOUSING OPPORTUNITY.</span></p>"
+      },
+      {
+       "id": "G3WCaXQtQ9a03t3v2UJ0lA",
+       "title": "Privacy policy",
+       "text": "<p class=\"p1\">Terms &amp; Conditions: These Website Standard Terms And Conditions (these&nbsp;<span class=\"s1\">&ldquo;</span>Terms&rdquo; or these&nbsp;<span class=\"s1\">&ldquo;</span>Website Standard Terms And Conditions&rdquo;) contained herein on this webpage, shall govern your use of this website, including all pages within this website (collectively referred to herein below as this&nbsp;<span class=\"s1\">&ldquo;</span>Website&rdquo;). These Terms apply in full force and effect to your use of this Website and by using this Website, you expressly accept all terms and conditions contained herein in full. You must not use this Website, if you have any objection to any of these Website Standard Terms And Conditions. This Website is not for use by any minors (defined as those who are not at least 18 years of age), and you must not use this Website if you are a minor.</p>\n<p>&nbsp;Terms &amp; Conditions: These Website Standard Terms And Conditions (these&nbsp;<span class=\"s1\">&ldquo;</span>Terms&rdquo; or these&nbsp;<span class=\"s1\">&ldquo;</span>Website Standard Terms And Conditions&rdquo;) contained herein on this webpage, shall govern your use of this website, including all pages within this website (collectively referred to herein below as this&nbsp;<span class=\"s1\">&ldquo;</span>Website&rdquo;). These Terms apply in full force and effect to your use of this Website and by using this Website, you expressly accept all terms and conditions contained herein in full. You must not use this Website, if you have any objection to any of these Website Standard Terms And Conditions. This Website is not for use by any minors (defined as those who are not at least 18 years of age), and you must not use this Website if you are a minor.</p>\n<p>&nbsp;Restrictions: You are expressly and emphatically restricted from all of the following:</p>\n<p class=\"p1\">1. publishing any Website material in any media; 2. selling, sublicensing and/or otherwise commercializing any Website material; 3. publicly performing and/or showing any Website material; 4. using this Website in any way that is, or may be, damaging to this Website; 5. using this Website in any way that impacts user access to this Website; 6. using this Website contrary to applicable laws and regulations, or in a way that causes, or may cause, harm to the Website, or to any person or business entity; 7. engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website, or while using this Website; 8. using this Website to engage in any advertising or marketing; Certain areas of this Website are restricted from access by you and 111 West 57th Property Owner LLC and its affiliates may further restrict access by you to any areas of this Website, at any time, in its sole and absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality of such information.</p>\n<p class=\"p1\">Your content: In these Website Standard Terms And Conditions,&nbsp;<span class=\"s1\">&ldquo;</span>Your Content&rdquo; shall mean any audio, video, text, images or other material you choose to display on this Website. With respect to Your Content, by displaying it, you grant 111 West 57th Property Owner LLC and its affiliates a non-exclusive, worldwide, irrevocable, royalty-free, sublicensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media. Your Content must be your own and must not be infringing on any third party<span class=\"s1\">&rsquo;</span>s rights. 111 West 57th Property Owner LLC reserves the right to remove any of Your Content from this Website at any time, and for any reason, without notice.</p>\n<p class=\"p1\">No warranties: This Website is provided&nbsp;<span class=\"s1\">&ldquo;</span>as is,&rdquo; with all faults, and 111 West 57th Property Owner LLC and its affiliates make no express or implied representations or warranties, of any kind related to this Website or the materials contained on this Website. Additionally, nothing contained on this Website shall be construed as providing consult or advice to you.</p>\n<p class=\"p1\">Limitation of liability: In no event shall 111 West 57th Property Owner LLC, its affiliates, or any of their officers, directors and employees, be liable to you for anything arising out of or in any way connected with your use of this Website, whether such liability is under contract, tort or otherwise, and 111 West 57th Property Owner LLC and its affiliates, including their officers, directors and employees shall not be liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.</p>\n<p class=\"p1\">Indemnification: You hereby indemnify to the fullest extent 111 West 57th Property Owner LLC and its affiliates from and against any and all liabilities, costs, demands, causes of action, damages and expenses (including reasonable attorney<span class=\"s1\">&rsquo;</span>s fees) arising out of or in any way related to your breach of any of the provisions of these Terms.</p>\n<p class=\"p1\">Severability: If any provision of these Terms is found to be unenforceable or invalid under any applicable law, such unenforceability or invalidity shall not render these Terms unenforceable or invalid as a whole, and such provisions shall be deleted without affecting the remaining provisions herein.</p>\n<p class=\"p1\">Variation of Terms: 111 West 57th Property Owner LLC is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review such Terms on a regular basis to ensure you understand all terms and conditions governing use of this Website.</p>\n<p class=\"p1\">Assignment: 111 West 57th Property Owner LLC shall be permitted to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification or consent required. However, you shall not be permitted to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.</p>\n<p class=\"p1\">Entire Agreement: These Terms, including any legal notices and disclaimers contained on this Website, constitute the entire agreement between 111 West 57th Property Owner LLC and you in relation to your use of this Website, and supersede all prior agreements and understandings with respect to the same.</p>\n<p class=\"p1\">Governing Law &amp; Jurisdiction: These Terms will be governed by and construed in accordance with the laws of the State of New York, and you submit to the non-exclusive jurisdiction of the state and federal courts located in the state and county of New York.</p>"
+      }
+     ]
+    }
+   },
+   "credits": {
+    "active": false,
+    "content": {
+     "title": "A world-class team of experts, \n visionaries, designers & artists",
+     "items": [
+      {
+       "id": "B3b5jjAcQCeQ5tuS5v7LOA",
+       "title": "JDS Development Group",
+       "text": "<p><span>JDS Development Group is a team of innovators and builders pioneering progressive new forms of large-scale urban development that challenge the status quo of the real estate industry. Founded in 2002 and headquartered in New York and Miami, JDS is a national firm focused on acquisition, development, and construction, recognized for its architecturally significant mixed-use projects that respond to each community and push the boundaries of engineering and design. JDS projects include 111 West 57th Street, The Brooklyn Tower, The American Copper Buildings, Walker Tower, 888 Brickell Dolce &amp; Gabbana Miami, Mercedes-Benz Places Miami, Monad Terrace and other award-winning collaborations with the world&rsquo;s top architects and designers.</span></p>",
+       "url": "https://jdsdevelopment.com/"
+      },
+      {
+       "id": "ela2zwbnT42objaU5J_BkQ",
+       "title": "Property Markets Group",
+       "text": "<p><span>Property Markets Group (PMG) was founded by Kevin Maloney in 1991 and is a premier real estate investment, development, and general construction firm. The company is headquartered in New York with offices in Miami and Chicago. PMG is one of the few remaining full-service, large-scale development companies with staff capable of maneuvering all facets of the development process. With direct hands-on experience in the acquisition, renovation,financing, operation, and marketing of commercial and residential real estate, PMG has completed 85 residential buildings in New York, Florida, and Chicago, and over 150 real estate projects throughout the United States. During its 27-year history, PMG has developed projects across all asset types and distinguished itself by focusing on premier luxury residential properties.</span></p>",
+       "url": "https://propertymg.com/"
+      },
+      {
+       "id": "e-HZ18hgSF-6GbJpvxdWjQ",
+       "title": "SHoP",
+       "text": "<p><span>SHoP harnesses the power of interdisciplinary expertise to create architecture that makes our cities more vibrant, more beautiful, and more rewarding places for all to live. Operating from its studios in New York&rsquo;s historic Woolworth Building, the critically-acclaimed firm has a staff of 180 talented people and projects completed or underway on four continents. At the heart of SHoP&rsquo;s work is a respect for the expressive potential of traditional architectural materials, and a pioneering technological capability that transforms them into inspiring statements for the world of today.</span></p>",
+       "url": "https://www.shoparc.com/"
+      },
+      {
+       "id": "eQ0fbhJqTqiLxljnx4H_7g",
+       "title": "Studio Sofield ",
+       "text": "<p><span>Studio Sofield, led by Principal William Sofield, is a design firm with the reputation for a thoughtful, multi-disciplined approach to design characterized by working in response to not only the project locale but the unique needs of the client. All of Sofield&rsquo;s projects imbue a restrained luxury in design through choices in materials and craft as well as through a process of discovery where clients decipher their very own concept of luxury. With 111 West 57th Street, William Sofield has incorporated this philosophy with his Historicist training to develop a considerate and contemporary response to the&nbsp;changing New York City skyline.</span></p>",
+       "url": "https://www.studiosofield.com/"
+      },
+      {
+       "id": "Eh9CH4M_Se2crLQteiDAFA",
+       "title": "Apollo Commercial Real Estate Finance, Inc (\u201cARI\u201d)",
+       "text": "<p><span>Apollo Commercial Real Estate Finance, Inc.(&ldquo;ARI&rdquo;) is a real estate investment trust that primarily originates and invests in senior mortgages, mezzanine loans and other commercial real estate-related debt investments collateralized by properties throughout the United States&nbsp;and Europe. As of June 30, 2024, ARI&rsquo;s diversified&nbsp;loan portfolio&nbsp;totaled ~$9.0 billion and as of August1, 2024,&nbsp;ARI&rsquo;s&nbsp;market cap was ~$1.6 billion.&nbsp;ARI&rsquo;s&nbsp;externally managed by ACREFI&nbsp;Management, LLC,&nbsp;an indirect subsidiary of Apollo&nbsp;Global Management, Inc. (&ldquo;Apollo&rdquo;), a leading&nbsp;global alternative&nbsp;investment manager with AUM of~$696 billion as of June 30, 2024. Since 2009, Apollo&rsquo;s&nbsp;real estate credit group has invested over $81 billion of capital into commercial real estate debt investments, $23 billion of which was on behalf of ARI. ARI is led by an&nbsp;experienced team&nbsp;of senior real estate professionals who&nbsp;have significant&nbsp;experience in commercial&nbsp;property ownership&nbsp;and finance.&nbsp;ARI&rsquo;s&nbsp;relationship with Apollo provides significant advantages in insourcing, evaluating, underwriting and managing investments.</span></p>",
+       "url": "https://www.apollocref.com/"
+      },
+      {
+       "id": "cLrXismASPWCGi6QmSiJTw",
+       "title": "Sotheby\u2019s International Realty",
+       "text": "<p>Sotheby's International Realty was founded in 1976 as a real estate service for discerning clients of Sotheby's auction house. Today, the company's global footprint spans 1,115 offices located in 84 countries and territories worldwide, including 49 company-owned brokerage offices in key metropolitan and resort markets. In February 2004, Anywhere Real Estate Inc. entered a long-term strategic alliance with Sotheby&rsquo;s, the operator of the auction house. The agreement provided for the licensing of the Sotheby&rsquo;s International Realty name and the development of a franchise system. The franchise system consists of an affiliate network, where each office is independently owned and operated. Sotheby&rsquo;s International Realty supports its affiliates and agents with a host of operational, marketing, recruiting, educational and business development resources. Affiliates and agents also benefit from an association with the venerable Sotheby&rsquo;s auction house, established in 1744. For more information, visit www.sothebysrealty.com.</p>\n<p>&nbsp;The affiliate network is operated by Sotheby&rsquo;s International Realty Affiliates LLC, and the company owned brokerages are operated by Sotheby's International Realty, Inc. Both entities are subsidiaries of Anywhere Real Estate Inc. (NYSE: HOUS) a global leader in real estate franchising and provider of real estate brokerage, relocation and settlement services. Both Sotheby&rsquo;s International Realty Affiliates LLC and Sotheby&rsquo;s International Realty, Inc. fully support the principles of the Fair Housing Act and the Equal Opportunity Act.&nbsp;</p>",
+       "url": "https://www.sothebysrealty.com/eng"
+      },
+      {
+       "id": "aNfeD9FdQJCaRsKs1t7taA",
+       "title": "Outpost",
+       "text": "<p class=\"p1\">Outpost is a design studio crafting true digital expressions of brands that leave a lasting impression. Harnessing insight, strategy and creativity to drive innovation and brand transformation to create digital experiences that connect with consumers and drive engagement. Collaborating with best teams and talent all over the world, Outpost has a deep desire to push boundaries and deliver amazing results for their clients.</p>",
+       "url": "https://outpost.design/"
+      },
+      {
+       "id": "Nqp300BoQIi77IP_X7BQhQ",
+       "title": "Hayes Davidson",
+       "text": "<p><span>Hayes Davidson is one of the world&rsquo;s leading visualisation studios. Collaborative to our core, we partner with the most respected and visionary architects, developers, planners and agencies, to create exceptional ways to help them communicate their ideas and ambitions.</span></p>",
+       "url": "https://www.hayesdavidson.com/"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "prerenderedAt": 1778242030532
+}
