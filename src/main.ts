@@ -50,6 +50,13 @@ const layers = slides.map((slide, i) => {
 
 const labels = slides.map((s) => s.label);
 
+/**
+ * Chrome polarity is a property of each image, declared in the slide manifest.
+ * See the note on ChromePolarity there for why it is not a slide range.
+ */
+const setChromeForSlide = (i: number) =>
+  document.body.classList.toggle('is-interior', slides[i]?.chrome === 'dark');
+
 const hero = new Hero();
 stage.appendChild(hero.el);
 
@@ -63,6 +70,7 @@ const machine = new SlideMachine({
   onChange: (current, previous) => {
     pips.change(current, previous);
     sectionLabel.set(current);
+    setChromeForSlide(current);
     if (current === 0) hero.enter();
     else if (previous === 0) hero.leave();
   },
@@ -94,6 +102,7 @@ async function ready(): Promise<void> {
   document.body.classList.add('is-ready');
   machine.entered = true;
 
+  setChromeForSlide(machine.current);
   hero.enter();
   pips.enter(0);
   scrollHint.start();

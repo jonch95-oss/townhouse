@@ -1,3 +1,17 @@
+/**
+ * Which polarity the chrome takes over this slide.
+ *
+ * The principle is that chrome contrasts with imagery, not that chrome is
+ * white. The reference is white throughout because its photography is
+ * art-directed dark at the edges; ours is high-key, so most slides invert.
+ *
+ * It is per image rather than per slide-range because the evidence demands it:
+ * INT-008-009 is the one dark interior in the set, and warm chrome measures
+ * 1.13:1 over it where white measures 5.60:1. A range rule fixes the pale
+ * images and breaks that one.
+ */
+export type ChromePolarity = 'light' | 'dark';
+
 export interface Slide {
   /** Menu label. Deliberately NOT rendered over the image — sections.md S3–S6. */
   label: string;
@@ -6,6 +20,8 @@ export interface Slide {
   alt?: string;
   /** Set when the image is a stand-in, so the gap stays visible in review. */
   placeholder?: string;
+  /** 'dark' means warm ink on a light-veiled ground. Defaults to 'light'. */
+  chrome?: ChromePolarity;
 }
 
 /**
@@ -28,8 +44,24 @@ export const gateImage = {
 } as const;
 
 /**
- * Gallery sets per floor, for the Phase 3 lightbox. Recorded now rather than
- * wired, because no lightbox exists yet — there is nothing to stub.
+ * The menu overlay's panel image, shown only above 1100px.
+ *
+ * Reframed to 3:4 in CSS with object-fit and a chosen object-position, NOT by
+ * deriving a cropped file. That distinction matters: REBUILD.md §4 forbids
+ * manufacturing portrait frames from landscape renders, because doing so would
+ * let the mobile-hero decision be closed on evidence that does not exist. A
+ * decorative panel cropped at display time is not evidence of anything; a
+ * committed portrait asset would look like it was.
+ */
+export const menuImage = {
+  src: '/renders/source/ENT-005-002.jpeg',
+  alt: 'The library wall, in oak.',
+  /** Bias the 3:4 crop away from the empty plaster on the left. */
+  objectPosition: '68% 50%',
+} as const;
+
+/**
+ * Gallery sets per floor, for the lightbox.
  */
 export const galleries: Record<number, readonly string[]> = {
   1: ['ENT-004-001', 'ENT-005-002', 'ENT-006-003', 'ENT-007-004', 'ENT-008-008', 'ENT-009-009'],
@@ -47,21 +79,28 @@ export const slides: Slide[] = [
   },
   {
     label: 'First Floor',
+    chrome: 'dark',
     src: '/renders/source/ENT-003-000.jpeg',
     alt: 'The entrance foyer, with a curved plaster wall, upholstered bench and oak library shelving beyond.',
   },
   {
     label: 'Second Floor',
+    // The one dark interior: white measures 5.60:1 at the pip rail here where
+    // warm measures 1.13:1. It is the same property that made INT-022-034 the
+    // right choice for the gate.
+    chrome: 'light',
     src: '/renders/source/INT-008-009.jpeg',
     alt: 'The kitchen in rift oak, with green-veined marble counters and the terrace beyond.',
   },
   {
     label: 'Third Floor',
+    chrome: 'dark',
     src: '/renders/source/INT-020-033.jpeg',
     alt: 'The primary bathroom, in oak, stone and mosaic tile.',
   },
   {
     label: 'Fourth Floor & Roof',
+    chrome: 'dark',
     src: '/slides/04-fourth-floor.jpg',
     alt: 'A bathroom in oak, stone and mosaic tile.',
     placeholder: 'PLACEHOLDER — no roof-terrace render exists. Blocked on StudioSC.',

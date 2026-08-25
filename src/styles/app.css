@@ -6,6 +6,8 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+:root { --scrim-value: 0 0 0; }
+
 html {
   /* font-size comes from tokens.css — the fluid rem root. */
   height: 100%;
@@ -62,14 +64,14 @@ body {
   bottom: 0;
   z-index: 5;
   height: var(--scrim-h-mobile);
-  background: var(--scrim-mobile);
+  background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.6));
   pointer-events: none;
 }
 
 @media (min-width: 650px) {
   .stage::after {
     height: var(--scrim-h-desktop);
-    background: var(--scrim-desktop);
+    background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.3));
   }
 }
 
@@ -111,7 +113,7 @@ body {
   top: 0;
   z-index: 5;
   height: 12.5rem;
-  background: linear-gradient(180deg, var(--c-black) 0, transparent);
+  background: linear-gradient(180deg, rgb(var(--scrim-value)) 0, transparent);
   opacity: 0.25;
   pointer-events: none;
 }

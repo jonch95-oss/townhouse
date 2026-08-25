@@ -2,14 +2,60 @@
    chrome.css — the persistent furniture. motion-spec.md §6 and sections.md
    "Persistent chrome". None of it hides on scroll, because there is no scroll.
 
-   White chrome over imagery is kept legible by the scrims in app.css, not by
-   a blend mode. Difference blending inverts warm hues toward cyan, which would
-   fight the palette sampled off the renderings — and it would do it worst over
-   exactly the blown-out sky it was compensating for. The utility below stays
-   available and unused.
+   CHROME INVERTS ON THE INTERIOR SLIDES.
+
+   The principle the reference follows is that chrome contrasts with imagery,
+   not that chrome is white. Its photography is art-directed dark at the edges,
+   so white is the contrasting choice there. Every one of our interior renders
+   is high-key — pale plaster, blown ceilings, clipped windows — so the same
+   principle produces the opposite answer, and slides 1-4 take warm chrome on
+   the imagery instead.
+
+   The hero keeps white (bright sky, but the scrim carries it), the contact
+   slide keeps white (it sits on the warm ground itself), and the intro gate
+   keeps white because INT-022-034 is the one dark image in the set — which is
+   precisely why it was chosen for the gate.
+
+   One variable does the whole switch.
    ========================================================================== */
 
-.u-difference { mix-blend-mode: difference; }
+:root {
+  --chrome-ink: var(--c-white);
+  /* A halo in the opposite value, so a floating element carries its own
+     contrast rather than depending on what happens to be behind it. */
+  --chrome-halo: rgb(0 0 0 / 0.35);
+}
+
+.is-interior {
+  --chrome-ink: var(--c-warm);
+  --chrome-halo: rgb(255 255 255 / 0.55);
+}
+
+/*
+ * The scrims invert with the ink. A black scrim under dark chrome is
+ * self-defeating — it darkens exactly the ground the ink needs to sit on. The
+ * mechanism stays; only its value flips.
+ */
+.is-interior .stage::before,
+.is-interior .stage::after { --scrim-value: 255 255 255; }
+
+/*
+ * Even inverted, one image defeats a uniform rule: INT-008-009 is dark exactly
+ * where the pip rail sits, so warm ink there measures 1.09:1 raw and only
+ * 2.46:1 under a 40% veil. The halo closes it without a panel, a fourth colour
+ * or per-image tuning, and it is what mapping and video UI use for the same
+ * problem.
+ */
+.menu-toggle,
+.scroll-hint {
+  text-shadow:
+    0 0 0.2em var(--chrome-halo),
+    0 0 0.5em var(--chrome-halo);
+}
+
+.menu-toggle__icon::before,
+.menu-toggle__icon::after,
+.pip__svg { filter: drop-shadow(0 0 0.15em var(--chrome-halo)) drop-shadow(0 0 0.35em var(--chrome-halo)); }
 
 .chrome {
   position: fixed;
@@ -37,8 +83,9 @@
   padding: 0;
   border: 0;
   background: none;
-  color: var(--c-white);
+  color: var(--chrome-ink);
   cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 @media (min-width: 650px) {
@@ -91,7 +138,8 @@
   transform: translateY(-50%);
   flex-direction: column;
   gap: var(--gutter) 0;
-  color: var(--c-white);
+  color: var(--chrome-ink);
+  transition: color var(--dur-fast) var(--ease-out);
 }
 
 @media (min-width: 650px) {
@@ -134,9 +182,10 @@
   padding: 0;
   border: 0;
   background: none;
-  color: var(--c-white);
+  color: var(--chrome-ink);
   font-size: var(--t-12);
   cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
   white-space: nowrap;
 }
 
@@ -176,6 +225,31 @@
   border: var(--border-hairline);
   border-radius: var(--radius-lg);
   transform-origin: bottom right;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+/* The card inverts too: a white card on pale plaster is not contrast either. */
+.is-interior .section-label {
+  background: var(--c-warm);
+  color: var(--c-white);
+  border-color: var(--c-white-40);
+}
+
+.is-interior .section-label__rule { background: var(--c-white-40); }
+
+.is-interior .section-label__expand {
+  border-color: var(--c-white-40);
+  color: var(--c-white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .is-interior .section-label__expand:hover {
+    background-color: var(--c-white);
+    color: var(--c-warm);
+  }
 }
 
 @media (min-width: 650px) {
