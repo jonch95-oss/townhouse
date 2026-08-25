@@ -61,15 +61,24 @@ that before adding anything.
 
 | | Status |
 |---|---|
-| **Phase 3** — menu overlay, floor panel, lightbox | Not started. The menu toggle and the section-label `[+]` animate and report state but have nothing to open. |
-| **Phase 4** — WebGL | Not started, deliberately. See below. |
-| Intro gate / preloader | Not started. The type rule for its headline exists (`.intro__title`) but no gate component does. |
+| **Phase 3** — menu overlay, lightbox | **Built.** The floor panel behind the section-label `[+]` is not. |
+| **Phase 4** — transition shader | **Built, and off.** See below. |
+| **Phase 4** — clamped orbit | Not started. It needs a glTF model that does not exist. |
+| Intro gate / preloader | Not started. The type rule (`.intro__title`) and the image (`gateImage`) exist; no gate component does. |
 
 **On WebGL**, `spec/REBUILD.md` §3 splits it into three layers with a separate
-build/don't-build call on each. Summarised: the transition shader is worth building; the
-orbitable building (a fixed-distance, angle-clamped `OrbitControls` orbit — `spec/motion-spec.md`
-§7.1) is worth building and less work than it looks; the procedural sky is not, and does
-not transfer to a Brooklyn townhouse. Read that section before spending anything.
+build/don't-build call on each.
+
+- **The transition shader is built and is OFF.** Enable it with `?shader=1`. It implements
+  the same `SlideRenderer` interface as the crossfade, so the slide machine drives it with
+  exactly the timeline that drives the crossfade — same `snappy` ease, same 1.5s and 2.25s.
+  It is deliberately **not tuned**: four of seven screens are still placeholders, and
+  tuning a wipe against stand-in imagery is wasted work. The crossfade is the shipping
+  path. Vite code-splits it, so the 466 KB chunk is not fetched unless the flag is set.
+- **The clamped orbit is not built.** It needs a glTF model of the building that does not
+  exist. `spec/motion-spec.md` §7.1 has the full specification for when one does.
+- **The procedural sky should not be built.** It does not transfer to a Brooklyn
+  townhouse; see `spec/REBUILD.md` §3.
 
 ---
 
@@ -155,9 +164,10 @@ gate read as a threshold rather than a heading. Only the sub-650 override gives 
 
 ---
 
-## `src/lib/overlay.ts` — read this before building Phase 3
+## `src/lib/overlay.ts` — the keyboard contract
 
-**Nothing imports it. That is intentional.**
+Both the menu and the lightbox are built on it. It was written in Phase 2 with nothing
+importing it, precisely so neither could be built without keyboard support.
 
 `spec/motion-spec.md` §9 calls the reference gallery's total absence of keyboard support
 "the clearest defect in an otherwise meticulous build": no Escape, no arrow keys, no focus
@@ -168,8 +178,10 @@ ArrowDown inside the gallery quietly drives the slide machine underneath.
 listens in the **capture phase** so those keys never reach the slide machine. It is
 verified by `scripts/verify-overlay.mjs`, including that specific defect.
 
-It exists so that the Phase 3 menu overlay and lightbox cannot be built without keyboard
-support. Use it.
+`scripts/verify-phase3.mjs` checks that specific defect on the real lightbox: arrow keys
+inside the open gallery page the gallery and leave the slide machine where it was.
+
+Anything else full-screen — the floor panel, the intro gate — goes through it too.
 
 ---
 
@@ -189,6 +201,11 @@ are wired to them, at or near the 2440px target the reference uses:
 | 2nd floor | `INT-008-009` — kitchen, terrace beyond | 2400 × 1350 |
 | 3rd floor | `INT-020-033` — primary bathroom | 3200 × 1800 |
 | intro gate | `INT-022-034` — powder room | 1440 × 1762 |
+| menu panel | `ENT-005-002` — reframed to 3:4 in CSS | 2400 × 1350 |
+
+The menu panel is reframed to 3:4 with `object-fit` and a chosen `object-position`, **not**
+by deriving a cropped file — a decorative crop at display time is not evidence of anything,
+where a committed portrait asset would look like it was.
 
 The gate image is deliberately a room that **does not show the building**, so the gate no
 longer spends the reveal the entrance sequence and hero are meant to pay off. The gate
@@ -213,7 +230,6 @@ single longest-lead item in the project and nothing in this repo can shorten it.
 |---|---|
 | **Hero / exterior** | No usable asset. See above. |
 | **4th floor / roof terrace** | Never rendered. A bathroom stands in, marked `PLACEHOLDER` in `src/data/slides.ts`. |
-| **Menu panel image** | The Phase 3 menu takes a portrait image at `aspect-ratio: .75` above 1100px. Nothing suitable exists. |
 | **Every portrait frame** | **No separately framed portrait asset exists for any slide.** This blocks the mobile-hero decision. |
 
 **Do not generate portrait frames by cropping the landscapes.** `spec/REBUILD.md` §4 is
@@ -222,17 +238,39 @@ experience can carry zero words. A centre-crop would let the mobile-hero decisio
 closed on false evidence — the same failure mode as measuring type against a fallback
 font, which already cost this project a round.
 
-### Chrome legibility is an art-direction dependency, not a styling backlog
+### Chrome polarity is a property of each image
 
-Measured against the real renders, white chrome fails on two of the three interiors. The
-numbers and the recommendation are in `docs/review/` and were reported separately; the
-short version is that **no single chrome colour clears all three slides**, because the
-renders are high-key on average but contain dark regions exactly where some chrome sits.
-Switching chrome to the warm neutral inverts which slides fail rather than fixing them.
+The reference is white throughout because its photography is art-directed dark at the
+edges. Ours is the inverse — pale plaster, blown ceilings, clipped windows — so the same
+principle (*chrome contrasts with imagery*) gives the opposite answer, and the chrome
+inverts to the warm neutral over most slides. The scrims invert with it: a black scrim
+under dark ink darkens exactly the ground the ink needs.
 
-This resolves when the renders are regraded or replaced. The requirement to hand to
-whoever does that: **a darkened band at the right edge and along the bottom**, which is
-what the reference art-directs and why its identical chrome survives.
+**It is declared per image, not per slide range**, as `chrome: 'light' | 'dark'` in
+`src/data/slides.ts`. `INT-008-009` is the one dark interior in the set: warm ink measures
+1.13:1 at the pip rail over it where white measures 5.60:1. A range rule fixes the pale
+images and breaks that one. It is the same property that made `INT-022-034` the right
+choice for the gate.
+
+Measured with `scripts/verify-chrome-contrast.mjs`, which screenshots the composited page
+and reads pixels rather than modelling the stack:
+
+| Slide | ink | menu toggle | pip rail | scroll hint | section label |
+|---|---|---:|---:|---:|---:|
+| hero *(placeholder)* | white | 8.54:1 | **1.53:1** | 10.86:1 | 6.12:1 |
+| 1st entrance | warm | **2.42:1** | 4.61:1 | 3.62:1 | 6.12:1 |
+| 2nd kitchen | white | 4.09:1 | 5.75:1 | 6.28:1 | 6.12:1 |
+| 3rd primary bath | warm | **2.99:1** | **2.45:1** | 4.17:1 | 6.12:1 |
+
+Floating chrome also carries a halo in the opposite value, so it does not depend entirely
+on what happens to be behind it. The halo is a local edge treatment and does not show up
+in the table, which measures ink against median ground.
+
+**What is still short:** the hero pip rail (a placeholder image), and the menu toggle and
+pip rail over the primary bath, which is mid-tone enough that neither polarity clears 3:1.
+Those close when the renders are regraded or replaced, not in CSS. The requirement to hand
+whoever does it: **a darkened band at the right edge and along the bottom**, which is what
+the reference art-directs and why its identical chrome survives everywhere.
 
 ## Copy status
 
