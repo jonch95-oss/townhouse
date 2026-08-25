@@ -17,14 +17,20 @@ export const copy = {
   preloader: 'Loading',
 
   /**
-   * Intro gate. "BRICK AND TERRACOTTA" is the material palette from p13 of the
-   * Landmarks deck, which lists SK1N Terra PG terracotta cladding first and
-   * Glen Gery Potenza Raw brick veneer second. Both are true of the building,
-   * and p12 cites brick ornamentation at 185 and 226 Waverly as the site
-   * "fabric" the design answers to.
+   * Intro gate. The material palette from p13 of the Landmarks deck, which
+   * lists SK1N Terra PG terracotta cladding first and Glen Gery Potenza Raw
+   * brick veneer second — so this order matches the deck's own. Both materials
+   * are true of the building, and p12 cites brick ornamentation at 185 and 226
+   * Waverly as the site "fabric" the design answers to.
+   *
+   * Terracotta leads on typographic grounds too: at 10, 3 and 5 characters the
+   * stack narrows as it descends, resolving on a hard monosyllable, where
+   * BRICK / AND / TERRACOTTA keeps opening and ends unresolved. It also sits
+   * with the building's descending roofline rather than against it. Both
+   * orderings were rendered at 390 before choosing — see docs/review/.
    */
   intro: {
-    headline: ['BRICK', 'AND', 'TERRACOTTA'],
+    headline: ['TERRACOTTA', 'AND', 'BRICK'],
     paragraph:
       '223 Waverly Avenue is a new house in the Clinton Hill Historic District, in the materials of the street around it.',
     primary: 'Step inside',
