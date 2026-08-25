@@ -98,7 +98,9 @@ behaviour.
 
 ## A note on fonts
 
-`src/styles/fonts.css` loads Instrument Serif and Inter Tight from Google Fonts as
-stand-ins for the licensed faces the design calls for. Self-host before launch — see the
-fonts section of [`HANDOFF.md`](HANDOFF.md), which also explains why every screenshot in
-`docs/review/` was rendered in a fallback serif.
+Fonts are **self-hosted** — three woff2 files under `src/styles/fonts/`, 65 KB, declared
+in `src/styles/fonts.css`. The page makes no external font requests.
+
+Instrument Serif and Inter Tight are stand-ins for the licensed faces the design calls
+for. Swapping in the real files means replacing three `src:` urls and nothing else. See
+the fonts section of [`HANDOFF.md`](HANDOFF.md).

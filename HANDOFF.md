@@ -259,25 +259,43 @@ sheet each figure came from. Two cautions carried in it:
 
 ---
 
-## Fonts — a real caveat
+## Fonts
 
-`src/styles/fonts.css` pulls **Instrument Serif** and **Inter Tight** from Google Fonts as
-stand-ins. The reference uses Teodor (Pangram Pangram) and Neue Haas Grotesk Text Pro
-(Monotype), both licensed, both self-hosted, 95 KB for all typography
-(`spec/assets.md` §6).
+**Self-hosted. Three woff2 files, 65 KB, committed under `src/styles/fonts/` and
+fingerprinted by Vite. Zero external font requests** — verified: loading the page issues
+no request to any host but localhost.
 
-Two things to know:
+This matches what the reference does (three files, 95 KB, self-hosted, no font CDN —
+`spec/assets.md` §6) and is the right call regardless: nothing third-party on the critical
+path, and no FOUT that depends on someone else's uptime.
 
-1. **Self-host before launch.** It matches the reference, removes a third-party network
-   dependency from the critical path, and is one file to change.
-2. **The webfonts do not load in the sandbox this was developed in** — the egress proxy
-   resets connections to `fonts.googleapis.com`. Everything renders in the fallback serif
-   there. **All type measurements and screenshots in `docs/review/` were taken against
-   the fallback stack, not the real faces.** The intro headline fit in particular has only
-   ~2.5% margin at 390 and must be re-measured once the real faces are in place.
-   `scripts/verify-phase2.mjs` re-runs that measurement.
+The faces are **Instrument Serif** (display) and **Inter Tight** at 400 and 500 (text),
+both SIL Open Font License 1.1. They are stand-ins for the licensed faces the design calls
+for — Teodor (Pangram Pangram) and Neue Haas Grotesk Text Pro (Monotype). Swapping in the
+real files means replacing three `src:` urls in `src/styles/fonts.css` and nothing else;
+the family names the rest of the codebase uses are declared there.
 
----
+### Open: the intro headline is sized more conservatively than it needs to be
+
+Worth knowing before anyone reopens the type.
+
+The intro headline's two size overrides were chosen while the webfonts were failing to
+load in the development sandbox, so they were measured against a **fallback serif that is
+substantially wider than Instrument Serif**. With the real face now in place, `TERRACOTTA`
+at 390 needs 265px where the fallback needed 341px — the margin went from 2.5% to 24.2%.
+
+Both overrides are still *necessary* — the original spec values overflow even in the real
+face, by 19.8% at mobile and 8.5% at 650 — but the specific numbers are now more cautious
+than the evidence requires:
+
+| Band | Shipping | Margin | Could be | Margin | Note |
+|---|---|---:|---|---:|---|
+| below 650 | 4rem / `.2em` | 24.2% | 4rem / `.375em` | ~4.3% | restores the wide tracking everywhere, but thin |
+| 650–1100 | 6.5rem / `.375em` | 29.5% | 8rem / `.375em` | ~13.1% | 23% larger, and matches the spec's own tablet step |
+
+Nothing is broken as it stands. This is a design call about how much of the gate's scale
+to reclaim, and it should be made by looking at it rather than at the table.
+`scripts/verify-phase2.mjs` re-measures whatever you choose across thirteen viewports.
 
 ## Verification
 
@@ -294,7 +312,8 @@ node scripts/verify-reduced-motion.mjs # hard cut, not a scaled tween
 ```
 
 They drive a real browser and read computed styles, so they catch things review does not.
-Two defects were found this way that were invisible at normal zoom: every pip rendering as
-a clipped half-diamond (an SVG `transform` attribute compounding with a CSS
-`transform-origin`), and the mobile display rules being silently undone by source order at
-equal specificity.
+Three problems were found this way that were invisible to inspection: every pip rendering
+as a clipped half-diamond (an SVG `transform` attribute compounding with a CSS
+`transform-origin`), the mobile display rules being silently undone by source order at
+equal specificity, and the webfonts silently failing to load — which had quietly invalidated
+every type measurement taken before it was caught.
