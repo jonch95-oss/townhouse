@@ -48,7 +48,7 @@ The entire site is **three colours**. No dark mode exists — there is no
 
 | Token | Hex | rgb | Where it is used |
 |---|---|---|---|
-| **gold** | `#7c7262` | `124 114 98` | The only brand colour. Preloader %, "LOADING", contact card text and border, gallery caption, button borders and fill, floorplan chrome, menu index numbers. A warm taupe/bronze — reads as brass, not yellow. |
+| **gold** | `#7c7262` | `124 114 98` | The only brand colour. Preloader %, "LOADING", contact card text and border, gallery caption, button borders and fill, floorplan chrome, menu index numbers. A warm taupe/bronze — reads as brass, not yellow. **Once, it inverts**: the full-screen menu overlay uses it as a solid ground with white type on top. That single inversion is the whole reason the menu feels like a different room rather than a panel. |
 | **white** | `#ffffff` | `255 255 255` | Page ground, preloader ground, the two curtain masks, the contact card, gallery arrow buttons, all copy set over imagery. |
 | **black** | `#000000` | `0 0 0` | **Never used solid.** Only at 10 % (intro scrim) and 50 % (lightbox backdrop), plus the interiors' top/bottom vignette at 25 % opacity. |
 

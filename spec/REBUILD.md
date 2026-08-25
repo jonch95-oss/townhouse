@@ -155,7 +155,9 @@ It's the one clear defect in an otherwise meticulous build and it takes an hour 
 
 ### Phase 4 — decide about WebGL (day 6+, or never)
 
-Now that you have a working site, decide honestly. See §3.
+Now that you have a working site, decide honestly. See §3 — short version: build the
+transition shader, build the clamped orbit if you want the building turnable, and do not
+build a procedural sky.
 
 ### Phase 5 — the thing they skipped
 
@@ -183,7 +185,7 @@ JS fails — right now their page is empty without it.
 
 ## 3. The WebGL question — read this before you spend money
 
-Their site has two Three.js layers and they are very different propositions.
+Their site has three Three.js layers and they are very different propositions.
 
 **Layer A — the transition shader.** A single full-screen quad. The whole thing is about
 40 lines of GLSL and it does: `object-fit: cover` in-shader, a hard-edged horizontal wipe
@@ -195,7 +197,27 @@ it is the actual signature of the site, and there is no good DOM equivalent — 
 the wipe with `clip-path` but you cannot easily make the two images counter-parallax
 behind a moving hard edge. Budget one day and take it.
 
-**Layer B — the procedural sky.** Five layered cloud sprites drifted against each other by
+**Layer B — the orbitable building.** A real 6.03 MB glTF model of the tower with
+`THREE.OrbitControls` attached: press and hold for 100 ms and you can rotate around it.
+Zoom disabled, distance fixed, polar angle clamped to a 23.4° band so every reachable
+angle is a good one. Full spec in `motion-spec.md` §7.1.
+
+**Worth it for you, and less work than it looks.** Almost all the difficulty in a 3D
+web experience is a free camera — models that look wrong from below, framing that falls
+apart, a mobile GPU budget you can't predict. A *fixed-distance, angle-clamped* orbit of
+a single building removes all of that: it is OrbitControls with four properties set, and
+the clamp does the art direction for you. Two to three days including the model.
+
+For a four-storey townhouse the natural version is a slow orbit of the facade — or, better,
+a **massing/section model** you can turn, so the visitor sees how the four floors stack.
+Your GC set has the floor plates, heights, elevations and section to build it accurately,
+which is exactly the geometry a massing model needs and nothing more.
+
+Steal all three of their details: replay the original `mousedown` into the controls so
+press-and-hold flows into the drag without a break; clamp the polar angle hard; and make
+the release duration proportional to how far the visitor rotated.
+
+**Layer C — the procedural sky.** Five layered cloud sprites drifted against each other by
 a curl-noise map, four city silhouette plates, a tinting ramp, an HDR environment map, two
 lens flares, and a seeded generator. **6.9 MB of textures, all of it blocking the
 preloader.**
@@ -305,8 +327,10 @@ Not everything on their site is worth copying.
    capturing and had to reload to get past it. Gate on both conditions with a computed, not
    on one watcher.
 2. **Ship a fallback for `Enter`.** The entire site is behind a click. No JS, no site.
-3. **Compress the scene textures.** Nine unoptimised PNGs, 6.9 MB, blocking. Three.js
-   r173 supports KTX2/Basis and their bundle already includes the loader.
+3. **Compress the scene textures and the model.** Nine unoptimised PNGs (6.9 MB) plus an
+   uncompressed 6.03 MB `.glb` — about 13 MB blocking the preloader. Their bundle already
+   ships the Draco, meshopt and KTX2 loaders and uses none of them. Draco on the model
+   alone would typically take it under 1.5 MB.
 4. **Serve adaptive video.** They request Mux `high.mp4` only — an 11 MB progressive
    download — while the code checks for `mp4medium`/`mp4low` variants the CMS never fills
    in. Use HLS.

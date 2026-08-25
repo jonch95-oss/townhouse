@@ -257,9 +257,12 @@ gsap.registerEffect({
 | Menu links | whole elements (`.js-slide`) | `yPercent` | 100 → 0 | 1.5 s | 0.05 | `unmask` |
 | Contact card contents (`.js-fade-up`) | not split | `y` + `alpha` | `3rem` → 0, 0 → 1 | 1.5 s | 0.1 | `unmask` |
 
-**Never by character except once.** Character-level animation is spent entirely on the
-three words of the intro headline, and never used again. Everything else is by line or
-by whole element. This is the discipline that keeps it from feeling like a template.
+**Character-level animation is used exactly twice on the whole site**, and never for a
+reveal after the first screen: once on the three words of the intro headline (random
+order), and once on the looping "Scroll to explore" hint, where each character dims to
+`alpha: .125` and back on a 3 s infinite loop, `stagger: .05`, `linear` — the only thing
+on the site that moves when the visitor does nothing. Everything else reveals by line or
+by whole element. That discipline is what keeps it from feeling like a template.
 
 Note the alpha targets of **0.7** on the hero eyebrow and paragraph — the secondary copy
 never reaches full white. Small, and it does a lot of the work.
@@ -517,22 +520,90 @@ a 7 px diamond dot, a text stack to the right (`left: 100%`, `padding-left: 1.5r
 Also: any slide index > 0 forces `.is-active`, so the ring is only at full size on the
 hero.
 
-### 7.1 Press and hold
+### 7.1 Press and hold — and the orbitable 3D model behind it
 
-On `mousedown` over the canvas, on slide 0, when entered:
+This is the most substantial interaction on the site and the easiest to miss, because
+nothing labels it beyond the two words on the cursor.
+
+**The DOM half.** On `mousedown` over the canvas, on slide 0, when entered:
 
 ```js
 gsap.delayedCall(hasMouse ? 0.1 : 0.5, () => {
   flags.entered = false; flags.zoomed = true    // wheel locked, cursor switches to arrows
-  gl.setState(ZOOM)                             // camera pushes in on the city
+  gl.setState(ZOOM)
 })
 // mouseup:
 gl.setState(CITY); flags.entered = true; flags.zoomed = false
 ```
 
 **100 ms** hold threshold with a mouse, **500 ms** on touch. The hero copy fades out
-(`fade`, 0.5 s) while zoomed. This is the interaction the cursor has been advertising
-since the page loaded.
+(`fade`, 0.5 s) while zoomed, and the cursor swaps its dot for a `‹ ›` pair.
+
+**The WebGL half.** `setState(ZOOM)` is only reachable from `CITY` — it is explicitly
+refused from any other state. It pushes the camera in on a **real glTF model of the
+tower**, `/gl/sothebys_111w57_04.glb` (**6.03 MB**), and then hands you
+**`THREE.OrbitControls`**:
+
+```js
+await transitionToZoom()
+zoomControls = new OrbitControls(camera, domElement)
+zoomControls.enabled = false
+zoomControls.target.copy(currentLookAt)
+zoomControls.enabled = true
+zoomControls.enableDamping = true
+zoomControls.rotateSpeed   = isTouch ? 1 : 2
+zoomControls.minPolarAngle = Math.PI * 0.62      // 111.6 degrees
+zoomControls.maxPolarAngle = Math.PI * 0.75      // 135 degrees
+zoomControls.enableZoom    = false
+zoomControls.update()
+storeControlsCoordinates(zoomControls)
+
+// replay the ORIGINAL mousedown into the controls so press-and-hold flows
+// straight into a drag with no discontinuity:
+zoomControls._onPointerDown(originalMouseEvent)
+originalMouseEvent.constructor.name === 'Touch'
+  ? zoomControls._onTouchStart(originalMouseEvent)
+  : zoomControls._onMouseDown(originalMouseEvent)
+zoomControls.update()
+```
+
+So: **you can orbit the building.** Azimuth is unconstrained; the polar angle is clamped
+to a **23.4-degree band between 111.6° and 135°**, so you can only ever look *up* at the
+tower from below, and never over the top of it or level with it. Zoom is disabled —
+distance is fixed. Damping is on.
+
+Three details worth stealing:
+
+1. **The event replay.** They pass the original `mousedown` straight into OrbitControls'
+   private handlers. Without it, the visitor would press, wait 100 ms for the zoom, and
+   then have to *release and press again* to start rotating. With it, the same continuous
+   press becomes the drag. This is the difference between the interaction feeling like one
+   gesture and feeling like two.
+2. **The polar clamp is the art direction.** A free orbit would let you find every bad
+   angle on the model. A 23-degree band means every frame you can reach is a hero shot.
+3. **The exit duration is proportional to how far you rotated.** Releasing tweens the
+   spherical coordinates back to the stored ones:
+
+```js
+const t = { theta: getAzimuthalAngle(), phi: getPolarAngle(), radius: getRadius() }
+const duration = Math.min(Math.abs(t.theta - theta0) + Math.abs(t.phi - phi0), 1)
+gsap.to(t, { theta: theta0, phi: phi0, radius: radius0, duration, ease: 'power3.inOut',
+             onUpdate: () => { setAzimuthAngle(t.theta); setPolarAngle(t.phi);
+                               setRadius(t.radius); update() } })
+```
+
+   Duration is `min(Δazimuth + Δpolar, 1)` seconds — a small nudge snaps back instantly, a
+   full swing takes the whole second. Nothing feels laggy and nothing feels abrupt.
+
+The model also carries **two hotspot meshes**, positioned in normalised model space at
+`{x: .05, y: -.3}` and `{x: -1.06, y: -.33}`, on a holder at `y: 2` that is re-oriented to
+face the camera every frame (`hotspotsHolder.lookAt(camera.position)`). The model itself
+sits at `{x: -0.21, y: -9.5, z: 8.21}`, `rotation: -0.4916 rad`, `scalarScale: 7.66`.
+
+**Environment:** two **UltraHDR** JPEGs — `HDR_AboveTheClouds.test.jpg` as the background
+(rotated `-3.04 rad`) and `sothebys_111w57_reflection_Blurred.jpg` as the environment map
+(rotated `-2.112 rad`). That second one is what puts a plausible sky reflection in the
+tower's glass, and it is why the model reads as a photograph rather than a render.
 
 ---
 
@@ -651,8 +722,9 @@ defect in an otherwise meticulous build.
   `observe-vid` directive backed by `IntersectionObserver`.
 - **There is no background video.** The moving sky behind the hero and the contact slide
   is **procedurally generated WebGL**, not a video loop — there is a seeded cloud
-  generator (`current cloud seed: 7059401` is logged on boot). That is why the sky is
-  sharp at any viewport size and costs no bandwidth.
+  generator (`current cloud seed: 7059401` is logged on boot). The tower itself is a
+  6.03 MB glTF model. That is why it stays sharp at any viewport size, and why you can
+  orbit it (§7.1) — neither is possible with a video loop.
 - **Low-power detection:** on boot the site attempts to play a tiny muted video and
   checks whether it stayed paused. If it did (iOS low-power mode), `lowPowerMode` is set
   and **every video is replaced by its poster frame** for the session. Elegant, and cheap
