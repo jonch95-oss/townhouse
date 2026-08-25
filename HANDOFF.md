@@ -175,53 +175,64 @@ support. Use it.
 
 ## Blocked on assets
 
-None of these is a CSS problem. They are all waiting on photography.
+Some of this is now resolved. What remains is not a CSS problem.
 
-### Highest priority: the intro gate needs its own image
+### Resolved: floors 1–3 are on real renders
 
-The intro gate has no usable frame, and the problem is not resolution.
+27 renders were extracted from the StudioSC decks at full embedded resolution and are
+committed under `public/renders/source/` with provenance in the README there. Three slides
+are wired to them, at or near the 2440px target the reference uses:
 
-The image currently standing in contains **a traffic cone, a parked car and a chain-link
-fence**. The headline is set over mid-tone brick coursing whose horizontal banding runs at
-roughly the same visual frequency as the `.375em` letterspacing, so the type and the
-masonry compete instead of separating.
+| Slide | Render | Resolution |
+|---|---|---|
+| 1st floor | `ENT-003-000` — entrance / foyer / library | 2400 × 1350 |
+| 2nd floor | `INT-008-009` — kitchen, terrace beyond | 2400 × 1350 |
+| 3rd floor | `INT-020-033` — primary bathroom | 3200 × 1800 |
+| intro gate | `INT-022-034` — powder room | 1440 × 1762 |
 
-More fundamentally: **it shows the building.** The reference's gate shows only sky. The
-tower is withheld through the gate, revealed across the entrance descent, and fully seen
-only once you reach the hero. Our gate is currently doing the hero's job one screen early
-and spending the reveal before it has been set up.
+The gate image is deliberately a room that **does not show the building**, so the gate no
+longer spends the reveal the entrance sequence and hero are meant to pay off. The gate
+component itself is Phase 4; the asset is wired in `src/data/slides.ts` as `gateImage` so
+it is not lost.
 
-What is needed is an **atmospheric frame that earns the words without spending the
-reveal** — sky, the street, or the terracotta in close-up. No site furniture in shot. The
-facade belongs on the hero, not before it.
+Gallery sets for floors 1–3 are recorded in the same file as `galleries`. They are not
+wired because no lightbox exists yet — there is nothing to stub.
 
-### The rest
+### Sharper, and worse than previously recorded: the hero
+
+735 × 633 **is** the resolution of the image inside the Landmarks PDF, which was exported
+at 72ppi. Re-exporting the PDF at any DPI cannot recover detail that is not in the file.
+
+This was previously written up as though a better export would help. It will not. The fix
+is **StudioSC's source render, or a re-render** — an email, not a build step. It is the
+single longest-lead item in the project and nothing in this repo can shorten it.
+
+### Still blocked
 
 | What | Status |
 |---|---|
-| **Hero / exterior rendering** | The only exterior that exists is a **735 × 633** crop from the Landmarks deck (`assets/exterior/`). It is visibly soft upscaled to a 1440px stage. High-resolution originals have been requested from StudioSC. Longest-lead item in the project. |
-| **Per-floor portrait renderings** | None exist. Needed at **~786 × 1364** to revisit the mobile-hero decision above. A centre-crop of the landscape frame is not a substitute — the reference art-directs these separately and it shows. |
-| **Second floor** | No living-room rendering. The kitchen image currently stands in, and the kitchen is on the *first* floor per the LPC plans. |
-| **Third floor** | No bedroom renderings. A bathroom currently stands in. |
-| **Fourth floor / roof** | No roof-terrace rendering. The primary bathroom stands in — it is genuinely on this floor. |
+| **Hero / exterior** | No usable asset. See above. |
+| **4th floor / roof terrace** | Never rendered. A bathroom stands in, marked `PLACEHOLDER` in `src/data/slides.ts`. |
+| **Menu panel image** | The Phase 3 menu takes a portrait image at `aspect-ratio: .75` above 1100px. Nothing suitable exists. |
+| **Every portrait frame** | **No separately framed portrait asset exists for any slide.** This blocks the mobile-hero decision. |
 
-Every stand-in is marked with a `placeholder` note in `src/data/slides.ts` explaining
-what is actually missing.
+**Do not generate portrait frames by cropping the landscapes.** `spec/REBUILD.md` §4 is
+explicit that the reference shoots them separately, and that is precisely why its phone
+experience can carry zero words. A centre-crop would let the mobile-hero decision be
+closed on false evidence — the same failure mode as measuring type against a fallback
+font, which already cost this project a round.
 
-**Two open legibility issues are part of this, not separate:**
+### Chrome legibility is an art-direction dependency, not a styling backlog
 
-1. **Chrome over the hero.** White chrome sits on a blown-out sky in the lower right of
-   the only exterior image we have.
-2. **The pip rail** sits at mid-right, where neither scrim reaches, so white rings vanish
-   over a bright sky.
+Measured against the real renders, white chrome fails on two of the three interiors. The
+numbers and the recommendation are in `docs/review/` and were reported separately; the
+short version is that **no single chrome colour clears all three slides**, because the
+renders are high-key on average but contain dark regions exactly where some chrome sits.
+Switching chrome to the warm neutral inverts which slides fail rather than fixing them.
 
-Both were attempted in CSS and both attempts were reverted — a blend mode in the first
-case, a radial scrim in the second, which read as a grey panel at 1024 and 390. The
-reference has exactly the same exposure and survives it because its imagery is
-art-directed dark at the edges. **These resolve when the photography does. Treat them as
-blocked on renderings, not as a styling backlog.**
-
----
+This resolves when the renders are regraded or replaced. The requirement to hand to
+whoever does that: **a darkened band at the right edge and along the bottom**, which is
+what the reference art-directs and why its identical chrome survives.
 
 ## Copy status
 
