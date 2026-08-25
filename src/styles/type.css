@@ -113,3 +113,37 @@
 .plus.is-active::after {
   transform: rotate(0);
 }
+
+/* --------------------------------------------------------------------------
+   Intro gate headline.
+
+   tokens.md §3 gives 5rem mobile / 8rem tablet portrait / 10rem desktop at
+   .375em tracking. That works for a reference whose longest word is CLOUDS,
+   at six characters. Ours is TERRACOTTA, at ten: measured at 5rem/.375em it
+   needs 514px against the 350px available at 390.
+
+   So below 650 it drops to 4rem/.2em, which fits at 341px. Everything above
+   keeps the spec'd sizes and the wide .375em tracking — that tracking is what
+   makes the gate read as a threshold rather than a heading, and a global .2em
+   would make it look like the contact card.
+   -------------------------------------------------------------------------- */
+.intro__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-40);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) {
+  .intro__title {
+    font-size: var(--t-100);
+    letter-spacing: var(--ls-widest);
+  }
+}
+
+@media (orientation: portrait) and (min-width: 650px) and (max-width: 1100px) {
+  .intro__title { font-size: var(--t-80); }
+}

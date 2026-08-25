@@ -144,6 +144,19 @@
   .scroll-hint { bottom: 2.5rem; }
 }
 
+/*
+ * Between 650 and 900 the centred hint runs into the 35.5rem label box, which
+ * is right-aligned and eats nearly half the width once the root is pinned at
+ * the 8px floor. The reference has the same geometry and the same collision.
+ * Anchor the hint to the left gutter until there is room to centre it.
+ */
+@media (min-width: 650px) and (max-width: 899px) {
+  .scroll-hint {
+    left: var(--gutter);
+    transform: none;
+  }
+}
+
 /* --------------------------------------------------------------------------
    The section-label box. Bottom right — the one piece of persistent
    wayfinding, and the door to the floor panel in Phase 3.
