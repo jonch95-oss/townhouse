@@ -275,27 +275,63 @@ for — Teodor (Pangram Pangram) and Neue Haas Grotesk Text Pro (Monotype). Swap
 real files means replacing three `src:` urls in `src/styles/fonts.css` and nothing else;
 the family names the rest of the codebase uses are declared there.
 
-### Open: the intro headline is sized more conservatively than it needs to be
+### Decided: the intro headline ladder is 4 / 8 / 10
 
-Worth knowing before anyone reopens the type.
+The two size overrides were originally chosen while the webfonts were failing to load in
+the development sandbox, so they were measured against a **fallback serif substantially
+wider than Instrument Serif**. With the real face self-hosted, `TERRACOTTA` at 390 needs
+265px where the fallback needed 341px.
 
-The intro headline's two size overrides were chosen while the webfonts were failing to
-load in the development sandbox, so they were measured against a **fallback serif that is
-substantially wider than Instrument Serif**. With the real face now in place, `TERRACOTTA`
-at 390 needs 265px where the fallback needed 341px — the margin went from 2.5% to 24.2%.
+Both overrides are still necessary — the unmodified spec values overflow even in the real
+face, by 19.8% at mobile and 8.5% at 650. But the 650–1100 band was re-decided on that
+evidence and now sits at **8rem**, not the 6.5rem an earlier pass invented:
 
-Both overrides are still *necessary* — the original spec values overflow even in the real
-face, by 19.8% at mobile and 8.5% at 650 — but the specific numbers are now more cautious
-than the evidence requires:
+| Band | Size / tracking | Tightest margin |
+|---|---|---:|
+| below 650 | 4rem / `.2em` | 24.2% at 390 |
+| 650–1100, both orientations | **8rem** / `.375em` | 13.1% at 650 |
+| above 1100 | 10rem / `.375em` | 37.3% at 1101 |
 
-| Band | Shipping | Margin | Could be | Margin | Note |
-|---|---|---:|---|---:|---|
-| below 650 | 4rem / `.2em` | 24.2% | 4rem / `.375em` | ~4.3% | restores the wide tracking everywhere, but thin |
-| 650–1100 | 6.5rem / `.375em` | 29.5% | 8rem / `.375em` | ~13.1% | 23% larger, and matches the spec's own tablet step |
+8rem is `spec/tokens.md` §3's own tablet step, so the ladder reads 4 / 8 / 10 against the
+reference's 5 / 8 / 10. What we change is its **scope**: the spec applies 8rem to portrait
+only, which leaves landscape on the ≥650 rule while the root is pinned to the 8px floor —
+10rem is 80px at 650, and `TERRACOTTA` needs 671px into 618px of space. The step is right;
+the scope is not.
 
-Nothing is broken as it stands. This is a design call about how much of the gate's scale
-to reclaim, and it should be made by looking at it rather than at the table.
-`scripts/verify-phase2.mjs` re-measures whatever you choose across thirteen viewports.
+The reasoning for spending the size rather than the margin: the gate is the one screen
+where scale is the whole argument. Three words and a button, with nothing else carrying
+it. Under-sizing the threshold costs more than under-sizing anything else on the site.
+
+**On arithmetic versus looking at it.** This decision was reached from a width table, and
+a width table cannot see vertical crowding. So the gate was mocked at its real type rules
+and real copy and screenshotted before the change was accepted — `docs/review/gate-*.png`.
+Portrait confirmed the reasoning: monumental type, comfortable air. Short landscape did
+not, and that is recorded as its own requirement below.
+
+### Required for Phase 4: the gate needs a height-aware rule
+
+**This is not a consequence of choosing 8rem — it is true at every size in the band, and
+it is the reason the gate cannot simply be built to the width table.**
+
+On short landscape viewports the gate composition (three-line headline, paragraph, button,
+and the secondary link pinned at `bottom: 4rem`) does not fit vertically. Measured against
+the mock:
+
+| Viewport | 8rem | 6.5rem |
+|---|---|---|
+| 650 × 400 | button overlaps the link by 14px; 33px of air above a 67px line | no overlap, but 52px of air above a 55px line |
+| 844 × 390 — phone landscape | overlaps by 19px | **still overlaps**, 0px clearance |
+| 926 × 428 — phone landscape | 0px clearance | clears, 19px |
+
+Reverting to 6.5rem does not solve this; it only moves which viewports fail. The cause is
+the viewport height, not the type size.
+
+The reference solves it and the mechanism is already in the spec: `spec/tokens.md` §6
+documents aspect-ratio queries stepping the intro headline down on short, wide windows
+(`aspect-tight`), and `spec/responsive.md` §2 lists
+`(orientation: landscape) and (max-width: 1099px)` as a dedicated phone-landscape query.
+Build the gate with a height or aspect-ratio guard from the start rather than discovering
+this again.
 
 ## Verification
 
