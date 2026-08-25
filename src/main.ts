@@ -115,12 +115,14 @@ const menu = new Menu(
   () => {
     setOverlayOpen(false);
     menuToggle.setOpen(false);
+    document.body.classList.remove('menu-open');
   },
 );
 document.body.append(menu.el, lightbox.el);
 
 const menuToggle = new MenuToggle((open) => {
   setOverlayOpen(open);
+  document.body.classList.toggle('menu-open', open);
   if (open) menu.show();
   else menu.close();
 });
@@ -142,7 +144,9 @@ stage.addEventListener('click', () => {
 const sectionLabel = new SectionLabel(labels);
 const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
 
-chrome.append(menuToggle.el, pips.el, scrollHint.el, sectionLabel.el);
+chrome.append(pips.el, scrollHint.el, sectionLabel.el);
+// Above the menu overlay, so it can still be clicked to close — see chrome.css.
+document.body.appendChild(menuToggle.el);
 
 /**
  * Preload the first two slides, then open the gate. No percentage counter:

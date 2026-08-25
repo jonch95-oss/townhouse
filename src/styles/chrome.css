@@ -73,8 +73,21 @@
 /* --------------------------------------------------------------------------
    Menu toggle. Top-left on desktop, top-right on mobile.
    -------------------------------------------------------------------------- */
+/*
+ * The toggle lives outside .chrome and above the menu overlay. .chrome sets
+ * z-index: 10 and so creates a stacking context, which a child cannot escape —
+ * leaving the toggle buried under the open menu, labelled "Close" and
+ * unclickable. It stays below the lightbox, which is modal in a way the menu
+ * is not.
+ */
 .menu-toggle {
-  position: absolute;
+  position: fixed;
+  z-index: 25;
+  pointer-events: auto;
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
   top: 3rem;
   right: var(--gutter);
   display: inline-flex;
@@ -85,8 +98,12 @@
   background: none;
   color: var(--chrome-ink);
   cursor: pointer;
-  transition: color var(--dur-fast) var(--ease-out);
 }
+
+.is-ready .menu-toggle { opacity: 1; }
+
+/* Over the menu's warm ground the toggle is always white. */
+.menu-open .menu-toggle { color: var(--c-white); }
 
 @media (min-width: 650px) {
   .menu-toggle {
