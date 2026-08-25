@@ -114,31 +114,30 @@ const after3 = await page.evaluate(() => ({
 }));
 ok('section label follows the slide', after3.index === '04' && after3.title === 'Third Floor', `${after3.index} / ${after3.title}`);
 
-console.log('\n--- "TERRACOTTA" at the intro headline size ---');
-const fit = await page.evaluate(() => {
-  const probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;visibility:hidden;white-space:nowrap;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.375em;';
-  probe.textContent = 'TERRACOTTA';
-  document.body.appendChild(probe);
-  const at = (rem) => { probe.style.fontSize = rem; return probe.getBoundingClientRect().width; };
-  const out = { mobile5: at('5rem'), desktop10: at('10rem') };
-  probe.remove();
-  return out;
-});
-await page.setViewportSize({ width: 390, height: 844 });
-await page.reload({ waitUntil: 'networkidle' });
-const mobileFit = await page.evaluate(() => {
-  const probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;visibility:hidden;white-space:nowrap;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.375em;font-size:5rem;';
-  probe.textContent = 'TERRACOTTA';
-  document.body.appendChild(probe);
-  const w = probe.getBoundingClientRect().width;
-  probe.remove();
-  const gutter = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2 * 2;
-  return { w, avail: window.innerWidth - gutter };
-});
-console.log(`  at 390px: needs ${mobileFit.w.toFixed(0)}px, has ${mobileFit.avail.toFixed(0)}px available`);
-ok('"TERRACOTTA" fits at the mobile intro size (5rem)', mobileFit.w <= mobileFit.avail, `overflows by ${(mobileFit.w - mobileFit.avail).toFixed(0)}px`);
+console.log('\n--- intro headline fit, measured against the shipped .intro__title rule ---');
+for (const [w, h] of [[390, 844], [650, 900], [768, 1024], [1024, 768], [1440, 900], [1920, 1080]]) {
+  await page.setViewportSize({ width: w, height: h });
+  await page.goto(URL, { waitUntil: 'domcontentloaded' });
+  const r = await page.evaluate(() => {
+    const el = document.createElement('h1');
+    el.className = 'intro__title';
+    el.style.cssText = 'position:fixed;visibility:hidden;white-space:nowrap;';
+    document.body.appendChild(el);
+    el.textContent = 'TERRACOTTA';
+    const cs = getComputedStyle(el);
+    const size = cs.fontSize;
+    const em = (parseFloat(cs.letterSpacing) / parseFloat(cs.fontSize)).toFixed(3);
+    const widest = Math.max(...['BRICK', 'AND', 'TERRACOTTA'].map((t) => { el.textContent = t; return el.getBoundingClientRect().width; }));
+    const root = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    el.remove();
+    return { widest, avail: window.innerWidth - root * 4, size, em };
+  });
+  ok(
+    `intro headline fits at ${w}px (${r.size} / ${r.em}em)`,
+    r.widest <= r.avail,
+    `${Math.round(r.widest)}px into ${Math.round(r.avail)}px${r.widest > r.avail ? ` — over by ${Math.round(r.widest - r.avail)}px` : ''}`,
+  );
+}
 
 await browser.close();
 const failed = results.filter((r) => !r).length;
