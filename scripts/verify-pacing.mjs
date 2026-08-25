@@ -3,7 +3,7 @@
  * has to get right: one gesture advances exactly one slide, the transition is
  * locked while it runs, and the first move off the hero is the long one.
  */
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/browser.mjs';
 
 const URL = process.env.URL ?? 'http://localhost:4173/';
 const results = [];
@@ -12,7 +12,7 @@ const check = (name, pass, detail) => {
   console.log(`${pass ? 'PASS' : 'FAIL'}  ${name}${detail ? ` — ${detail}` : ''}`);
 };
 
-const browser = await chromium.launch({ executablePath: process.env.CHROME ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(URL, { waitUntil: 'networkidle' });
 await page.waitForSelector('body.is-ready', { timeout: 15000 });

@@ -49,7 +49,11 @@ body {
   -webkit-user-drag: none;
 }
 
-/* The bottom scrim that lifts white copy off the image (tokens.css §2). */
+/*
+ * The bottom scrim. Not decoration: it exists so white chrome stays legible
+ * over an image nobody has vetted. tokens.md §2 — 17rem at 0 to 30% on
+ * desktop, 40rem at 0 to 60% on mobile.
+ */
 .stage::after {
   content: '';
   position: absolute;
@@ -70,56 +74,6 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Chrome. Phase 1 scaffolding only: a slide counter so the pacing can be
-   judged, and a one-time hint. Both are replaced by the pip rail and the
-   slide-down button in Phase 2.
-   -------------------------------------------------------------------------- */
-.chrome {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  padding: var(--gutter);
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--gutter);
-  opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-out);
-}
-
-.is-ready .chrome { opacity: 1; }
-
-.counter,
-.hint {
-  font-size: var(--t-14);
-  font-weight: var(--fw-medium);
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-label);
-  /*
-   * The reference sets its chrome in plain white and gets away with it because
-   * its imagery is art-directed dark at the edges. Ours is not — the hero has a
-   * blown-out sky exactly where this sits. Difference blending keeps the
-   * scaffolding legible over any frame without introducing a fourth colour or
-   * the shadow the design system does not have. Phase 2 replaces this with the
-   * pip rail, by which point the imagery should be art-directed properly.
-   */
-  mix-blend-mode: difference;
-}
-
-.counter { font-variant-numeric: tabular-nums; }
-
-.counter__total { opacity: 0.4; }
-
-.hint {
-  opacity: 0.7;
-  transition: opacity var(--dur-fast) var(--ease-out);
-}
-
-.is-moved .hint { opacity: 0; }
-
-/* --------------------------------------------------------------------------
    Loading gate. No percentage counter — REBUILD.md §3 is explicit that a
    progress readout is theatre without 6.9 MB of textures behind it.
    -------------------------------------------------------------------------- */
@@ -138,10 +92,28 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .gate,
-  .chrome,
-  .hint {
+  .chrome {
     transition-duration: 0.01s;
   }
+}
+
+/*
+ * The matching top vignette. The reference gets away with unprotected top-left
+ * chrome because its imagery is dark up there; ours is not vetted, so the
+ * 25% black vignette from tokens.md §2 runs on every slide rather than only
+ * the interiors.
+ */
+.stage::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  height: 12.5rem;
+  background: linear-gradient(180deg, var(--c-black) 0, transparent);
+  opacity: 0.25;
+  pointer-events: none;
 }
 
 /* The contact slide has no photograph — it lands on the ground colour. */

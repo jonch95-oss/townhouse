@@ -1,22 +1,27 @@
 import './styles/tokens.css';
 import './styles/fonts.css';
+import './styles/type.css';
 import './styles/app.css';
+import './styles/chrome.css';
 
 import { registerEases } from './lib/eases';
+import { registerReveal } from './lib/reveal';
+import { applyMotionPreference } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
 import { slides } from './data/slides';
+import { Hero } from './ui/hero';
+import { PipRail } from './ui/pips';
+import { MenuToggle } from './ui/nav';
+import { SectionLabel } from './ui/section-label';
+import { ScrollHint } from './ui/scroll-hint';
 
 registerEases();
+registerReveal();
+applyMotionPreference();
 
 const stage = document.getElementById('stage');
-const counterCurrent = document.getElementById('counter-current');
-const counterTotal = document.getElementById('counter-total');
-if (!stage || !counterCurrent || !counterTotal) {
-  throw new Error('Stage markup is missing — check index.html');
-}
-
-const pad = (n: number) => String(n).padStart(2, '0');
+if (!stage) throw new Error('Stage markup is missing — check index.html');
 
 /** Build the layers from the manifest so the slide list has one source of truth. */
 const layers = slides.map((slide, i) => {
@@ -43,20 +48,37 @@ const layers = slides.map((slide, i) => {
   return layer;
 });
 
-counterTotal.textContent = ` — ${pad(slides.length)}`;
+const labels = slides.map((s) => s.label);
+
+const hero = new Hero();
+stage.appendChild(hero.el);
+
+const chrome = document.createElement('div');
+chrome.className = 'chrome';
+document.body.appendChild(chrome);
 
 const machine = new SlideMachine({
   count: slides.length,
   renderer: new CrossfadeRenderer(layers),
-  onChange: (current) => {
-    counterCurrent.textContent = pad(current + 1);
-    document.body.classList.add('is-moved');
+  onChange: (current, previous) => {
+    pips.change(current, previous);
+    sectionLabel.set(current);
+    if (current === 0) hero.enter();
+    else if (previous === 0) hero.leave();
   },
 });
 
+const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
+const menuToggle = new MenuToggle();
+const sectionLabel = new SectionLabel(labels);
+const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
+
+chrome.append(menuToggle.el, pips.el, scrollHint.el, sectionLabel.el);
+
 /**
  * Preload the first two slides, then open the gate. No percentage counter:
- * two images do not justify making anyone watch a number climb.
+ * REBUILD.md §3 is right that a progress readout is theatre without megabytes
+ * of textures genuinely behind it.
  */
 async function ready(): Promise<void> {
   const first = layers
@@ -66,8 +88,15 @@ async function ready(): Promise<void> {
     .map((img) => (img.complete ? img.decode().catch(() => undefined) : loaded(img)));
 
   await Promise.all(first);
+  // Fonts must be settled before splitting, or the line boxes measure wrong.
+  await document.fonts.ready.catch(() => undefined);
+
   document.body.classList.add('is-ready');
   machine.entered = true;
+
+  hero.enter();
+  pips.enter(0);
+  scrollHint.start();
 }
 
 function loaded(img: HTMLImageElement): Promise<void> {
@@ -79,5 +108,5 @@ function loaded(img: HTMLImageElement): Promise<void> {
 
 void ready();
 
-// Handy while tuning the pacing; harmless in production.
+// Handy while tuning; harmless in production.
 Object.assign(window, { waverly: machine });

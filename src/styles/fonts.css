@@ -1,13 +1,46 @@
 /* ==========================================================================
-   fonts.css — stand-ins only.
+   fonts.css — self-hosted, no external font requests.
 
-   The reference site runs on Teodor (Pangram Pangram) and Neue Haas Grotesk
-   Text Pro (Monotype), both licensed. Until those licences land we substitute
-   the free pairing REBUILD.md §4 suggests, overriding nothing but the two
-   family variables. Swap these two declarations for @font-face blocks and this
-   file is the only thing that changes.
+   Three woff2 files, 65 KB in total, committed under src/styles/fonts/ and
+   fingerprinted by Vite. The reference does the same thing — three files,
+   95 KB, self-hosted, no font CDN (spec/assets.md §6) — and it is the right
+   call regardless of any sandbox: nothing third-party on the critical path,
+   and no FOUT that depends on somebody else's uptime.
+
+   These are stand-ins for the licensed faces the design calls for. The
+   reference uses Teodor (Pangram Pangram) for display and Neue Haas Grotesk
+   Text Pro (Monotype) at two weights for text. Swapping in the real files
+   means replacing the three src: urls below and nothing else — the family
+   names the rest of the codebase uses are declared here.
+
+   Both substitutes are SIL Open Font License 1.1:
+     Instrument Serif — Rodrigo Fuenzalida, Jordan Egstad
+     Inter Tight      — Rasmus Andersson
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500&display=swap');
+
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/instrument-serif-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/inter-tight-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/inter-tight-latin-500-normal.woff2') format('woff2');
+}
 
 :root {
   --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;

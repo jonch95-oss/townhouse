@@ -1,0 +1,329 @@
+/* ==========================================================================
+   chrome.css — the persistent furniture. motion-spec.md §6 and sections.md
+   "Persistent chrome". None of it hides on scroll, because there is no scroll.
+
+   White chrome over imagery is kept legible by the scrims in app.css, not by
+   a blend mode. Difference blending inverts warm hues toward cyan, which would
+   fight the palette sampled off the renderings — and it would do it worst over
+   exactly the blown-out sky it was compensating for. The utility below stays
+   available and unused.
+   ========================================================================== */
+
+.u-difference { mix-blend-mode: difference; }
+
+.chrome {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.is-ready .chrome { opacity: 1; }
+
+.chrome button { pointer-events: auto; }
+
+/* --------------------------------------------------------------------------
+   Menu toggle. Top-left on desktop, top-right on mobile.
+   -------------------------------------------------------------------------- */
+.menu-toggle {
+  position: absolute;
+  top: 3rem;
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  gap: 0 1.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+@media (min-width: 650px) {
+  .menu-toggle {
+    right: auto;
+    left: var(--gutter);
+  }
+}
+
+.menu-toggle__icon {
+  position: relative;
+  display: block;
+  width: 3.2rem;
+  height: 0.1rem;
+}
+
+/*
+ * Two bars to 17.5 degrees, not 45, over a full second. A shallow cross rather
+ * than an X — slower and less literal, and it reads as considered.
+ */
+.menu-toggle__icon::before,
+.menu-toggle__icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  transition: transform var(--dur-slow) var(--ease-expo-out);
+}
+
+.menu-toggle__icon::before { transform: translateY(-0.4rem); }
+.menu-toggle__icon::after { transform: translateY(0.4rem); }
+
+.menu-toggle.is-active .menu-toggle__icon::before { transform: translateY(0) rotate(17.5deg); }
+.menu-toggle.is-active .menu-toggle__icon::after { transform: translateY(0) rotate(-17.5deg); }
+
+.menu-toggle__label { transition: opacity var(--dur-fade) var(--ease-out); }
+
+/* --------------------------------------------------------------------------
+   Pip rail. Right edge, vertically centred.
+   -------------------------------------------------------------------------- */
+/*
+ * responsive.md §3: the pip rail is absent below 650px. The section-label bar
+ * carries navigation on mobile instead.
+ */
+.pips {
+  display: none;
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: var(--gutter) 0;
+  color: var(--c-white);
+}
+
+@media (min-width: 650px) {
+  .pips { display: flex; }
+}
+
+.pip {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.pip__svg { display: block; width: 100%; height: 100%; }
+
+/*
+ * The rotation lives entirely in CSS. Setting transform-origin on an element
+ * that also carries an SVG `transform="rotate(45 11 11)"` attribute makes the
+ * two origins compound, and the square lands off-centre and clipped — which is
+ * what it was doing on every pip except the active one.
+ */
+.pip__dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   "Scroll to explore". Bottom centre, above the section label on mobile.
+   -------------------------------------------------------------------------- */
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 9.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-white);
+  font-size: var(--t-12);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (min-width: 650px) {
+  .scroll-hint { bottom: 2.5rem; }
+}
+
+/*
+ * Between 650 and 900 the centred hint runs into the 35.5rem label box, which
+ * is right-aligned and eats nearly half the width once the root is pinned at
+ * the 8px floor. The reference has the same geometry and the same collision.
+ * Anchor the hint to the left gutter until there is room to centre it.
+ */
+@media (min-width: 650px) and (max-width: 899px) {
+  .scroll-hint {
+    left: var(--gutter);
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   The section-label box. Bottom right — the one piece of persistent
+   wayfinding, and the door to the floor panel in Phase 3.
+   -------------------------------------------------------------------------- */
+.section-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+  padding-inline: var(--gutter);
+  background: var(--c-white);
+  color: var(--c-warm);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  transform-origin: bottom right;
+}
+
+@media (min-width: 650px) {
+  .section-label {
+    right: var(--gutter);
+    bottom: var(--gutter);
+    width: 35.5rem;
+    height: 9rem;
+  }
+}
+
+.section-label__index,
+.section-label__title {
+  display: block;
+  will-change: transform;
+}
+
+.section-label__index {
+  display: none;
+  font-family: var(--font-display);
+  font-size: var(--t-30);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-hero);
+  /* So the digits do not jitter as the number changes. */
+  font-variant-numeric: tabular-nums;
+}
+
+.section-label__rule {
+  display: none;
+  width: 1px;
+  height: 2.5rem;
+  background: var(--c-warm-20);
+  flex-shrink: 0;
+}
+
+/*
+ * responsive.md §3: the index and its rule are hidden below 650px, where the
+ * bar goes full width and carries navigation instead. This block has to sit
+ * after both display:none declarations — same specificity, so source order
+ * decides.
+ */
+@media (min-width: 650px) {
+  .section-label__index,
+  .section-label__rule { display: block; }
+}
+
+.section-label__title { flex: 1; }
+
+/*
+ * The only element on the site that fills on hover with a colour transition
+ * rather than a transform.
+ */
+.section-label__expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--c-warm-40);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--c-warm);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section-label__expand:hover {
+    background-color: var(--c-warm);
+    color: var(--c-white);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero copy. Left third on desktop, bottom and centred on mobile.
+   -------------------------------------------------------------------------- */
+.hero {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  color: var(--c-white);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hero .site-grid { width: 100%; }
+
+.hero__col {
+  grid-column: 1 / -1;
+  text-align: center;
+  /* Clears the scroll hint at 9.5rem and the 7rem label bar beneath it. */
+  padding-bottom: 16rem;
+}
+
+@media (min-width: 650px) {
+  .hero { align-items: center; }
+  .hero__col {
+    grid-column: 2 / span 7;
+    text-align: left;
+    padding-bottom: 20rem;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 650px) and (max-width: 1100px) {
+  .hero__col { grid-column: 2 / span 10; }
+}
+
+.hero__eyebrow { margin: 0 0 2rem; }
+
+.hero__title {
+  margin: 0 0 2.5rem;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-35);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+}
+
+@media (min-width: 650px) {
+  .hero__title { font-size: var(--t-45); }
+}
+
+.hero__body,
+.hero__price {
+  margin: 0;
+  font-size: var(--t-14);
+  line-height: var(--lh-body);
+  max-width: 31.5rem;
+}
+
+@media (min-width: 650px) {
+  .hero__body,
+  .hero__price { font-size: var(--t-16); max-width: 47.5rem; }
+}
+
+.hero__price { margin-top: 2.5rem; }
+
+/* Mobile centres the block, so the measure has to centre with it. */
+.hero__col { --measure-align: 0; }
+
+@media (max-width: 649px) {
+  .hero__body,
+  .hero__price { margin-inline: auto; }
+}
