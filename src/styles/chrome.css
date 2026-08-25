@@ -401,3 +401,176 @@
   .hero__body,
   .hero__price { margin-inline: auto; }
 }
+
+/* ==========================================================================
+   Menu overlay — motion-spec.md §6.2, sections.md Overlay A.
+
+   The one place the palette inverts: the warm neutral becomes the ground
+   rather than the ink, with white links over it. tokens.md §2 records that
+   single inversion as the reason the menu reads as a different room rather
+   than a panel.
+   ========================================================================== */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  background: var(--c-warm);
+  color: var(--c-white);
+}
+
+.menu.is-open { display: block; }
+
+.menu__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0 4rem;
+  padding-block: 10rem;
+}
+
+/* Desktop-only, per responsive.md §3 — below 1100 the menu is links alone. */
+.menu__image-mask { display: none; }
+
+@media (min-width: 1100px) {
+  .menu__image-mask {
+    display: block;
+    flex: 0 0 auto;
+    width: 40rem;
+    aspect-ratio: 0.75;
+    max-height: calc(100svh - 20rem);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+}
+
+.menu__image-inner,
+.menu__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu__links {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem 0;
+}
+
+.menu-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  /* Dim the siblings rather than brighten the target. */
+  transition: opacity var(--dur-fade) var(--ease-out);
+}
+
+.menu__links:hover .menu-link { opacity: 0.3; }
+.menu-link:hover { opacity: 1 !important; }
+.menu-link:focus-visible { opacity: 1 !important; outline: 1px solid var(--c-white-40); outline-offset: 0.5rem; }
+
+.menu-link__index {
+  font-size: var(--t-14);
+  font-weight: var(--fw-medium);
+  color: var(--c-warm-tint);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 1100px) {
+  .menu-link__index { position: absolute; transform: translateX(-8rem); }
+  .menu-link { position: relative; }
+}
+
+.menu-link__label { display: block; }
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: var(--c-black-50);
+  cursor: pointer;
+}
+
+.lightbox__figure {
+  position: relative;
+  margin: 0;
+  max-width: 120rem;
+  max-height: 100%;
+  cursor: pointer;
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100svh - 16rem);
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.lightbox__caption {
+  margin-top: 1.5rem;
+  color: var(--c-white);
+  font-size: var(--t-14);
+  text-align: center;
+}
+
+.lightbox__nav,
+.lightbox__close {
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--c-white-40);
+  border-radius: var(--radius-sm);
+  background: var(--c-white-10);
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+.lightbox.has-nav .lightbox__nav { display: inline-flex; }
+.lightbox__close { display: inline-flex; top: var(--gutter); right: var(--gutter); }
+.lightbox__nav.--prev { left: var(--gutter); top: 50%; transform: translateY(-50%); }
+.lightbox__nav.--next { right: var(--gutter); top: 50%; transform: translateY(-50%); }
+
+.lightbox__nav::before {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+.lightbox__nav.--prev::before { transform: rotate(-135deg); }
+.lightbox__nav.--next::before { transform: rotate(45deg); }
+
+@media (min-width: 650px) {
+  .lightbox__nav,
+  .lightbox__close { width: 7rem; height: 7rem; }
+}
