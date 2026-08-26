@@ -1,6 +1,6 @@
 # Source renders
 
-27 renders extracted from the StudioSC design decks at **full embedded resolution**.
+26 renders extracted from the StudioSC design decks at **full embedded resolution**.
 Nothing here has been resized, cropped or re-encoded — each file is the raw image stream
 lifted out of the PDF, except where noted, so these are the largest versions that exist
 short of asking StudioSC for the originals.
@@ -19,9 +19,18 @@ image index across that deck. `INT-020-033` is the 34th image in the Interior de
 sits on page 20.
 
 Images below 1 megapixel are material and fixture swatches rather than renders, and are
-not included here. That is 21 of the 48 images the two decks contain. The smallest render
-kept is `INT-010-014` at 1113 × 1391; the largest swatch dropped is 706 × 699, so the
-boundary is not close.
+not included here — 21 of the 48 images the two decks contain.
+
+`INT-010-014` is also dropped. It survived the size filter at 1113 × 1391 but is a
+lower-resolution duplicate of `INT-010-010`: the same shower room at a tighter crop, which
+is why a dedupe on dimensions missed it.
+
+## These are the archive, not what the site loads
+
+The slides load from `public/renders/slides/` and the galleries from
+`public/renders/gallery/`. This directory is the provenance record — the largest version
+of each render that exists, kept so any future crop or regrade starts from source rather
+than from something already resampled.
 
 ## What is here
 
@@ -41,7 +50,6 @@ boundary is not close.
 | `INT-007-008` | INT-007-008.jpeg | 2400 × 1350 | 366 KB | Interior Design p7 |
 | `INT-008-009` | INT-008-009.jpeg | 2400 × 1350 | 419 KB | Interior Design p8 |
 | `INT-010-010` | INT-010-010.jpeg | 1440 × 1800 | 207 KB | Interior Design p10 |
-| `INT-010-014` | INT-010-014.jpeg | 1113 × 1391 | 150 KB | Interior Design p10 |
 | `INT-012-015` | INT-012-015.jpeg | 2400 × 1800 | 454 KB | Interior Design p12 |
 | `INT-013-016` | INT-013-016.jpeg | 1440 × 1800 | 325 KB | Interior Design p13 |
 | `INT-014-021` | INT-014-021.jpeg | 2400 × 1800 | 361 KB | Interior Design p14 |
