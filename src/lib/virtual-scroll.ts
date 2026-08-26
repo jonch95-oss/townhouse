@@ -37,6 +37,11 @@ export function createVirtualScroll(handler: VirtualScrollHandler): () => void {
   let touchStartY = 0;
   let touchAccumY = 0;
   let touching = false;
+  /** Orbit gestures on the 3D canvas must not advance the slide machine. */
+  let touchOnModel = false;
+
+  const isModelSurface = (target: EventTarget | null) =>
+    target instanceof Element && Boolean(target.closest('.building-view'));
 
   const onWheel = (e: WheelEvent) => {
     const raw = e as WheelEvent & { wheelDeltaY?: number };
@@ -47,13 +52,19 @@ export function createVirtualScroll(handler: VirtualScrollHandler): () => void {
   const onTouchStart = (e: TouchEvent) => {
     const touch = e.touches[0];
     if (!touch) return;
+    if (isModelSurface(e.target)) {
+      touching = false;
+      touchOnModel = true;
+      return;
+    }
+    touchOnModel = false;
     touching = true;
     touchStartY = touch.pageY;
     touchAccumY = 0;
   };
 
   const onTouchMove = (e: TouchEvent) => {
-    if (!touching) return;
+    if (touchOnModel || !touching) return;
     const touch = e.touches[0];
     if (!touch) return;
     // Total travel from gesture start — not frame-to-frame — so a bounce at
@@ -62,6 +73,10 @@ export function createVirtualScroll(handler: VirtualScrollHandler): () => void {
   };
 
   const onTouchEnd = (e: TouchEvent) => {
+    if (touchOnModel) {
+      touchOnModel = false;
+      return;
+    }
     if (!touching) return;
     touching = false;
     const y = touchAccumY;
@@ -72,6 +87,7 @@ export function createVirtualScroll(handler: VirtualScrollHandler): () => void {
 
   const onTouchCancel = () => {
     touching = false;
+    touchOnModel = false;
     touchAccumY = 0;
   };
 
