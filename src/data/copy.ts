@@ -58,13 +58,13 @@ export const copy = {
     emailLabel: 'Email',
     email: TK('email'),
     phoneLabel: 'Phone',
-    phone: TK('phone'),
+    phone: '718-702-7500',
   },
 
   menuFooter: {
     credits: 'Credits',
     legal: 'Legal',
-    phone: TK('phone'),
+    phone: '718-702-7500',
   },
 
   overview: {
