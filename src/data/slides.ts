@@ -30,7 +30,12 @@ export interface Slide {
   alt?: string;
   placeholder?: string;
   chrome?: ChromePolarity;
+  /** Interactive GLB orbit instead of a photograph. */
+  model?: boolean;
 }
+
+/** Slide index helpers — keep menu / machine wiring in sync. */
+export const MODEL_SLIDE_INDEX = 4;
 
 export const gateImage = {
   image: 'gate',
@@ -80,6 +85,11 @@ export const slides: Slide[] = [
     alt: 'The primary bathroom vanity under the slanted skylight wall, marble and oak with a cognac leather stool.',
   },
   {
+    label: '3D Rendering',
+    model: true,
+    chrome: 'light',
+  },
+  {
     label: 'Contact',
   },
 ];
@@ -102,8 +112,9 @@ export const menuEntries: MenuEntry[] = [
   { label: 'Entrance & Library', slide: 1 },
   { label: 'Living', slide: 2 },
   { label: 'Primary Suite', slide: 3 },
+  { label: '3D Rendering', slide: 4 },
   { label: 'Floorplans', panel: 'floorplans' },
-  { label: 'Contact', slide: 4 },
+  { label: 'Contact', slide: 5 },
 ];
 
 /**

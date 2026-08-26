@@ -3,13 +3,12 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { gsap } from 'gsap';
-import { duration } from './motion';
 
 const MODEL_URL = '/gl/waverly.glb';
 const DRACO_URL = 'https://www.gstatic.com/draco/versioned/decoders/1.5.7/';
 
 /**
- * Press-and-hold hero orbit — motion-spec.md §7.1, adapted for the Waverly GLB.
+ * Dedicated 3D slide — interactive orbit of the Waverly GLB.
  */
 export class BuildingViewer {
   readonly canvas: HTMLCanvasElement;
@@ -102,20 +101,15 @@ export class BuildingViewer {
     this.camera.lookAt(0, size.y * 0.08, 0);
   }
 
-  async enter(event: PointerEvent, hasFinePointer: boolean): Promise<void> {
+  async activate(): Promise<void> {
     await this.ensureLoaded();
     if (!this.pivot || this.active) return;
 
     this.active = true;
-    gsap.set(this.canvas, { autoAlpha: 0, pointerEvents: 'none' });
-    gsap.to(this.canvas, {
-      autoAlpha: 1,
-      pointerEvents: 'auto',
-      duration: duration(0.5),
-      ease: 'power1.in',
-    });
+    gsap.set(this.canvas, { autoAlpha: 1, pointerEvents: 'auto' });
 
     this.controls?.dispose();
+    const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     this.controls = new OrbitControls(this.camera, this.canvas);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
@@ -130,71 +124,27 @@ export class BuildingViewer {
 
     this.camera.position.setFromSphericalCoords(this.rest.radius, this.rest.phi, this.rest.theta);
     this.controls.update();
-
-    this.controls.enabled = false;
-    this.controls.enabled = true;
-    this.replayPointer(event, hasFinePointer);
-    this.controls.update();
-
     this.startLoop();
   }
 
-  private replayPointer(event: PointerEvent, hasFinePointer: boolean): void {
-    if (!this.controls) return;
-    const controls = this.controls as OrbitControls & {
-      _onPointerDown?: (e: PointerEvent) => void;
-      _onMouseDown?: (e: PointerEvent) => void;
-      _onTouchStart?: (e: PointerEvent) => void;
-    };
-
-    controls._onPointerDown?.(event);
-    if (hasFinePointer) controls._onMouseDown?.(event);
-    else controls._onTouchStart?.(event);
-  }
-
-  async exit(): Promise<void> {
-    if (!this.active || !this.controls) return;
+  deactivate(): void {
+    if (!this.active) return;
     this.active = false;
 
-    const controls = this.controls;
-    const target = this.controls.target.clone();
-    const start = {
-      theta: controls.getAzimuthalAngle(),
-      phi: controls.getPolarAngle(),
-      radius: controls.getDistance(),
-    };
-    const delta = Math.abs(start.theta - this.rest.theta) + Math.abs(start.phi - this.rest.phi);
-    const tweenDur = Math.min(delta * 0.65, duration(1));
-
-    await new Promise<void>((resolve) => {
-      gsap.to(start, {
-        theta: this.rest.theta,
-        phi: this.rest.phi,
-        radius: this.rest.radius,
-        duration: tweenDur,
-        ease: 'power3.inOut',
-        onUpdate: () => {
-          this.camera.position.setFromSphericalCoords(start.radius, start.phi, start.theta);
-          this.camera.lookAt(target);
-          controls.update();
-        },
-        onComplete: resolve,
-      });
-    });
-
-    controls.dispose();
+    this.controls?.dispose();
     this.controls = null;
     this.stopLoop();
 
-    await gsap.to(this.canvas, {
-      autoAlpha: 0,
-      pointerEvents: 'none',
-      duration: duration(0.45),
-      ease: 'power1.out',
-    });
+    gsap.set(this.canvas, { autoAlpha: 0, pointerEvents: 'none' });
+
+    if (this.pivot) {
+      this.camera.position.setFromSphericalCoords(this.rest.radius, this.rest.phi, this.rest.theta);
+      this.camera.lookAt(0, this.pivot.position.y, 0);
+    }
   }
 
   private startLoop(): void {
+    this.stopLoop();
     const tick = () => {
       this.raf = requestAnimationFrame(tick);
       this.controls?.update();
@@ -218,8 +168,7 @@ export class BuildingViewer {
   }
 
   dispose(): void {
-    this.stopLoop();
-    this.controls?.dispose();
+    this.deactivate();
     this.renderer.dispose();
     this.canvas.remove();
   }

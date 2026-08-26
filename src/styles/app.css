@@ -164,11 +164,11 @@ body {
   height: 100%;
 }
 
-/* Interactive building orbit — hero press-and-hold. */
+/* Interactive building orbit — dedicated 3D slide. */
 .building-view {
   position: absolute;
   inset: 0;
-  z-index: 4;
+  z-index: 1;
   display: block;
   width: 100%;
   height: 100%;
@@ -178,6 +178,6 @@ body {
   pointer-events: none;
 }
 
-.building-view.is-active {
-  pointer-events: auto;
+.slide--model {
+  background: var(--c-warm);
 }

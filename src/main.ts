@@ -12,7 +12,7 @@ import { CrossfadeRenderer } from './lib/renderer';
 import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
 import { Sound } from './lib/sound';
-import { slides, galleries, menuEntries } from './data/slides';
+import { slides, galleries, menuEntries, MODEL_SLIDE_INDEX } from './data/slides';
 import { buildPicture, resolveImage } from './lib/picture';
 import { overviewPanel, creditsPanel, legalPanel, floorplansPanel } from './ui/panels';
 import { Hero } from './ui/hero';
@@ -30,6 +30,7 @@ import { Inquire } from './ui/inquire';
 import { SoundToggle } from './ui/sound-toggle';
 import { Cursor } from './ui/cursor';
 import { HeroHold } from './ui/hero-hold';
+import { ModelSlide } from './ui/model-slide';
 import type { BuildingViewer } from './lib/building-viewer';
 
 registerEases();
@@ -40,13 +41,17 @@ const stage = document.getElementById('stage');
 if (!stage) throw new Error('Stage markup is missing — check index.html');
 
 /** Build the layers from the manifest so the slide list has one source of truth. */
+let modelLayer: HTMLElement | undefined;
 const layers = slides.map((slide, i) => {
   const layer = document.createElement('div');
   layer.className = 'slide';
   if (i === 0) layer.classList.add('slide--hero');
   if (i === 3) layer.classList.add('slide--primary');
 
-  if (slide.image) {
+  if (slide.model) {
+    layer.classList.add('slide--model', 'slide--ground');
+    modelLayer = layer;
+  } else if (slide.image) {
     layer.appendChild(
       buildPicture({
         image: slide.image,
@@ -70,6 +75,9 @@ const setChromeForSlide = (i: number) =>
 
 const hero = new Hero();
 stage.appendChild(hero.el);
+
+const modelSlide = new ModelSlide();
+stage.appendChild(modelSlide.el);
 
 const contact = new Contact();
 stage.appendChild(contact.el);
@@ -116,8 +124,32 @@ document.body.appendChild(cursor.el);
 
 const updateCursorForSlide = (i: number) => {
   if (i === 0) cursor.setMode('hold');
+  else if (slides[i]?.model) cursor.setMode('active');
   else if (galleries[i]?.length) cursor.setMode('view');
   else cursor.setMode('active');
+};
+
+let buildingViewer: BuildingViewer | undefined;
+const ensureBuildingViewer = async (): Promise<BuildingViewer | undefined> => {
+  if (!modelLayer) return undefined;
+  if (!buildingViewer) {
+    const { BuildingViewer } = await import('./lib/building-viewer');
+    buildingViewer = new BuildingViewer(modelLayer);
+  }
+  return buildingViewer;
+};
+
+const syncModelSlide = (current: number, previous: number) => {
+  if (previous === MODEL_SLIDE_INDEX) {
+    buildingViewer?.deactivate();
+    modelSlide.leave();
+  }
+  if (current === MODEL_SLIDE_INDEX) {
+    modelSlide.enter();
+    void ensureBuildingViewer().then((viewer) => viewer?.activate());
+  } else {
+    gsap.set(modelSlide.el, { autoAlpha: 0 });
+  }
 };
 
 const machine = new SlideMachine({
@@ -127,6 +159,10 @@ const machine = new SlideMachine({
     // Copy must leave with the plate — waiting until onChange left hero
     // headlines sitting over the incoming interior for the whole wipe.
     if (previous === 0 && current !== 0) hero.leave();
+    if (previous === MODEL_SLIDE_INDEX && current !== MODEL_SLIDE_INDEX) {
+      buildingViewer?.deactivate();
+      modelSlide.leave();
+    }
     if (previous === slides.length - 1 && current !== slides.length - 1) contact.leave();
   },
   onChange: (current, previous) => {
@@ -137,6 +173,7 @@ const machine = new SlideMachine({
     updateCursorForSlide(current);
     if (current === 0) hero.enter();
     else gsap.set(hero.el, { autoAlpha: 0 });
+    syncModelSlide(current, previous);
     if (current === slides.length - 1) contact.enter();
     else gsap.set(contact.el, { autoAlpha: 0 });
   },
@@ -226,25 +263,14 @@ chrome.append(
 );
 document.body.appendChild(menuToggle.el);
 
-let buildingViewer: BuildingViewer | undefined;
-const getBuildingViewer = async (): Promise<BuildingViewer> => {
-  if (!buildingViewer) {
-    const { BuildingViewer } = await import('./lib/building-viewer');
-    buildingViewer = new BuildingViewer(stage);
-  }
-  return buildingViewer;
-};
-
-const heroHold = new HeroHold(
+new HeroHold(
   stage,
   hero.el,
   () => machine.entered && machine.current === 0 && !menu.isOpen && !lightbox.isOpen,
   (zoomed) => {
     machine.overlayOpen = zoomed;
     cursor.setMode(zoomed ? 'zoomed' : 'hold');
-    buildingViewer?.canvas.classList.toggle('is-active', zoomed);
   },
-  getBuildingViewer,
 );
 
 async function enterExperience(opts: IntroEnterOptions): Promise<void> {
@@ -257,7 +283,7 @@ async function enterExperience(opts: IntroEnterOptions): Promise<void> {
   scrollHint.start();
   scrollHint.setSlide(0);
   soundToggle.sync();
-  heroHold.warm();
+  void ensureBuildingViewer().then((viewer) => viewer?.preload());
   await sound.enter(opts.withSound);
   soundToggle.sync();
 }

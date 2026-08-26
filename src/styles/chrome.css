@@ -1330,3 +1330,29 @@
   outline: 1px solid var(--c-warm-40);
   outline-offset: 0.4rem;
 }
+
+/* 3D slide hint — bottom centre, above the section label on mobile. */
+.model-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--gutter);
+  padding-bottom: 9rem;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (min-width: 650px) {
+  .model-slide { padding-bottom: 5rem; }
+}
+
+.model-slide__hint {
+  margin: 0;
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-label);
+  opacity: 0.75;
+}

@@ -49,6 +49,10 @@ export const copy = {
   /** Slides 1–3 carry nothing. The story lives in the overview panel. */
   rooms: null,
 
+  model: {
+    hint: 'Drag to explore',
+  },
+
   contact: {
     eyebrow: 'Contact',
     headline: ['Some Homes Are Shown.', 'This One Should Be Experienced.'],
