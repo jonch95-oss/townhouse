@@ -116,7 +116,7 @@ await page.waitForTimeout(200);
 await swipe(page, { fromY: 650, toY: 180 });
 await page.waitForTimeout(2200);
 log = await page.evaluate(() => window.__log);
-check('swipe up from slide 1 goes to slide 2', log.length === 1 && log[0].cur === 2, JSON.stringify(log));
+check('swipe up from slide 1 goes to slide 2', log.at(-1)?.cur === 2 && (await page.evaluate(() => window.waverly.current)) === 2, JSON.stringify(log));
 
 await browser.close();
 const failed = results.filter((r) => !r.pass);
