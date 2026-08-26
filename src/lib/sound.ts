@@ -1,10 +1,9 @@
 /**
  * Ambient audio for the experience.
  *
- * Tracks in /public/sound are synthetic beds (warm drone + soft room tone) —
- * not field recordings of Waverly Avenue, and not depictions of any building
- * feature. See public/sound/README.md. Replace when the client supplies
- * licensed audio.
+ * Background: "Terrace Afterglow" by FreeVibeVault (CC BY 4.0) — a free
+ * sundown / terrace lounge bed. See public/sound/README.md. Not Gin & Tonic's
+ * "Sundown" (that track is not free to license here).
  *
  * Preference is remembered in sessionStorage so a "without sound" entry stays
  * quiet for the visit.
@@ -24,10 +23,10 @@ export class Sound {
       a.loop = true;
       a.preload = 'auto';
     }
-    // Soft enough to sit under the rooms without fatigue. Still replaceable
-    // when the client supplies licensed audio.
-    this.background.volume = 0.11;
-    this.ambient.volume = 0.06;
+    // One clear bed + a soft filtered underlayer. Keep low so it sits under
+    // the rooms without competing with them.
+    this.background.volume = 0.22;
+    this.ambient.volume = 0.08;
 
     const stored = sessionStorage.getItem(STORAGE_KEY);
     this.enabled = stored === null ? true : stored === '1';
