@@ -146,6 +146,7 @@ const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
 const setOverlayOpen = (open: boolean) => {
   machine.overlayOpen = open;
 };
+const onPanelClose = () => setOverlayOpen(false);
 
 const lightbox = new Lightbox(() => {
   setOverlayOpen(false);
@@ -153,10 +154,10 @@ const lightbox = new Lightbox(() => {
 });
 
 const panels = {
-  overview: overviewPanel(),
-  credits: creditsPanel(),
-  legal: legalPanel(),
-  floorplans: floorplansPanel(),
+  overview: overviewPanel(onPanelClose),
+  credits: creditsPanel(onPanelClose),
+  legal: legalPanel(onPanelClose),
+  floorplans: floorplansPanel(onPanelClose),
 } as const;
 for (const panel of Object.values(panels)) {
   document.body.appendChild(panel.el);

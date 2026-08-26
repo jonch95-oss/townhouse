@@ -20,8 +20,8 @@ const para = (value: CopyValue, cls = 'panel__p') => {
 };
 
 /** Overview — the body behind the section-label `+`. */
-export function overviewPanel(): Panel {
-  const panel = new Panel('Overview');
+export function overviewPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Overview', onClose);
   const nodes: Node[] = [];
   const title = el('h3', 'panel__display');
   title.innerHTML = copy.overview.title.join('<br />');
@@ -64,8 +64,8 @@ export function overviewPanel(): Panel {
   return panel;
 }
 
-export function creditsPanel(): Panel {
-  const panel = new Panel('Credits');
+export function creditsPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Credits', onClose);
   const nodes: Node[] = [];
   const h = el('h3', 'panel__display');
   h.innerHTML = copy.credits.heading.join('<br />');
@@ -93,8 +93,8 @@ export function creditsPanel(): Panel {
  * on every document, and every missing fact renders as a TK. Drafts are not
  * presented as policy.
  */
-export function legalPanel(): Panel {
-  const panel = new Panel('Legal');
+export function legalPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Legal', onClose);
   const nodes: Node[] = [];
 
   if (!LEGAL_REVIEWED) {
@@ -136,8 +136,8 @@ export function legalPanel(): Panel {
  * These are construction drawings, not marketing plans — dimension strings and
  * annotations included. Noted as a quality gap in HANDOFF.md.
  */
-export function floorplansPanel(): Panel {
-  const panel = new Panel('Floorplans');
+export function floorplansPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Floorplans', onClose);
   const nodes: Node[] = [];
 
   const note = el(
