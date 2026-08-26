@@ -32,6 +32,11 @@ export const copy = {
     holdHint: 'Or hold anywhere',
   },
 
+  logo: {
+    name: 'THE WAVERLY',
+    address: '221–223 Waverly Avenue · Clinton Hill',
+  },
+
   hero: {
     eyebrow: '221–223 Waverly Avenue · Brooklyn',
     headline: ['Historic on the Outside.', 'Seductively Modern Within.'],
