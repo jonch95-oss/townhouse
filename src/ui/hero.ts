@@ -69,6 +69,7 @@ export class Hero {
 
   leave(): void {
     this.timeline?.kill();
-    gsap.to(this.el, { autoAlpha: 0, duration: duration(0.5), ease: 'power1.in' });
+    gsap.killTweensOf(this.el);
+    gsap.set(this.el, { autoAlpha: 0 });
   }
 }

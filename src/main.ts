@@ -133,7 +133,9 @@ const machine = new SlideMachine({
     setChromeForSlide(current);
     updateCursorForSlide(current);
     if (current === 0) hero.enter();
+    else gsap.set(hero.el, { autoAlpha: 0 });
     if (current === slides.length - 1) contact.enter();
+    else gsap.set(contact.el, { autoAlpha: 0 });
   },
 });
 
