@@ -88,3 +88,6 @@ This One Should Be Experienced.
 The people who
 made these houses
 ```
+
+- Ariel Development Group — Developer
+- StudioSC — Architecture

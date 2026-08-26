@@ -140,6 +140,7 @@ export const copy = {
   credits: {
     heading: ['The people who', 'made these houses'],
     entries: [
+      ['Ariel Development Group', 'Developer'],
       ['StudioSC', 'Architecture'],
       ['M C Structural Engineering', 'Structural'],
       ['All City Engineering', 'Mechanical'],
