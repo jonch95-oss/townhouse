@@ -248,11 +248,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 4rem;
-  padding-inline: 1.35em;
-  border: 1px solid rgb(255 255 255 / 0.4);
+  min-width: 16rem;
+  height: 4.4rem;
+  padding-inline: 1.8em;
+  border: 1px solid rgb(255 255 255 / 0.55);
   border-radius: var(--radius-sm);
-  background: transparent;
+  background: rgb(255 255 255 / 0.08);
   color: inherit;
   cursor: pointer;
   font: inherit;
@@ -261,7 +262,8 @@
   transition:
     background-color var(--dur-base) var(--ease-out),
     color var(--dur-base) var(--ease-out),
-    border-color var(--dur-base) var(--ease-out);
+    border-color var(--dur-base) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
 }
 
 .intro__secondary {

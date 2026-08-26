@@ -79,11 +79,12 @@ const sound = new Sound();
 sound.preload();
 
 /**
- * Transition shader is ON by default. Opt out with ?shader=0.
- * Crossfade remains the fallback when WebGL is unavailable.
+ * Transition shader is OFF by default — crossfade is the shipping path.
+ * On phones the WebGL path was painting a black canvas while the real
+ * photographs sat hidden underneath. Enable with ?shader=1 to preview.
  */
 const params = new URLSearchParams(location.search);
-const SHADER_ENABLED = params.get('shader') !== '0';
+const SHADER_ENABLED = params.get('shader') === '1';
 
 let renderer: SlideRenderer;
 if (SHADER_ENABLED) {
@@ -119,15 +120,20 @@ const updateCursorForSlide = (i: number) => {
 const machine = new SlideMachine({
   count: slides.length,
   renderer,
+  onTransitionStart: (current, previous) => {
+    // Copy must leave with the plate — waiting until onChange left hero
+    // headlines sitting over the incoming interior for the whole wipe.
+    if (previous === 0 && current !== 0) hero.leave();
+    if (previous === slides.length - 1 && current !== slides.length - 1) contact.leave();
+  },
   onChange: (current, previous) => {
     pips.change(current, previous);
     sectionLabel.set(current);
+    scrollHint.setSlide(current);
     setChromeForSlide(current);
     updateCursorForSlide(current);
     if (current === 0) hero.enter();
-    else if (previous === 0) hero.leave();
     if (current === slides.length - 1) contact.enter();
-    else if (previous === slides.length - 1) contact.leave();
   },
 });
 
@@ -229,6 +235,7 @@ async function enterExperience(opts: IntroEnterOptions): Promise<void> {
   hero.enter();
   pips.enter(0);
   scrollHint.start();
+  scrollHint.setSlide(0);
   soundToggle.sync();
   await sound.enter(opts.withSound);
   soundToggle.sync();

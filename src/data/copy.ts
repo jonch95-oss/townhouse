@@ -29,7 +29,9 @@ export const copy = {
     // Real ambient beds exist now (synthetic, not place recordings). The dual
     // CTA matches the reference pattern without inventing project audio lore.
     secondary: 'Enter without sound',
-    holdHint: 'Hold to enter',
+    // Hold-to-enter is the Quadplex press-and-hold, adapted for a still.
+    // Wording makes the primary path obvious; hold is optional.
+    holdHint: 'Or hold anywhere',
   },
 
   hero: {

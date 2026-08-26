@@ -15,9 +15,9 @@ import type { SlideRenderer } from './renderer';
  * It implements SlideRenderer, so the slide machine drives it with exactly the
  * timeline that drives the crossfade — same `snappy` ease, same 1.5s and 2.25s.
  *
- * OFF BY DEFAULT. Four of seven screens are still placeholders and tuning a
- * wipe against stand-in imagery is wasted work. This is built and proven to
- * run; it is not tuned.
+ * OFF BY DEFAULT. The crossfade is the shipping path — on real phones the
+ * WebGL canvas was painting black while the photographs sat `display: none`
+ * underneath. Enable with ?shader=1 to preview.
  */
 
 const VERT = /* glsl */ `

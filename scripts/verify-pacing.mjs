@@ -63,26 +63,26 @@ async function flick(dir = 1) {
 
 console.log('\n--- gesture 1: hero -> slide 2 ---');
 await flick(1);
-await page.waitForTimeout(3600);
+await page.waitForTimeout(2800);
 let log = await page.evaluate(() => window.__log);
 check('one flick advances exactly one slide', log.length === 1, `${log.length} change(s), landed on index ${log.at(-1)?.cur}`);
 const firstDur = log[0]?.ms ?? 0;
 check(
-  'first transition off the hero is 0.5s hold + 2.25s tween = 2750ms',
-  firstDur > 2650 && firstDur < 2900,
+  'first transition off the hero is 0.2s hold + 1.75s tween ≈ 1950ms',
+  firstDur > 1800 && firstDur < 2150,
   `${Math.round(firstDur)}ms`,
 );
 
 console.log('\n--- gesture 2: slide 2 -> slide 3 ---');
 await page.evaluate(() => { window.__log = []; });
 await flick(1);
-await page.waitForTimeout(2600);
+await page.waitForTimeout(2000);
 log = await page.evaluate(() => window.__log);
 check('second flick advances exactly one slide', log.length === 1, `${log.length} change(s)`);
 const secondDur = log[0]?.ms ?? 0;
 check(
-  'subsequent transitions are 1500ms',
-  secondDur > 1400 && secondDur < 1650,
+  'subsequent transitions are ≈1150ms',
+  secondDur > 1000 && secondDur < 1300,
   `${Math.round(secondDur)}ms`,
 );
 check('second transition is shorter than the first', secondDur < firstDur, `${Math.round(secondDur)}ms vs ${Math.round(firstDur)}ms`);

@@ -8,12 +8,14 @@ export interface SlideMachineOptions {
   count: number;
   renderer: SlideRenderer;
   onChange?: (current: number, previous: number) => void;
+  /** Fires the moment a transition begins — use for copy that must leave with the plate. */
+  onTransitionStart?: (current: number, previous: number) => void;
 }
 
-/** motion-spec.md §1.4 — the two durations, and the hold before leaving the hero. */
-const DURATION = 1.5;
-const DURATION_OFF_HERO = 2.25;
-const HOLD_OFF_HERO = 0.5;
+/** motion-spec.md §1.4 — tightened for a crisper feel on a stills-based site. */
+const DURATION = 1.15;
+const DURATION_OFF_HERO = 1.75;
+const HOLD_OFF_HERO = 0.2;
 const DEBOUNCE_MS = 50;
 
 const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -69,7 +71,10 @@ export class SlideMachine {
 
     this.timeline
       .clear()
-      .add(() => this.options.renderer.change(this.previous, this.current))
+      .add(() => {
+        this.options.onTransitionStart?.(this.current, this.previous);
+        this.options.renderer.change(this.previous, this.current);
+      })
       .fromTo(
         this.state,
         { progress: 0 },
@@ -94,6 +99,7 @@ export class SlideMachine {
     this.timeline.clear();
     this.previous = this.current;
     this.current = index;
+    this.options.onTransitionStart?.(this.current, this.previous);
     this.options.renderer.change(this.previous, this.current);
     this.options.renderer.render(1);
     this.locked = false;

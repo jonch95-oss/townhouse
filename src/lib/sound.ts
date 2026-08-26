@@ -24,8 +24,8 @@ export class Sound {
       a.loop = true;
       a.preload = 'auto';
     }
-    this.background.volume = 0.32;
-    this.ambient.volume = 0.18;
+    this.background.volume = 0.14;
+    this.ambient.volume = 0.08;
 
     const stored = sessionStorage.getItem(STORAGE_KEY);
     this.enabled = stored === null ? true : stored === '1';

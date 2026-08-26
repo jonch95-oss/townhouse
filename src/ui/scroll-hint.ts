@@ -17,6 +17,7 @@ import { reducedMotion } from '../lib/motion';
 export class ScrollHint {
   readonly el: HTMLButtonElement;
   private timeline?: gsap.core.Timeline;
+  private chars: HTMLElement[] | null = null;
 
   constructor(label: string, onClick: () => void) {
     this.el = document.createElement('button');
@@ -28,15 +29,27 @@ export class ScrollHint {
 
   start(): void {
     if (reducedMotion) return;
-    const chars = splitChars(this.el);
+    if (!this.chars) this.chars = splitChars(this.el);
+    this.timeline?.kill();
     this.timeline = gsap
       .timeline({ repeat: -1 })
       .fromTo(
-        chars,
+        this.chars,
         { alpha: 1 },
         { alpha: 0.125, duration: 1.5, stagger: 0.05, ease: 'linear' },
       )
-      .to(chars, { alpha: 1, duration: 1.5, stagger: 0.05, ease: 'linear' }, 1.5);
+      .to(this.chars, { alpha: 1, duration: 1.5, stagger: 0.05, ease: 'linear' }, 1.5);
+  }
+
+  /** Hero only — contrast fails on the warm interiors (HANDOFF measured matrix). */
+  setSlide(index: number): void {
+    const onHero = index === 0;
+    this.el.classList.toggle('is-hidden', !onHero);
+    this.el.hidden = !onHero;
+    this.el.tabIndex = onHero ? 0 : -1;
+    if (!onHero) this.timeline?.pause(0);
+    else if (this.timeline) this.timeline.play();
+    else this.start();
   }
 
   destroy(): void {

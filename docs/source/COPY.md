@@ -43,17 +43,11 @@ Enter without sound
 **Hold hint** (desktop, fine pointer)
 
 ```
-HOLD TO ENTER
+OR HOLD ANYWHERE
 ```
 
-*Note: "ENTER" not "ENTER EXPERIENCE" — theirs is an experience because it is one. Ours
-is a house, and the shorter word is less pleased with itself.*
-
-*Audio beds are synthetic atmosphere only — not field recordings of the street or the
-house. See `public/sound/README.md`. Do not invent place sound or feature SFX.*
-
-*Press-and-hold is the Quadplex interaction, adapted for a still from the decks.
-The button remains for keyboard, touch, and reduced motion.*
+*Primary path is the Enter button. Hold is optional. Audio beds are synthetic
+atmosphere only — see `public/sound/README.md`.*
 
 ---
 
