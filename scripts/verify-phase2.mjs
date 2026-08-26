@@ -70,7 +70,7 @@ const pips = await page.evaluate(() => {
   return { count: els.length, current: els.findIndex((e) => e.getAttribute('aria-current') === 'true'), r0: ring(0), r1: ring(1) };
 });
 console.log(' ', JSON.stringify(pips));
-ok('six pips', pips.count === 6);
+ok('one pip per slide', pips.count === 5, `${pips.count}`);
 ok('pip 0 is current', pips.current === 0);
 ok('active ring is drawn, inactive is not', pips.r0.dash !== pips.r1.dash || pips.r0.off !== pips.r1.off, `active ${pips.r0.dash}/${pips.r0.off} vs idle ${pips.r1.dash}/${pips.r1.off}`);
 

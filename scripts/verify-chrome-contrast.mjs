@@ -25,7 +25,7 @@ const POSITIONS = [
   ['scroll-hint', '.scroll-hint'],
   ['section-label', '.section-label__title'],
 ];
-const SLIDES = [[0, 'hero-placeholder'], [1, 'entrance'], [2, 'kitchen'], [3, 'primary-bath'], [4, 'fourth-placeholder']];
+const SLIDES = [[0, 'hero'], [1, 'entrance'], [2, 'kitchen'], [3, 'primary-bath']];
 
 const clips = [];
 for (const [i, slideName] of SLIDES) {

@@ -33,7 +33,7 @@ ok('menu ground is the warm neutral', m.ground === 'rgb(113, 95, 71)', m.ground)
 ok('links are white', m.linkColor === 'rgb(255, 255, 255)', m.linkColor);
 ok('indices are the warm tint', m.indexColor === 'rgb(160, 136, 104)', m.indexColor);
 ok('menu image shown at 1440 (desktop-only)', m.imageVisible === 'block', m.imageVisible);
-ok('one link per slide', m.links === 6, `${m.links}`);
+ok('six menu entries against five slides', m.links === 6, `${m.links}`);
 ok('clip fully open after the timeline', m.clip === 'none' || m.clip.includes('0%'), m.clip);
 ok('overlay owns the wheel', m.wheelOwned === true);
 ok('focus moved into the overlay', m.focusInside === true);
@@ -69,6 +69,16 @@ await p.click('.menu-toggle'); await p.waitForTimeout(1600);
 await p.evaluate(() => document.querySelectorAll('.menu-link')[3].click());
 await p.waitForTimeout(1600);
 ok('selecting a link jumps straight to that slide', (await p.evaluate(() => window.waverly.current)) === 3);
+
+// Floorplans has no slide and must not pretend to
+await p.click('.menu-toggle'); await p.waitForTimeout(1600);
+const beforeFp = await p.evaluate(() => window.waverly.current);
+await p.evaluate(() => document.querySelectorAll('.menu-link')[4].click());
+await p.waitForTimeout(900);
+ok('Floorplans is inert and does not move the deck',
+   (await p.evaluate(() => window.waverly.current)) === beforeFp &&
+   (await p.evaluate(() => document.querySelectorAll('.menu-link')[4].getAttribute('aria-disabled'))) === 'true');
+await p.click('.menu-toggle'); await p.waitForTimeout(1600);
 
 console.log('\n--- lightbox ---');
 await p.evaluate(() => window.waverly.instant(1));
