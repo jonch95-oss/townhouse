@@ -8,23 +8,24 @@ Sources, all StudioSC Architecture:
 - **Design decks** — Entrance Design 05.10.2025, Interior Design 03.20.2025
 
 > **This is a pair, not a single house.** The Landmarks filing covers
-> **221 and 223 Waverly Avenue** — two mirror-image townhouses on adjacent lots
-> sharing a party wall. The GC set in hand is for 223 only; 221 is filed
-> separately under DOB # B01078873-I1.
+> **221 and 223 Waverly Avenue** — two separate mirror-image townhouses on adjacent lots
+> sharing a party wall. The marketing site presents both. The GC set in hand is for
+> 223 only; 221 is filed separately under DOB # B01078873-I1.
 **Nothing here is invented — but figures are from a permit set, not a marketing
 package, so they must be confirmed before they go on a public website.**
 
 ## Identity
 | Field | Value |
 |---|---|
-| Address | 223 Waverly Avenue, Brooklyn, NY 11205 |
+| Address | **221–223 Waverly Avenue**, Brooklyn, NY 11205 |
+| Houses | Two separate single-family townhouses (mirrored) |
 | Neighborhood | Clinton Hill / Wallabout (between Willoughby & Myrtle) |
 | Block / Lot | Block 1917 — Lot 21 (223) and Lot 22 (221) |
 | Historic district | Clinton Hill Historic District — LPC jurisdiction |
 | Zoning district | R6B |
 | Occupancy group | R-3 |
 | Construction class | 1-B |
-| Dwelling units | 1 (single-family townhouse — max permitted was 5.5) |
+| Dwelling units | 1 per house (single-family townhouse — max permitted was 5.5) |
 | Architect | StudioSC Architecture PLLC, 37 Greenpoint Ave, Brooklyn NY 11222 |
 | Owner / applicant of record | Stephen Conte, 37 Greenpoint Ave Suite 502, Brooklyn NY 11222 |
 | Structural engineer | M C Structural Engineering PLLC |
@@ -119,17 +120,18 @@ Decisions still shown as **options** (a buyer-facing site must not show all four
 
 ## Open questions for the client
 
-1. **Is the website for 223 only, or for 221 and 223 together?** This is now the
-   single biggest structural decision — one house, two houses on one site, or a
-   parent site with a page each.
-2. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
+1. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
    in any schedule in hand. Needed for a credible total square footage.
-3. **Exterior rendering resolution.** The rendered site-context views exist but
+2. **Exterior rendering resolution.** The rendered site-context views exist but
    the embedded images are only ~735x633 px — too small for a full-bleed hero.
    Request the high-resolution originals from StudioSC.
-4. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
+3. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
    differs in places. Elevator is confirmed out. Confirm whether gym, wine room,
    and roof terrace survived into the built design.
+
+### Resolved
+- **Site identity:** marketing covers **221 and 223** as two separate townhouses.
+- **Elevator:** none — client confirmed.
 
 ## Clinton Hill precedent projects cited to LPC
 282 Lafayette Ave · 476 Washington Ave · 228 Washington Ave ·

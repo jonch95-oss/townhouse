@@ -1087,6 +1087,32 @@
 .panel__label { margin: 2rem 0 0; font-size: var(--t-14); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--ls-label); }
 .panel__note { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); opacity: 0.7; max-width: 62ch; }
 
+.panel__figure {
+  margin: 0;
+  max-width: min(72ch, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.panel__figure .picture {
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--c-white);
+}
+.panel__figure .picture__img {
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.panel__caption {
+  margin: 0;
+  font-size: var(--t-14);
+  line-height: var(--lh-body);
+  opacity: 0.7;
+  max-width: 62ch;
+}
+
 .panel__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.8rem 0; }
 .panel__list li { position: relative; padding-left: 1.6rem; font-size: var(--t-16); line-height: var(--lh-body); max-width: 62ch; }
 .panel__list li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 0.25em; height: 0.25em; border-radius: 99px; background: currentColor; }

@@ -18,7 +18,7 @@ const HOLD_PUSH = 1.6;
 export type IntroEnterOptions = { withSound: boolean };
 
 /**
- * The threshold — adapted for this house from decks only.
+ * The threshold — adapted for these houses from decks only.
  *
  * Copy and imagery from StudioSC materials (terracotta/brick, powder room).
  * No clouds, no invented features. Audio preference is chosen here.

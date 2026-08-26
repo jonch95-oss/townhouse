@@ -26,6 +26,18 @@ export function overviewPanel(): Panel {
   const title = el('h3', 'panel__display');
   title.innerHTML = copy.overview.title.join('<br />');
   nodes.push(title);
+
+  const figure = el('figure', 'panel__figure');
+  figure.appendChild(
+    buildPicture({
+      image: copy.overview.figure.image,
+      alt: copy.overview.figure.alt,
+      sizes: '(min-width: 650px) min(72ch, 70vw), 100vw',
+    }),
+  );
+  figure.appendChild(el('figcaption', 'panel__caption', copy.overview.figure.caption));
+  nodes.push(figure);
+
   for (const p of copy.overview.body) nodes.push(para(p));
 
   nodes.push(el('h4', 'panel__label', copy.overview.highlightsLabel));
@@ -128,7 +140,7 @@ export function floorplansPanel(): Panel {
   const note = el(
     'p',
     'panel__note',
-    'These are construction drawings from the filed set, not marketing plans. Dimensions and annotations are shown as drawn.',
+    'Construction drawings from the filed set for one house. 221 and 223 are mirror images; dimensions and annotations are shown as drawn.',
   );
   nodes.push(note);
 
@@ -148,7 +160,7 @@ export function floorplansPanel(): Panel {
       }),
     );
     download.href = plan.download;
-    download.setAttribute('download', `223-waverly-${plan.label.toLowerCase().replace(/\s+/g, '-')}.png`);
+    download.setAttribute('download', `221-223-waverly-${plan.label.toLowerCase().replace(/\s+/g, '-')}.png`);
     for (const [n, b] of [...tabs.children].entries()) {
       b.setAttribute('aria-selected', String(n === i));
     }

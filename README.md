@@ -1,7 +1,7 @@
-# 223 Waverly Avenue
+# 221–223 Waverly Avenue
 
-A single-property marketing microsite for a new four-storey townhouse in the Clinton Hill
-Historic District, Brooklyn, by StudioSC Architecture.
+A marketing microsite for two new four-storey townhouses in the Clinton Hill Historic
+District, Brooklyn, by StudioSC Architecture.
 
 One page, six full-screen slides, no scrollbar. A wheel gesture, swipe or arrow key
 advances exactly one slide.

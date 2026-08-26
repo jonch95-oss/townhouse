@@ -46,7 +46,7 @@ export const slides: Slide[] = [
   {
     label: 'Home',
     image: '00-hero',
-    alt: '223 Waverly Avenue seen from the street — a new brick and terracotta house under plane trees.',
+    alt: '221–223 Waverly Avenue seen from the street — a pair of new brick and terracotta townhouses under plane trees.',
     placeholder:
       'Upscaled roughly 4x from a 669x633 source in the Landmarks PDF. It composites well ' +
       'but carries no real detail. Needs StudioSC source renders or a re-render.',

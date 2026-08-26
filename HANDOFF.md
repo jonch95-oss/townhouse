@@ -1,4 +1,4 @@
-# 223 Waverly Avenue — handoff
+# 221–223 Waverly Avenue — handoff
 
 Written for someone picking this up cold. It assumes no prior context.
 
@@ -6,10 +6,10 @@ Written for someone picking this up cold. It assumes no prior context.
 
 ## What this is
 
-A single-property marketing microsite for **223 Waverly Avenue, Brooklyn NY 11205** — a
-new four-storey townhouse in the Clinton Hill Historic District, architecture by StudioSC.
-The site's job is to show the house and produce enquiries. One page, six full-screen
-slides, no scrollbar.
+A marketing microsite for **221–223 Waverly Avenue, Brooklyn NY 11205** — two separate
+mirror-image four-storey townhouses in the Clinton Hill Historic District, architecture by
+StudioSC. No elevator. The site's job is to show the houses and produce enquiries. One
+page, six full-screen slides, no scrollbar.
 
 It is modelled on a reference site, **quadplex80.com** (a single-property microsite for a
 penthouse at 111 West 57th Street). `spec/` holds a forensic teardown of that site:
