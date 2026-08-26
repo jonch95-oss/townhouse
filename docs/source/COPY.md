@@ -40,7 +40,7 @@ Seductively Modern Within.
 
 **Body:** Two mirror-image four-storey townhouses, Landmarks approved, StudioSC designed.
 
-**Price:** `Each offered at TK`
+No price on the hero — inquiry via Inquire / Contact.
 
 ---
 

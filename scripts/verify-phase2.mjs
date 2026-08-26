@@ -32,7 +32,7 @@ const hero = await page.evaluate(() => {
     chars: document.querySelectorAll('.hero__title .char').length,
     eyebrowAlpha: +cs('.hero__eyebrow').opacity,
     bodyAlpha: +getComputedStyle(document.querySelector('.hero__body .line')).opacity,
-    priceAlpha: +cs('.hero__price').opacity,
+    hasPrice: !!q('.hero__price'),
     titleAlpha: +getComputedStyle(document.querySelector('.hero__title .line')).opacity,
     masked: getComputedStyle(q('.hero__title .line').parentElement).overflow,
   };
