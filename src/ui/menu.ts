@@ -2,6 +2,9 @@ import { gsap } from 'gsap';
 import { Overlay } from '../lib/overlay';
 import { duration, stagger, reducedMotion } from '../lib/motion';
 import { menuImage } from '../data/slides';
+import { buildPicture } from '../lib/picture';
+import { copy } from '../data/copy';
+import { renderCopy } from './tk';
 import type { MenuEntry } from '../data/slides';
 
 /**
@@ -29,6 +32,7 @@ export class Menu {
     entries: readonly MenuEntry[],
     private readonly onSelect: (i: number) => void,
     private readonly onClose: () => void,
+    private readonly onPanel?: (panel: string) => void,
   ) {
     this.el = document.createElement('div');
     this.el.className = 'menu';
@@ -37,30 +41,42 @@ export class Menu {
       <div class="menu__inner site-max">
         <div class="menu__image-mask" aria-hidden="true">
           <div class="menu__image-inner">
-            <img class="menu__image" src="${menuImage.src}" alt="${menuImage.alt}" />
+            <span class="menu__image" data-image></span>
           </div>
         </div>
         <nav class="menu__links" aria-label="Slides">
           ${entries
             .map(
               (entry, i) => `
-            <button class="menu-link js-slide${entry.slide === undefined ? ' is-pending' : ''}"
-                    type="button"
-                    ${entry.slide === undefined ? 'aria-disabled="true"' : `data-index="${entry.slide}"`}>
+            <button class="menu-link js-slide" type="button"
+                    ${entry.slide !== undefined ? `data-index="${entry.slide}"` : ''}
+                    ${entry.panel ? `data-panel="${entry.panel}"` : ''}>
               <span class="menu-link__index" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
               <span class="menu-link__label h3 --menu">${entry.label}</span>
             </button>`,
             )
             .join('')}
         </nav>
+        <div class="menu__footer">
+          <button class="menu__footer-link uline" type="button" data-panel-link="credits">Credits</button>
+          <button class="menu__footer-link uline" type="button" data-panel-link="legal">Legal</button>
+          <span class="menu__footer-phone" data-phone></span>
+        </div>
       </div>`;
+
+    const slot = this.el.querySelector('[data-image]');
+    slot?.replaceWith(
+      buildPicture({ image: menuImage.image, alt: menuImage.alt, className: 'menu__image', sizes: '40rem' }),
+    );
 
     this.links = [...this.el.querySelectorAll<HTMLElement>('.js-slide')];
     for (const link of this.links) {
       link.addEventListener('click', () => {
-        // Floorplans has no slide: it opens the floor panel, which is not
-        // built. Until it is, the entry is present and inert rather than
-        // silently missing from the list.
+        if (link.dataset.panel) {
+          this.onPanel?.(link.dataset.panel);
+          this.close();
+          return;
+        }
         if (link.dataset.index === undefined) return;
         // An instant jump, never a wipe — a 1.5s transition across the whole
         // deck would look broken.
@@ -68,6 +84,14 @@ export class Menu {
         this.close();
       });
     }
+
+    for (const b of this.el.querySelectorAll<HTMLElement>('[data-panel-link]')) {
+      b.addEventListener('click', () => {
+        this.onPanel?.(b.dataset.panelLink as string);
+        this.close();
+      });
+    }
+    this.el.querySelector('[data-phone]')?.replaceChildren(...renderCopy(copy.menuFooter.phone));
 
     this.overlay = new Overlay(this.el, { onClose: () => this.close() });
   }

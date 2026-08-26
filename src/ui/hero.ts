@@ -2,6 +2,7 @@ import { gsap } from 'gsap';
 import { splitLines, mask } from '../lib/reveal';
 import { duration, stagger } from '../lib/motion';
 import { copy } from '../data/copy';
+import { renderCopy } from './tk';
 
 /**
  * The hero copy block — sections.md S2, with the entrance timeline from
@@ -30,15 +31,22 @@ export class Hero {
           <p class="hero__eyebrow label">${copy.hero.eyebrow}</p>
           <h1 class="hero__title">${copy.hero.headline.join('<br />')}</h1>
           <p class="hero__body">${copy.hero.paragraph}</p>
-          <p class="hero__price">${copy.hero.price}</p>
+          <p class="hero__price"><span data-price></span></p>
         </div>
       </div>`;
+  }
+
+  /** Fill the price, which carries a TK until somebody supplies one. */
+  private fillPrice(): void {
+    const slot = this.el.querySelector('[data-price]');
+    slot?.replaceChildren(`${copy.hero.pricePrefix} `, ...renderCopy(copy.hero.price));
   }
 
   /** Split once the fonts have settled, or the line boxes are measured wrong. */
   private build(): void {
     if (this.built) return;
     this.built = true;
+    this.fillPrice();
     this.eyebrow = mask(this.el.querySelector('.hero__eyebrow') as HTMLElement);
     this.price = mask(this.el.querySelector('.hero__price') as HTMLElement);
     this.lines = {

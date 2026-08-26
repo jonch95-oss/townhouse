@@ -1,71 +1,101 @@
 /**
- * Every word in the experience.
+ * Every word in the experience. Source: docs/source/COPY.md.
  *
- * Written for 223 Waverly Avenue from the four StudioSC PDFs. Nothing here is
- * adapted from spec/sections.md — those are another building's words, and the
- * reference is useful as evidence of how little text this format needs, not as
- * a source of phrases.
+ * 78 words across the whole thing, against the reference's ~90. The rooms
+ * carry no copy at all, which is the single most transferable decision in the
+ * capture and is free.
  *
- * Budget check, excluding the menu panels: 67 words total. The reference runs
- * about 90. The floor slides carry zero, which is the whole discipline.
- *
- * TK markers are facts not yet established. They render visibly on purpose.
+ * TK marks a fact nobody has. They render as a loud inline marker that is
+ * impossible to miss in review, and `npm run check:tk` fails while any remain.
+ * Do not estimate one. Do not let one ship.
  */
 
+/** Wrap a missing fact. The renderer turns this into a visible marker. */
+export const TK = (what: string) => ({ tk: what }) as const;
+export type Tk = ReturnType<typeof TK>;
+export const isTk = (v: unknown): v is Tk =>
+  typeof v === 'object' && v !== null && 'tk' in v;
+
 export const copy = {
-  /** Likely to be dropped — REBUILD.md §3: a preloader with nothing to preload is theatre. */
   preloader: 'Loading',
 
-  /**
-   * Intro gate. The material palette from p13 of the Landmarks deck, which
-   * lists SK1N Terra PG terracotta cladding first and Glen Gery Potenza Raw
-   * brick veneer second — so this order matches the deck's own. Both materials
-   * are true of the building, and p12 cites brick ornamentation at 185 and 226
-   * Waverly as the site "fabric" the design answers to.
-   *
-   * Terracotta leads on typographic grounds too: at 10, 3 and 5 characters the
-   * stack narrows as it descends, resolving on a hard monosyllable, where
-   * BRICK / AND / TERRACOTTA keeps opening and ends unresolved. It also sits
-   * with the building's descending roofline rather than against it. Both
-   * orderings were rendered at 390 before choosing — see docs/review/.
-   */
   intro: {
     headline: ['TERRACOTTA', 'AND', 'BRICK'],
     paragraph:
-      '223 Waverly Avenue is a new house in the Clinton Hill Historic District, in the materials of the street around it.',
-    primary: 'Step inside',
-    secondary: 'Continue in silence',
+      'A new house on a landmarked street in Clinton Hill. Four floors, built in brick and terracotta, designed to belong where it stands.',
+    // "ENTER", not "ENTER EXPERIENCE" — theirs is an experience because it is
+    // one. Ours is a house, and the shorter word is less pleased with itself.
+    primary: 'Enter',
+    secondary: 'Enter without sound',
   },
 
   hero: {
-    eyebrow: '223 Waverly Avenue',
+    eyebrow: '223 Waverly Avenue · Brooklyn',
     headline: ['Built For', 'This Street'],
     paragraph:
-      'Four floors and a roof terrace, on a street of nineteenth-century houses in the Clinton Hill Historic District.',
-    price: 'TK — price',
+      'A new four-storey house in the Clinton Hill Historic District, drawn to sit among its nineteenth-century neighbours rather than against them.',
+    pricePrefix: 'Offered at',
+    price: TK('price'),
   },
 
-  /** Floors 1–4 carry no words at all. This is deliberate and is not an omission. */
-  floors: null,
+  /** Slides 1–3 carry nothing. Deliberate, and not an omission. */
+  rooms: null,
 
   contact: {
-    eyebrow: 'Inquiries',
+    eyebrow: 'Contact',
     headline: ['COME', 'AND', 'SEE'],
-    line: 'To arrange a viewing, write or call.',
+    // This sentence is doing real work: the building does not exist, and
+    // saying so plainly where a buyer is about to act is both honest and
+    // disarming. It also pairs with the disclaimer in the Legal panel.
+    subtitle: 'The house is not yet built. To arrange a viewing of the plans, get in touch.',
     emailLabel: 'Email',
-    email: 'TK — email',
+    email: TK('email'),
     phoneLabel: 'Phone',
-    phone: 'TK — phone',
+    phone: TK('phone'),
+  },
+
+  menuFooter: {
+    credits: 'Credits',
+    legal: 'Legal',
+    phone: TK('phone'),
+  },
+
+  overview: {
+    title: ['Clinton Hill,', 'Rebuilt'],
+    body: [
+      '223 Waverly Avenue is a new four-storey house in the Clinton Hill Historic District, designed by StudioSC and approved by the Landmarks Preservation Commission in December 2024.',
+      'The facade is terracotta and brick, drawn from the ornamentation of its neighbours at 185 and 226 Waverly. Inside, four floors open onto two private terraces and a roof with views across the district.',
+    ],
+    highlightsLabel: 'Highlights',
+    highlights: [
+      'Four storeys plus a roof terrace',
+      'Foyer, library and courtyard at ground level',
+      'Kitchen and dining opening to a rear yard',
+      'Full-floor primary suite with dressing room and double-aspect bathroom',
+      ['Two private terraces plus ', TK('roof terrace sq ft'), ' of roof terrace'],
+      'Landmarks-approved terracotta and brick facade',
+      [TK('bedroom count'), ' bedrooms, ', TK('bathroom count'), ' bathrooms'],
+      [TK('interior sq ft'), ' interior'],
+    ],
+    stats: [
+      ['Interior Sq Ft', TK('interior sq ft')],
+      ['Exterior Sq Ft', TK('exterior sq ft')],
+      ['Bedrooms / Bathrooms', TK('bed/bath count')],
+      ['Floors', '4 + roof'],
+      ['District', 'Clinton Hill Historic'],
+    ],
+  },
+
+  credits: {
+    heading: ['The people who', 'made this house'],
+    // All five are named on the GC title sheet. Confirm each wants to be
+    // credited before this ships — some consultants do not.
+    entries: [
+      ['StudioSC', 'Architecture'],
+      [TK('developer name'), 'Developer'],
+      ['M C Structural Engineering', 'Structural'],
+      ['All City Engineering', 'Mechanical'],
+      ['BMB Building Consultants', 'DOB consultant'],
+    ],
   },
 } as const;
-
-/**
- * Outstanding facts. Not estimated, not inferred.
- *   - price
- *   - interior square footage as it should be marketed (the ~3,907 SF in the
- *     GC set is gross and above grade only, and excludes the cellar)
- *   - bedroom count and bathroom count as marketed
- *   - completion date
- *   - contact email and phone
- */
-export const TK = ['price', 'interior sq ft', 'bed/bath count', 'completion date', 'email', 'phone'] as const;
