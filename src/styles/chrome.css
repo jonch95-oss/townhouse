@@ -623,13 +623,37 @@
   text-align: center;
   /* Clears the scroll hint at 9.5rem and the 7rem label bar beneath it. */
   padding-bottom: 16rem;
+  position: relative;
   /*
    * Soft halo so thin white caps stay sharp over bright brick and sky — without
    * it the address reads as blurry against the terracotta texture.
    */
   text-shadow:
-    0 0 0.35em rgb(0 0 0 / 0.45),
-    0 0.08em 0.55em rgb(0 0 0 / 0.35);
+    0 0 0.45em rgb(0 0 0 / 0.55),
+    0 0.1em 0.7em rgb(0 0 0 / 0.45),
+    0 1px 2px rgb(0 0 0 / 0.4);
+}
+
+/*
+ * Local veil behind the copy so the address does not fight the brick grain.
+ * Stronger on mobile where the crop puts type over busy facade texture.
+ */
+.hero__col::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -2rem;
+  bottom: 8rem;
+  width: min(100%, 42rem);
+  transform: translateX(-50%);
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 42%,
+      rgb(0 0 0 / 0.42) 0%,
+      rgb(0 0 0 / 0.18) 55%,
+      transparent 78%
+    );
+  pointer-events: none;
 }
 
 @media (min-width: 650px) {
@@ -639,6 +663,18 @@
     text-align: left;
     padding-bottom: 20rem;
   }
+  .hero__col::before {
+    left: 0;
+    transform: none;
+    width: 110%;
+    background:
+      radial-gradient(
+        ellipse 80% 70% at 20% 45%,
+        rgb(0 0 0 / 0.35) 0%,
+        rgb(0 0 0 / 0.12) 55%,
+        transparent 80%
+      );
+  }
 }
 
 @media (orientation: portrait) and (min-width: 650px) and (max-width: 1100px) {
@@ -647,9 +683,10 @@
 
 .hero__eyebrow {
   margin: 0 0 2rem;
-  font-size: var(--t-13);
-  letter-spacing: var(--ls-label);
+  font-size: var(--t-14);
+  letter-spacing: 0.12em;
   font-weight: var(--fw-medium);
+  color: rgb(255 250 242 / 0.96);
   -webkit-font-smoothing: antialiased;
 }
 
