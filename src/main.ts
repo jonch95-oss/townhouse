@@ -11,7 +11,10 @@ import { CrossfadeRenderer } from './lib/renderer';
 import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
 import { slides, galleries, menuEntries } from './data/slides';
+import { buildPicture, resolveImage } from './lib/picture';
+import { overviewPanel, creditsPanel, legalPanel, floorplansPanel } from './ui/panels';
 import { Hero } from './ui/hero';
+import { Contact } from './ui/contact';
 import { PipRail } from './ui/pips';
 import { MenuToggle } from './ui/nav';
 import { SectionLabel } from './ui/section-label';
@@ -31,30 +34,17 @@ const layers = slides.map((slide, i) => {
   const layer = document.createElement('div');
   layer.className = 'slide';
 
-  if (slide.src) {
-    // <picture> so a narrow viewport fetches the portrait frame and never the
-    // landscape one. responsive.md §3: the reference swaps the asset rather
-    // than cropping the same file, and so do we.
-    const picture = document.createElement('picture');
-    if (slide.portrait) {
-      const source = document.createElement('source');
-      source.media = '(max-width: 649px)';
-      source.srcset = slide.portrait;
-      picture.appendChild(source);
-    }
-    const img = document.createElement('img');
-    img.className = 'slide__img';
-    img.src = slide.src;
-    img.alt = slide.alt ?? '';
-    img.draggable = false;
-    // The first two are the gate; the rest can arrive while you look at the hero.
-    img.loading = i < 2 ? 'eager' : 'lazy';
-    img.decoding = 'async';
-    if (i < 2) img.fetchPriority = 'high';
-    picture.appendChild(img);
-    layer.appendChild(picture);
+  if (slide.image) {
+    layer.appendChild(
+      buildPicture({
+        image: slide.image,
+        narrow: `portrait/${slide.image}`,
+        alt: slide.alt ?? '',
+        eager: i < 2,
+      }),
+    );
   } else {
-    // Contact lands on the warm ground; its card arrives in Phase 3.
+    // Contact lands on the warm ground; its card arrives with the copy below.
     layer.classList.add('slide--ground');
   }
 
@@ -74,6 +64,9 @@ const setChromeForSlide = (i: number) =>
 const hero = new Hero();
 stage.appendChild(hero.el);
 
+const contact = new Contact();
+stage.appendChild(contact.el);
+
 const chrome = document.createElement('div');
 chrome.className = 'chrome';
 document.body.appendChild(chrome);
@@ -90,7 +83,16 @@ const SHADER_ENABLED = new URLSearchParams(location.search).get('shader') === '1
 let renderer: SlideRenderer;
 if (SHADER_ENABLED) {
   const { ShaderRenderer } = await import('./lib/shader-renderer');
-  const shader = new ShaderRenderer(slides.map((s) => s.src));
+  // The shader takes the largest JPEG of each slide — it samples textures
+  // directly and has no use for the responsive ladder. Keys go through the
+  // same resolver as <picture>: the manifest prefixes them by source directory.
+  const shader = new ShaderRenderer(
+    slides.map((slide) => {
+      if (!slide.image) return undefined;
+      const set = resolveImage(slide.image)?.srcset.jpg ?? [];
+      return set[set.length - 1]?.url;
+    }),
+  );
   stage.prepend(shader.canvas);
   for (const layer of layers) layer.style.display = 'none';
   shader.show(0);
@@ -108,6 +110,8 @@ const machine = new SlideMachine({
     setChromeForSlide(current);
     if (current === 0) hero.enter();
     else if (previous === 0) hero.leave();
+    if (current === slides.length - 1) contact.enter();
+    else if (previous === slides.length - 1) contact.leave();
   },
 });
 
@@ -120,6 +124,24 @@ const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
 const setOverlayOpen = (open: boolean) => { machine.overlayOpen = open; };
 
 const lightbox = new Lightbox(() => setOverlayOpen(false));
+
+/** One panel component, four bodies — sections.md Overlay C. */
+const panels = {
+  overview: overviewPanel(),
+  credits: creditsPanel(),
+  legal: legalPanel(),
+  floorplans: floorplansPanel(),
+} as const;
+for (const panel of Object.values(panels)) {
+  document.body.appendChild(panel.el);
+  panel.el.addEventListener('transitionend', () => undefined);
+}
+const openPanel = (name: string) => {
+  const panel = panels[name as keyof typeof panels];
+  if (!panel) return;
+  setOverlayOpen(true);
+  panel.show();
+};
 const menu = new Menu(
   menuEntries,
   (i) => machine.instant(i),
@@ -128,6 +150,7 @@ const menu = new Menu(
     menuToggle.setOpen(false);
     document.body.classList.remove('menu-open');
   },
+  openPanel,
 );
 document.body.append(menu.el, lightbox.el);
 
@@ -146,13 +169,13 @@ stage.addEventListener('click', () => {
   setOverlayOpen(true);
   lightbox.show(
     ids.map((id, n) => ({
-      src: `/renders/gallery/${id}.jpg`,
+      image: id,
       alt: `${labels[machine.current]} — view ${n + 1} of ${ids.length}.`,
       caption: `${labels[machine.current]} — ${n + 1} / ${ids.length}`,
     })),
   );
 });
-const sectionLabel = new SectionLabel(labels);
+const sectionLabel = new SectionLabel(labels, () => openPanel('overview'));
 const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
 
 chrome.append(pips.el, scrollHint.el, sectionLabel.el);
