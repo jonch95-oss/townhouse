@@ -189,88 +189,80 @@ Anything else full-screen — the floor panel, the intro gate — goes through i
 
 Some of this is now resolved. What remains is not a CSS problem.
 
-### Resolved: floors 1–3 are on real renders
+### Every slide has both frames
 
-27 renders were extracted from the StudioSC decks at full embedded resolution and are
-committed under `public/renders/source/` with provenance in the README there. Three slides
-are wired to them, at or near the 2440px target the reference uses:
+`public/renders/slides/` holds a landscape and a portrait frame for each slide, plus the
+3:4 menu panel. `public/renders/gallery/` holds the twelve gallery images.
+`public/renders/source/` is the provenance archive — 26 renders at full embedded
+resolution from the StudioSC decks, kept so any future crop or regrade starts from source
+rather than from something already resampled.
 
-| Slide | Render | Resolution |
+| Slide | Landscape | Portrait |
 |---|---|---|
-| 1st floor | `ENT-003-000` — entrance / foyer / library | 2400 × 1350 |
-| 2nd floor | `INT-008-009` — kitchen, terrace beyond | 2400 × 1350 |
-| 3rd floor | `INT-020-033` — primary bathroom | 3200 × 1800 |
-| intro gate | `INT-022-034` — powder room | 1440 × 1762 |
-| menu panel | `ENT-005-002` — reframed to 3:4 in CSS | 2400 × 1350 |
+| hero | 2440 × 1626 | 824 × 1430 |
+| 1st floor | 2400 × 1350 | 777 × 1350 |
+| 2nd floor | 2400 × 1350 | 777 × 1350 |
+| 3rd floor | 3200 × 1800 | 1037 × 1800 |
+| intro gate | 1440 × 1762 | 1015 × 1762 |
+| menu panel | 1012 × 1350 (3:4) | — |
 
-The menu panel is reframed to 3:4 with `object-fit` and a chosen `object-position`, **not**
-by deriving a cropped file — a decorative crop at display time is not evidence of anything,
-where a committed portrait asset would look like it was.
+The slides use `<picture>` with a `(max-width: 649px)` source, so a narrow viewport fetches
+the portrait frame and never the landscape one.
 
-The gate image is deliberately a room that **does not show the building**, so the gate no
-longer spends the reveal the entrance sequence and hero are meant to pay off. The gate
-component itself is Phase 4; the asset is wired in `src/data/slides.ts` as `gateImage` so
-it is not lost.
+### The portrait frames are crops, and that is deliberate
 
-Gallery sets for floors 1–3 are recorded in the same file as `galleries`. They are not
-wired because no lightbox exists yet — there is nothing to stub.
+**They are not separately framed photography.** An earlier version of this document said
+portrait frames must never be manufactured from landscape renders — that rule assumed a
+shoot was possible. It is not, and there is no third party to commission one from, so a
+considered crop is the only path and the honest one.
 
-### Sharper, and worse than previously recorded: the hero
+The crops are chosen per image rather than centred: the 2nd floor keeps the island and the
+terrace doors, the 3rd keeps the tub centred between its windows, and the hero sits
+entirely above the street furniture.
 
-735 × 633 **is** the resolution of the image inside the Landmarks PDF, which was exported
-at 72ppi. Re-exporting the PDF at any DPI cannot recover detail that is not in the file.
-
-This was previously written up as though a better export would help. It will not. The fix
-is **StudioSC's source render, or a re-render** — an email, not a build step. It is the
-single longest-lead item in the project and nothing in this repo can shorten it.
-
-### Still blocked
-
-| What | Status |
-|---|---|
-| **Hero / exterior** | No usable asset. See above. |
-| **4th floor / roof terrace** | Never rendered. A bathroom stands in, marked `PLACEHOLDER` in `src/data/slides.ts`. |
-| **Every portrait frame** | **No separately framed portrait asset exists for any slide.** This blocks the mobile-hero decision. |
-
-**Do not generate portrait frames by cropping the landscapes.** `spec/REBUILD.md` §4 is
-explicit that the reference shoots them separately, and that is precisely why its phone
-experience can carry zero words. A centre-crop would let the mobile-hero decision be
-closed on false evidence — the same failure mode as measuring type against a fallback
-font, which already cost this project a round.
+**This does not reopen the mobile-hero decision.** The reference renders no hero copy at
+all below 650px, and that silence is carried by frames shot for the purpose. A crop of a
+landscape render is not the same asset and does not license the same restraint. The copy
+stays on mobile until frames exist that were composed as portraits.
 
 ### Chrome polarity is a property of each image
 
-The reference is white throughout because its photography is art-directed dark at the
-edges. Ours is the inverse — pale plaster, blown ceilings, clipped windows — so the same
-principle (*chrome contrasts with imagery*) gives the opposite answer, and the chrome
-inverts to the warm neutral over most slides. The scrims invert with it: a black scrim
-under dark ink darkens exactly the ground the ink needs.
+**This supersedes an instruction to switch chrome by slide range**, and the reason is
+worth keeping. The brief was "chrome goes dark on interior slides 1–4". Measured, that
+fails: `INT-008-009` — the second-floor kitchen — is a light image overall but **dark
+exactly where the pip rail sits**, so warm ink measures 1.13:1 over it where white
+measures 5.60:1. A range rule fixes the pale images and breaks that one.
 
-**It is declared per image, not per slide range**, as `chrome: 'light' | 'dark'` in
-`src/data/slides.ts`. `INT-008-009` is the one dark interior in the set: warm ink measures
-1.13:1 at the pip rail over it where white measures 5.60:1. A range rule fixes the pale
-images and breaks that one. It is the same property that made `INT-022-034` the right
-choice for the gate.
+Polarity is therefore declared per image as `chrome: 'light' | 'dark'` in
+`src/data/slides.ts`. It belongs to the picture, not to the slide index.
 
-Measured with `scripts/verify-chrome-contrast.mjs`, which screenshots the composited page
-and reads pixels rather than modelling the stack:
+The same reasoning applies to the scrims, which invert with the ink. A black scrim under
+dark ink darkens exactly the ground the ink needs. **The reference only ever needed one
+polarity because its photography is uniformly dark at the edges; ours is not**, which is
+the whole reason any of this is a decision here and not there.
+
+Floating chrome also carries a halo in the opposite value, so it does not depend entirely
+on what is behind it.
+
+### The measured matrix
+
+`scripts/verify-chrome-contrast.mjs` screenshots the composited page and reads pixels
+rather than modelling the stack — an earlier version modelled image-plus-scrim and
+silently ignored both the inverted scrim and the halo.
 
 | Slide | ink | menu toggle | pip rail | scroll hint | section label |
 |---|---|---:|---:|---:|---:|
-| hero *(placeholder)* | white | 8.54:1 | **1.53:1** | 10.86:1 | 6.12:1 |
-| 1st entrance | warm | **2.42:1** | 4.61:1 | 3.62:1 | 6.12:1 |
-| 2nd kitchen | white | 4.09:1 | 5.75:1 | 6.28:1 | 6.12:1 |
-| 3rd primary bath | warm | **2.99:1** | **2.45:1** | 4.17:1 | 6.12:1 |
+| hero | white | 8.35:1 | 5.56:1 | 6.21:1 | 6.12:1 |
+| 1st entrance | warm | **2.42:1** | 4.61:1 | 3.61:1 | 6.12:1 |
+| 2nd kitchen | white | 4.09:1 | 5.95:1 | 6.27:1 | 6.12:1 |
+| 3rd primary bath | warm | **2.99:1** | **2.48:1** | 4.17:1 | 6.12:1 |
 
-Floating chrome also carries a halo in the opposite value, so it does not depend entirely
-on what happens to be behind it. The halo is a local edge treatment and does not show up
-in the table, which measures ink against median ground.
+The hero passes everywhere on the real frame — the plane-tree foliage across the top is
+dark where the toggle and pips sit. On the placeholder it measured 1.53:1 at the pip rail.
 
-**What is still short:** the hero pip rail (a placeholder image), and the menu toggle and
-pip rail over the primary bath, which is mid-tone enough that neither polarity clears 3:1.
-Those close when the renders are regraded or replaced, not in CSS. The requirement to hand
-whoever does it: **a darkened band at the right edge and along the bottom**, which is what
-the reference art-directs and why its identical chrome survives everywhere.
+**The primary bath fails both polarities** at the pip rail — 2.48:1 warm, 2.58:1 white —
+and the two polarities simply trade which of the other positions works. It is left as
+shipped. That one is a regrade, not a code fix.
 
 ## Copy status
 
@@ -284,6 +276,7 @@ flourish on top of it (`spec/sections.md`, "The word count").
 | Contact headline — `COME / AND / SEE` | **Chosen.** |
 | Intro headline — `TERRACOTTA / AND / BRICK` | **Chosen.** Both orderings were rendered at 390 first (`docs/review/intro-390-a-brick-first.png` and `-b-terracotta-first.png`); (b) won. At 10, 3 and 5 characters the stack narrows as it descends and resolves on a hard monosyllable, where the reverse keeps opening. It also matches the order the Landmarks deck lists the materials in. |
 | Paragraphs | **Draft.** Written to the word budget and factually grounded, but not signed off. |
+| Menu | Six entries against five slides: Home, First, Second, Third, Floorplans, Contact. Floorplans has no slide — it opens the floor panel, which is not built, so the entry is present and inert rather than silently missing. |
 | Facts marked `TK` | price, interior square footage as marketed, bed/bath count as marketed, completion date, contact email, contact phone. They render visibly on purpose. See the `TK` export at the bottom of `copy.ts`. |
 
 Everything longer — floor descriptions, specification, credits, the Landmarks story —
@@ -357,30 +350,34 @@ and real copy and screenshotted before the change was accepted — `docs/review/
 Portrait confirmed the reasoning: monumental type, comfortable air. Short landscape did
 not, and that is recorded as its own requirement below.
 
-### Required for Phase 4: the gate needs a height-aware rule
+### Built: the gate's short-viewport rule
 
-**This is not a consequence of choosing 8rem — it is true at every size in the band, and
-it is the reason the gate cannot simply be built to the width table.**
+On short landscape viewports the gate stack did not fit vertically — the button ran into
+the pinned secondary link and the headline pressed against the top edge. It did that at
+every size in the 650–1100 band, so it was a height problem, not a type-size one, and
+reverting the headline would have relocated the failure rather than fixed it.
 
-On short landscape viewports the gate composition (three-line headline, paragraph, button,
-and the secondary link pinned at `bottom: 4rem`) does not fit vertically. Measured against
-the mock:
+`spec/responsive.md` §2 records the mechanism the reference uses: aspect-ratio queries
+stepping type down on short, wide windows without touching the width breakpoints. Aspect
+alone is not enough of a discriminator here — an ordinary 1440 × 900 desktop is 1.6 and
+would be caught — so it is paired with a height ceiling, which separates a phone in
+landscape from a laptop:
 
-| Viewport | 8rem | 6.5rem |
-|---|---|---|
-| 650 × 400 | button overlaps the link by 14px; 33px of air above a 67px line | no overlap, but 52px of air above a 55px line |
-| 844 × 390 — phone landscape | overlaps by 19px | **still overlaps**, 0px clearance |
-| 926 × 428 — phone landscape | 0px clearance | clears, 19px |
+```css
+@media (min-aspect-ratio: 3/2) and (max-height: 600px) { … }
+```
 
-Reverting to 6.5rem does not solve this; it only moves which viewports fail. The cause is
-the viewport height, not the type size.
+Two things happen: the headline drops a step, and the secondary link comes out of its
+pinned position into the flow. The second removes the collision by construction rather
+than by leaving just enough room.
 
-The reference solves it and the mechanism is already in the spec: `spec/tokens.md` §6
-documents aspect-ratio queries stepping the intro headline down on short, wide windows
-(`aspect-tight`), and `spec/responsive.md` §2 lists
-`(orientation: landscape) and (max-width: 1099px)` as a dedicated phone-landscape query.
-Build the gate with a height or aspect-ratio guard from the start rather than discovering
-this again.
+`scripts/verify-gate.mjs` checks both the vertical stack and the width fit across six
+viewports. The tall cases are unchanged — 64px at 650 × 900, 74px at 768 × 1024, 96px at
+1440 × 900.
+
+The layout the rule acts on (`.intro`, `.intro__body`, `.intro__secondary`) is in
+`type.css`. The gate **component** is still Phase 4; this is the type and layout it will
+use, put in place so the rule could be verified before anything is built on it.
 
 ## Verification
 
@@ -402,3 +399,28 @@ as a clipped half-diamond (an SVG `transform` attribute compounding with a CSS
 `transform-origin`), the mobile display rules being silently undone by source order at
 equal specificity, and the webfonts silently failing to load — which had quietly invalidated
 every type measurement taken before it was caught.
+
+---
+
+## Resting state
+
+**Built:** the fluid root and slide machine (Phase 1); type, reveals and chrome (Phase 2);
+the menu overlay and lightbox (Phase 3); the transition shader, behind a flag and off
+(half of Phase 4). Five slides, all on real imagery, landscape and portrait.
+
+**Deliberately out of scope:** a fourth-floor slide; the procedural sky; the clamped
+orbit, which needs a glTF model that does not exist. The floor panel behind the menu's
+Floorplans entry and the `[+]` is not built, and neither is the gate component.
+
+**Two things still open, both about pictures rather than code:**
+
+1. **The hero is an upscale** — roughly 4x from a 669 × 633 source. It composites well and
+   sits behind type without embarrassment, but it carries no real detail. Needs StudioSC's
+   source render or a re-render.
+2. **The primary bath may want a regrade.** Its pip rail fails both chrome polarities
+   (2.48:1 warm, 2.58:1 white) because the image is mid-tone exactly where the rail sits.
+   Every other position on every other slide clears. The requirement to hand whoever
+   regrades: a darkened band at the right edge.
+
+Everything else — price, square footage, bed and bath counts, completion date, contact
+details — is marked `TK` in `src/data/copy.ts` and renders visibly on purpose.
