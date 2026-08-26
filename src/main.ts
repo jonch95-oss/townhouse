@@ -8,13 +8,16 @@ import { registerEases } from './lib/eases';
 import { registerReveal } from './lib/reveal';
 import { applyMotionPreference } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
+import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
-import { slides } from './data/slides';
+import { slides, galleries, menuEntries } from './data/slides';
 import { Hero } from './ui/hero';
 import { PipRail } from './ui/pips';
 import { MenuToggle } from './ui/nav';
 import { SectionLabel } from './ui/section-label';
 import { ScrollHint } from './ui/scroll-hint';
+import { Menu } from './ui/menu';
+import { Lightbox } from './ui/lightbox';
 
 registerEases();
 registerReveal();
@@ -29,6 +32,16 @@ const layers = slides.map((slide, i) => {
   layer.className = 'slide';
 
   if (slide.src) {
+    // <picture> so a narrow viewport fetches the portrait frame and never the
+    // landscape one. responsive.md §3: the reference swaps the asset rather
+    // than cropping the same file, and so do we.
+    const picture = document.createElement('picture');
+    if (slide.portrait) {
+      const source = document.createElement('source');
+      source.media = '(max-width: 649px)';
+      source.srcset = slide.portrait;
+      picture.appendChild(source);
+    }
     const img = document.createElement('img');
     img.className = 'slide__img';
     img.src = slide.src;
@@ -38,7 +51,8 @@ const layers = slides.map((slide, i) => {
     img.loading = i < 2 ? 'eager' : 'lazy';
     img.decoding = 'async';
     if (i < 2) img.fetchPriority = 'high';
-    layer.appendChild(img);
+    picture.appendChild(img);
+    layer.appendChild(picture);
   } else {
     // Contact lands on the warm ground; its card arrives in Phase 3.
     layer.classList.add('slide--ground');
@@ -50,6 +64,13 @@ const layers = slides.map((slide, i) => {
 
 const labels = slides.map((s) => s.label);
 
+/**
+ * Chrome polarity is a property of each image, declared in the slide manifest.
+ * See the note on ChromePolarity there for why it is not a slide range.
+ */
+const setChromeForSlide = (i: number) =>
+  document.body.classList.toggle('is-interior', slides[i]?.chrome === 'dark');
+
 const hero = new Hero();
 stage.appendChild(hero.el);
 
@@ -57,23 +78,86 @@ const chrome = document.createElement('div');
 chrome.className = 'chrome';
 document.body.appendChild(chrome);
 
+/**
+ * The transition shader is built but OFF. The crossfade is the shipping path.
+ *
+ * Four of seven screens are still placeholders, and tuning a wipe against
+ * stand-in imagery is wasted work — so the shader exists, is proven to run,
+ * and is not tuned. Enable with ?shader=1 to look at it.
+ */
+const SHADER_ENABLED = new URLSearchParams(location.search).get('shader') === '1';
+
+let renderer: SlideRenderer;
+if (SHADER_ENABLED) {
+  const { ShaderRenderer } = await import('./lib/shader-renderer');
+  const shader = new ShaderRenderer(slides.map((s) => s.src));
+  stage.prepend(shader.canvas);
+  for (const layer of layers) layer.style.display = 'none';
+  shader.show(0);
+  renderer = shader;
+} else {
+  renderer = new CrossfadeRenderer(layers);
+}
+
 const machine = new SlideMachine({
   count: slides.length,
-  renderer: new CrossfadeRenderer(layers),
+  renderer,
   onChange: (current, previous) => {
     pips.change(current, previous);
     sectionLabel.set(current);
+    setChromeForSlide(current);
     if (current === 0) hero.enter();
     else if (previous === 0) hero.leave();
   },
 });
 
 const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
-const menuToggle = new MenuToggle();
+
+/**
+ * Overlays own the wheel while they are open — motion-spec.md §1.3 lists this
+ * among the guards. Without it the slide behind an open menu still advances.
+ */
+const setOverlayOpen = (open: boolean) => { machine.overlayOpen = open; };
+
+const lightbox = new Lightbox(() => setOverlayOpen(false));
+const menu = new Menu(
+  menuEntries,
+  (i) => machine.instant(i),
+  () => {
+    setOverlayOpen(false);
+    menuToggle.setOpen(false);
+    document.body.classList.remove('menu-open');
+  },
+);
+document.body.append(menu.el, lightbox.el);
+
+const menuToggle = new MenuToggle((open) => {
+  setOverlayOpen(open);
+  document.body.classList.toggle('menu-open', open);
+  if (open) menu.show();
+  else menu.close();
+});
+
+/** Clicking an interior slide opens that floor's gallery, where one exists. */
+stage.addEventListener('click', () => {
+  if (menu.isOpen || lightbox.isOpen) return;
+  const ids = galleries[machine.current];
+  if (!ids?.length) return;
+  setOverlayOpen(true);
+  lightbox.show(
+    ids.map((id, n) => ({
+      src: `/renders/gallery/${id}.jpg`,
+      alt: `${labels[machine.current]} — view ${n + 1} of ${ids.length}.`,
+      caption: `${labels[machine.current]} — ${n + 1} / ${ids.length}`,
+    })),
+  );
+});
 const sectionLabel = new SectionLabel(labels);
 const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
 
-chrome.append(menuToggle.el, pips.el, scrollHint.el, sectionLabel.el);
+chrome.append(pips.el, scrollHint.el, sectionLabel.el);
+// Above the menu overlay, so it can still be clicked to close — see chrome.css.
+document.body.appendChild(menuToggle.el);
 
 /**
  * Preload the first two slides, then open the gate. No percentage counter:
@@ -94,6 +178,7 @@ async function ready(): Promise<void> {
   document.body.classList.add('is-ready');
   machine.entered = true;
 
+  setChromeForSlide(machine.current);
   hero.enter();
   pips.enter(0);
   scrollHint.start();

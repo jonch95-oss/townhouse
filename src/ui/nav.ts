@@ -26,6 +26,16 @@ export class MenuToggle {
     this.el.addEventListener('click', () => this.toggle());
   }
 
+  /** Bring the button back in sync when the overlay closes itself. */
+  setOpen(open: boolean): void {
+    if (this.open === open) return;
+    this.open = open;
+    this.el.classList.toggle('is-active', open);
+    this.el.setAttribute('aria-expanded', String(open));
+    const label = this.el.querySelector('.menu-toggle__label');
+    if (label) label.textContent = open ? 'Close' : 'Menu';
+  }
+
   toggle(): void {
     this.open = !this.open;
     this.el.classList.toggle('is-active', this.open);

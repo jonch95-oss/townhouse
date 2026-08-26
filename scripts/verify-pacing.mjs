@@ -96,12 +96,12 @@ log = await page.evaluate(() => window.__log);
 check('input locked during transition (2 overlapping gestures = 1 slide)', log.length === 1, `${log.length} change(s)`);
 
 console.log('\n--- clamp at the end ---');
-await page.evaluate(() => window.waverly.instant(5));
+await page.evaluate(() => window.waverly.instant(4));
 await page.evaluate(() => { window.__log = []; });
 await flick(1);
 await page.waitForTimeout(2600);
 log = await page.evaluate(() => window.__log);
-check('hard clamp at the last slide, no wrap', log.length === 0 && (await page.evaluate(() => window.waverly.current)) === 5, `index ${await page.evaluate(() => window.waverly.current)}`);
+check('hard clamp at the last slide, no wrap', log.length === 0 && (await page.evaluate(() => window.waverly.current)) === 4, `index ${await page.evaluate(() => window.waverly.current)}`);
 
 console.log('\n--- keyboard ---');
 await page.evaluate(() => window.waverly.instant(0));

@@ -161,3 +161,68 @@
 @media (min-width: 650px) and (max-width: 1100px) {
   .intro__title { font-size: var(--t-80); }
 }
+
+/* --------------------------------------------------------------------------
+   The intro gate stack.
+
+   The gate component is Phase 4; this is the layout and type it will use, so
+   the short-viewport rule below has something real to act on and can be
+   verified before anything is built on top of it.
+   -------------------------------------------------------------------------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem 0;
+  padding-inline: var(--gutter);
+  color: var(--c-white);
+  text-align: center;
+}
+
+.intro__body {
+  margin: 0;
+  font-size: var(--t-16);
+  line-height: var(--lh-body);
+  max-width: 47.5rem;
+  opacity: 0.7;
+}
+
+.intro__secondary {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--t-14);
+}
+
+/*
+ * Short and wide.
+ *
+ * The width table cannot see vertical crowding, and at 650x400 and at phone
+ * landscape the stack overflows: the button runs into the pinned secondary
+ * link and the headline presses against the top edge. It does that at every
+ * size in the 650-1100 band, so it is a height problem, not a type-size one.
+ *
+ * responsive.md §2 records the mechanism the reference uses for exactly this —
+ * aspect-ratio queries stepping type down on short, wide windows without
+ * touching the width breakpoints. Aspect alone is not enough of a
+ * discriminator here, because an ordinary 1440x900 desktop is 1.6 and would be
+ * caught; pairing it with a height ceiling separates a phone in landscape from
+ * a laptop.
+ *
+ * Two things happen: the headline drops a step, and the secondary link comes
+ * out of its pinned position into the flow, which removes the collision by
+ * construction rather than by leaving just enough room.
+ */
+@media (min-aspect-ratio: 3/2) and (max-height: 600px) {
+  .intro { gap: 2rem 0; }
+  .intro__title { font-size: var(--t-40); }
+  .intro__secondary {
+    position: static;
+    transform: none;
+  }
+}
