@@ -8,11 +8,14 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "images": "node scripts/build-images.mjs",
+    "check:tk": "node scripts/check-tk.mjs"
   },
   "devDependencies": {
     "@types/three": "^0.185.4",
     "playwright": "^1.62.1",
+    "sharp": "^0.35.3",
     "typescript": "^5.6.0",
     "vite": "^5.4.0"
   },
