@@ -4,10 +4,11 @@
  * depends on it.
  */
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 const b = await launchChromium();
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto(process.env.URL ?? 'http://localhost:5173/', { waitUntil: 'networkidle' });
-await p.waitForSelector('body.is-ready');
+await dismissIntro(p);
 
 const results = [];
 const ok = (n, pass, d) => { results.push(pass); console.log(`${pass ? 'PASS' : 'FAIL'}  ${n}${d ? ` — ${d}` : ''}`); };

@@ -1,8 +1,9 @@
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
 await page.goto('http://localhost:4173/', { waitUntil: 'networkidle' });
-await page.waitForSelector('body.is-ready');
+await dismissIntro(page);
 await page.evaluate(() => {
   window.__log = []; window.__started = 0;
   const m = window.waverly, r = m.options.renderer, oc = r.change.bind(r);

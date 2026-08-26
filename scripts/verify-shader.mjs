@@ -3,6 +3,7 @@
  * crossfade. It is not tuned and it is not the shipping path.
  */
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 import { mkdirSync } from 'node:fs';
 
 const URL = process.env.URL ?? 'http://localhost:4173/';
@@ -23,7 +24,7 @@ const off = await b.newPage({ viewport: { width: 1200, height: 750 } });
 const offChunks = [];
 off.on('request', (q) => { if (/shader-renderer/.test(q.url())) offChunks.push(q.url()); });
 await off.goto(URL, { waitUntil: 'networkidle' });
-await off.waitForSelector('body.is-ready');
+await dismissIntro(off);
 ok('shader is OFF by default', (await off.evaluate(() => !document.querySelector('.gl-slides'))) === true);
 ok('shader chunk is not even fetched by default', offChunks.length === 0, `${offChunks.length} requests`);
 await off.close();
@@ -31,8 +32,7 @@ await off.close();
 // flagged on
 const p = await b.newPage({ viewport: { width: 1200, height: 750 } });
 await p.goto(`${URL}?shader=1`, { waitUntil: 'networkidle' });
-await p.waitForSelector('body.is-ready');
-await p.waitForTimeout(1500);
+await dismissIntro(p);
 const info = await p.evaluate(() => {
   const c = document.querySelector('.gl-slides');
   const gl = c?.getContext('webgl2') || c?.getContext('webgl');

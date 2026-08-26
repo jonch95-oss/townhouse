@@ -7,6 +7,7 @@
  * that measures a model rather than the artefact will do that eventually.
  */
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 import { mkdirSync } from 'node:fs';
 import sharp from 'sharp';
 
@@ -17,7 +18,7 @@ mkdirSync(OUT, { recursive: true });
 const b = await launchChromium();
 const p = await b.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
 await p.goto(URL, { waitUntil: 'networkidle' });
-await p.waitForSelector('body.is-ready');
+await dismissIntro(p);
 await p.evaluate(() => document.fonts.ready);
 
 const POSITIONS = [

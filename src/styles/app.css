@@ -76,24 +76,41 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Loading gate. No percentage counter — REBUILD.md §3 is explicit that a
-   progress readout is theatre without 6.9 MB of textures behind it.
+   Loading curtains. No percentage counter — REBUILD.md §3 is explicit that a
+   progress readout is theatre without 6.9 MB of textures behind it. Two white
+   halves split apart when the first slides are ready, revealing the intro gate.
    -------------------------------------------------------------------------- */
 .gate {
   position: fixed;
   inset: 0;
-  z-index: 20;
-  background: var(--c-white);
-  transition: opacity var(--dur-slower) var(--ease-out);
+  z-index: 60;
+  pointer-events: none;
 }
 
+.gate__half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--c-white);
+  will-change: transform;
+}
+
+.gate__half.--top { top: 0; }
+.gate__half.--bottom { bottom: 0; }
+
 .is-ready .gate {
-  opacity: 0;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gate,
+  .gate__half {
+    transition: opacity 0.01s linear;
+  }
+  .is-ready .gate__half {
+    opacity: 0;
+  }
+
   .chrome {
     transition-duration: 0.01s;
   }

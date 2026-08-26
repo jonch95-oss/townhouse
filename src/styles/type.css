@@ -163,11 +163,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   The intro gate stack.
+   The intro gate — interactive threshold before the slide machine unlocks.
 
-   The gate component is Phase 4; this is the layout and type it will use, so
-   the short-viewport rule below has something real to act on and can be
-   verified before anything is built on top of it.
+   Full-bleed still, pointer parallax, hold-to-enter. Not the reference's cloud
+   scene — material, grounded, this house.
    -------------------------------------------------------------------------- */
 .intro {
   position: fixed;
@@ -177,10 +176,64 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rem 0;
-  padding-inline: var(--gutter);
   color: var(--c-white);
   text-align: center;
+  overflow: hidden;
+  background: var(--c-black);
+  touch-action: none;
+  user-select: none;
+}
+
+/* Must beat `.picture { position: relative }` from chrome.css. */
+.intro__media {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.intro__picture,
+.intro__picture.picture {
+  position: absolute !important;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.intro__picture picture,
+.intro__picture .picture__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(0 0 0 / 0.28);
+  pointer-events: none;
+  transition: background-color var(--dur-fade) var(--ease-out);
+}
+
+.intro.is-holding .intro__scrim {
+  background: rgb(0 0 0 / 0.08);
+}
+
+.intro__stack {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem 0;
+  padding-inline: var(--gutter);
+  max-width: 100%;
+  pointer-events: none;
 }
 
 .intro__body {
@@ -188,41 +241,94 @@
   font-size: var(--t-16);
   line-height: var(--lh-body);
   max-width: 47.5rem;
-  opacity: 0.7;
 }
 
-.intro__secondary {
+.intro__enter {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  padding-inline: 1.35em;
+  border: 1px solid rgb(255 255 255 / 0.4);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .intro__enter:hover {
+    background: var(--c-white);
+    color: var(--c-warm);
+    border-color: var(--c-white);
+  }
+}
+
+.intro__enter:focus-visible {
+  outline: 2px solid var(--c-white);
+  outline-offset: 0.4rem;
+}
+
+.intro__hint {
+  margin: 0;
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.intro__progress {
   position: absolute;
-  bottom: 4rem;
   left: 50%;
+  bottom: 2.5rem;
+  width: min(24rem, 40vw);
+  height: 1px;
   transform: translateX(-50%);
-  font-size: var(--t-14);
+  background: rgb(255 255 255 / 0.2);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fade) var(--ease-out);
+}
+
+.intro.is-holding .intro__progress {
+  opacity: 1;
+}
+
+.intro__progress-bar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--c-white);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* Coarse pointers / reduced motion: keep the button primary. */
+@media (hover: none), (pointer: coarse) {
+  .intro { touch-action: manipulation; }
+  .intro__hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__hint,
+  .intro__progress { display: none; }
 }
 
 /*
- * Short and wide.
- *
- * The width table cannot see vertical crowding, and at 650x400 and at phone
- * landscape the stack overflows: the button runs into the pinned secondary
- * link and the headline presses against the top edge. It does that at every
- * size in the 650-1100 band, so it is a height problem, not a type-size one.
- *
- * responsive.md §2 records the mechanism the reference uses for exactly this —
- * aspect-ratio queries stepping type down on short, wide windows without
- * touching the width breakpoints. Aspect alone is not enough of a
- * discriminator here, because an ordinary 1440x900 desktop is 1.6 and would be
- * caught; pairing it with a height ceiling separates a phone in landscape from
- * a laptop.
- *
- * Two things happen: the headline drops a step, and the secondary link comes
- * out of its pinned position into the flow, which removes the collision by
- * construction rather than by leaving just enough room.
+ * Short and wide — phone landscape / short laptop windows.
+ * Aspect alone is not enough (1440×900 is 1.6); pair with a height ceiling.
  */
 @media (min-aspect-ratio: 3/2) and (max-height: 600px) {
-  .intro { gap: 2rem 0; }
+  .intro__stack { gap: 2rem 0; }
   .intro__title { font-size: var(--t-40); }
-  .intro__secondary {
-    position: static;
-    transform: none;
-  }
+  .intro__progress { bottom: 1.5rem; }
 }

@@ -1,14 +1,13 @@
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 const URL = 'http://localhost:4173/';
-const EXE = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const results = [];
 const ok = (name, pass, d) => { results.push(pass); console.log(`${pass ? 'PASS' : 'FAIL'}  ${name}${d ? ` — ${d}` : ''}`); };
 
 const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(URL, { waitUntil: 'networkidle' });
-await page.waitForSelector('body.is-ready');
-await page.waitForTimeout(2600); // let the hero entrance finish
+await dismissIntro(page);
 
 console.log('--- fluid root continuity across the floor handoff ---');
 const sweep = [];
@@ -21,8 +20,7 @@ const jumps = sweep.slice(1).map(([, f], i) => Math.abs(f - sweep[i][1]));
 ok('no discontinuity at the 1200px handoff', Math.max(...jumps) < 0.35, `largest step ${Math.max(...jumps).toFixed(3)}px`);
 await page.setViewportSize({ width: 1440, height: 900 });
 await page.reload({ waitUntil: 'networkidle' });
-await page.waitForSelector('body.is-ready');
-await page.waitForTimeout(2600);
+await dismissIntro(page);
 
 console.log('\n--- reveals ---');
 const hero = await page.evaluate(() => {

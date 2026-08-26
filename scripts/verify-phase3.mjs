@@ -1,10 +1,11 @@
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 const URL = process.env.URL ?? 'http://localhost:4173/';
 const r = []; const ok = (n, p, d) => { r.push(p); console.log(`${p ? 'PASS' : 'FAIL'}  ${n}${d ? ` — ${d}` : ''}`); };
 const b = await launchChromium();
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
 await p.goto(URL, { waitUntil: 'networkidle' });
-await p.waitForSelector('body.is-ready');
+await dismissIntro(p);
 await p.evaluate(() => document.fonts.ready);
 
 console.log('--- menu overlay ---');

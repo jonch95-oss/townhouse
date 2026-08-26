@@ -79,6 +79,7 @@ export function buildPicture(opts: PictureOptions): HTMLElement {
   img.loading = opts.eager ? 'eager' : 'lazy';
   if (opts.eager) img.fetchPriority = 'high';
   img.addEventListener('load', () => figure.classList.add('is-loaded'), { once: true });
+  if (img.complete && img.naturalWidth > 0) figure.classList.add('is-loaded');
   picture.appendChild(img);
 
   figure.appendChild(picture);

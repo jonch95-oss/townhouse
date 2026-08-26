@@ -4,9 +4,10 @@ import './styles/type.css';
 import './styles/app.css';
 import './styles/chrome.css';
 
+import { gsap } from 'gsap';
 import { registerEases } from './lib/eases';
 import { registerReveal } from './lib/reveal';
-import { applyMotionPreference } from './lib/motion';
+import { applyMotionPreference, duration, reducedMotion } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
 import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
@@ -21,6 +22,7 @@ import { SectionLabel } from './ui/section-label';
 import { ScrollHint } from './ui/scroll-hint';
 import { Menu } from './ui/menu';
 import { Lightbox } from './ui/lightbox';
+import { Intro } from './ui/intro';
 
 registerEases();
 registerReveal();
@@ -163,7 +165,7 @@ const menuToggle = new MenuToggle((open) => {
 
 /** Clicking an interior slide opens that floor's gallery, where one exists. */
 stage.addEventListener('click', () => {
-  if (menu.isOpen || lightbox.isOpen) return;
+  if (menu.isOpen || lightbox.isOpen || !machine.entered) return;
   const ids = galleries[machine.current];
   if (!ids?.length) return;
   setOverlayOpen(true);
@@ -182,10 +184,49 @@ chrome.append(pips.el, scrollHint.el, sectionLabel.el);
 // Above the menu overlay, so it can still be clicked to close — see chrome.css.
 document.body.appendChild(menuToggle.el);
 
+/** Open the slide machine and the chrome after the visitor dismisses the gate. */
+function enterExperience(): void {
+  document.body.classList.add('is-entered');
+  machine.entered = true;
+  setChromeForSlide(machine.current);
+  hero.enter();
+  pips.enter(0);
+  scrollHint.start();
+}
+
 /**
- * Preload the first two slides, then open the gate. No percentage counter:
- * REBUILD.md §3 is right that a progress readout is theatre without megabytes
- * of textures genuinely behind it.
+ * Split the white curtains, then show the intro gate.
+ * REBUILD.md §3: keep the shape, change the content — no percentage theatre,
+ * no cloud descent. One still, a considered wait, a deliberate Enter.
+ */
+function openGate(): void {
+  const top = document.querySelector('.gate__half.--top');
+  const bottom = document.querySelector('.gate__half.--bottom');
+  const gate = document.querySelector('.gate');
+
+  const intro = new Intro(enterExperience);
+  document.body.appendChild(intro.el);
+
+  const finish = () => {
+    gate?.remove();
+    intro.show();
+  };
+
+  if (!top || !bottom || reducedMotion) {
+    finish();
+    return;
+  }
+
+  gsap
+    .timeline({ onComplete: finish })
+    .to(top, { yPercent: -100, duration: duration(2), ease: 'power3.inOut' }, 0)
+    .to(bottom, { yPercent: 100, duration: duration(2), ease: 'power3.inOut' }, 0);
+}
+
+/**
+ * Preload the first two slides + the gate still, then open the threshold.
+ * No percentage counter: without megabytes of WebGL textures it would be
+ * theatre, and people can tell (REBUILD.md §3).
  */
 async function ready(): Promise<void> {
   const first = layers
@@ -199,12 +240,7 @@ async function ready(): Promise<void> {
   await document.fonts.ready.catch(() => undefined);
 
   document.body.classList.add('is-ready');
-  machine.entered = true;
-
-  setChromeForSlide(machine.current);
-  hero.enter();
-  pips.enter(0);
-  scrollHint.start();
+  openGate();
 }
 
 function loaded(img: HTMLImageElement): Promise<void> {

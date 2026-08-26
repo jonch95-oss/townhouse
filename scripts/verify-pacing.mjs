@@ -4,6 +4,7 @@
  * locked while it runs, and the first move off the hero is the long one.
  */
 import { launchChromium } from './lib/browser.mjs';
+import { dismissIntro } from './lib/enter.mjs';
 
 const URL = process.env.URL ?? 'http://localhost:4173/';
 const results = [];
@@ -15,7 +16,7 @@ const check = (name, pass, detail) => {
 const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(URL, { waitUntil: 'networkidle' });
-await page.waitForSelector('body.is-ready', { timeout: 15000 });
+await dismissIntro(page);
 
 /**
  * Instrument both ends of a transition. `renderer.change()` runs at timeline

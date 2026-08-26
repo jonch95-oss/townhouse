@@ -26,7 +26,9 @@ export const copy = {
     // "ENTER", not "ENTER EXPERIENCE" — theirs is an experience because it is
     // one. Ours is a house, and the shorter word is less pleased with itself.
     primary: 'Enter',
-    secondary: 'Enter without sound',
+    // Hold-to-enter is the Quadplex press-and-hold, adapted for a still.
+    // Hidden under reduced motion and on coarse pointers via CSS/JS.
+    holdHint: 'Hold to enter',
   },
 
   hero: {
