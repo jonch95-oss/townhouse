@@ -217,8 +217,8 @@ export const images: Record<string, ImageEntry> = {
  "landscape/03-third-floor": {
   "id": "03-third-floor",
   "kind": "landscape",
-  "width": 3200,
-  "height": 1800,
+  "width": 2400,
+  "height": 1350,
   "aspect": 1.7778,
   "srcset": {
    "avif": [
@@ -237,10 +237,6 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 1920,
      "url": "/img/landscape/03-third-floor-1920.avif"
-    },
-    {
-     "w": 2440,
-     "url": "/img/landscape/03-third-floor-2440.avif"
     }
    ],
    "webp": [
@@ -259,10 +255,6 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 1920,
      "url": "/img/landscape/03-third-floor-1920.webp"
-    },
-    {
-     "w": 2440,
-     "url": "/img/landscape/03-third-floor-2440.webp"
     }
    ],
    "jpg": [
@@ -281,15 +273,11 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 1920,
      "url": "/img/landscape/03-third-floor-1920.jpg"
-    },
-    {
-     "w": 2440,
-     "url": "/img/landscape/03-third-floor-2440.jpg"
     }
    ]
   },
-  "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAJABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgME/8QAIRAAAQIEBwAAAAAAAAAAAAAAAQADAgQREgUxMjM0QVH/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AA3bE5aCdNc+1HEIQGiATS71aZbZRnuKVJf/2Q==",
-  "dominant": "#79736c"
+  "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAJABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwT/xAAhEAABAwMEAwAAAAAAAAAAAAABAAISAwQRISIzgTVxsf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAExQf/aAAwDAQACEQMRAD8Aas6DyBGUdMoKbgbkbmlxyCAe013zn0FDa+Qf19U9KKf/2Q==",
+  "dominant": "#8d8577"
  },
  "landscape/gate": {
   "id": "gate",
@@ -470,9 +458,9 @@ export const images: Record<string, ImageEntry> = {
  "portrait/03-third-floor": {
   "id": "03-third-floor",
   "kind": "portrait",
-  "width": 1037,
-  "height": 1800,
-  "aspect": 0.5761,
+  "width": 777,
+  "height": 1350,
+  "aspect": 0.5756,
   "srcset": {
    "avif": [
     {
@@ -482,10 +470,6 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 640,
      "url": "/img/portrait/03-third-floor-640.avif"
-    },
-    {
-     "w": 828,
-     "url": "/img/portrait/03-third-floor-828.avif"
     }
    ],
    "webp": [
@@ -496,10 +480,6 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 640,
      "url": "/img/portrait/03-third-floor-640.webp"
-    },
-    {
-     "w": 828,
-     "url": "/img/portrait/03-third-floor-828.webp"
     }
    ],
    "jpg": [
@@ -510,15 +490,11 @@ export const images: Record<string, ImageEntry> = {
     {
      "w": 640,
      "url": "/img/portrait/03-third-floor-640.jpg"
-    },
-    {
-     "w": 828,
-     "url": "/img/portrait/03-third-floor-828.jpg"
     }
    ]
   },
-  "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAcABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQIE/8QAJBAAAgIBAgUFAAAAAAAAAAAAAQIAEQMSIQQTIiNRMVJxgZH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABcRAQEBAQAAAAAAAAAAAAAAAAAREjH/2gAMAwEAAhEDEQA/ABWyb8xNBkHLmUBmwlVJAu/M1Z16h8Q4kdjGPLLJnpTauAS1GpGfSUQWSQwqt5bKvtH5FQB6AD6lo//Z",
-  "dominant": "#898886"
+  "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAcABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAMB/8QAHxAAAgEEAwEBAAAAAAAAAAAAAQIRAAMEEiEiUWFB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AI5Zfq23CtBpinZQfRRnTZLiejYVbEbeyPlZqAuZ7JcM21IVomeabhAhryRABDLP6Kvdwse4dmtLt77WIokrEhD1+Uw//9k=",
+  "dominant": "#887e6e"
  },
  "portrait/gate": {
   "id": "gate",
@@ -1208,6 +1184,59 @@ export const images: Record<string, ImageEntry> = {
   },
   "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwIE/8QAHxAAAgEEAgMAAAAAAAAAAAAAAQIRAAMSIQQxUVKx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8AbfHxVTGCAR5Jp7TPcsZv7D7W3FVWAo32Y7qLigLA0JGqmF//2Q==",
   "dominant": "#aaa59a"
+ },
+ "gallery/INT-020-033": {
+  "id": "INT-020-033",
+  "kind": "gallery",
+  "width": 2400,
+  "height": 1800,
+  "aspect": 1.3333,
+  "srcset": {
+   "avif": [
+    {
+     "w": 640,
+     "url": "/img/gallery/INT-020-033-640.avif"
+    },
+    {
+     "w": 1024,
+     "url": "/img/gallery/INT-020-033-1024.avif"
+    },
+    {
+     "w": 1600,
+     "url": "/img/gallery/INT-020-033-1600.avif"
+    }
+   ],
+   "webp": [
+    {
+     "w": 640,
+     "url": "/img/gallery/INT-020-033-640.webp"
+    },
+    {
+     "w": 1024,
+     "url": "/img/gallery/INT-020-033-1024.webp"
+    },
+    {
+     "w": 1600,
+     "url": "/img/gallery/INT-020-033-1600.webp"
+    }
+   ],
+   "jpg": [
+    {
+     "w": 640,
+     "url": "/img/gallery/INT-020-033-640.jpg"
+    },
+    {
+     "w": 1024,
+     "url": "/img/gallery/INT-020-033-1024.jpg"
+    },
+    {
+     "w": 1600,
+     "url": "/img/gallery/INT-020-033-1600.jpg"
+    }
+   ]
+  },
+  "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAMABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgEF/8QAHBABAAICAwEAAAAAAAAAAAAAAQIRAAMSMWEi/8QAFAEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANPVFebzl8hRfrl2xYMglJCu3zHo0xgMo3yl23jnrEttX3Av/9k=",
+  "dominant": "#b6b3ae"
  },
  "floorplan/01-first-floor": {
   "id": "01-first-floor",

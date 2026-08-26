@@ -69,7 +69,7 @@ export const slides: Slide[] = [
     label: 'Primary Suite',
     chrome: 'dark',
     image: '03-third-floor',
-    alt: 'The primary bathroom, the tub centred between its windows.',
+    alt: 'The primary bathroom vanity under the slanted skylight wall, marble and oak with a cognac leather stool.',
   },
   {
     label: 'Contact',
@@ -77,9 +77,10 @@ export const slides: Slide[] = [
 ];
 
 export const galleries: Record<number, readonly string[]> = {
-  1: ['ENT-004-001', 'ENT-005-002', 'ENT-006-003', 'ENT-007-004', 'ENT-008-008', 'ENT-009-009'],
+  1: ['ENT-004-001', 'ENT-005-002', 'ENT-006-003', 'ENT-008-008', 'ENT-009-009'],
   2: ['INT-003-000', 'INT-004-001', 'INT-005-002', 'INT-007-008'],
-  3: ['INT-017-027', 'INT-019-032'],
+  // Tub hero (former main) + shower/toilet view — vanity is now the main plate.
+  3: ['INT-020-033', 'INT-019-032'],
 };
 
 export interface MenuEntry {

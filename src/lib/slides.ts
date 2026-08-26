@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 import { Lethargy } from './lethargy';
-import { debounce } from './debounce';
+import { debounceDir } from './debounce';
 import { createVirtualScroll } from './virtual-scroll';
 import type { SlideRenderer } from './renderer';
 
@@ -38,21 +38,33 @@ export class SlideMachine {
   constructor(private readonly options: SlideMachineOptions) {
     this.timeline = gsap.timeline({ paused: true });
 
-    const advance = debounce((y: number, oe: WheelEvent | TouchEvent | KeyboardEvent) => {
-      // Lethargy only speaks wheel, and only matters on a trackpad/mouse.
-      if (oe instanceof WheelEvent && hasFinePointer && !this.lethargy.check(oe)) return;
-      if (this.locked || this.overlayOpen || !this.entered) return;
-
-      const next = this.current + -Math.sign(y);
-      // Hard clamp: no wrap, no rubber-band.
-      if (next < 0 || next >= this.options.count || next === this.current) return;
-
-      this.go(next);
+    // Direction is locked to the first deliberate delta in the debounce window
+    // so a bounce at the end of a flick cannot reverse the slide.
+    const advance = debounceDir((y: number) => {
+      this.tryAdvance(y);
     }, DEBOUNCE_MS);
 
     this.teardown = createVirtualScroll(({ y, oe }) => {
-      if (y !== 0) advance(y, oe);
+      if (y === 0) return;
+      // Touch already commits once on touchend with total travel — do not
+      // debounce it, or a bounce can no longer reverse it and the swipe feels
+      // immediate.
+      if (oe instanceof TouchEvent) {
+        this.tryAdvance(y);
+        return;
+      }
+      // Feed Lethargy every wheel tick — it needs the full stream, not the
+      // debounced tail — then only queue a slide change on a deliberate flick.
+      if (oe instanceof WheelEvent && hasFinePointer && !this.lethargy.check(oe)) return;
+      advance(y);
     });
+  }
+
+  private tryAdvance(y: number): void {
+    if (this.locked || this.overlayOpen || !this.entered) return;
+    const next = this.current + -Math.sign(y);
+    if (next < 0 || next >= this.options.count || next === this.current) return;
+    this.go(next);
   }
 
   /** Animated move to a neighbouring slide. */
