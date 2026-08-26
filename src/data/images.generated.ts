@@ -1543,5 +1543,46 @@ export const images: Record<string, ImageEntry> = {
   },
   "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAVABADASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQACBP/EACAQAAICAAYDAAAAAAAAAAAAAAERAAIDBBIhIjEFYZH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAP/EABYRAQEBAAAAAAAAAAAAAAAAAAABIf/aAAwDAQACEQMRAD8AVGKdJKZAZnFfylVwERsndVXHuDjKWSBoQvfcBExghgkuZ1VwcxTTQb7fZSkU1//Z",
   "dominant": "#b0a49a"
- }
+ },
+ "panel/overview-axon": {
+ "id": "overview-axon",
+ "kind": "panel",
+ "width": 1143,
+ "height": 867,
+ "aspect": 1.3183,
+ "srcset": {
+  "avif": [
+   {
+    "w": 512,
+    "url": "/img/panel/overview-axon-512.avif"
+   },
+   {
+    "w": 1012,
+    "url": "/img/panel/overview-axon-1012.avif"
+   }
+  ],
+  "webp": [
+   {
+    "w": 512,
+    "url": "/img/panel/overview-axon-512.webp"
+   },
+   {
+    "w": 1012,
+    "url": "/img/panel/overview-axon-1012.webp"
+   }
+  ],
+  "jpg": [
+   {
+    "w": 512,
+    "url": "/img/panel/overview-axon-512.jpg"
+   },
+   {
+    "w": 1012,
+    "url": "/img/panel/overview-axon-1012.jpg"
+   }
+  ]
+ },
+ "lqip": "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAMABADASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAwT/xAAhEAACAQQCAgMAAAAAAAAAAAABAwIEBREhABITMUFRYf/EABQBAQAAAAAAAAAAAAAAAAAAAAL/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAMAwEAAhEDEQA/AKrlf6qL5qimVPHWMkdjv39b5VY7hUNYFPb5hMkg43EewOBbmC5MhSVS1ySE9gBHBifw/HFt1JBFxK1ynhciASd44R2eAX//2Q==",
+ "dominant": "#b0a2a0"
+}
 } as const;

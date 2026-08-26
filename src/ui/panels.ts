@@ -20,13 +20,28 @@ const para = (value: CopyValue, cls = 'panel__p') => {
 };
 
 /** Overview — the body behind the section-label `+`. */
-export function overviewPanel(): Panel {
-  const panel = new Panel('Overview');
+export function overviewPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Overview', onClose);
   const nodes: Node[] = [];
   const title = el('h3', 'panel__display');
   title.innerHTML = copy.overview.title.join('<br />');
   nodes.push(title);
-  for (const p of copy.overview.body) nodes.push(para(p));
+
+  const figure = el('figure', 'panel__figure');
+  figure.appendChild(
+    buildPicture({
+      image: copy.overview.figure.image,
+      alt: copy.overview.figure.alt,
+      sizes: '(min-width: 650px) min(72ch, 70vw), 100vw',
+    }),
+  );
+  figure.appendChild(el('figcaption', 'panel__caption', copy.overview.figure.caption));
+  nodes.push(figure);
+
+  for (const section of copy.overview.sections) {
+    nodes.push(el('h4', 'panel__label', section.label));
+    for (const p of section.body) nodes.push(para(p));
+  }
 
   nodes.push(el('h4', 'panel__label', copy.overview.highlightsLabel));
   const ul = el('ul', 'panel__list');
@@ -49,8 +64,8 @@ export function overviewPanel(): Panel {
   return panel;
 }
 
-export function creditsPanel(): Panel {
-  const panel = new Panel('Credits');
+export function creditsPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Credits', onClose);
   const nodes: Node[] = [];
   const h = el('h3', 'panel__display');
   h.innerHTML = copy.credits.heading.join('<br />');
@@ -65,7 +80,7 @@ export function creditsPanel(): Panel {
   nodes.push(dl);
   nodes.push(
     para(
-      'All five are named on the GC title sheet. Confirm each wants to be credited before this ships.',
+      'All consultants are named on the GC title sheet. Confirm each wants to be credited before this ships.',
       'panel__note',
     ),
   );
@@ -78,8 +93,8 @@ export function creditsPanel(): Panel {
  * on every document, and every missing fact renders as a TK. Drafts are not
  * presented as policy.
  */
-export function legalPanel(): Panel {
-  const panel = new Panel('Legal');
+export function legalPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Legal', onClose);
   const nodes: Node[] = [];
 
   if (!LEGAL_REVIEWED) {
@@ -121,14 +136,14 @@ export function legalPanel(): Panel {
  * These are construction drawings, not marketing plans — dimension strings and
  * annotations included. Noted as a quality gap in HANDOFF.md.
  */
-export function floorplansPanel(): Panel {
-  const panel = new Panel('Floorplans');
+export function floorplansPanel(onClose?: () => void): Panel {
+  const panel = new Panel('Floorplans', onClose);
   const nodes: Node[] = [];
 
   const note = el(
     'p',
     'panel__note',
-    'These are construction drawings from the filed set, not marketing plans. Dimensions and annotations are shown as drawn.',
+    'Construction drawings from the filed set for one house. 221 and 223 are mirror images; dimensions and annotations are shown as drawn.',
   );
   nodes.push(note);
 
@@ -148,7 +163,7 @@ export function floorplansPanel(): Panel {
       }),
     );
     download.href = plan.download;
-    download.setAttribute('download', `223-waverly-${plan.label.toLowerCase().replace(/\s+/g, '-')}.png`);
+    download.setAttribute('download', `221-223-waverly-${plan.label.toLowerCase().replace(/\s+/g, '-')}.png`);
     for (const [n, b] of [...tabs.children].entries()) {
       b.setAttribute('aria-selected', String(n === i));
     }

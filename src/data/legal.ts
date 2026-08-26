@@ -33,11 +33,11 @@ export const legalDocs: LegalDoc[] = [
     status:
       'Nearly ready. This is the one with real exposure — the building does not exist and every image on this site is a rendering. Send it to counsel first.',
     body: [
-      "All images on this site are artist's renderings. 223 Waverly Avenue is not yet constructed. Renderings, floor plans, dimensions, square footages and finishes are illustrative, are based on plans filed with the New York City Department of Buildings and approved by the Landmarks Preservation Commission, and are subject to change without notice during design development and construction.",
-      'Dimensions and square footages are approximate and may vary from as-built conditions. Furniture, fixtures, appliances, landscaping and neighbouring context shown in renderings are for illustration only and are not included unless expressly stated in a contract of sale. No representation is made that the completed building will be identical to the images shown.',
+      "All images on this site are artist's renderings. 221 and 223 Waverly Avenue are not yet constructed. Renderings, floor plans, dimensions, square footages and finishes are illustrative, are based on plans filed with the New York City Department of Buildings and approved by the Landmarks Preservation Commission, and are subject to change without notice during design development and construction.",
+      'Dimensions and square footages are approximate and may vary from as-built conditions. Furniture, fixtures, appliances, landscaping and neighbouring context shown in renderings are for illustration only and are not included unless expressly stated in a contract of sale. No representation is made that the completed buildings will be identical to the images shown.',
     ],
     missing: [
-      'Counsel to confirm whether this offering triggers New York offering-plan requirements (GBL Article 23-A / Attorney General filing). A single-family house sold whole generally does not, but that determination is not ours to make.',
+      'Counsel to confirm whether this offering triggers New York offering-plan requirements (GBL Article 23-A / Attorney General filing). Two single-family townhouses sold whole generally do not, but that determination is not ours to make.',
     ],
   },
   {
@@ -72,7 +72,7 @@ export const legalDocs: LegalDoc[] = [
     status:
       'Blocked. A privacy policy has to describe what the site actually collects and who receives it, and that is not decided yet.',
     body: [
-      'This site currently collects nothing. It runs no analytics, sets no cookies, and has no enquiry form — contact is by email and telephone only.',
+      'This site currently collects nothing. It runs no analytics, sets no cookies, and has no enquiry form — contact is by telephone or email.',
       'If that changes, this policy has to change with it before the change ships.',
     ],
     missing: [

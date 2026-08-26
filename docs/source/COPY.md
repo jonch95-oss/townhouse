@@ -1,12 +1,8 @@
-# Copy — 223 Waverly Avenue
+# Copy — 221–223 Waverly Avenue
 
-Written to the word budget measured off the reference in `spec/sections.md`. Nothing here
-is adapted from their text; the budget is the only thing that transferred.
+Source of truth for `src/data/copy.ts`. Two separate mirror-image townhouses. No elevator.
 
-Total across the whole experience: **78 words.** The reference runs about 90.
-
-`TK` marks a fact I don't have. Do not let anything ship with a `TK` in it, and do not let
-anything fill one in by estimating.
+`TK` marks a fact not yet supplied. Do not ship with a `TK` in place.
 
 ---
 
@@ -20,199 +16,81 @@ Loading
 
 ## Intro gate
 
-**Headline** — three words, three lines, uppercase
+Full-bleed street render (`00-hero`).
 
 ```
-TERRACOTTA
-AND
-BRICK
+THE WAVERLY
+Historic Brooklyn. Designed for You.
+221–223 Waverly Avenue · Clinton Hill
 ```
 
-**Paragraph** — 24 words
-
-> A new house on a landmarked street in Clinton Hill. Four floors, built in brick and
-> terracotta, designed to belong where it stands.
-
-**Buttons**
-
-```
-ENTER
-Enter without sound
-```
-
-**Hold hint** (desktop, fine pointer)
-
-```
-OR HOLD ANYWHERE
-```
-
-*Primary path is the Enter button. Hold is optional. Audio beds are synthetic
-atmosphere only — see `public/sound/README.md`.*
+Buttons: `Enter` · `Enter without sound` · hold hint on desktop.
 
 ---
 
-## Slide 0 — Hero
+## Hero
 
-**Eyebrow**
+**Eyebrow:** `221–223 Waverly Avenue · Brooklyn`
 
+**Headline:**
 ```
-223 WAVERLY AVENUE · BROOKLYN
-```
-
-**Headline** — two lines
-
-```
-Built For
-This Street
+Historic on the Outside.
+Seductively Modern Within.
 ```
 
-**Paragraph** — 21 words
+**Body:** Two mirror-image four-storey townhouses, Landmarks approved, StudioSC designed.
 
-> A new four-storey house in the Clinton Hill Historic District, drawn to sit among its
-> nineteenth-century neighbours rather than against them.
-
-**Price**
-
-```
-Offered at TK
-```
-
-*If there is no price yet, cut the line entirely. An empty price line is worse than none —
-the reference's whole hero rests on that number being there.*
+**Price:** Withheld for now.
 
 ---
 
-## Slides 1–3 — the rooms
+## Rooms (slides 1–3)
 
-**No copy. Nothing at all.**
-
-That is the single most transferable decision in the capture, and it is free.
-
-Floor labels live in the menu and the section-label box, never over the photograph.
+No on-slide copy.
 
 ---
 
-## Slide 4 — Contact
+## Contact
 
-**Eyebrow**
-
+**Headline:**
 ```
-CONTACT
-```
+Some Homes Are Shown.
 
-**Headline** — three words, three lines, uppercase
-
-```
-COME
-AND
-SEE
+This One Should Be Experienced.
 ```
 
-**Subtitle** — 13 words
+**Lead:** `Request a private introduction.`
 
-> The house is not yet built. To arrange a viewing of the plans, get in touch.
+**Disclaimer:** Both townhouses in development; completion anticipated Spring 2027. Plans by appointment.
 
-*That sentence is doing real work. The building doesn't exist, and saying so plainly in the
-one place a buyer is about to act is both honest and disarming — it turns the biggest
-weakness in the pitch into candour. It also protects you: see the disclaimer in `LEGAL.md`.*
+**Phone:** `718-702-7500`
 
-**Labels and details**
+**Email:** `info@waverlylth.com`
 
-```
-EMAIL
-TK
+## Overview panel
 
-PHONE
-TK
-```
+**Title:** `Quiet Luxury, / Designed for Living`
+
+**Figure:** LPC axonometric (`panel/overview-axon`)
+
+**Sections:**
+1. 221 & 223 Waverly — place and facade
+2. Interior Design — sanctuary, materials, light
+3. A Beautiful Arrival — foyer, library, stair
+4. The Kitchen — island, oak, stone
+5. Private Retreats — primary bath, powder room
+6. Design Philosophy — emotion, ritual, neighbourhood
+
+**Highlights — each house** + stat block: 3,620 SF interior · 479 SF exterior terraces · 4 / 4.5 beds/baths (each house).
 
 ---
 
-## Menu
-
-Six items. There is no roof slide.
-
-```
-01  Home
-02  Entrance & Library
-03  Living
-04  Primary Suite
-05  Floorplans
-06  Contact
-```
-
-*See the note in `SLIDES.md` — these are rooms, not floors, and that is deliberate.*
-
-**Footer row**
-
-```
-CREDITS    ·    LEGAL    ·    TK phone
-```
-
----
-
-## Overview panel — behind the `+`
-
-**Title** — two lines
-
-```
-Clinton Hill,
-Rebuilt
-```
-
-**Body**
-
-> 223 Waverly Avenue is a new four-storey house in the Clinton Hill Historic District,
-> designed by StudioSC and approved by the Landmarks Preservation Commission in December
-> 2024.
->
-> The facade is terracotta and brick, drawn from the ornamentation of its neighbours at 185
-> and 226 Waverly. Inside, four floors open onto two private terraces and a roof with views
-> across the district.
->
-> Highlights:
->
-> - Four storeys plus a roof terrace
-> - Foyer, library and courtyard at ground level
-> - Kitchen and dining opening to a rear yard
-> - Full-floor primary suite with dressing room and double-aspect bathroom
-> - Two private terraces plus TK sq ft of roof terrace
-> - Landmarks-approved terracotta and brick facade
-> - TK bedrooms, TK bathrooms
-> - TK sq ft interior
-
-**Stat block**
-
-| Label | Value |
-|---|---|
-| Interior Sq Ft | TK |
-| Exterior Sq Ft | TK |
-| Bedrooms / Bathrooms | TK |
-| Floors | 4 + roof |
-| District | Clinton Hill Historic |
-
-*The roof plan shows two roof terraces at 164.38 and 220.97 sq ft and the 2nd-floor terrace
-at 93.32 sq ft, so exterior area is derivable from your own drawings — but I'd have
-StudioSC or your surveyor state it rather than have me add up numbers off a drawing.*
-
----
-
-## Credits panel
-
-**Heading**
+## Credits
 
 ```
 The people who
-made this house
+made these houses
 ```
 
-| | |
-|---|---|
-| **StudioSC** | Architecture — studiosc.com TK confirm |
-| **TK** | Developer |
-| **M C Structural Engineering** | Structural |
-| **All City Engineering** | Mechanical |
-| **BMB Building Consultants** | DOB consultant |
-
-*All five are named on the GC title sheet. Confirm each wants to be credited before it
-ships — some consultants don't.*
+- Ariel Development Group — Developer
+- StudioSC — Architecture

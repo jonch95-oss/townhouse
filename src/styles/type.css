@@ -133,33 +133,41 @@
   font-weight: var(--fw-regular);
   font-size: var(--t-40);
   line-height: var(--lh-hero);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: var(--ls-widest);
   text-transform: uppercase;
 }
 
 @media (min-width: 650px) {
   .intro__title {
     font-size: var(--t-100);
-    letter-spacing: var(--ls-widest);
+    letter-spacing: 0.28em;
   }
 }
 
-/*
- * The 650-1100 band. tokens.md §3 steps 8rem here but scopes it to portrait,
- * which leaves landscape on the >=650 rule while the root is pinned to the 8px
- * floor — 10rem is 80px at 650, and TERRACOTTA needs 671px into 618px. So the
- * step is right and the scope is not: 8rem applies to both orientations here.
- *
- * That makes our ladder 4 / 8 / 10 against the reference's 5 / 8 / 10, which
- * tracks. An earlier pass used 6.5rem, but that number was chosen while the
- * webfonts were failing to load and the measurements were against a fallback
- * serif much wider than Instrument Serif. In the real face 8rem clears the
- * whole band with ~13% to spare, and the gate is the one screen where scale is
- * the entire argument — three words and a button, with nothing else to carry
- * it. Under-sizing the threshold costs more than under-sizing anything else.
- */
 @media (min-width: 650px) and (max-width: 1100px) {
   .intro__title { font-size: var(--t-80); }
+}
+
+.intro__tagline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-22);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-regular);
+  max-width: 28ch;
+}
+
+@media (min-width: 650px) {
+  .intro__tagline { font-size: var(--t-26); }
+}
+
+.intro__location {
+  margin: 0;
+  font-size: var(--t-12);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
 /* --------------------------------------------------------------------------
@@ -214,13 +222,13 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgb(0 0 0 / 0.28);
+  background: rgb(0 0 0 / 0.38);
   pointer-events: none;
   transition: background-color var(--dur-fade) var(--ease-out);
 }
 
 .intro.is-holding .intro__scrim {
-  background: rgb(0 0 0 / 0.08);
+  background: rgb(0 0 0 / 0.12);
 }
 
 .intro__stack {
@@ -230,7 +238,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3rem 0;
+  gap: 2rem 0;
   padding-inline: var(--gutter);
   max-width: 100%;
   pointer-events: none;

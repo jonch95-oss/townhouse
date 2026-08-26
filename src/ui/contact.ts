@@ -1,15 +1,9 @@
 import { gsap } from 'gsap';
 import { copy } from '../data/copy';
 import { duration, stagger } from '../lib/motion';
-import { renderCopy } from './tk';
 
 /**
- * The contact card — sections.md S7, with the entrance in motion-spec.md §3.3.
- *
- * The card wipes up from its own bottom edge with the corner radius carried
- * inside the clip-path (`round .4rem`), so the rounded corners are correct
- * throughout the reveal rather than appearing at the end. That is the detail
- * most rebuilds get wrong.
+ * The contact card — closing CTA with phone and email.
  */
 export class Contact {
   readonly el: HTMLElement;
@@ -20,20 +14,24 @@ export class Contact {
     this.el.className = 'contact';
     this.el.innerHTML = `
       <div class="contact__card">
-        <p class="contact__eyebrow label js-fade-up">${copy.contact.eyebrow}</p>
-        <h2 class="contact__title js-fade-up">${copy.contact.headline.join('<br />')}</h2>
-        <span class="contact__rule js-scale" aria-hidden="true"></span>
-        <p class="contact__subtitle js-fade-up">${copy.contact.subtitle}</p>
-        <dl class="contact__details">
-          <dt class="label js-fade-up">${copy.contact.emailLabel}</dt>
-          <dd class="js-fade-up" data-email></dd>
-          <dt class="label js-fade-up">${copy.contact.phoneLabel}</dt>
-          <dd class="js-fade-up" data-phone></dd>
-        </dl>
+        <div class="contact__header">
+          <p class="contact__eyebrow label js-fade-up">${copy.contact.eyebrow}</p>
+          <h2 class="contact__title js-fade-up">${copy.contact.headline.map((line) => `<span class="contact__title-line">${line}</span>`).join('')}</h2>
+          <span class="contact__rule js-scale" aria-hidden="true"></span>
+        </div>
+        <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
+        <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
+        <div class="contact__action js-fade-up">
+          <div class="contact__channel">
+            <p class="contact__channel-label label">${copy.contact.phoneLabel}</p>
+            <a class="contact__link uline-double" href="tel:+17187027500">${copy.contact.phone}</a>
+          </div>
+          <div class="contact__channel">
+            <p class="contact__channel-label label">${copy.contact.emailLabel}</p>
+            <a class="contact__link uline-double" href="mailto:${copy.contact.email}">${copy.contact.email}</a>
+          </div>
+        </div>
       </div>`;
-
-    this.el.querySelector('[data-email]')?.replaceChildren(...renderCopy(copy.contact.email));
-    this.el.querySelector('[data-phone]')?.replaceChildren(...renderCopy(copy.contact.phone));
   }
 
   enter(): void {

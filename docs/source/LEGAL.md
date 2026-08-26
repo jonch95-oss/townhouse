@@ -14,7 +14,7 @@ building does not exist yet and every image on the site is a rendering.
 
 Put this in the Legal panel and consider a short form in the footer.
 
-> All images on this site are artist's renderings. 223 Waverly Avenue is not yet
+> All images on this site are artist's renderings. 221 and 223 Waverly Avenue are not yet
 > constructed. Renderings, floor plans, dimensions, square footages and finishes are
 > illustrative, are based on plans filed with the New York City Department of Buildings and
 > approved by the Landmarks Preservation Commission, and are subject to change without
@@ -22,18 +22,18 @@ Put this in the Legal panel and consider a short form in the footer.
 > approximate and may vary from as-built conditions. Furniture, fixtures, appliances,
 > landscaping and neighbouring context shown in renderings are for illustration only and are
 > not included unless expressly stated in a contract of sale. No representation is made that
-> the completed building will be identical to the images shown.
+> the completed buildings will be identical to the images shown.
 
 **Why this matters more than the rest.** The reference carries an equivalent paragraph even
-though 111 West 57th is *built*. You are marketing an unbuilt house with photorealistic
+though 111 West 57th is *built*. You are marketing unbuilt houses with photorealistic
 renderings — the gap between what a visitor sees and what exists is the largest legal
 exposure on the site. The copy in `COPY.md` already says plainly on the contact card that
-the house is not yet built; that sentence and this paragraph are doing the same job at
+the houses are not yet built; that sentence and this paragraph are doing the same job at
 opposite ends of the experience, and both should stay.
 
 **For counsel:** confirm whether this offering triggers New York offering-plan requirements
-(GBL Article 23-A / Attorney General filing). A single-family house sold as a whole
-generally does not, but that determination is not mine to make, and if it does, mandatory
+(GBL Article 23-A / Attorney General filing). Two single-family townhouses sold as wholes
+generally do not, but that determination is not mine to make, and if it does, mandatory
 disclosure language applies and this paragraph is nowhere near sufficient.
 
 ---

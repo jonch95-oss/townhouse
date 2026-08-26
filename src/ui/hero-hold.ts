@@ -6,7 +6,7 @@ const HOLD_DELAY = hasFinePointer ? 0.1 : 0.5;
 
 /**
  * Hero press-and-hold — motion-spec.md §7.1, adapted for a still.
- * Pushes into the facade photograph; no orbitable model (none exists in the decks).
+ * Pushes into the facade photograph.
  */
 export class HeroHold {
   private delay?: gsap.core.Tween;

@@ -1,7 +1,8 @@
 /**
- * Centre logo mark — address only, from the filed project identity.
- * 223 Waverly Avenue. Nothing invented.
+ * Centre logo mark — brand name with address beneath.
  */
+import { copy } from '../data/copy';
+
 export class Logo {
   readonly el: HTMLButtonElement;
 
@@ -9,11 +10,14 @@ export class Logo {
     this.el = document.createElement('button');
     this.el.className = 'logo';
     this.el.type = 'button';
-    this.el.setAttribute('aria-label', '223 Waverly Avenue — Home');
+    this.el.setAttribute(
+      'aria-label',
+      `${copy.logo.name} — ${copy.logo.address.replace(' · ', ', ')} — Home`,
+    );
     this.el.innerHTML = `
       <span class="logo__stack" aria-hidden="true">
-        <span class="logo__line">223</span>
-        <span class="logo__line">Waverly</span>
+        <span class="logo__name">${copy.logo.name}</span>
+        <span class="logo__address label">${copy.logo.address}</span>
       </span>`;
     this.el.addEventListener('click', onHome);
   }

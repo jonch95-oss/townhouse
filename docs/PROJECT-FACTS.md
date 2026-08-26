@@ -8,23 +8,24 @@ Sources, all StudioSC Architecture:
 - **Design decks** — Entrance Design 05.10.2025, Interior Design 03.20.2025
 
 > **This is a pair, not a single house.** The Landmarks filing covers
-> **221 and 223 Waverly Avenue** — two mirror-image townhouses on adjacent lots
-> sharing a party wall. The GC set in hand is for 223 only; 221 is filed
-> separately under DOB # B01078873-I1.
+> **221 and 223 Waverly Avenue** — two separate mirror-image townhouses on adjacent lots
+> sharing a party wall. The marketing site presents both. The GC set in hand is for
+> 223 only; 221 is filed separately under DOB # B01078873-I1.
 **Nothing here is invented — but figures are from a permit set, not a marketing
 package, so they must be confirmed before they go on a public website.**
 
 ## Identity
 | Field | Value |
 |---|---|
-| Address | 223 Waverly Avenue, Brooklyn, NY 11205 |
+| Address | **221–223 Waverly Avenue**, Brooklyn, NY 11205 |
+| Houses | Two separate single-family townhouses (mirrored) |
 | Neighborhood | Clinton Hill / Wallabout (between Willoughby & Myrtle) |
 | Block / Lot | Block 1917 — Lot 21 (223) and Lot 22 (221) |
 | Historic district | Clinton Hill Historic District — LPC jurisdiction |
 | Zoning district | R6B |
 | Occupancy group | R-3 |
 | Construction class | 1-B |
-| Dwelling units | 1 (single-family townhouse — max permitted was 5.5) |
+| Dwelling units | 1 per house (single-family townhouse — max permitted was 5.5) |
 | Architect | StudioSC Architecture PLLC, 37 Greenpoint Ave, Brooklyn NY 11222 |
 | Owner / applicant of record | Stephen Conte, 37 Greenpoint Ave Suite 502, Brooklyn NY 11222 |
 | Structural engineer | M C Structural Engineering PLLC |
@@ -43,8 +44,13 @@ package, so they must be confirmed before they go on a public website.**
 | Gross floor area — 3rd | 935.64 SF |
 | Gross floor area — 4th | 874.88 SF |
 | Bulkhead | 151.97 SF |
-| **Total gross** | **~3,907 SF** (gross, includes walls — net/sellable will be lower) |
-| Roof area | 812 SF |
+| **Total gross (proposed)** | **3,907 SF** (above grade, before zoning deductions) |
+| **Total net (FAR / filed)** | **3,620 SF** (after 287 SF deductions — zoning schedule, Aug 2025 GC) |
+| Roof terraces (combined) | 164.38 + 220.97 = **385 SF** |
+| 2nd-floor terrace | 93.32 SF |
+| **Private terrace total (filed)** | **479 SF** (93.32 + 385.35) |
+| Inner court | 200 SF (not included in terrace total above) |
+| Roof area (plan) | 812 SF |
 | Distance to Willoughby Ave | 118'-9" |
 
 ### Floor-to-floor heights
@@ -64,25 +70,40 @@ Ceiling heights per RCP: 9'-0" typical living spaces, 10'-0" at 1st floor,
 
 | Level | Rooms |
 |---|---|
-| **Cellar** | Gym, Wine Room, Laundry Room, Mech, Elec, Hall, light well, laundry chute, private elevator (part unexcavated) |
+| **Cellar** | Gym, Wine Room, Laundry Room, Mech, Elec, Hall, light well, laundry chute (part unexcavated) |
 | **1st floor** | Foyer, Library, Hall, Kitchen, Dining Room, **Inner Court**, Rear Yard |
 | **2nd floor** | Living Room, Bedroom 1, **Terrace**, Hall |
 | **3rd floor** | Bedroom 2, Bedroom 3, Hall |
 | **4th floor** | Primary Bedroom, Primary Bath, **Terrace**, Hall |
 | **Roof** | **Private Roof Terrace**, Mech |
 
-**A private elevator (`PRIV. ELEV.`) serves every level, cellar through 4th**, on
-the LPC plans. See the caveat under Open Questions.
+**No elevator.** The Dec 2024 LPC plans labelled `PRIV. ELEV.` at every level; the
+Aug 2025 GC amendment stamped sheet A-801.01 *Elevator Details* "OMIT FROM DESIGN".
+**Client confirmed: there is no elevator in the house.** Do not mention one in marketing
+copy, highlights, or stats.
 
-That reads as **4 bedrooms + primary suite arrangement, gym, wine room, private
-elevator, inner courtyard, two terraces and a private roof terrace** — a materially
-stronger offering than the GC set alone suggested.
+That reads as **4 bedrooms + primary suite arrangement, gym, wine room, inner courtyard,
+two terraces and a private roof terrace** — a materially stronger offering than the GC
+set alone suggested.
 
 ### Areas from the GC set (223, above grade only)
-- 1st 1,009.11 SF · 2nd 935.56 SF · 3rd 935.64 SF · 4th 874.88 SF · bulkhead 151.97 SF
-- Total above grade ~3,907 SF gross. **The cellar is additional and not in this schedule.**
-- Inner court 200 SF · 2nd-floor terrace 93.32 SF · roof 812 SF
+| Floor | Gross SF | Deductions | Net SF |
+|---|---|---|---|
+| 1st | 1,009.11 | 81.67 | 927.44 |
+| 2nd | 935.56 | 17.95 | 917.61 |
+| 3rd | 935.64 | 13.14 | 922.50 |
+| 4th | 874.88 | 22.17 | 852.71 |
+| Roof bulkhead | 151.97 | 151.97 | 0.00 |
+| **Total** | **3,907.16** | **286.90** | **3,620.26** |
+
+**The cellar is additional and not in this schedule.**
+
+- Inner court 200 SF · 2nd-floor terrace 93.32 SF · roof terraces 164.38 + 220.97 SF
 - Living Room 294.19 SF · Dining Room 200.00 SF · Kitchen 176.25 SF · Library 133.94 SF · Foyer 46.01 SF
+
+### Room counts (each house — client confirmed)
+- **4 bedrooms**
+- **4.5 bathrooms**
 
 ## Construction & finishes (from wall types / details)
 - **Glen Gery Potenza Raw brick veneer** with vertical/corbelled coursing
@@ -100,7 +121,7 @@ stronger offering than the GC set alone suggested.
 - Stair: walnut rounded cap handrail, 3/4" round wood balusters
 - 42" guardrails throughout; 38" stair handrail
 - High-efficacy lighting per TPPN 2020-008
-- See Open Questions re: the elevator sheet
+- Elevator detail sheet omitted from the GC amendment; client confirmed no elevator
 
 ## Interior design direction (from the two StudioSC design decks)
 Warm minimalism — limewash/plaster walls in bone and sand, curved wall returns
@@ -117,22 +138,18 @@ Decisions still shown as **options** (a buyer-facing site must not show all four
 
 ## Open questions for the client
 
-1. **Is the website for 223 only, or for 221 and 223 together?** This is now the
-   single biggest structural decision — one house, two houses on one site, or a
-   parent site with a page each.
-2. **Elevator.** The LPC plans show `PRIV. ELEV.` at every level of both houses.
-   The later GC amendment (08/15/25) stamps sheet A-801.01 *Elevator Details*
-   "OMIT FROM DESIGN". That most likely means the sheet was dropped from that
-   filing rather than the elevator from the building — but it must be confirmed
-   with StudioSC before it goes in marketing copy.
-3. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
+1. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
    in any schedule in hand. Needed for a credible total square footage.
-4. **Exterior rendering resolution.** The rendered site-context views exist but
+2. **Exterior rendering resolution.** The rendered site-context views exist but
    the embedded images are only ~735x633 px — too small for a full-bleed hero.
    Request the high-resolution originals from StudioSC.
-5. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
-   differs in places. Confirm the LPC program (elevator, gym, wine room, roof
-   terrace) survived into the built design.
+3. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
+   differs in places. Elevator is confirmed out. Confirm whether gym, wine room,
+   and roof terrace survived into the built design.
+
+### Resolved
+- **Site identity:** marketing covers **221 and 223** as two separate townhouses.
+- **Elevator:** none — client confirmed.
 
 ## Clinton Hill precedent projects cited to LPC
 282 Lafayette Ave · 476 Washington Ave · 228 Washington Ave ·

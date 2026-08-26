@@ -1,4 +1,4 @@
-# 223 Waverly Avenue — handoff
+# 221–223 Waverly Avenue — handoff
 
 Written for someone picking this up cold. It assumes no prior context.
 
@@ -6,10 +6,10 @@ Written for someone picking this up cold. It assumes no prior context.
 
 ## What this is
 
-A single-property marketing microsite for **223 Waverly Avenue, Brooklyn NY 11205** — a
-new four-storey townhouse in the Clinton Hill Historic District, architecture by StudioSC.
-The site's job is to show the house and produce enquiries. One page, six full-screen
-slides, no scrollbar.
+A marketing microsite for **221–223 Waverly Avenue, Brooklyn NY 11205** — two separate
+mirror-image four-storey townhouses in the Clinton Hill Historic District, architecture by
+StudioSC. No elevator. The site's job is to show the houses and produce enquiries. One
+page, six full-screen slides, no scrollbar.
 
 It is modelled on a reference site, **quadplex80.com** (a single-property microsite for a
 penthouse at 111 West 57th Street). `spec/` holds a forensic teardown of that site:
@@ -473,11 +473,10 @@ sheet each figure came from. Two cautions carried in it:
 
 - The **~3,907 SF** figure is *gross* and *above grade only*. It excludes the cellar and
   is not a number any listing should use.
-- The LPC set (Dec 2024) shows a **private elevator** at every level and a cellar with a
-  gym and wine room. The later GC amendment (Aug 2025) stamps the elevator detail sheet
-  "OMIT FROM DESIGN". That most likely means the sheet left that filing rather than the
-  elevator leaving the building, but it is a headline feature and needs confirming with
-  StudioSC before it appears in marketing copy.
+- The LPC set (Dec 2024) labelled a **private elevator** at every level and a cellar with
+  a gym and wine room. The GC amendment (Aug 2025) stamped the elevator detail sheet
+  "OMIT FROM DESIGN". **Client confirmed: there is no elevator.** Never market one.
+  Gym / wine room / roof terrace still need confirming against the built design.
 
 ---
 
@@ -623,9 +622,8 @@ exist. The gate component is not built.
    source render or a re-render.
 6. **The Primary Suite wants a regrade**, and the scroll hint wants a decision. See "The
    measured matrix".
-7. **Confirm the elevator.** The LPC set shows one at every level; the GC amendment stamps
-   its detail sheet "OMIT FROM DESIGN". Almost certainly a filing change rather than a
-   building change, but it is a headline feature and it is unconfirmed.
+7. **Elevator — resolved.** Client confirmed there is none. Site copy never claimed one;
+   keep it that way if LPC-era language reappears in drafts.
 
 **Repository housekeeping, which needs the owner:** the default branch is still
 `claude/quadplex80-site-analysis-tl3nl6` and should be `main` (Settings → General), and

@@ -30,11 +30,22 @@ export interface Slide {
   alt?: string;
   placeholder?: string;
   chrome?: ChromePolarity;
+  /** Interactive GLB orbit instead of a photograph. */
+  model?: boolean;
 }
+
+/** Slide index helpers — keep menu / machine wiring in sync. */
+export const MODEL_SLIDE_INDEX = 4;
 
 export const gateImage = {
   image: 'gate',
   alt: 'A powder room in dark stone and warm timber.',
+} as const;
+
+/** Full-bleed architectural render for the intro gate. */
+export const introImage = {
+  image: '00-hero',
+  alt: '221–223 Waverly Avenue seen from the street — a pair of new brick and terracotta townhouses under plane trees.',
 } as const;
 
 export const menuImage = {
@@ -46,7 +57,7 @@ export const slides: Slide[] = [
   {
     label: 'Home',
     image: '00-hero',
-    alt: '223 Waverly Avenue seen from the street — a new brick and terracotta house under plane trees.',
+    alt: '221–223 Waverly Avenue seen from the street — a pair of new brick and terracotta townhouses under plane trees.',
     placeholder:
       'Upscaled roughly 4x from a 669x633 source in the Landmarks PDF. It composites well ' +
       'but carries no real detail. Needs StudioSC source renders or a re-render.',
@@ -74,6 +85,11 @@ export const slides: Slide[] = [
     alt: 'The primary bathroom vanity under the slanted skylight wall, marble and oak with a cognac leather stool.',
   },
   {
+    label: '3D Rendering',
+    model: true,
+    chrome: 'light',
+  },
+  {
     label: 'Contact',
   },
 ];
@@ -96,8 +112,9 @@ export const menuEntries: MenuEntry[] = [
   { label: 'Entrance & Library', slide: 1 },
   { label: 'Living', slide: 2 },
   { label: 'Primary Suite', slide: 3 },
+  { label: '3D Rendering', slide: 4 },
   { label: 'Floorplans', panel: 'floorplans' },
-  { label: 'Contact', slide: 4 },
+  { label: 'Contact', slide: 5 },
 ];
 
 /**

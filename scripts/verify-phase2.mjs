@@ -32,7 +32,8 @@ const hero = await page.evaluate(() => {
     chars: document.querySelectorAll('.hero__title .char').length,
     eyebrowAlpha: +cs('.hero__eyebrow').opacity,
     bodyAlpha: +getComputedStyle(document.querySelector('.hero__body .line')).opacity,
-    priceAlpha: +cs('.hero__price').opacity,
+    hasPrice: !!q('.hero__price'),
+    priceText: q('.hero__price')?.textContent?.trim() ?? '',
     titleAlpha: +getComputedStyle(document.querySelector('.hero__title .line')).opacity,
     masked: getComputedStyle(q('.hero__title .line').parentElement).overflow,
   };
@@ -44,7 +45,7 @@ ok('lines are masked (overflow hidden wrapper)', hero.masked === 'hidden' || her
 ok('eyebrow settles at full opacity (address must stay sharp)', Math.abs(hero.eyebrowAlpha - 1) < 0.02, hero.eyebrowAlpha.toFixed(3));
 ok('body settles slightly under the headline', Math.abs(hero.bodyAlpha - 0.85) < 0.02, hero.bodyAlpha.toFixed(3));
 ok('headline settles at 1', Math.abs(hero.titleAlpha - 1) < 0.02, hero.titleAlpha.toFixed(3));
-ok('price settles at 1', Math.abs(hero.priceAlpha - 1) < 0.02, hero.priceAlpha.toFixed(3));
+ok('hero shows price per house', hero.hasPrice === true && hero.priceText === 'Each offered at $7.2M', hero.priceText);
 
 console.log('\n--- textMasks effect ---');
 const eff = await page.evaluate(() => {

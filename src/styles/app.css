@@ -163,3 +163,21 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Interactive building orbit — dedicated 3D slide. */
+.building-view {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide--model {
+  background: var(--c-warm);
+}
