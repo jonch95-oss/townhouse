@@ -51,12 +51,7 @@ export const copy = {
 
   contact: {
     eyebrow: 'Contact',
-    headline: [
-      'Some Homes Are',
-      'Shown.',
-      'This One Should Be',
-      'Experienced.',
-    ],
+    headline: ['Some Homes Are Shown.', 'This One Should Be Experienced.'],
     lead: 'Request a private introduction.',
     disclaimer:
       'Both townhouses are in development, with completion anticipated in Spring 2027. To review the plans in person, please be in touch.',

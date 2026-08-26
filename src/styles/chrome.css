@@ -1238,7 +1238,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.18em;
+  gap: 1.1em;
   font-family: var(--font-display);
   font-weight: var(--fw-regular);
   font-size: var(--t-26);
@@ -1247,10 +1247,11 @@
   text-transform: uppercase;
 }
 
-.contact__title-line { display: block; }
+.contact__title-line { display: block; text-wrap: balance; max-width: 22ch; }
 
 @media (min-width: 650px) {
-  .contact__title { font-size: var(--t-40); gap: 0.22em; }
+  .contact__title { font-size: var(--t-40); gap: 1.25em; max-width: none; }
+  .contact__title-line { max-width: none; white-space: nowrap; }
   .contact__header { gap: 1.6rem 0; }
 }
 
