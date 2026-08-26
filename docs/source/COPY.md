@@ -40,7 +40,7 @@ Seductively Modern Within.
 
 **Body:** Two mirror-image four-storey townhouses, Landmarks approved, StudioSC designed.
 
-**Price:** `Each offered at $7.2M` (per house)
+**Price:** Withheld for now.
 
 ---
 

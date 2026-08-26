@@ -42,8 +42,6 @@ export const copy = {
     headline: ['Historic on the Outside.', 'Seductively Modern Within.'],
     paragraph:
       'Two mirror-image four-storey townhouses in the Clinton Hill Historic District — Landmarks approved, StudioSC designed, drawn to belong among their nineteenth-century neighbours.',
-    pricePrefix: 'Each offered at',
-    price: '$7.2M',
   },
 
   /** Slides 1–3 carry nothing. The story lives in the overview panel. */
