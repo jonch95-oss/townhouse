@@ -14,9 +14,11 @@ export class Contact {
     this.el.className = 'contact';
     this.el.innerHTML = `
       <div class="contact__card">
-        <p class="contact__eyebrow label js-fade-up">${copy.contact.eyebrow}</p>
-        <h2 class="contact__title js-fade-up">${copy.contact.headline.join('<br />')}</h2>
-        <span class="contact__rule js-scale" aria-hidden="true"></span>
+        <div class="contact__header">
+          <p class="contact__eyebrow label js-fade-up">${copy.contact.eyebrow}</p>
+          <h2 class="contact__title js-fade-up">${copy.contact.headline.map((line) => `<span class="contact__title-line">${line}</span>`).join('')}</h2>
+          <span class="contact__rule js-scale" aria-hidden="true"></span>
+        </div>
         <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
         <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
         <div class="contact__action js-fade-up">

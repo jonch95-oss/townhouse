@@ -54,8 +54,10 @@ No on-slide copy.
 
 **Headline:**
 ```
-Some Homes Are Shown.
-This One Should Be Experienced.
+Some Homes Are
+Shown.
+This One Should Be
+Experienced.
 ```
 
 **Lead:** `Request a private introduction.`
