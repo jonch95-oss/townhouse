@@ -1,8 +1,6 @@
 /**
  * Every word in the experience. Source: docs/source/COPY.md.
  *
- * Rooms slides carry no copy at all, which is deliberate.
- *
  * TK marks a fact nobody has. They render as a loud inline marker that is
  * impossible to miss in review, and `npm run check:tk` fails while any remain.
  * Do not estimate one. Do not let one ship.
@@ -17,13 +15,18 @@ export type Tk = ReturnType<typeof TK>;
 export const isTk = (v: unknown): v is Tk =>
   typeof v === 'object' && v !== null && 'tk' in v;
 
+export interface OverviewSection {
+  label: string;
+  body: readonly string[];
+}
+
 export const copy = {
   preloader: 'Loading',
 
   intro: {
-    headline: ['TERRACOTTA', 'AND', 'BRICK'],
-    paragraph:
-      'Two new townhouses on a landmarked street in Clinton Hill. Four floors each, built in brick and terracotta, designed to belong where they stand.',
+    title: 'THE WAVERLY',
+    tagline: 'Historic Brooklyn. Designed for You.',
+    location: '221–223 Waverly Avenue · Clinton Hill',
     primary: 'Enter',
     secondary: 'Enter without sound',
     holdHint: 'Or hold anywhere',
@@ -31,20 +34,21 @@ export const copy = {
 
   hero: {
     eyebrow: '221–223 Waverly Avenue · Brooklyn',
-    headline: ['Built For', 'This Street'],
+    headline: ['Historic on the Outside.', 'Seductively Modern Within.'],
     paragraph:
-      'A pair of new four-storey townhouses in the Clinton Hill Historic District, drawn to sit among their nineteenth-century neighbours rather than against them.',
+      'Two mirror-image four-storey townhouses in the Clinton Hill Historic District — Landmarks approved, StudioSC designed, drawn to belong among their nineteenth-century neighbours.',
     pricePrefix: 'Each offered at',
     price: TK('price'),
   },
 
-  /** Slides 1–3 carry nothing. Deliberate, and not an omission. */
+  /** Slides 1–3 carry nothing. The story lives in the overview panel. */
   rooms: null,
 
   contact: {
     eyebrow: 'Contact',
-    headline: ['COME', 'AND', 'SEE'],
-    subtitle:
+    headline: ['Some Homes Are Shown.', 'This One Should Be Experienced.'],
+    lead: 'Request a private introduction.',
+    disclaimer:
       'The houses are not yet built. To arrange a viewing of the plans, get in touch.',
     emailLabel: 'Email',
     email: TK('email'),
@@ -59,17 +63,56 @@ export const copy = {
   },
 
   overview: {
-    title: ['Where Light', 'Finds Brick'],
-    body: [
-      '221 and 223 Waverly Avenue are two separate four-storey townhouses on a landmarked block in Clinton Hill — designed by StudioSC as mirror images, and approved by the Landmarks Preservation Commission in December 2024. They were drawn not to stand apart from their nineteenth-century neighbours, but to take a natural place among them: brick and terracotta outside, quiet rooms within.',
-      'Each facade borrows its rhythm from the ornament at 185 and 226 Waverly — Glen Gery brick and terra-toned cladding, a sculpted profile, walnut at the door, a round window catching the afternoon. Inside, the mood is warmer still: limewashed plaster, pale oak millwork and green-veined marble, light held softly from floor to floor.',
-      'Life moves outward as easily as inward. A foyer and library give way to an inner courtyard; the kitchen and dining room open to a rear yard; two private terraces and a roof terrace look out across the district. Four storeys each, two houses — room to live without crowding the street that holds them.',
-    ],
+    title: ['Quiet Luxury,', 'Designed for Living'],
     figure: {
       image: 'panel/overview-axon',
       alt: 'Axonometric view of 221 and 223 Waverly Avenue — two mirror-image brick townhouses with terraces, rear yards and material swatches for limestone courtyard walls, wood screening and walnut entrance doors.',
       caption: '221 and 223 — two houses, one street presence.',
     },
+    sections: [
+      {
+        label: '221 & 223 Waverly',
+        body: [
+          'Two separate four-storey townhouses on a landmarked block in Clinton Hill — mirror images designed by StudioSC and approved by the Landmarks Preservation Commission in December 2024. Each facade borrows its rhythm from the ornament at 185 and 226 Waverly: Glen Gery brick and terra-toned cladding, a sculpted profile, walnut at the door, a round window catching the afternoon.',
+          'Four storeys each, two private terraces and a roof terrace, a foyer and library opening to an inner courtyard, kitchen and dining to a rear yard. Historic on the outside. Seductively modern at the heart.',
+        ],
+      },
+      {
+        label: 'Interior Design',
+        body: [
+          'The interiors are conceived as a modern sanctuary — warm, refined, and deeply personal. Every room combines timeless materials with contemporary simplicity: light oak cabinetry, richly veined stone, pale wide-plank floors, fluted glass and carefully integrated lighting.',
+          'Clean architectural lines let each material speak. Generous windows draw natural light deep into the plan — a home that feels luxurious without ever feeling overstated.',
+        ],
+      },
+      {
+        label: 'A Beautiful Arrival',
+        body: [
+          'From the moment the door opens, each house welcomes you into quiet sophistication. A foyer of soft natural plaster, pale oak and patterned stone, composed under sculptural light.',
+          'A custom library transforms the entrance into more than a passageway — a private salon to pause, read, and feel immediately at home. Curved walls, bespoke millwork, integrated storage and an elegant stair. Mirrors expand the space; warm textures make it calm, sensual, and deeply personal. Not a lobby — the opening chapter of the residence.',
+        ],
+      },
+      {
+        label: 'The Kitchen',
+        body: [
+          'Elegant, inviting, and made for intimate mornings and long evenings. Custom light-oak cabinetry with recessed pulls, fluted-glass uppers and dramatic natural-stone surfaces create a sophisticated yet relaxed atmosphere.',
+          'A generous centre island becomes the social heart — cooking, conversation, celebration. High-end appliances disappear into the millwork, preserving the kitchen\'s calm and beautifully composed appearance.',
+        ],
+      },
+      {
+        label: 'Private Retreats',
+        body: [
+          'Each bathroom is designed as a peaceful escape from the city. Oak vanities, stone counters, textured wall tiles, mosaic flooring and softly illuminated mirrors — spa-like, with warmth and character.',
+          'The primary bath offers a sculptural freestanding tub, a spacious glass shower, custom millwork and book-matched stone under slanted skylights. Serene in the morning, intimate in the evening. Even the powder room carries its own drama: darker tones, atmospheric light, richly veined stone — a jewel box at the threshold.',
+        ],
+      },
+      {
+        label: 'Design Philosophy',
+        body: [
+          'This is not simply a beautifully finished residence. It is a home shaped around emotion — how light enters a room, how natural materials feel to the touch, and how every space supports the rituals of daily life.',
+          'Historic Brooklyn character meets modern refinement, creating interiors that feel distinctive, sensual, and completely at home in one of the city\'s most treasured landmark neighbourhoods.',
+        ],
+      },
+    ] satisfies OverviewSection[],
     highlightsLabel: 'Highlights — each house',
     highlights: [
       'Four storeys and a private roof terrace',

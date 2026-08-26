@@ -4,12 +4,7 @@ import { duration, stagger } from '../lib/motion';
 import { renderCopy } from './tk';
 
 /**
- * The contact card — sections.md S7, with the entrance in motion-spec.md §3.3.
- *
- * The card wipes up from its own bottom edge with the corner radius carried
- * inside the clip-path (`round .4rem`), so the rounded corners are correct
- * throughout the reveal rather than appearing at the end. That is the detail
- * most rebuilds get wrong.
+ * The contact card — closing CTA with enquiry details.
  */
 export class Contact {
   readonly el: HTMLElement;
@@ -23,7 +18,8 @@ export class Contact {
         <p class="contact__eyebrow label js-fade-up">${copy.contact.eyebrow}</p>
         <h2 class="contact__title js-fade-up">${copy.contact.headline.join('<br />')}</h2>
         <span class="contact__rule js-scale" aria-hidden="true"></span>
-        <p class="contact__subtitle js-fade-up">${copy.contact.subtitle}</p>
+        <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
+        <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
         <dl class="contact__details">
           <dt class="label js-fade-up">${copy.contact.emailLabel}</dt>
           <dd class="js-fade-up" data-email></dd>

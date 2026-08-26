@@ -37,6 +37,12 @@ export const gateImage = {
   alt: 'A powder room in dark stone and warm timber.',
 } as const;
 
+/** Full-bleed architectural render for the intro gate. */
+export const introImage = {
+  image: '00-hero',
+  alt: '221–223 Waverly Avenue seen from the street — a pair of new brick and terracotta townhouses under plane trees.',
+} as const;
+
 export const menuImage = {
   image: 'panel/menu-panel',
   alt: 'The library wall, in oak.',

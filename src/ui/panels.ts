@@ -38,7 +38,10 @@ export function overviewPanel(): Panel {
   figure.appendChild(el('figcaption', 'panel__caption', copy.overview.figure.caption));
   nodes.push(figure);
 
-  for (const p of copy.overview.body) nodes.push(para(p));
+  for (const section of copy.overview.sections) {
+    nodes.push(el('h4', 'panel__label', section.label));
+    for (const p of section.body) nodes.push(para(p));
+  }
 
   nodes.push(el('h4', 'panel__label', copy.overview.highlightsLabel));
   const ul = el('ul', 'panel__list');

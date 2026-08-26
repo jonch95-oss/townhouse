@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
 import { copy } from '../data/copy';
-import { gateImage } from '../data/slides';
+import { introImage } from '../data/slides';
 import { buildPicture } from '../lib/picture';
 import { splitLines } from '../lib/reveal';
 import { duration, stagger, reducedMotion } from '../lib/motion';
@@ -18,23 +18,22 @@ const HOLD_PUSH = 1.6;
 export type IntroEnterOptions = { withSound: boolean };
 
 /**
- * The threshold — adapted for these houses from decks only.
- *
- * Copy and imagery from StudioSC materials (terracotta/brick, powder room).
- * No clouds, no invented features. Audio preference is chosen here.
+ * The threshold — full-bleed street render, three lines of copy, then enter.
  */
 export class Intro {
   readonly el: HTMLElement;
   private readonly media: HTMLElement;
   private readonly mediaInner: HTMLElement;
   private readonly title: HTMLElement;
-  private readonly body: HTMLElement;
+  private readonly tagline: HTMLElement;
+  private readonly location: HTMLElement;
   private readonly enterBtn: HTMLButtonElement;
   private readonly silentBtn: HTMLButtonElement;
   private readonly hint: HTMLElement;
   private readonly progress: HTMLElement;
   private chars: HTMLElement[] = [];
-  private bodyLines: HTMLElement[] = [];
+  private taglineLines: HTMLElement[] = [];
+  private locationLines: HTMLElement[] = [];
   private built = false;
   private exiting = false;
   private holdTween?: gsap.core.Tween;
@@ -54,9 +53,9 @@ export class Intro {
     this.media.className = 'intro__media';
     this.media.setAttribute('aria-hidden', 'true');
     this.mediaInner = buildPicture({
-      image: gateImage.image,
-      narrow: `portrait/${gateImage.image}`,
-      alt: gateImage.alt,
+      image: introImage.image,
+      narrow: `portrait/${introImage.image}`,
+      alt: introImage.alt,
       className: 'intro__picture',
       eager: true,
     });
@@ -69,8 +68,9 @@ export class Intro {
     const stack = document.createElement('div');
     stack.className = 'intro__stack';
     stack.innerHTML = `
-      <h1 class="intro__title" id="intro-title">${copy.intro.headline.join('<br />')}</h1>
-      <p class="intro__body">${copy.intro.paragraph}</p>
+      <h1 class="intro__title" id="intro-title">${copy.intro.title}</h1>
+      <p class="intro__tagline">${copy.intro.tagline}</p>
+      <p class="intro__location label">${copy.intro.location}</p>
       <button class="intro__enter label" type="button">${copy.intro.primary}</button>
       <button class="intro__secondary uline-double label" type="button">${copy.intro.secondary}</button>
       <p class="intro__hint label">${copy.intro.holdHint}</p>
@@ -79,7 +79,8 @@ export class Intro {
     this.el.append(this.media, scrim, stack);
 
     this.title = stack.querySelector('.intro__title') as HTMLElement;
-    this.body = stack.querySelector('.intro__body') as HTMLElement;
+    this.tagline = stack.querySelector('.intro__tagline') as HTMLElement;
+    this.location = stack.querySelector('.intro__location') as HTMLElement;
     this.enterBtn = stack.querySelector('.intro__enter') as HTMLButtonElement;
     this.silentBtn = stack.querySelector('.intro__secondary') as HTMLButtonElement;
     this.hint = stack.querySelector('.intro__hint') as HTMLElement;
@@ -101,7 +102,10 @@ export class Intro {
       this.el.addEventListener('pointermove', (e) => this.onPointerMove(e));
     }
 
-    gsap.set([this.title, this.body, this.enterBtn, this.silentBtn, this.hint], { autoAlpha: 0 });
+    gsap.set(
+      [this.title, this.tagline, this.location, this.enterBtn, this.silentBtn, this.hint],
+      { autoAlpha: 0 },
+    );
     gsap.set(this.progress, { scaleX: 0 });
     gsap.set(this.mediaInner, { scale: this.zoom.scale });
   }
@@ -109,12 +113,14 @@ export class Intro {
   show(): void {
     this.build();
     gsap.set(this.el, { autoAlpha: 1 });
-    gsap.set(this.body, { autoAlpha: 1 });
-    gsap.set(this.title, { scale: 0.85, autoAlpha: 1 });
+    gsap.set(this.tagline, { autoAlpha: 1 });
+    gsap.set(this.location, { autoAlpha: 1 });
+    gsap.set(this.title, { scale: 0.92, autoAlpha: 1 });
     gsap.set([this.enterBtn, this.silentBtn], { y: '1.5rem', autoAlpha: 0 });
     gsap.set(this.hint, { autoAlpha: 0 });
     if (this.chars.length) gsap.set(this.chars, { autoAlpha: 0 });
-    if (this.bodyLines.length) gsap.set(this.bodyLines, { yPercent: 100, autoAlpha: 0 });
+    if (this.taglineLines.length) gsap.set(this.taglineLines, { yPercent: 100, autoAlpha: 0 });
+    if (this.locationLines.length) gsap.set(this.locationLines, { yPercent: 100, autoAlpha: 0 });
 
     const tl = gsap.timeline({ defaults: { ease: 'power3' } });
 
@@ -125,7 +131,7 @@ export class Intro {
         {
           autoAlpha: 1,
           duration: duration(3),
-          stagger: { each: stagger(0.05), from: 'random' },
+          stagger: { each: stagger(0.04), from: 'random' },
           ease: 'none',
         },
         0,
@@ -133,25 +139,37 @@ export class Intro {
     }
 
     tl.to(
-      this.bodyLines.length ? this.bodyLines : this.body,
+      this.taglineLines.length ? this.taglineLines : this.tagline,
       {
         yPercent: 0,
-        autoAlpha: 0.7,
+        autoAlpha: 1,
         duration: duration(1.5),
-        stagger: stagger(0.14),
+        stagger: stagger(0.12),
         ease: 'unmask',
       },
-      duration(0.25),
+      duration(0.35),
+    );
+
+    tl.to(
+      this.locationLines.length ? this.locationLines : this.location,
+      {
+        yPercent: 0,
+        autoAlpha: 0.85,
+        duration: duration(1.25),
+        stagger: stagger(0.08),
+        ease: 'unmask',
+      },
+      duration(0.55),
     );
 
     tl.to(
       [this.enterBtn, this.silentBtn],
       { y: 0, autoAlpha: 1, duration: duration(2), stagger: stagger(0.2), ease: 'power3' },
-      duration(0.5),
+      duration(0.75),
     );
 
     if (!reducedMotion && copy.intro.holdHint) {
-      tl.to(this.hint, { autoAlpha: 0.55, duration: duration(1.5) }, duration(1.4));
+      tl.to(this.hint, { autoAlpha: 0.55, duration: duration(1.5) }, duration(1.6));
     }
 
     if (!reducedMotion) {
@@ -180,8 +198,10 @@ export class Intro {
       charsClass: 'intro__char',
     });
     this.chars = split.chars as HTMLElement[];
-    this.bodyLines = splitLines(this.body);
-    gsap.set(this.body, { autoAlpha: 1 });
+    this.taglineLines = splitLines(this.tagline);
+    this.locationLines = splitLines(this.location);
+    gsap.set(this.tagline, { autoAlpha: 1 });
+    gsap.set(this.location, { autoAlpha: 1 });
   }
 
   private applyMediaTransform(): void {
@@ -210,11 +230,14 @@ export class Intro {
     this.el.classList.add('is-holding');
 
     this.holdDelay = gsap.delayedCall(HOLD_DELAY, () => {
-      gsap.to([this.title, this.body, this.enterBtn, this.silentBtn, this.hint], {
-        autoAlpha: 0,
-        duration: duration(0.5),
-        ease: 'power1.in',
-      });
+      gsap.to(
+        [this.title, this.tagline, this.location, this.enterBtn, this.silentBtn, this.hint],
+        {
+          autoAlpha: 0,
+          duration: duration(0.5),
+          ease: 'power1.in',
+        },
+      );
       gsap.to(this.progress, {
         scaleX: 1,
         duration: duration(HOLD_PUSH),
@@ -248,8 +271,12 @@ export class Intro {
         duration: duration(0.5),
         ease: 'power1.out',
       });
-      gsap.to(this.bodyLines.length ? this.bodyLines : this.body, {
-        autoAlpha: 0.7,
+      gsap.to(this.taglineLines.length ? this.taglineLines : this.tagline, {
+        autoAlpha: 1,
+        duration: duration(0.5),
+      });
+      gsap.to(this.locationLines.length ? this.locationLines : this.location, {
+        autoAlpha: 0.85,
         duration: duration(0.5),
       });
       gsap.to(this.hint, { autoAlpha: 0.55, duration: duration(0.5) });
@@ -278,7 +305,14 @@ export class Intro {
 
       if (via === 'button') {
         tl.to(
-          [this.body, this.enterBtn, this.silentBtn, this.hint, this.progress.parentElement],
+          [
+            this.tagline,
+            this.location,
+            this.enterBtn,
+            this.silentBtn,
+            this.hint,
+            this.progress.parentElement,
+          ],
           { autoAlpha: 0, duration: duration(0.75) },
           0,
         );
