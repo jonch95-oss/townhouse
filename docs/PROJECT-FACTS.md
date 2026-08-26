@@ -64,19 +64,21 @@ Ceiling heights per RCP: 9'-0" typical living spaces, 10'-0" at 1st floor,
 
 | Level | Rooms |
 |---|---|
-| **Cellar** | Gym, Wine Room, Laundry Room, Mech, Elec, Hall, light well, laundry chute, private elevator (part unexcavated) |
+| **Cellar** | Gym, Wine Room, Laundry Room, Mech, Elec, Hall, light well, laundry chute (part unexcavated) |
 | **1st floor** | Foyer, Library, Hall, Kitchen, Dining Room, **Inner Court**, Rear Yard |
 | **2nd floor** | Living Room, Bedroom 1, **Terrace**, Hall |
 | **3rd floor** | Bedroom 2, Bedroom 3, Hall |
 | **4th floor** | Primary Bedroom, Primary Bath, **Terrace**, Hall |
 | **Roof** | **Private Roof Terrace**, Mech |
 
-**A private elevator (`PRIV. ELEV.`) serves every level, cellar through 4th**, on
-the LPC plans. See the caveat under Open Questions.
+**No elevator.** The Dec 2024 LPC plans labelled `PRIV. ELEV.` at every level; the
+Aug 2025 GC amendment stamped sheet A-801.01 *Elevator Details* "OMIT FROM DESIGN".
+**Client confirmed: there is no elevator in the house.** Do not mention one in marketing
+copy, highlights, or stats.
 
-That reads as **4 bedrooms + primary suite arrangement, gym, wine room, private
-elevator, inner courtyard, two terraces and a private roof terrace** — a materially
-stronger offering than the GC set alone suggested.
+That reads as **4 bedrooms + primary suite arrangement, gym, wine room, inner courtyard,
+two terraces and a private roof terrace** — a materially stronger offering than the GC
+set alone suggested.
 
 ### Areas from the GC set (223, above grade only)
 - 1st 1,009.11 SF · 2nd 935.56 SF · 3rd 935.64 SF · 4th 874.88 SF · bulkhead 151.97 SF
@@ -100,7 +102,7 @@ stronger offering than the GC set alone suggested.
 - Stair: walnut rounded cap handrail, 3/4" round wood balusters
 - 42" guardrails throughout; 38" stair handrail
 - High-efficacy lighting per TPPN 2020-008
-- See Open Questions re: the elevator sheet
+- Elevator detail sheet omitted from the GC amendment; client confirmed no elevator
 
 ## Interior design direction (from the two StudioSC design decks)
 Warm minimalism — limewash/plaster walls in bone and sand, curved wall returns
@@ -120,19 +122,14 @@ Decisions still shown as **options** (a buyer-facing site must not show all four
 1. **Is the website for 223 only, or for 221 and 223 together?** This is now the
    single biggest structural decision — one house, two houses on one site, or a
    parent site with a page each.
-2. **Elevator.** The LPC plans show `PRIV. ELEV.` at every level of both houses.
-   The later GC amendment (08/15/25) stamps sheet A-801.01 *Elevator Details*
-   "OMIT FROM DESIGN". That most likely means the sheet was dropped from that
-   filing rather than the elevator from the building — but it must be confirmed
-   with StudioSC before it goes in marketing copy.
-3. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
+2. **Cellar area.** Confirmed to exist (gym, wine room, laundry) but has no area
    in any schedule in hand. Needed for a credible total square footage.
-4. **Exterior rendering resolution.** The rendered site-context views exist but
+3. **Exterior rendering resolution.** The rendered site-context views exist but
    the embedded images are only ~735x633 px — too small for a full-bleed hero.
    Request the high-resolution originals from StudioSC.
-5. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
-   differs in places. Confirm the LPC program (elevator, gym, wine room, roof
-   terrace) survived into the built design.
+4. **How current is the LPC scheme?** It is Dec 2024; the GC set is Aug 2025 and
+   differs in places. Elevator is confirmed out. Confirm whether gym, wine room,
+   and roof terrace survived into the built design.
 
 ## Clinton Hill precedent projects cited to LPC
 282 Lafayette Ave · 476 Washington Ave · 228 Washington Ave ·

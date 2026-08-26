@@ -473,11 +473,10 @@ sheet each figure came from. Two cautions carried in it:
 
 - The **~3,907 SF** figure is *gross* and *above grade only*. It excludes the cellar and
   is not a number any listing should use.
-- The LPC set (Dec 2024) shows a **private elevator** at every level and a cellar with a
-  gym and wine room. The later GC amendment (Aug 2025) stamps the elevator detail sheet
-  "OMIT FROM DESIGN". That most likely means the sheet left that filing rather than the
-  elevator leaving the building, but it is a headline feature and needs confirming with
-  StudioSC before it appears in marketing copy.
+- The LPC set (Dec 2024) labelled a **private elevator** at every level and a cellar with
+  a gym and wine room. The GC amendment (Aug 2025) stamped the elevator detail sheet
+  "OMIT FROM DESIGN". **Client confirmed: there is no elevator.** Never market one.
+  Gym / wine room / roof terrace still need confirming against the built design.
 
 ---
 
@@ -623,9 +622,8 @@ exist. The gate component is not built.
    source render or a re-render.
 6. **The Primary Suite wants a regrade**, and the scroll hint wants a decision. See "The
    measured matrix".
-7. **Confirm the elevator.** The LPC set shows one at every level; the GC amendment stamps
-   its detail sheet "OMIT FROM DESIGN". Almost certainly a filing change rather than a
-   building change, but it is a headline feature and it is unconfirmed.
+7. **Elevator — resolved.** Client confirmed there is none. Site copy never claimed one;
+   keep it that way if LPC-era language reappears in drafts.
 
 **Repository housekeeping, which needs the owner:** the default branch is still
 `claude/quadplex80-site-analysis-tl3nl6` and should be `main` (Settings → General), and
