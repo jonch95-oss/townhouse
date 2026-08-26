@@ -597,3 +597,8 @@
   .lightbox__nav,
   .lightbox__close { width: 7rem; height: 7rem; }
 }
+
+/* Floorplans has no slide yet — present, but not pretending to work. */
+.menu-link.is-pending { opacity: 0.35; cursor: default; }
+.menu__links:hover .menu-link.is-pending { opacity: 0.2; }
+.menu-link.is-pending:hover { opacity: 0.35 !important; }

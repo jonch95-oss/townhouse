@@ -10,7 +10,7 @@ import { applyMotionPreference } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
 import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
-import { slides, galleries } from './data/slides';
+import { slides, galleries, menuEntries } from './data/slides';
 import { Hero } from './ui/hero';
 import { PipRail } from './ui/pips';
 import { MenuToggle } from './ui/nav';
@@ -32,6 +32,16 @@ const layers = slides.map((slide, i) => {
   layer.className = 'slide';
 
   if (slide.src) {
+    // <picture> so a narrow viewport fetches the portrait frame and never the
+    // landscape one. responsive.md §3: the reference swaps the asset rather
+    // than cropping the same file, and so do we.
+    const picture = document.createElement('picture');
+    if (slide.portrait) {
+      const source = document.createElement('source');
+      source.media = '(max-width: 649px)';
+      source.srcset = slide.portrait;
+      picture.appendChild(source);
+    }
     const img = document.createElement('img');
     img.className = 'slide__img';
     img.src = slide.src;
@@ -41,7 +51,8 @@ const layers = slides.map((slide, i) => {
     img.loading = i < 2 ? 'eager' : 'lazy';
     img.decoding = 'async';
     if (i < 2) img.fetchPriority = 'high';
-    layer.appendChild(img);
+    picture.appendChild(img);
+    layer.appendChild(picture);
   } else {
     // Contact lands on the warm ground; its card arrives in Phase 3.
     layer.classList.add('slide--ground');
@@ -110,7 +121,7 @@ const setOverlayOpen = (open: boolean) => { machine.overlayOpen = open; };
 
 const lightbox = new Lightbox(() => setOverlayOpen(false));
 const menu = new Menu(
-  labels,
+  menuEntries,
   (i) => machine.instant(i),
   () => {
     setOverlayOpen(false);
@@ -135,7 +146,7 @@ stage.addEventListener('click', () => {
   setOverlayOpen(true);
   lightbox.show(
     ids.map((id, n) => ({
-      src: `/renders/source/${id}.jpeg`,
+      src: `/renders/gallery/${id}.jpg`,
       alt: `${labels[machine.current]} — view ${n + 1} of ${ids.length}.`,
       caption: `${labels[machine.current]} — ${n + 1} / ${ids.length}`,
     })),

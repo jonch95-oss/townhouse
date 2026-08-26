@@ -2,9 +2,12 @@ import { gsap } from 'gsap';
 import { Overlay } from '../lib/overlay';
 import { duration, stagger, reducedMotion } from '../lib/motion';
 import { menuImage } from '../data/slides';
+import type { MenuEntry } from '../data/slides';
 
 /**
  * The full-screen menu — motion-spec.md §6.2.
+ *
+ * The panel image is supplied at 3:4 and needs no reframing here.
  *
  * The overlay grows up from the bottom edge and outward from a 10% inset on
  * each side at the same time, which is why it reads as a room arriving rather
@@ -23,7 +26,7 @@ export class Menu {
   private open = false;
 
   constructor(
-    labels: readonly string[],
+    entries: readonly MenuEntry[],
     private readonly onSelect: (i: number) => void,
     private readonly onClose: () => void,
   ) {
@@ -34,17 +37,18 @@ export class Menu {
       <div class="menu__inner site-max">
         <div class="menu__image-mask" aria-hidden="true">
           <div class="menu__image-inner">
-            <img class="menu__image" src="${menuImage.src}" alt="${menuImage.alt}"
-                 style="object-position:${menuImage.objectPosition}" />
+            <img class="menu__image" src="${menuImage.src}" alt="${menuImage.alt}" />
           </div>
         </div>
         <nav class="menu__links" aria-label="Slides">
-          ${labels
+          ${entries
             .map(
-              (label, i) => `
-            <button class="menu-link js-slide" type="button" data-index="${i}">
+              (entry, i) => `
+            <button class="menu-link js-slide${entry.slide === undefined ? ' is-pending' : ''}"
+                    type="button"
+                    ${entry.slide === undefined ? 'aria-disabled="true"' : `data-index="${entry.slide}"`}>
               <span class="menu-link__index" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
-              <span class="menu-link__label h3 --menu">${label}</span>
+              <span class="menu-link__label h3 --menu">${entry.label}</span>
             </button>`,
             )
             .join('')}
@@ -54,8 +58,12 @@ export class Menu {
     this.links = [...this.el.querySelectorAll<HTMLElement>('.js-slide')];
     for (const link of this.links) {
       link.addEventListener('click', () => {
-        // An instant jump, never a wipe — a 1.5s transition from slide 0 to
-        // slide 5 would look broken.
+        // Floorplans has no slide: it opens the floor panel, which is not
+        // built. Until it is, the entry is present and inert rather than
+        // silently missing from the list.
+        if (link.dataset.index === undefined) return;
+        // An instant jump, never a wipe — a 1.5s transition across the whole
+        // deck would look broken.
         this.onSelect(Number(link.dataset.index));
         this.close();
       });
