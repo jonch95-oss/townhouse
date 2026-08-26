@@ -34,8 +34,8 @@ that before adding anything.
   capped at 12px and floored at 8px. Design widths are 390 / 834 / 1500. Everything
   downstream is in `rem`, so the page scales as a single object and there is not one
   font-size media query in the codebase.
-- **The slide machine** (`src/lib/slides.ts`). Six full-screen slides — hero, four
-  floors, contact. `body { overflow: hidden }`, document exactly one viewport tall.
+- **The slide machine** (`src/lib/slides.ts`). Five full-screen slides — hero, three
+  rooms, contact. See "Rooms, not floors" below for why it is rooms. `body { overflow: hidden }`, document exactly one viewport tall.
   `wheel`, `touchstart`/`touchmove` and `keydown` are captured and normalised, then gated
   through a vendored `Lethargy(8, 50)` plus a 50ms debounce so trackpad inertia cannot
   skip ahead. One gesture advances exactly one slide, input locks for the whole
@@ -55,16 +55,21 @@ that before adding anything.
   `alpha: 0.7`, not 1.
 - **Pip rail**, menu toggle, section-label box, looping "Scroll to explore" hint.
 - **`.uline` / `.uline-double`** underlines.
-- **Copy** for the whole experience — 68 words, zero on the floor slides.
+- **Copy** for the whole experience — 78 words, zero on the room slides.
 
 ### What is not built
 
 | | Status |
 |---|---|
-| **Phase 3** — menu overlay, lightbox | **Built.** The floor panel behind the section-label `[+]` is not. |
+| **Phase 3** — menu overlay, lightbox | **Built.** |
+| Panels — overview, credits, legal, floorplans | **Built.** One `Panel` component, four bodies. |
+| Image pipeline | **Built.** `npm run images`. |
+| Intro gate component | Not started. |
+| Lead capture | **Out of scope**, by instruction. The privacy policy is blocked behind it. |
 | **Phase 4** — transition shader | **Built, and off.** See below. |
 | **Phase 4** — clamped orbit | Not started. It needs a glTF model that does not exist. |
 | Intro gate / preloader | Not started. The type rule (`.intro__title`) and the image (`gateImage`) exist; no gate component does. |
+| 4th-floor and roof slides | **Out of scope**, by instruction — and no render exists of either. |
 
 **On WebGL**, `spec/REBUILD.md` §3 splits it into three layers with a separate
 build/don't-build call on each.
@@ -164,6 +169,155 @@ gate read as a threshold rather than a heading. Only the sub-650 override gives 
 
 ---
 
+## Rooms, not floors — a factual correction
+
+**The slides are organised by room, and that is a correction, not a preference.**
+
+An earlier pass placed the kitchen on the second floor. The filed plan sheets (GC set
+A-100.01 / A-101.01) say otherwise:
+
+```
+1st floor  foyer · library · courtyard · hallway · KITCHEN · DINING ROOM · bath
+2nd floor  bedroom 1 · bath · hallway · living room · terrace (93.32 sf)
+3rd floor  primary bedroom · primary bathroom · W.I.C. · dressing room · terrace
+4th floor  bedroom · bath · hallway · terrace · mechanical
+roof       two roof terraces (164.38 sf, 220.97 sf) · vestibule · mechanical
+```
+
+The kitchen is on the ground floor. Anything labelled "2nd floor kitchen" was wrong about
+a real building, which is a different class of error from a copy tweak.
+
+Organising the deck by floor would need imagery for four floors. Renders exist for three
+rooms, and two of those share the first floor. So the slides are rooms:
+
+| # | Label | Image | Actually on |
+|---|---|---|---|
+| 0 | Home | `landscape/00-hero` | the street |
+| 1 | Entrance & Library | `landscape/01-first-floor` | 1st floor |
+| 2 | Living | `landscape/02-second-floor` | 1st floor — kitchen and dining |
+| 3 | Primary Suite | `landscape/03-third-floor` | 3rd floor |
+| 4 | Contact | — | — |
+
+Every slide has a real image and a truthful label, and no slide claims a floor it is not
+on. **The image *filenames* still carry the old floor numbering** — renaming 28 source
+files and their 300-odd generated variants to fix a name nobody sees was not worth the
+churn, but it is a trap for the next person and it is why this table exists.
+
+Floor labels live in the floorplans panel, where the plan itself is the evidence.
+
+**No render exists** of the 2nd-floor living room, the 4th floor, or the roof terraces.
+
+---
+
+## The image pipeline
+
+`npm run images` runs `scripts/build-images.mjs` over `public/renders/`, writing variants
+to `public/img/` and a manifest to `src/data/images.generated.ts`. Neither is edited by
+hand.
+
+Per source it emits AVIF (q50), WebP (q72) and JPEG (q76, mozjpeg) at a width ladder that
+depends on the kind — landscape `640…2440`, portrait `390…1080`, gallery `640…1600`,
+floorplan `1024…2400`, panel `512/1012` — plus a base64 LQIP and a dominant colour.
+
+28 images, 10.8 MB of sources, 12.1 MB of variants.
+
+`src/lib/picture.ts` builds the `<picture>`: AVIF then WebP then JPEG, width-based
+`srcset` with an honest `sizes`, narrow `(max-width: 649px)` sources first. The wrapper is
+painted with the dominant colour and the LQIP before anything arrives, which is why there
+is no white flash between slides. The reference gets both free from its CDN; ours are
+generated at build time.
+
+**Transfer weight, first paint:**
+
+| | before | after |
+|---|---:|---:|
+| desktop 1440 | 2264 KB | **176 KB** |
+| mobile 390 | 866 KB | **53 KB** |
+
+Both all-AVIF. 92% and 94%.
+
+**`public/img/` is committed.** It is derived, which normally argues against it, but the
+sources in `public/renders/` are already tracked and `npm run build` does not run the
+pipeline — so committing the variants is what makes a deploy reproducible without sharp
+in the build environment. Run `npm run images` after touching anything in
+`public/renders/` and commit both the variants and the manifest.
+
+**`resolveImage()` in `picture.ts` is load-bearing.** Manifest keys carry their source
+directory (`landscape/00-hero`) while the slide manifest names bare keys (`00-hero`).
+Everything that reads the manifest must go through that resolver. The shader did not, and
+rendered a black canvas — a full-screen quad with no texture bound looks exactly like a
+canvas that failed to initialise, so the bug reads as WebGL trouble and is not.
+
+---
+
+## The panels
+
+One component (`src/ui/panel.ts`) built on `Overlay`, four bodies (`src/ui/panels.ts`):
+**Overview** behind the section-label `[+]`, **Floorplans** from the menu, **Credits** and
+**Legal** from the menu footer. They inherit the keyboard contract below — Escape, focus
+trap, no key leakage to the slide machine — because they are `Overlay`s.
+
+### Floorplans is a known quality gap
+
+The five sheets are **construction drawings from the filed GC set, not marketing plans**.
+Dimension strings, north arrows, wall-assembly callouts, zoning notes and sheet
+annotations are all present, because they are on the drawing. They are legible and they
+are honest, and against the rest of the site they look like what they are: a contractor's
+document in a room designed for photographs.
+
+The panel says so in its own first line rather than hoping nobody notices. The fix is
+redrawn marketing plans from StudioSC — a simplified single-line plan per floor, room
+names and areas only, no dimension strings. That is a drafting commission, not a code
+change.
+
+### Legal is drafted and gated
+
+`src/data/legal.ts` holds five drafts: disclaimer, standardized operating procedures, fair
+housing, privacy, terms. **`LEGAL_REVIEWED` is `false`**, and while it is false the panel
+opens with an unmissable notice that none of it has been through counsel, and each
+document shows its own status line.
+
+Nobody here is a lawyer and this is a regulated transaction. Three of the five contain
+statements of fact about the business that cannot be known from the drawings and must not
+be invented — they are `TK`, and they are the reason a professional pass is needed rather
+than a proofread.
+
+The **disclaimer** is the urgent one, and not because it is the longest. The building does
+not exist and every image on the site is a rendering; the gap between what a visitor sees
+and what exists is the largest exposure on the site. Counsel also needs to answer whether
+this offering triggers New York offering-plan requirements (GBL Article 23-A). A
+single-family house sold whole generally does not, but that determination is not ours.
+
+The **privacy policy is blocked behind the lead capture**, which is out of scope by
+instruction: the policy has to describe what the site actually collects and who receives
+it, and that is not decided. Worth noting the cheap option — with no form, no analytics
+and no cookies, just a `mailto:`, the compliance surface is nearly nil. The reference
+loads GTM and a cookie banner. Nothing obliges us to.
+
+Also outstanding, and not a legal question: **check the StudioSC agreement covers
+marketing use of the renderings and drawings** before publishing. Everything on the site
+came out of their PDFs.
+
+### `TK` is a launch gate, not a convention
+
+`scripts/check-tk.mjs` exits non-zero while any `TK` remains. Run it before any deploy.
+`TK`s render on the page in `#ff0055` — a colour deliberately outside the palette, so a
+missed one is impossible to mistake for a design decision in a screenshot.
+
+**16 markers, 11 distinct facts:** price · interior sq ft (×2) · exterior sq ft · bedroom
+count · bathroom count · bed/bath count · roof terrace sq ft · developer name · email ·
+phone (×2) · **production origin** (×4).
+
+The last one is not copy. `og:url`, `og:image` and `canonical` need an absolute origin and
+no domain has been supplied, so `index.html` carries the literal `TK-ORIGIN` and the gate
+covers it. Inventing a plausible domain would put a URL that resolves to somebody else's
+site into every Slack and iMessage preview of this page.
+
+Every other one is a fact about a real property or a real business. Supply them from the
+client or the drawings. **Do not estimate.**
+
+---
+
 ## `src/lib/overlay.ts` — the keyboard contract
 
 Both the menu and the lightbox are built on it. It was written in Phase 2 with nothing
@@ -200,9 +354,9 @@ rather than from something already resampled.
 | Slide | Landscape | Portrait |
 |---|---|---|
 | hero | 2440 × 1626 | 824 × 1430 |
-| 1st floor | 2400 × 1350 | 777 × 1350 |
-| 2nd floor | 2400 × 1350 | 777 × 1350 |
-| 3rd floor | 3200 × 1800 | 1037 × 1800 |
+| Entrance & Library | 2400 × 1350 | 777 × 1350 |
+| Living | 2400 × 1350 | 777 × 1350 |
+| Primary Suite | 3200 × 1800 | 1037 × 1800 |
 | intro gate | 1440 × 1762 | 1015 × 1762 |
 | menu panel | 1012 × 1350 (3:4) | — |
 
@@ -216,8 +370,8 @@ portrait frames must never be manufactured from landscape renders — that rule 
 shoot was possible. It is not, and there is no third party to commission one from, so a
 considered crop is the only path and the honest one.
 
-The crops are chosen per image rather than centred: the 2nd floor keeps the island and the
-terrace doors, the 3rd keeps the tub centred between its windows, and the hero sits
+The crops are chosen per image rather than centred: Living keeps the island and the yard
+doors, the Primary Suite keeps the tub centred between its windows, and the hero sits
 entirely above the street furniture.
 
 **This does not reopen the mobile-hero decision.** The reference renders no hero copy at
@@ -229,8 +383,8 @@ stays on mobile until frames exist that were composed as portraits.
 
 **This supersedes an instruction to switch chrome by slide range**, and the reason is
 worth keeping. The brief was "chrome goes dark on interior slides 1–4". Measured, that
-fails: `INT-008-009` — the second-floor kitchen — is a light image overall but **dark
-exactly where the pip rail sits**, so warm ink measures 1.13:1 over it where white
+fails: `INT-008-009` — the kitchen, which is on the *ground* floor — is a light image
+overall but **dark exactly where the pip rail sits**, so warm ink measures 1.13:1 over it where white
 measures 5.60:1. A range rule fixes the pale images and breaks that one.
 
 Polarity is therefore declared per image as `chrome: 'light' | 'dark'` in
@@ -252,23 +406,50 @@ silently ignored both the inverted scrim and the halo.
 
 | Slide | ink | menu toggle | pip rail | scroll hint | section label |
 |---|---|---:|---:|---:|---:|
-| hero | white | 8.35:1 | 5.56:1 | 6.21:1 | 6.12:1 |
-| 1st entrance | warm | **2.42:1** | 4.61:1 | 3.61:1 | 6.12:1 |
-| 2nd kitchen | white | 4.09:1 | 5.95:1 | 6.27:1 | 6.12:1 |
-| 3rd primary bath | warm | **2.99:1** | **2.48:1** | 4.17:1 | 6.12:1 |
+| hero | white | 4.90:1 | 5.14:1 | 3.73:1 | 6.12:1 |
+| Entrance & Library | warm | **2.38:1** | 4.61:1 | **1.71:1** | 6.12:1 |
+| Living | white | 4.00:1 | 5.93:1 | 5.12:1 | 6.12:1 |
+| Primary Suite | warm | **2.86:1** | **2.56:1** | **1.34:1** | 6.12:1 |
 
-The hero passes everywhere on the real frame — the plane-tree foliage across the top is
-dark where the toggle and pips sit. On the placeholder it measured 1.53:1 at the pip rail.
+11 of 16 marks clear 3:1 against their own ground. The section-label figure is 6.12:1 on
+every slide because that mark sits in a solid white card — it is the one piece of chrome
+that does not depend on the picture, which is exactly why it is the one that never fails.
 
-**The primary bath fails both polarities** at the pip rail — 2.48:1 warm, 2.58:1 white —
-and the two polarities simply trade which of the other positions works. It is left as
-shipped. That one is a regrade, not a code fix.
+**The metric changed this pass and the numbers are not comparable to the previous table.**
+The analysis half of the suite had been living in a scratch file that did not survive; it
+is now inside `verify-chrome-contrast.mjs` and committed. Two attempts were needed:
+ordering pixels by distance-from-ink misreads sparse ink — a four-character label in a
+wide box reported 1.00:1, because the nearest tenth of its pixels are still white card.
+What it measures now is the **median ground of the clip** against the **median of the
+pixels that depart from that ground towards the declared ink**. Both halves of that
+condition matter: distance alone picks up a bright window in the photograph behind a warm
+ring and calls it the ring.
+
+**Five marks are below 3:1, all warm ink on the two interior slides, and none of them is a
+code fix:**
+
+- **The pip rail on the Primary Suite fails both polarities** — 2.56:1 warm, and white is
+  no better — because the image is mid-tone exactly where the rail sits. Every other
+  position on every other slide clears one of the two. This is a regrade. The requirement
+  to hand whoever does it: a darkened band at the right edge.
+- **The scroll hint is the worst of them** (1.71:1 and 1.34:1) and it is a *placement*
+  problem rather than a grading one. It sits bottom-centre, which on the Entrance slide is
+  busy terracotta floor tile — warm ink on warm tile at similar value, and the halo has
+  nothing to separate against. The hint also persists on every slide, not just the hero.
+  Showing it only on the hero would delete both failures and arguably reads better anyway;
+  that is a behaviour change and was not in scope for this pass, so it is written down
+  rather than done.
+
+The halo (`--chrome-halo`, inverted with the ink) and the inverted scrims are already
+doing the work they can. Both failures are the picture, not the CSS.
 
 ## Copy status
 
-All copy lives in `src/data/copy.ts`. 68 words across the whole experience against a
-100-word ceiling, with **zero on the floor slides** — that restraint is the design, not a
-flourish on top of it (`spec/sections.md`, "The word count").
+All copy lives in `src/data/copy.ts`, wired from `docs/source/COPY.md`. **78 words** across
+the whole experience — the reference runs about 90 — with **zero on the room slides**. That
+restraint is the design, not a flourish on top of it (`spec/sections.md`, "The word
+count"). Room labels live in the menu and the section-label box, never over the
+photograph.
 
 | | Status |
 |---|---|
@@ -276,12 +457,11 @@ flourish on top of it (`spec/sections.md`, "The word count").
 | Contact headline — `COME / AND / SEE` | **Chosen.** |
 | Intro headline — `TERRACOTTA / AND / BRICK` | **Chosen.** Both orderings were rendered at 390 first (`docs/review/intro-390-a-brick-first.png` and `-b-terracotta-first.png`); (b) won. At 10, 3 and 5 characters the stack narrows as it descends and resolves on a hard monosyllable, where the reverse keeps opening. It also matches the order the Landmarks deck lists the materials in. |
 | Paragraphs | **Draft.** Written to the word budget and factually grounded, but not signed off. |
-| Menu | Six entries against five slides: Home, First, Second, Third, Floorplans, Contact. Floorplans has no slide — it opens the floor panel, which is not built, so the entry is present and inert rather than silently missing. |
-| Facts marked `TK` | price, interior square footage as marketed, bed/bath count as marketed, completion date, contact email, contact phone. They render visibly on purpose. See the `TK` export at the bottom of `copy.ts`. |
+| Menu | Six entries against five slides: Home, Entrance & Library, Living, Primary Suite, Floorplans, Contact. Floorplans has no slide — it opens the floorplans panel. |
+| Facts marked `TK` | Eleven, listed under "`TK` is a launch gate" above. They render visibly on purpose, and `npm run check:tk` fails while any remain. |
 
-Everything longer — floor descriptions, specification, credits, the Landmarks story —
-is meant to live behind the menu, where a serious buyer will find it. None of it is
-written yet.
+Everything longer — the overview, the credits, the Landmarks story — lives behind the
+menu, where a serious buyer will find it. That is now built.
 
 **Do not adapt the quotes in `spec/sections.md`.** They are another building's words and
 using them, even reworded, will read as borrowed.
@@ -391,7 +571,21 @@ node scripts/verify-phase2.mjs         # reveals, chrome, intro headline fit
 node scripts/verify-overlay.mjs        # Escape, arrows, focus trap, no key leakage
 node scripts/verify-palette.mjs        # three colours, no reference hues
 node scripts/verify-reduced-motion.mjs # hard cut, not a scaled tween
+node scripts/verify-phase3.mjs         # menu, lightbox, panels, floorplans
+node scripts/verify-gate.mjs           # intro gate stack, short viewports
+node scripts/verify-shader.mjs         # the flagged shader actually draws
+node scripts/verify-chrome-contrast.mjs  # the matrix, from composited pixels
+node scripts/measure-weight.mjs        # transfer weight per viewport
+npm run check:tk                       # launch gate — fails while a TK remains
 ```
+
+`verify-overlay.mjs` is the one that wants `npm run dev` on :5173 rather than the preview
+build — it imports the module directly. Everything else reads :4173, so **rebuild before
+you trust a result**: a stale `dist/` is why the shader suite reported a black canvas for
+a fix that was already correct in the source.
+
+Current: root 5/5 (1024 diverges by design), palette 4/4, gate 12/12, pacing 8/8, phase2
+32/32, phase3 28/28, overlay 6/6, shader 8/8, reduced-motion pass.
 
 They drive a real browser and read computed styles, so they catch things review does not.
 Three problems were found this way that were invisible to inspection: every pip rendering
@@ -406,21 +600,33 @@ every type measurement taken before it was caught.
 
 **Built:** the fluid root and slide machine (Phase 1); type, reveals and chrome (Phase 2);
 the menu overlay and lightbox (Phase 3); the transition shader, behind a flag and off
-(half of Phase 4). Five slides, all on real imagery, landscape and portrait.
+(half of Phase 4). Five slides, organised by room, all on real imagery, landscape and
+portrait. Overview, credits, legal and floorplans panels. A build-time image pipeline.
 
-**Deliberately out of scope:** a fourth-floor slide; the procedural sky; the clamped
-orbit, which needs a glTF model that does not exist. The floor panel behind the menu's
-Floorplans entry and the `[+]` is not built, and neither is the gate component.
+**Deliberately out of scope:** the 4th-floor and roof slides and the lead capture, both by
+instruction; the procedural sky; the clamped orbit, which needs a glTF model that does not
+exist. The gate component is not built.
 
-**Two things still open, both about pictures rather than code:**
+**Open, and none of it is code:**
 
-1. **The hero is an upscale** — roughly 4x from a 669 × 633 source. It composites well and
+1. **11 `TK` facts.** `npm run check:tk` fails while any remain. Price, square footages,
+   bed and bath counts, developer name, email, phone — from the client or the drawings, not
+   estimated — and the production origin, which is a DNS question rather than a copy one.
+2. **Legal needs counsel.** `LEGAL_REVIEWED` is `false`. The disclaimer first; it is nearly
+   ready and it is the one with real exposure. The privacy policy is blocked behind the
+   lead capture.
+3. **Ask StudioSC for marketing floorplans.** What ships is the filed construction set,
+   annotations and all.
+4. **Check the StudioSC agreement covers marketing use** of the renderings and drawings.
+5. **The hero is an upscale** — roughly 4x from a 669 × 633 source. It composites well and
    sits behind type without embarrassment, but it carries no real detail. Needs StudioSC's
    source render or a re-render.
-2. **The primary bath may want a regrade.** Its pip rail fails both chrome polarities
-   (2.48:1 warm, 2.58:1 white) because the image is mid-tone exactly where the rail sits.
-   Every other position on every other slide clears. The requirement to hand whoever
-   regrades: a darkened band at the right edge.
+6. **The Primary Suite wants a regrade**, and the scroll hint wants a decision. See "The
+   measured matrix".
+7. **Confirm the elevator.** The LPC set shows one at every level; the GC amendment stamps
+   its detail sheet "OMIT FROM DESIGN". Almost certainly a filing change rather than a
+   building change, but it is a headline feature and it is unconfirmed.
 
-Everything else — price, square footage, bed and bath counts, completion date, contact
-details — is marked `TK` in `src/data/copy.ts` and renders visibly on purpose.
+**Repository housekeeping, which needs the owner:** the default branch is still
+`claude/quadplex80-site-analysis-tl3nl6` and should be `main` (Settings → General), and
+four merged branches want deleting — the git proxy here returns 403 on ref deletion.
