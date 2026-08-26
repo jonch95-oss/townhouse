@@ -33,10 +33,11 @@ BRICK
 > A new house on a landmarked street in Clinton Hill. Four floors, built in brick and
 > terracotta, designed to belong where it stands.
 
-**Button**
+**Buttons**
 
 ```
 ENTER
+Enter without sound
 ```
 
 **Hold hint** (desktop, fine pointer)
@@ -48,9 +49,11 @@ HOLD TO ENTER
 *Note: "ENTER" not "ENTER EXPERIENCE" — theirs is an experience because it is one. Ours
 is a house, and the shorter word is less pleased with itself.*
 
-*Press-and-hold is the Quadplex interaction, adapted for a still of this house rather
-than a cloud descent. The button remains for keyboard, touch, and reduced motion.
-No "Enter without sound" — there is no ambient audio track to skip.*
+*Audio beds are synthetic atmosphere only — not field recordings of the street or the
+house. See `public/sound/README.md`. Do not invent place sound or feature SFX.*
+
+*Press-and-hold is the Quadplex interaction, adapted for a still from the decks.
+The button remains for keyboard, touch, and reduced motion.*
 
 ---
 

@@ -58,7 +58,8 @@ for (const [w, h, label] of [
       widest,
       avail: window.innerWidth - rem * 4,
       hasMedia: !!document.querySelector('.intro__media'),
-      noSoundCta: !document.body.innerText.toLowerCase().includes('without sound'),
+      hasSilent: !!document.querySelector('.intro__secondary'),
+      hasHold: (document.querySelector('.intro__hint')?.textContent || '').toLowerCase().includes('hold'),
     };
   });
 
@@ -81,7 +82,8 @@ for (const [w, h, label] of [
   );
   if (label === '1440x900') {
     ok('gate uses a still, not a cloud canvas', m.hasMedia);
-    ok('no "enter without sound" CTA', m.noSoundCta);
+    ok('has Enter without sound CTA', m.hasSilent);
+    ok('has Hold to enter hint', m.hasHold);
   }
   await p.close();
 }

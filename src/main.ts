@@ -11,6 +11,7 @@ import { applyMotionPreference, duration, reducedMotion } from './lib/motion';
 import { CrossfadeRenderer } from './lib/renderer';
 import type { SlideRenderer } from './lib/renderer';
 import { SlideMachine } from './lib/slides';
+import { Sound } from './lib/sound';
 import { slides, galleries, menuEntries } from './data/slides';
 import { buildPicture, resolveImage } from './lib/picture';
 import { overviewPanel, creditsPanel, legalPanel, floorplansPanel } from './ui/panels';
@@ -23,6 +24,12 @@ import { ScrollHint } from './ui/scroll-hint';
 import { Menu } from './ui/menu';
 import { Lightbox } from './ui/lightbox';
 import { Intro } from './ui/intro';
+import type { IntroEnterOptions } from './ui/intro';
+import { Logo } from './ui/logo';
+import { Inquire } from './ui/inquire';
+import { SoundToggle } from './ui/sound-toggle';
+import { Cursor } from './ui/cursor';
+import { HeroHold } from './ui/hero-hold';
 
 registerEases();
 registerReveal();
@@ -46,7 +53,6 @@ const layers = slides.map((slide, i) => {
       }),
     );
   } else {
-    // Contact lands on the warm ground; its card arrives with the copy below.
     layer.classList.add('slide--ground');
   }
 
@@ -56,10 +62,6 @@ const layers = slides.map((slide, i) => {
 
 const labels = slides.map((s) => s.label);
 
-/**
- * Chrome polarity is a property of each image, declared in the slide manifest.
- * See the note on ChromePolarity there for why it is not a slide range.
- */
 const setChromeForSlide = (i: number) =>
   document.body.classList.toggle('is-interior', slides[i]?.chrome === 'dark');
 
@@ -73,35 +75,46 @@ const chrome = document.createElement('div');
 chrome.className = 'chrome';
 document.body.appendChild(chrome);
 
+const sound = new Sound();
+sound.preload();
+
 /**
- * The transition shader is built but OFF. The crossfade is the shipping path.
- *
- * Four of seven screens are still placeholders, and tuning a wipe against
- * stand-in imagery is wasted work — so the shader exists, is proven to run,
- * and is not tuned. Enable with ?shader=1 to look at it.
+ * Transition shader is ON by default. Opt out with ?shader=0.
+ * Crossfade remains the fallback when WebGL is unavailable.
  */
-const SHADER_ENABLED = new URLSearchParams(location.search).get('shader') === '1';
+const params = new URLSearchParams(location.search);
+const SHADER_ENABLED = params.get('shader') !== '0';
 
 let renderer: SlideRenderer;
 if (SHADER_ENABLED) {
-  const { ShaderRenderer } = await import('./lib/shader-renderer');
-  // The shader takes the largest JPEG of each slide — it samples textures
-  // directly and has no use for the responsive ladder. Keys go through the
-  // same resolver as <picture>: the manifest prefixes them by source directory.
-  const shader = new ShaderRenderer(
-    slides.map((slide) => {
-      if (!slide.image) return undefined;
-      const set = resolveImage(slide.image)?.srcset.jpg ?? [];
-      return set[set.length - 1]?.url;
-    }),
-  );
-  stage.prepend(shader.canvas);
-  for (const layer of layers) layer.style.display = 'none';
-  shader.show(0);
-  renderer = shader;
+  try {
+    const { ShaderRenderer } = await import('./lib/shader-renderer');
+    const shader = new ShaderRenderer(
+      slides.map((slide) => {
+        if (!slide.image) return undefined;
+        const set = resolveImage(slide.image)?.srcset.jpg ?? [];
+        return set[set.length - 1]?.url;
+      }),
+    );
+    stage.prepend(shader.canvas);
+    for (const layer of layers) layer.style.display = 'none';
+    shader.show(0);
+    renderer = shader;
+  } catch {
+    renderer = new CrossfadeRenderer(layers);
+  }
 } else {
   renderer = new CrossfadeRenderer(layers);
 }
+
+const cursor = new Cursor();
+document.body.appendChild(cursor.el);
+
+const updateCursorForSlide = (i: number) => {
+  if (i === 0) cursor.setMode('hold');
+  else if (galleries[i]?.length) cursor.setMode('view');
+  else cursor.setMode('active');
+};
 
 const machine = new SlideMachine({
   count: slides.length,
@@ -110,6 +123,7 @@ const machine = new SlideMachine({
     pips.change(current, previous);
     sectionLabel.set(current);
     setChromeForSlide(current);
+    updateCursorForSlide(current);
     if (current === 0) hero.enter();
     else if (previous === 0) hero.leave();
     if (current === slides.length - 1) contact.enter();
@@ -119,15 +133,15 @@ const machine = new SlideMachine({
 
 const pips = new PipRail(slides.length, labels, (i) => machine.instant(i));
 
-/**
- * Overlays own the wheel while they are open — motion-spec.md §1.3 lists this
- * among the guards. Without it the slide behind an open menu still advances.
- */
-const setOverlayOpen = (open: boolean) => { machine.overlayOpen = open; };
+const setOverlayOpen = (open: boolean) => {
+  machine.overlayOpen = open;
+};
 
-const lightbox = new Lightbox(() => setOverlayOpen(false));
+const lightbox = new Lightbox(() => {
+  setOverlayOpen(false);
+  updateCursorForSlide(machine.current);
+});
 
-/** One panel component, four bodies — sections.md Overlay C. */
 const panels = {
   overview: overviewPanel(),
   credits: creditsPanel(),
@@ -136,7 +150,6 @@ const panels = {
 } as const;
 for (const panel of Object.values(panels)) {
   document.body.appendChild(panel.el);
-  panel.el.addEventListener('transitionend', () => undefined);
 }
 const openPanel = (name: string) => {
   const panel = panels[name as keyof typeof panels];
@@ -163,12 +176,22 @@ const menuToggle = new MenuToggle((open) => {
   else menu.close();
 });
 
-/** Clicking an interior slide opens that floor's gallery, where one exists. */
+const logo = new Logo(() => {
+  if (!machine.entered) return;
+  machine.instant(0);
+});
+const inquire = new Inquire(() => {
+  if (!machine.entered) return;
+  machine.instant(slides.length - 1);
+});
+const soundToggle = new SoundToggle(sound);
+
 stage.addEventListener('click', () => {
   if (menu.isOpen || lightbox.isOpen || !machine.entered) return;
   const ids = galleries[machine.current];
   if (!ids?.length) return;
   setOverlayOpen(true);
+  cursor.setMode('zoomed');
   lightbox.show(
     ids.map((id, n) => ({
       image: id,
@@ -177,34 +200,46 @@ stage.addEventListener('click', () => {
     })),
   );
 });
+
 const sectionLabel = new SectionLabel(labels, () => openPanel('overview'));
 const scrollHint = new ScrollHint('Scroll to explore', () => machine.next());
 
-chrome.append(pips.el, scrollHint.el, sectionLabel.el);
-// Above the menu overlay, so it can still be clicked to close — see chrome.css.
+chrome.append(
+  logo.el,
+  inquire.el,
+  pips.el,
+  scrollHint.el,
+  sectionLabel.el,
+  soundToggle.el,
+);
 document.body.appendChild(menuToggle.el);
 
-/** Open the slide machine and the chrome after the visitor dismisses the gate. */
-function enterExperience(): void {
+new HeroHold(
+  stage,
+  hero.el,
+  () => machine.entered && machine.current === 0 && !menu.isOpen && !lightbox.isOpen,
+  (zoomed) => cursor.setMode(zoomed ? 'zoomed' : 'hold'),
+);
+
+async function enterExperience(opts: IntroEnterOptions): Promise<void> {
   document.body.classList.add('is-entered');
   machine.entered = true;
   setChromeForSlide(machine.current);
+  updateCursorForSlide(machine.current);
   hero.enter();
   pips.enter(0);
   scrollHint.start();
+  soundToggle.sync();
+  await sound.enter(opts.withSound);
+  soundToggle.sync();
 }
 
-/**
- * Split the white curtains, then show the intro gate.
- * REBUILD.md §3: keep the shape, change the content — no percentage theatre,
- * no cloud descent. One still, a considered wait, a deliberate Enter.
- */
 function openGate(): void {
   const top = document.querySelector('.gate__half.--top');
   const bottom = document.querySelector('.gate__half.--bottom');
   const gate = document.querySelector('.gate');
 
-  const intro = new Intro(enterExperience);
+  const intro = new Intro((opts) => void enterExperience(opts));
   document.body.appendChild(intro.el);
 
   const finish = () => {
@@ -223,11 +258,6 @@ function openGate(): void {
     .to(bottom, { yPercent: 100, duration: duration(2), ease: 'power3.inOut' }, 0);
 }
 
-/**
- * Preload the first two slides + the gate still, then open the threshold.
- * No percentage counter: without megabytes of WebGL textures it would be
- * theatre, and people can tell (REBUILD.md §3).
- */
 async function ready(): Promise<void> {
   const first = layers
     .slice(0, 2)
@@ -236,7 +266,6 @@ async function ready(): Promise<void> {
     .map((img) => (img.complete ? img.decode().catch(() => undefined) : loaded(img)));
 
   await Promise.all(first);
-  // Fonts must be settled before splitting, or the line boxes measure wrong.
   await document.fonts.ready.catch(() => undefined);
 
   document.body.classList.add('is-ready');
@@ -252,5 +281,4 @@ function loaded(img: HTMLImageElement): Promise<void> {
 
 void ready();
 
-// Handy while tuning; harmless in production.
 Object.assign(window, { waverly: machine });

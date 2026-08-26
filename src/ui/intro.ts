@@ -15,16 +15,13 @@ const HOLD_DELAY = hasFinePointer ? 0.1 : 0.5;
 /** How long a completed hold takes to push into the house. */
 const HOLD_PUSH = 1.6;
 
+export type IntroEnterOptions = { withSound: boolean };
+
 /**
- * The threshold — a digital experience adapted for this house.
+ * The threshold — adapted for this house from decks only.
  *
- * Shape from Quadplex (curtain, wait, deliberate entry, press-and-hold).
- * Content for Waverly: TERRACOTTA / AND / BRICK over a still of the powder
- * room, pointer parallax, hold-to-enter zoom. No clouds, no ambient audio,
- * no orbitable tower — none of that transfers to a four-storey townhouse.
- *
- * 329 Vanderbilt is the neighbourhood peer: material craft, arrival into a
- * real Clinton Hill house — not altitude theatre.
+ * Copy and imagery from StudioSC materials (terracotta/brick, powder room).
+ * No clouds, no invented features. Audio preference is chosen here.
  */
 export class Intro {
   readonly el: HTMLElement;
@@ -33,6 +30,7 @@ export class Intro {
   private readonly title: HTMLElement;
   private readonly body: HTMLElement;
   private readonly enterBtn: HTMLButtonElement;
+  private readonly silentBtn: HTMLButtonElement;
   private readonly hint: HTMLElement;
   private readonly progress: HTMLElement;
   private chars: HTMLElement[] = [];
@@ -45,7 +43,7 @@ export class Intro {
   private readonly parallax = { x: 0, y: 0, tx: 0, ty: 0 };
   private readonly zoom = { scale: 1.08 };
 
-  constructor(private readonly onEntered: () => void) {
+  constructor(private readonly onEntered: (opts: IntroEnterOptions) => void) {
     this.el = document.createElement('div');
     this.el.className = 'intro';
     this.el.setAttribute('role', 'dialog');
@@ -58,7 +56,7 @@ export class Intro {
     this.mediaInner = buildPicture({
       image: gateImage.image,
       narrow: `portrait/${gateImage.image}`,
-      alt: '',
+      alt: gateImage.alt,
       className: 'intro__picture',
       eager: true,
     });
@@ -74,6 +72,7 @@ export class Intro {
       <h1 class="intro__title" id="intro-title">${copy.intro.headline.join('<br />')}</h1>
       <p class="intro__body">${copy.intro.paragraph}</p>
       <button class="intro__enter label" type="button">${copy.intro.primary}</button>
+      <button class="intro__secondary uline-double label" type="button">${copy.intro.secondary}</button>
       <p class="intro__hint label">${copy.intro.holdHint}</p>
       <div class="intro__progress" aria-hidden="true"><span class="intro__progress-bar"></span></div>`;
 
@@ -82,15 +81,19 @@ export class Intro {
     this.title = stack.querySelector('.intro__title') as HTMLElement;
     this.body = stack.querySelector('.intro__body') as HTMLElement;
     this.enterBtn = stack.querySelector('.intro__enter') as HTMLButtonElement;
+    this.silentBtn = stack.querySelector('.intro__secondary') as HTMLButtonElement;
     this.hint = stack.querySelector('.intro__hint') as HTMLElement;
     this.progress = stack.querySelector('.intro__progress-bar') as HTMLElement;
 
     this.enterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      void this.exit('button');
+      void this.exit('button', true);
+    });
+    this.silentBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      void this.exit('button', false);
     });
 
-    // Hold anywhere except the button — the Quadplex press-and-hold, adapted.
     this.el.addEventListener('pointerdown', (e) => this.onPointerDown(e));
     window.addEventListener('pointerup', () => this.onPointerUp());
     window.addEventListener('pointercancel', () => this.onPointerUp());
@@ -98,18 +101,17 @@ export class Intro {
       this.el.addEventListener('pointermove', (e) => this.onPointerMove(e));
     }
 
-    gsap.set([this.title, this.body, this.enterBtn, this.hint], { autoAlpha: 0 });
+    gsap.set([this.title, this.body, this.enterBtn, this.silentBtn, this.hint], { autoAlpha: 0 });
     gsap.set(this.progress, { scaleX: 0 });
     gsap.set(this.mediaInner, { scale: this.zoom.scale });
   }
 
-  /** Split once fonts are ready, then run the entrance. */
   show(): void {
     this.build();
     gsap.set(this.el, { autoAlpha: 1 });
     gsap.set(this.body, { autoAlpha: 1 });
     gsap.set(this.title, { scale: 0.85, autoAlpha: 1 });
-    gsap.set(this.enterBtn, { y: '1.5rem', autoAlpha: 0 });
+    gsap.set([this.enterBtn, this.silentBtn], { y: '1.5rem', autoAlpha: 0 });
     gsap.set(this.hint, { autoAlpha: 0 });
     if (this.chars.length) gsap.set(this.chars, { autoAlpha: 0 });
     if (this.bodyLines.length) gsap.set(this.bodyLines, { yPercent: 100, autoAlpha: 0 });
@@ -143,17 +145,15 @@ export class Intro {
     );
 
     tl.to(
-      this.enterBtn,
-      { y: 0, autoAlpha: 1, duration: duration(2), ease: 'power3' },
+      [this.enterBtn, this.silentBtn],
+      { y: 0, autoAlpha: 1, duration: duration(2), stagger: stagger(0.2), ease: 'power3' },
       duration(0.5),
     );
 
-    // Hold hint — quieter than the button, arrives after it.
     if (!reducedMotion && copy.intro.holdHint) {
-      tl.to(this.hint, { autoAlpha: 0.55, duration: duration(1.5) }, duration(1.2));
+      tl.to(this.hint, { autoAlpha: 0.55, duration: duration(1.5) }, duration(1.4));
     }
 
-    // Idle breath on the still while the visitor reads.
     if (!reducedMotion) {
       gsap.to(this.zoom, {
         scale: 1.0,
@@ -195,7 +195,6 @@ export class Intro {
 
   private onPointerMove(e: PointerEvent): void {
     if (this.exiting || !hasFinePointer) return;
-    // ±2.5% of the viewport — enough to feel alive, not enough to feel loose.
     const nx = (e.clientX / window.innerWidth - 0.5) * 2;
     const ny = (e.clientY / window.innerHeight - 0.5) * 2;
     this.parallax.tx = nx * window.innerWidth * -0.025;
@@ -204,15 +203,14 @@ export class Intro {
 
   private onPointerDown(e: PointerEvent): void {
     if (this.exiting || reducedMotion) return;
-    if ((e.target as HTMLElement).closest('.intro__enter')) return;
+    if ((e.target as HTMLElement).closest('.intro__enter, .intro__secondary')) return;
 
     this.holdDelay?.kill();
     this.holdTween?.kill();
     this.el.classList.add('is-holding');
 
     this.holdDelay = gsap.delayedCall(HOLD_DELAY, () => {
-      // Fade the copy, push into the still, fill the progress bar.
-      gsap.to([this.title, this.body, this.enterBtn, this.hint], {
+      gsap.to([this.title, this.body, this.enterBtn, this.silentBtn, this.hint], {
         autoAlpha: 0,
         duration: duration(0.5),
         ease: 'power1.in',
@@ -227,7 +225,7 @@ export class Intro {
         duration: duration(HOLD_PUSH),
         ease: 'power2.in',
         onUpdate: () => this.applyMediaTransform(),
-        onComplete: () => void this.exit('hold'),
+        onComplete: () => void this.exit('hold', true),
       });
     });
   }
@@ -245,7 +243,7 @@ export class Intro {
         ease: 'power3.out',
         onUpdate: () => this.applyMediaTransform(),
       });
-      gsap.to([this.title, this.body, this.enterBtn], {
+      gsap.to([this.title, this.enterBtn, this.silentBtn], {
         autoAlpha: 1,
         duration: duration(0.5),
         ease: 'power1.out',
@@ -258,10 +256,11 @@ export class Intro {
     }
   }
 
-  private exit(via: 'button' | 'hold'): Promise<void> {
+  private exit(via: 'button' | 'hold', withSound: boolean): Promise<void> {
     if (this.exiting) return Promise.resolve();
     this.exiting = true;
     this.enterBtn.disabled = true;
+    this.silentBtn.disabled = true;
     this.el.classList.remove('is-holding');
     this.holdDelay?.kill();
     this.holdTween?.kill();
@@ -272,34 +271,39 @@ export class Intro {
         defaults: { ease: 'power1.in' },
         onComplete: () => {
           this.el.remove();
-          this.onEntered();
+          this.onEntered({ withSound });
           resolve();
         },
       });
 
       if (via === 'button') {
-        tl.to([this.body, this.enterBtn, this.hint, this.progress.parentElement], {
-          autoAlpha: 0,
-          duration: duration(0.75),
-        }, 0);
+        tl.to(
+          [this.body, this.enterBtn, this.silentBtn, this.hint, this.progress.parentElement],
+          { autoAlpha: 0, duration: duration(0.75) },
+          0,
+        );
         tl.to(this.title, { scale: 2.5, autoAlpha: 0, duration: duration(1.5) }, 0);
-        tl.to(this.zoom, {
-          scale: 1.25,
-          duration: duration(1.5),
-          ease: 'power2.in',
-          onUpdate: () => this.applyMediaTransform(),
-        }, 0);
-        tl.to([this.media, this.el.querySelector('.intro__scrim')], {
-          autoAlpha: 0,
-          duration: duration(1.25),
-        }, duration(0.35));
+        tl.to(
+          this.zoom,
+          {
+            scale: 1.25,
+            duration: duration(1.5),
+            ease: 'power2.in',
+            onUpdate: () => this.applyMediaTransform(),
+          },
+          0,
+        );
+        tl.to(
+          [this.media, this.el.querySelector('.intro__scrim')],
+          { autoAlpha: 0, duration: duration(1.25) },
+          duration(0.35),
+        );
       } else {
-        // Hold already pushed the image; dissolve the rest.
-        tl.to([this.media, this.el.querySelector('.intro__scrim'), this.progress.parentElement], {
-          autoAlpha: 0,
-          duration: duration(0.9),
-          ease: 'power2.inOut',
-        }, 0);
+        tl.to(
+          [this.media, this.el.querySelector('.intro__scrim'), this.progress.parentElement],
+          { autoAlpha: 0, duration: duration(0.9), ease: 'power2.inOut' },
+          0,
+        );
       }
     });
   }
