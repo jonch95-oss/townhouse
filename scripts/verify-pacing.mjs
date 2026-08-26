@@ -87,9 +87,24 @@ check(
 check('second transition is shorter than the first', secondDur < firstDur, `${Math.round(secondDur)}ms vs ${Math.round(firstDur)}ms`);
 
 console.log('\n--- input lock during a transition ---');
-await page.evaluate(() => { window.__log = []; });
-flick(1); // do not await — fire a second gesture mid-transition
-await page.waitForTimeout(700);
+await page.evaluate(() => { window.__log = []; window.__started = 0; });
+/*
+ * Start the transition with a keypress rather than a second flick.
+ *
+ * The obvious version — fire flick() without awaiting it, then fire another
+ * mid-transition — is not a test of the lock. `flick` dispatches 21 wheel
+ * events through the same CDP session, so two overlapping loops serialise
+ * against each other and the combined gesture stream runs *longer* than the
+ * 1516ms transition. A wheel event arriving after the transition ended is
+ * supposed to advance, so the check failed about half the time on a lock that
+ * was working correctly.
+ *
+ * A keypress starts the transition at a known instant and dispatches once, so
+ * the flick that follows lands wholly inside the window it is meant to test.
+ */
+await page.keyboard.press('ArrowDown');
+await page.waitForFunction(() => window.__started > 0, null, { timeout: 5000 });
+await page.waitForTimeout(400);
 await flick(1);
 await page.waitForTimeout(3000);
 log = await page.evaluate(() => window.__log);
@@ -112,7 +127,7 @@ log = await page.evaluate(() => window.__log);
 check('ArrowDown advances one slide', log.length === 1 && log[0].cur === 1, `index ${log.at(-1)?.cur}`);
 
 // Screenshots at each slide for review.
-for (const i of [0, 1, 2, 3, 4, 5]) {
+for (const i of [0, 1, 2, 3, 4]) {
   await page.evaluate((n) => window.waverly.instant(n), i);
   await page.waitForTimeout(250);
   await page.screenshot({ path: `scripts/shots/slide-${i}.png` });
