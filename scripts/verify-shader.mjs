@@ -3,7 +3,17 @@
  * crossfade. It is not tuned and it is not the shipping path.
  */
 import { launchChromium } from './lib/browser.mjs';
+import { mkdirSync } from 'node:fs';
+
 const URL = process.env.URL ?? 'http://localhost:4173/';
+/**
+ * Scratch by default. This used to write straight into docs/review/, so every
+ * run left a tracked file modified with a frame captured a few milliseconds
+ * differently — a dirty tree that says nothing changed. Set OUT to refresh the
+ * committed screenshot deliberately.
+ */
+const OUT = process.env.OUT ?? '/tmp/shader-frames';
+mkdirSync(OUT, { recursive: true });
 const r = []; const ok = (n, p, d) => { r.push(p); console.log(`${p ? 'PASS' : 'FAIL'}  ${n}${d ? ` — ${d}` : ''}`); };
 
 const b = await launchChromium({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
@@ -49,7 +59,7 @@ await p.evaluate(() => {
 });
 await p.evaluate(() => window.waverly.next());
 await p.waitForTimeout(900);
-await p.screenshot({ path: 'docs/review/shader-mid-wipe.png' });
+await p.screenshot({ path: `${OUT}/shader-mid-wipe.png` });
 await p.waitForTimeout(2600);
 const samples = await p.evaluate(() => window.__samples);
 ok('u_progress driven across the transition', samples.length > 30 && Math.max(...samples) > 0.99,
