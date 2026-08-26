@@ -55,7 +55,7 @@ node scripts/verify-overlay.mjs         # Escape, arrows, focus trap, no key lea
 node scripts/verify-palette.mjs         # three colours, no reference hues
 node scripts/verify-reduced-motion.mjs  # hard cut, not a scaled tween
 node scripts/verify-phase3.mjs          # menu + lightbox, incl. no key leakage
-node scripts/verify-shader.mjs          # the flagged transition shader
+node scripts/verify-shader.mjs          # the flagged transition shader (OUT= to save frames)
 node scripts/verify-gate.mjs            # the gate stack, vertically and by width
 node scripts/verify-chrome-contrast.mjs # writes clips; pair with the reader in HANDOFF
 ```
