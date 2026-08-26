@@ -1,10 +1,9 @@
 import { gsap } from 'gsap';
 import { copy } from '../data/copy';
 import { duration, stagger } from '../lib/motion';
-import { renderCopy } from './tk';
 
 /**
- * The contact card — closing CTA with enquiry details.
+ * The contact card — closing CTA with phone only.
  */
 export class Contact {
   readonly el: HTMLElement;
@@ -21,15 +20,10 @@ export class Contact {
         <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
         <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
         <dl class="contact__details">
-          <dt class="label js-fade-up">${copy.contact.emailLabel}</dt>
-          <dd class="js-fade-up" data-email></dd>
           <dt class="label js-fade-up">${copy.contact.phoneLabel}</dt>
-          <dd class="js-fade-up" data-phone></dd>
+          <dd class="js-fade-up"><a class="contact__phone uline-double" href="tel:+17187027500">${copy.contact.phone}</a></dd>
         </dl>
       </div>`;
-
-    this.el.querySelector('[data-email]')?.replaceChildren(...renderCopy(copy.contact.email));
-    this.el.querySelector('[data-phone]')?.replaceChildren(...renderCopy(copy.contact.phone));
   }
 
   enter(): void {

@@ -80,7 +80,7 @@ export function creditsPanel(onClose?: () => void): Panel {
   nodes.push(dl);
   nodes.push(
     para(
-      'All five are named on the GC title sheet. Confirm each wants to be credited before this ships.',
+      'All consultants are named on the GC title sheet. Confirm each wants to be credited before this ships.',
       'panel__note',
     ),
   );

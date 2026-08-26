@@ -55,8 +55,6 @@ export const copy = {
     lead: 'Request a private introduction.',
     disclaimer:
       'The houses are not yet built. To arrange a viewing of the plans, get in touch.',
-    emailLabel: 'Email',
-    email: TK('email'),
     phoneLabel: 'Phone',
     phone: '718-702-7500',
   },
@@ -143,7 +141,6 @@ export const copy = {
     heading: ['The people who', 'made these houses'],
     entries: [
       ['StudioSC', 'Architecture'],
-      [TK('developer name'), 'Developer'],
       ['M C Structural Engineering', 'Structural'],
       ['All City Engineering', 'Mechanical'],
       ['BMB Building Consultants', 'DOB consultant'],

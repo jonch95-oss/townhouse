@@ -72,7 +72,7 @@ export const legalDocs: LegalDoc[] = [
     status:
       'Blocked. A privacy policy has to describe what the site actually collects and who receives it, and that is not decided yet.',
     body: [
-      'This site currently collects nothing. It runs no analytics, sets no cookies, and has no enquiry form — contact is by email and telephone only.',
+      'This site currently collects nothing. It runs no analytics, sets no cookies, and has no enquiry form — contact is by telephone only.',
       'If that changes, this policy has to change with it before the change ships.',
     ],
     missing: [
