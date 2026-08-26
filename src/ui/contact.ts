@@ -19,10 +19,10 @@ export class Contact {
         <span class="contact__rule js-scale" aria-hidden="true"></span>
         <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
         <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
-        <dl class="contact__details">
-          <dt class="label js-fade-up">${copy.contact.phoneLabel}</dt>
-          <dd class="js-fade-up"><a class="contact__phone uline-double" href="tel:+17187027500">${copy.contact.phone}</a></dd>
-        </dl>
+        <div class="contact__action js-fade-up">
+          <p class="contact__phone-label label">${copy.contact.phoneLabel}</p>
+          <a class="contact__phone uline-double" href="tel:+17187027500">${copy.contact.phone}</a>
+        </div>
       </div>`;
   }
 
