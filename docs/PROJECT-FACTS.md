@@ -44,8 +44,13 @@ package, so they must be confirmed before they go on a public website.**
 | Gross floor area — 3rd | 935.64 SF |
 | Gross floor area — 4th | 874.88 SF |
 | Bulkhead | 151.97 SF |
-| **Total gross** | **~3,907 SF** (gross, includes walls — net/sellable will be lower) |
-| Roof area | 812 SF |
+| **Total gross (proposed)** | **3,907 SF** (above grade, before zoning deductions) |
+| **Total net (FAR / filed)** | **3,620 SF** (after 287 SF deductions — zoning schedule, Aug 2025 GC) |
+| Roof terraces (combined) | 164.38 + 220.97 = **385 SF** |
+| 2nd-floor terrace | 93.32 SF |
+| **Private terrace total (filed)** | **479 SF** (93.32 + 385.35) |
+| Inner court | 200 SF (not included in terrace total above) |
+| Roof area (plan) | 812 SF |
 | Distance to Willoughby Ave | 118'-9" |
 
 ### Floor-to-floor heights
@@ -82,10 +87,23 @@ two terraces and a private roof terrace** — a materially stronger offering tha
 set alone suggested.
 
 ### Areas from the GC set (223, above grade only)
-- 1st 1,009.11 SF · 2nd 935.56 SF · 3rd 935.64 SF · 4th 874.88 SF · bulkhead 151.97 SF
-- Total above grade ~3,907 SF gross. **The cellar is additional and not in this schedule.**
-- Inner court 200 SF · 2nd-floor terrace 93.32 SF · roof 812 SF
+| Floor | Gross SF | Deductions | Net SF |
+|---|---|---|---|
+| 1st | 1,009.11 | 81.67 | 927.44 |
+| 2nd | 935.56 | 17.95 | 917.61 |
+| 3rd | 935.64 | 13.14 | 922.50 |
+| 4th | 874.88 | 22.17 | 852.71 |
+| Roof bulkhead | 151.97 | 151.97 | 0.00 |
+| **Total** | **3,907.16** | **286.90** | **3,620.26** |
+
+**The cellar is additional and not in this schedule.**
+
+- Inner court 200 SF · 2nd-floor terrace 93.32 SF · roof terraces 164.38 + 220.97 SF
 - Living Room 294.19 SF · Dining Room 200.00 SF · Kitchen 176.25 SF · Library 133.94 SF · Foyer 46.01 SF
+
+### Room counts (GC programme, each house)
+- **3 bedrooms** — bedroom 1 (2nd), primary bedroom (3rd), bedroom (4th)
+- **3.5 bathrooms** — powder (1st), full bath (2nd), primary bath (3rd), full bath (4th)
 
 ## Construction & finishes (from wall types / details)
 - **Glen Gery Potenza Raw brick veneer** with vertical/corbelled coursing

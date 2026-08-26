@@ -78,7 +78,7 @@ This One Should Be Experienced.
 5. Private Retreats — primary bath, powder room
 6. Design Philosophy — emotion, ritual, neighbourhood
 
-**Highlights — each house** + stat block (TK sq ft, beds/baths).
+**Highlights — each house** + stat block: 3,620 SF interior · 479 SF exterior terraces · 3 / 3.5 beds/baths (each house, from filed GC set).
 
 ---
 
