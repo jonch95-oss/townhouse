@@ -30,6 +30,7 @@ import { Inquire } from './ui/inquire';
 import { SoundToggle } from './ui/sound-toggle';
 import { Cursor } from './ui/cursor';
 import { HeroHold } from './ui/hero-hold';
+import type { BuildingViewer } from './lib/building-viewer';
 
 registerEases();
 registerReveal();
@@ -225,11 +226,25 @@ chrome.append(
 );
 document.body.appendChild(menuToggle.el);
 
-new HeroHold(
+let buildingViewer: BuildingViewer | undefined;
+const getBuildingViewer = async (): Promise<BuildingViewer> => {
+  if (!buildingViewer) {
+    const { BuildingViewer } = await import('./lib/building-viewer');
+    buildingViewer = new BuildingViewer(stage);
+  }
+  return buildingViewer;
+};
+
+const heroHold = new HeroHold(
   stage,
   hero.el,
   () => machine.entered && machine.current === 0 && !menu.isOpen && !lightbox.isOpen,
-  (zoomed) => cursor.setMode(zoomed ? 'zoomed' : 'hold'),
+  (zoomed) => {
+    machine.overlayOpen = zoomed;
+    cursor.setMode(zoomed ? 'zoomed' : 'hold');
+    buildingViewer?.canvas.classList.toggle('is-active', zoomed);
+  },
+  getBuildingViewer,
 );
 
 async function enterExperience(opts: IntroEnterOptions): Promise<void> {
@@ -242,6 +257,7 @@ async function enterExperience(opts: IntroEnterOptions): Promise<void> {
   scrollHint.start();
   scrollHint.setSlide(0);
   soundToggle.sync();
+  heroHold.warm();
   await sound.enter(opts.withSound);
   soundToggle.sync();
 }
