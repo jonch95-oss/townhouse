@@ -602,3 +602,299 @@
 .menu-link.is-pending { opacity: 0.35; cursor: default; }
 .menu__links:hover .menu-link.is-pending { opacity: 0.2; }
 .menu-link.is-pending:hover { opacity: 0.35 !important; }
+
+/* ==========================================================================
+   Responsive picture wrapper. The dominant colour and LQIP paint before the
+   image lands, which is why there is no white flash between slides.
+   ========================================================================== */
+.picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--dominant, var(--c-warm));
+  background-image: var(--lqip);
+  background-size: cover;
+  background-position: center;
+}
+
+.picture__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.picture.is-loaded .picture__img { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .picture__img { transition-duration: 0.01s; }
+}
+
+/* ==========================================================================
+   TK — a missing fact.
+
+   Deliberately outside the palette and deliberately ugly. A TK that blended
+   in would be a TK that shipped. `npm run check:tk` fails while any remain.
+   ========================================================================== */
+.tk {
+  display: inline-block;
+  padding: 0.1em 0.45em;
+  border-radius: 0.2em;
+  background: #ff0055;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85em;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* ==========================================================================
+   Panel — one component, four bodies (overview, credits, legal, floorplans).
+   ========================================================================== */
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 28;
+  display: none;
+}
+
+.panel.is-open { display: block; }
+
+.panel__scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: var(--c-black-50);
+  cursor: pointer;
+}
+
+.panel__sheet {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(100%, 76rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--c-white);
+  color: var(--c-warm);
+}
+
+.panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 2rem;
+  padding: var(--gutter);
+  border-bottom: var(--border-hairline);
+  flex: 0 0 auto;
+}
+
+.panel__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-40);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-regular);
+}
+
+/*
+ * The close mark, shared by the lightbox and the panels. Two rules rather than
+ * a glyph: a multiplication sign sits off-centre in most faces, and an SVG for
+ * two lines is more file than mark. The bars rotate on hover in the toggle's
+ * idiom — 17.5°, not 45° — so the whole chrome moves the same way.
+ */
+.x {
+  position: relative;
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.x__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.x__line:first-child { transform: translateY(-50%) rotate(45deg); }
+.x__line:last-child { transform: translateY(-50%) rotate(-45deg); }
+
+.x-trig:hover .x__line:first-child { transform: translateY(-50%) rotate(27.5deg); }
+.x-trig:hover .x__line:last-child { transform: translateY(-50%) rotate(-27.5deg); }
+
+.panel__close {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--c-warm-40);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.panel__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4rem var(--gutter) 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem 0;
+}
+
+.panel__display {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-40);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-regular);
+}
+
+@media (min-width: 650px) {
+  .panel__display { font-size: var(--t-90); }
+}
+
+.panel__p { margin: 0; font-size: var(--t-16); line-height: var(--lh-body); max-width: 62ch; }
+.panel__label { margin: 2rem 0 0; font-size: var(--t-14); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--ls-label); }
+.panel__note { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); opacity: 0.7; max-width: 62ch; }
+
+.panel__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.8rem 0; }
+.panel__list li { position: relative; padding-left: 1.6rem; font-size: var(--t-16); line-height: var(--lh-body); max-width: 62ch; }
+.panel__list li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 0.25em; height: 0.25em; border-radius: 99px; background: currentColor; }
+.panel__list--missing li::before { display: none; }
+.panel__list--missing li { padding-left: 0; }
+
+.panel__stats { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 2.5rem; font-size: var(--t-16); }
+.panel__stats dt { font-weight: var(--fw-medium); }
+.panel__stats dd { margin: 0; }
+
+/* Legal, while unreviewed. */
+.panel__banner {
+  padding: 2rem;
+  border: 1px solid #ff0055;
+  border-radius: var(--radius-md);
+  background: rgb(255 0 85 / 0.06);
+}
+.panel__banner strong { display: block; font-size: var(--t-18); margin-bottom: 0.8rem; }
+.panel__banner p { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); }
+
+.panel__doc { display: flex; flex-direction: column; gap: 1.5rem 0; padding-top: 2.5rem; border-top: var(--border-hairline); }
+.panel__doc-title { margin: 0; font-family: var(--font-display); font-size: var(--t-26); line-height: var(--lh-h5); letter-spacing: var(--ls-tight); font-weight: var(--fw-regular); }
+.panel__doc-status { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); opacity: 0.75; font-style: italic; max-width: 62ch; }
+
+/* Floorplans */
+.plans__tabs { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.plans__tab {
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--c-warm-20);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: var(--t-14);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.plans__tab[aria-selected='true'] { background: var(--c-warm); color: var(--c-white); border-color: transparent; }
+.plans__stage { background: var(--c-white); border: var(--border-hairline); border-radius: var(--radius-md); overflow: hidden; }
+.plans__stage .picture { background-color: var(--c-white); }
+.plans__stage .picture__img { height: auto; object-fit: contain; }
+.plans__download { align-self: flex-start; font-size: var(--t-14); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--ls-label); color: inherit; text-decoration: none; }
+
+/* Menu footer row */
+.menu__footer {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 3rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0 2.5rem;
+  font-size: var(--t-12);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+}
+.menu__footer-link { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; }
+.menu__footer-phone { margin-left: auto; font-family: var(--font-display); font-size: var(--t-26); text-transform: none; letter-spacing: normal; }
+
+/* ==========================================================================
+   Contact card — sections.md S7.
+   ========================================================================== */
+.contact {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--gutter);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (min-width: 650px) { .contact { align-items: center; } }
+
+.contact__card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 52.5rem;
+  padding: 5rem 4rem;
+  margin-bottom: 9rem;
+  background: var(--c-white);
+  color: var(--c-warm);
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem 0;
+}
+
+@media (min-width: 650px) {
+  .contact__card { padding: 5rem 7.5rem; margin-bottom: 0; }
+}
+
+.contact__eyebrow { margin: 0; font-size: var(--t-12); letter-spacing: var(--ls-label); }
+
+/* The only uppercase display type on the site — loose in both axes, which is
+   why it reads as an invitation rather than a monument. */
+.contact__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-26);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) { .contact__title { font-size: var(--t-40); } }
+
+.contact__rule { display: block; width: 5.5rem; height: 1px; background: var(--c-warm-40); transform-origin: center; }
+.contact__subtitle { margin: 0; font-size: var(--t-15); line-height: var(--lh-body); max-width: 34ch; }
+
+@media (min-width: 650px) { .contact__subtitle { font-size: var(--t-18); } }
+
+.contact__details { margin: 0; display: grid; gap: 0.6rem 0; justify-items: center; }
+.contact__details dt { font-size: var(--t-12); letter-spacing: var(--ls-label); opacity: 0.6; }
+.contact__details dd { margin: 0 0 1.5rem; font-size: var(--t-16); }
+.contact__details dd:last-child { margin-bottom: 0; }

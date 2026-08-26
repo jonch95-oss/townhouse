@@ -1,9 +1,11 @@
 import { gsap } from 'gsap';
 import { Overlay } from '../lib/overlay';
 import { duration } from '../lib/motion';
+import { buildPicture } from '../lib/picture';
 
 export interface LightboxItem {
-  src: string;
+  /** Manifest key, resolved through the responsive picture builder. */
+  image: string;
   alt: string;
   caption: string;
 }
@@ -24,7 +26,7 @@ export class Lightbox {
   readonly el: HTMLElement;
   private readonly overlay: Overlay;
   private readonly figure: HTMLElement;
-  private readonly img: HTMLImageElement;
+  private readonly stage: HTMLElement;
   private readonly caption: HTMLElement;
   private items: LightboxItem[] = [];
   private index = 0;
@@ -41,7 +43,7 @@ export class Lightbox {
     this.el.innerHTML = `
       <button class="lightbox__backdrop" type="button" aria-label="Close gallery"></button>
       <figure class="lightbox__figure">
-        <img class="lightbox__img" alt="" />
+        <div class="lightbox__stage"></div>
         <figcaption class="lightbox__caption label" aria-live="polite"></figcaption>
       </figure>
       <button class="lightbox__nav --prev" type="button" aria-label="Previous image"></button>
@@ -51,7 +53,7 @@ export class Lightbox {
       </button>`;
 
     this.figure = this.el.querySelector('.lightbox__figure') as HTMLElement;
-    this.img = this.el.querySelector('.lightbox__img') as HTMLImageElement;
+    this.stage = this.el.querySelector('.lightbox__stage') as HTMLElement;
     this.caption = this.el.querySelector('.lightbox__caption') as HTMLElement;
 
     this.el.querySelector('.lightbox__backdrop')?.addEventListener('click', () => this.hide());
@@ -112,8 +114,15 @@ export class Lightbox {
     const item = this.items[this.index];
     if (!item) return;
     const apply = () => {
-      this.img.src = item.src;
-      this.img.alt = item.alt;
+      this.stage.replaceChildren(
+        buildPicture({
+          image: item.image,
+          alt: item.alt,
+          sizes: '(min-width: 650px) 90vw, 100vw',
+          eager: true,
+          className: 'lightbox__picture',
+        }),
+      );
       this.caption.textContent = item.caption;
     };
     if (!animate) { apply(); return; }
