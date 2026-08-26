@@ -1218,7 +1218,7 @@
 }
 
 @media (min-width: 650px) {
-  .contact__card { padding: 5rem 7.5rem; margin-bottom: 0; gap: 2.2rem 0; }
+  .contact__card { padding: 5rem 5rem; margin-bottom: 0; gap: 2.2rem 0; }
 }
 
 .contact__header {
@@ -1235,6 +1235,7 @@
    why it reads as an invitation rather than a monument. */
 .contact__title {
   margin: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1243,16 +1244,26 @@
   font-weight: var(--fw-regular);
   font-size: var(--t-26);
   line-height: var(--lh-snug);
-  letter-spacing: var(--ls-wide);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.contact__title-line { display: block; text-wrap: balance; max-width: 22ch; }
+.contact__title-line {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  text-wrap: balance;
+}
 
 @media (min-width: 650px) {
-  .contact__title { font-size: var(--t-40); gap: 1.25em; max-width: none; }
-  .contact__title-line { max-width: none; white-space: nowrap; }
+  .contact__title { font-size: var(--t-35); gap: 1.25em; }
   .contact__header { gap: 1.6rem 0; }
+  .contact__card { padding-inline: 5rem; }
+}
+
+@media (min-width: 1100px) {
+  .contact__title { font-size: var(--t-40); }
+  .contact__card { padding-inline: 7.5rem; }
 }
 
 .contact__rule { display: block; width: 5.5rem; height: 1px; background: var(--c-warm-40); transform-origin: center; }
@@ -1297,10 +1308,20 @@
   font-size: var(--t-26);
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-tight);
+  max-width: 100%;
+  text-align: center;
 }
 
 @media (min-width: 650px) {
   .contact__link { font-size: var(--t-30); }
+}
+
+.contact__channel:last-child .contact__link {
+  font-size: var(--t-22);
+}
+
+@media (min-width: 650px) {
+  .contact__channel:last-child .contact__link { font-size: var(--t-26); }
 }
 
 .contact__link:visited { color: inherit; }
