@@ -24,8 +24,10 @@ export class Sound {
       a.loop = true;
       a.preload = 'auto';
     }
-    this.background.volume = 0.14;
-    this.ambient.volume = 0.08;
+    // Soft enough to sit under the rooms without fatigue. Still replaceable
+    // when the client supplies licensed audio.
+    this.background.volume = 0.11;
+    this.ambient.volume = 0.06;
 
     const stored = sessionStorage.getItem(STORAGE_KEY);
     this.enabled = stored === null ? true : stored === '1';
