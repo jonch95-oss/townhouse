@@ -1,0 +1,900 @@
+/* ==========================================================================
+   chrome.css — the persistent furniture. motion-spec.md §6 and sections.md
+   "Persistent chrome". None of it hides on scroll, because there is no scroll.
+
+   CHROME INVERTS ON THE INTERIOR SLIDES.
+
+   The principle the reference follows is that chrome contrasts with imagery,
+   not that chrome is white. Its photography is art-directed dark at the edges,
+   so white is the contrasting choice there. Every one of our interior renders
+   is high-key — pale plaster, blown ceilings, clipped windows — so the same
+   principle produces the opposite answer, and slides 1-4 take warm chrome on
+   the imagery instead.
+
+   The hero keeps white (bright sky, but the scrim carries it), the contact
+   slide keeps white (it sits on the warm ground itself), and the intro gate
+   keeps white because INT-022-034 is the one dark image in the set — which is
+   precisely why it was chosen for the gate.
+
+   One variable does the whole switch.
+   ========================================================================== */
+
+:root {
+  --chrome-ink: var(--c-white);
+  /* A halo in the opposite value, so a floating element carries its own
+     contrast rather than depending on what happens to be behind it. */
+  --chrome-halo: rgb(0 0 0 / 0.35);
+}
+
+.is-interior {
+  --chrome-ink: var(--c-warm);
+  --chrome-halo: rgb(255 255 255 / 0.55);
+}
+
+/*
+ * The scrims invert with the ink. A black scrim under dark chrome is
+ * self-defeating — it darkens exactly the ground the ink needs to sit on. The
+ * mechanism stays; only its value flips.
+ */
+.is-interior .stage::before,
+.is-interior .stage::after { --scrim-value: 255 255 255; }
+
+/*
+ * Even inverted, one image defeats a uniform rule: INT-008-009 is dark exactly
+ * where the pip rail sits, so warm ink there measures 1.09:1 raw and only
+ * 2.46:1 under a 40% veil. The halo closes it without a panel, a fourth colour
+ * or per-image tuning, and it is what mapping and video UI use for the same
+ * problem.
+ */
+.menu-toggle,
+.scroll-hint {
+  text-shadow:
+    0 0 0.2em var(--chrome-halo),
+    0 0 0.5em var(--chrome-halo);
+}
+
+.menu-toggle__icon::before,
+.menu-toggle__icon::after,
+.pip__svg { filter: drop-shadow(0 0 0.15em var(--chrome-halo)) drop-shadow(0 0 0.35em var(--chrome-halo)); }
+
+.chrome {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.is-ready .chrome { opacity: 1; }
+
+.chrome button { pointer-events: auto; }
+
+/* --------------------------------------------------------------------------
+   Menu toggle. Top-left on desktop, top-right on mobile.
+   -------------------------------------------------------------------------- */
+/*
+ * The toggle lives outside .chrome and above the menu overlay. .chrome sets
+ * z-index: 10 and so creates a stacking context, which a child cannot escape —
+ * leaving the toggle buried under the open menu, labelled "Close" and
+ * unclickable. It stays below the lightbox, which is modal in a way the menu
+ * is not.
+ */
+.menu-toggle {
+  position: fixed;
+  z-index: 25;
+  pointer-events: auto;
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+  top: 3rem;
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  gap: 0 1.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--chrome-ink);
+  cursor: pointer;
+}
+
+.is-ready .menu-toggle { opacity: 1; }
+
+/* Over the menu's warm ground the toggle is always white. */
+.menu-open .menu-toggle { color: var(--c-white); }
+
+@media (min-width: 650px) {
+  .menu-toggle {
+    right: auto;
+    left: var(--gutter);
+  }
+}
+
+.menu-toggle__icon {
+  position: relative;
+  display: block;
+  width: 3.2rem;
+  height: 0.1rem;
+}
+
+/*
+ * Two bars to 17.5 degrees, not 45, over a full second. A shallow cross rather
+ * than an X — slower and less literal, and it reads as considered.
+ */
+.menu-toggle__icon::before,
+.menu-toggle__icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  transition: transform var(--dur-slow) var(--ease-expo-out);
+}
+
+.menu-toggle__icon::before { transform: translateY(-0.4rem); }
+.menu-toggle__icon::after { transform: translateY(0.4rem); }
+
+.menu-toggle.is-active .menu-toggle__icon::before { transform: translateY(0) rotate(17.5deg); }
+.menu-toggle.is-active .menu-toggle__icon::after { transform: translateY(0) rotate(-17.5deg); }
+
+.menu-toggle__label { transition: opacity var(--dur-fade) var(--ease-out); }
+
+/* --------------------------------------------------------------------------
+   Pip rail. Right edge, vertically centred.
+   -------------------------------------------------------------------------- */
+/*
+ * responsive.md §3: the pip rail is absent below 650px. The section-label bar
+ * carries navigation on mobile instead.
+ */
+.pips {
+  display: none;
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: var(--gutter) 0;
+  color: var(--chrome-ink);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+@media (min-width: 650px) {
+  .pips { display: flex; }
+}
+
+.pip {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.pip__svg { display: block; width: 100%; height: 100%; }
+
+/*
+ * The rotation lives entirely in CSS. Setting transform-origin on an element
+ * that also carries an SVG `transform="rotate(45 11 11)"` attribute makes the
+ * two origins compound, and the square lands off-centre and clipped — which is
+ * what it was doing on every pip except the active one.
+ */
+.pip__dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   "Scroll to explore". Bottom centre, above the section label on mobile.
+   -------------------------------------------------------------------------- */
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 9.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--chrome-ink);
+  font-size: var(--t-12);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+}
+
+@media (min-width: 650px) {
+  .scroll-hint { bottom: 2.5rem; }
+}
+
+/*
+ * Between 650 and 900 the centred hint runs into the 35.5rem label box, which
+ * is right-aligned and eats nearly half the width once the root is pinned at
+ * the 8px floor. The reference has the same geometry and the same collision.
+ * Anchor the hint to the left gutter until there is room to centre it.
+ */
+@media (min-width: 650px) and (max-width: 899px) {
+  .scroll-hint {
+    left: var(--gutter);
+    transform: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   The section-label box. Bottom right — the one piece of persistent
+   wayfinding, and the door to the floor panel in Phase 3.
+   -------------------------------------------------------------------------- */
+.section-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+  padding-inline: var(--gutter);
+  background: var(--c-white);
+  color: var(--c-warm);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  transform-origin: bottom right;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+/* The card inverts too: a white card on pale plaster is not contrast either. */
+.is-interior .section-label {
+  background: var(--c-warm);
+  color: var(--c-white);
+  border-color: var(--c-white-40);
+}
+
+.is-interior .section-label__rule { background: var(--c-white-40); }
+
+.is-interior .section-label__expand {
+  border-color: var(--c-white-40);
+  color: var(--c-white);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .is-interior .section-label__expand:hover {
+    background-color: var(--c-white);
+    color: var(--c-warm);
+  }
+}
+
+@media (min-width: 650px) {
+  .section-label {
+    right: var(--gutter);
+    bottom: var(--gutter);
+    width: 35.5rem;
+    height: 9rem;
+  }
+}
+
+.section-label__index,
+.section-label__title {
+  display: block;
+  will-change: transform;
+}
+
+.section-label__index {
+  display: none;
+  font-family: var(--font-display);
+  font-size: var(--t-30);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-hero);
+  /* So the digits do not jitter as the number changes. */
+  font-variant-numeric: tabular-nums;
+}
+
+.section-label__rule {
+  display: none;
+  width: 1px;
+  height: 2.5rem;
+  background: var(--c-warm-20);
+  flex-shrink: 0;
+}
+
+/*
+ * responsive.md §3: the index and its rule are hidden below 650px, where the
+ * bar goes full width and carries navigation instead. This block has to sit
+ * after both display:none declarations — same specificity, so source order
+ * decides.
+ */
+@media (min-width: 650px) {
+  .section-label__index,
+  .section-label__rule { display: block; }
+}
+
+.section-label__title { flex: 1; }
+
+/*
+ * The only element on the site that fills on hover with a colour transition
+ * rather than a transform.
+ */
+.section-label__expand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--c-warm-40);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--c-warm);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .section-label__expand:hover {
+    background-color: var(--c-warm);
+    color: var(--c-white);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero copy. Left third on desktop, bottom and centred on mobile.
+   -------------------------------------------------------------------------- */
+.hero {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  color: var(--c-white);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hero .site-grid { width: 100%; }
+
+.hero__col {
+  grid-column: 1 / -1;
+  text-align: center;
+  /* Clears the scroll hint at 9.5rem and the 7rem label bar beneath it. */
+  padding-bottom: 16rem;
+}
+
+@media (min-width: 650px) {
+  .hero { align-items: center; }
+  .hero__col {
+    grid-column: 2 / span 7;
+    text-align: left;
+    padding-bottom: 20rem;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 650px) and (max-width: 1100px) {
+  .hero__col { grid-column: 2 / span 10; }
+}
+
+.hero__eyebrow { margin: 0 0 2rem; }
+
+.hero__title {
+  margin: 0 0 2.5rem;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-35);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-hero);
+}
+
+@media (min-width: 650px) {
+  .hero__title { font-size: var(--t-45); }
+}
+
+.hero__body,
+.hero__price {
+  margin: 0;
+  font-size: var(--t-14);
+  line-height: var(--lh-body);
+  max-width: 31.5rem;
+}
+
+@media (min-width: 650px) {
+  .hero__body,
+  .hero__price { font-size: var(--t-16); max-width: 47.5rem; }
+}
+
+.hero__price { margin-top: 2.5rem; }
+
+/* Mobile centres the block, so the measure has to centre with it. */
+.hero__col { --measure-align: 0; }
+
+@media (max-width: 649px) {
+  .hero__body,
+  .hero__price { margin-inline: auto; }
+}
+
+/* ==========================================================================
+   Menu overlay — motion-spec.md §6.2, sections.md Overlay A.
+
+   The one place the palette inverts: the warm neutral becomes the ground
+   rather than the ink, with white links over it. tokens.md §2 records that
+   single inversion as the reason the menu reads as a different room rather
+   than a panel.
+   ========================================================================== */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  background: var(--c-warm);
+  color: var(--c-white);
+}
+
+.menu.is-open { display: block; }
+
+.menu__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0 4rem;
+  padding-block: 10rem;
+}
+
+/* Desktop-only, per responsive.md §3 — below 1100 the menu is links alone. */
+.menu__image-mask { display: none; }
+
+@media (min-width: 1100px) {
+  .menu__image-mask {
+    display: block;
+    flex: 0 0 auto;
+    width: 40rem;
+    aspect-ratio: 0.75;
+    max-height: calc(100svh - 20rem);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+}
+
+.menu__image-inner,
+.menu__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu__links {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem 0;
+}
+
+.menu-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0 2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  /* Dim the siblings rather than brighten the target. */
+  transition: opacity var(--dur-fade) var(--ease-out);
+}
+
+.menu__links:hover .menu-link { opacity: 0.3; }
+.menu-link:hover { opacity: 1 !important; }
+.menu-link:focus-visible { opacity: 1 !important; outline: 1px solid var(--c-white-40); outline-offset: 0.5rem; }
+
+.menu-link__index {
+  font-size: var(--t-14);
+  font-weight: var(--fw-medium);
+  color: var(--c-warm-tint);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 1100px) {
+  /*
+   * The index sits in the left margin of the link list. The reference offsets
+   * it -8rem into empty space; ours has the panel image there, so the column
+   * is padded to give the offset somewhere to land.
+   */
+  .menu__links { padding-left: 8rem; }
+  .menu-link { position: relative; }
+  .menu-link__index { position: absolute; transform: translateX(-8rem); }
+}
+
+.menu-link__label { display: block; }
+
+/* ==========================================================================
+   Lightbox
+   ========================================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: var(--c-black-50);
+  cursor: pointer;
+}
+
+.lightbox__figure {
+  position: relative;
+  margin: 0;
+  max-width: 120rem;
+  max-height: 100%;
+  cursor: pointer;
+}
+
+.lightbox__img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100svh - 16rem);
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.lightbox__caption {
+  margin-top: 1.5rem;
+  color: var(--c-white);
+  font-size: var(--t-14);
+  text-align: center;
+}
+
+.lightbox__nav,
+.lightbox__close {
+  position: absolute;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--c-white-40);
+  border-radius: var(--radius-sm);
+  background: var(--c-white-10);
+  color: var(--c-white);
+  cursor: pointer;
+}
+
+.lightbox.has-nav .lightbox__nav { display: inline-flex; }
+.lightbox__close { display: inline-flex; top: var(--gutter); right: var(--gutter); }
+.lightbox__nav.--prev { left: var(--gutter); top: 50%; transform: translateY(-50%); }
+.lightbox__nav.--next { right: var(--gutter); top: 50%; transform: translateY(-50%); }
+
+.lightbox__nav::before {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+}
+.lightbox__nav.--prev::before { transform: rotate(-135deg); }
+.lightbox__nav.--next::before { transform: rotate(45deg); }
+
+@media (min-width: 650px) {
+  .lightbox__nav,
+  .lightbox__close { width: 7rem; height: 7rem; }
+}
+
+/* Floorplans has no slide yet — present, but not pretending to work. */
+.menu-link.is-pending { opacity: 0.35; cursor: default; }
+.menu__links:hover .menu-link.is-pending { opacity: 0.2; }
+.menu-link.is-pending:hover { opacity: 0.35 !important; }
+
+/* ==========================================================================
+   Responsive picture wrapper. The dominant colour and LQIP paint before the
+   image lands, which is why there is no white flash between slides.
+   ========================================================================== */
+.picture {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--dominant, var(--c-warm));
+  background-image: var(--lqip);
+  background-size: cover;
+  background-position: center;
+}
+
+.picture__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.picture.is-loaded .picture__img { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .picture__img { transition-duration: 0.01s; }
+}
+
+/* ==========================================================================
+   TK — a missing fact.
+
+   Deliberately outside the palette and deliberately ugly. A TK that blended
+   in would be a TK that shipped. `npm run check:tk` fails while any remain.
+   ========================================================================== */
+.tk {
+  display: inline-block;
+  padding: 0.1em 0.45em;
+  border-radius: 0.2em;
+  background: #ff0055;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85em;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* ==========================================================================
+   Panel — one component, four bodies (overview, credits, legal, floorplans).
+   ========================================================================== */
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: 28;
+  display: none;
+}
+
+.panel.is-open { display: block; }
+
+.panel__scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: var(--c-black-50);
+  cursor: pointer;
+}
+
+.panel__sheet {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(100%, 76rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--c-white);
+  color: var(--c-warm);
+}
+
+.panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 2rem;
+  padding: var(--gutter);
+  border-bottom: var(--border-hairline);
+  flex: 0 0 auto;
+}
+
+.panel__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-40);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-regular);
+}
+
+/*
+ * The close mark, shared by the lightbox and the panels. Two rules rather than
+ * a glyph: a multiplication sign sits off-centre in most faces, and an SVG for
+ * two lines is more file than mark. The bars rotate on hover in the toggle's
+ * idiom — 17.5°, not 45° — so the whole chrome moves the same way.
+ */
+.x {
+  position: relative;
+  display: block;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.x__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.x__line:first-child { transform: translateY(-50%) rotate(45deg); }
+.x__line:last-child { transform: translateY(-50%) rotate(-45deg); }
+
+.x-trig:hover .x__line:first-child { transform: translateY(-50%) rotate(27.5deg); }
+.x-trig:hover .x__line:last-child { transform: translateY(-50%) rotate(-27.5deg); }
+
+.panel__close {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--c-warm-40);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.panel__body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4rem var(--gutter) 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem 0;
+}
+
+.panel__display {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--t-40);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-regular);
+}
+
+@media (min-width: 650px) {
+  .panel__display { font-size: var(--t-90); }
+}
+
+.panel__p { margin: 0; font-size: var(--t-16); line-height: var(--lh-body); max-width: 62ch; }
+.panel__label { margin: 2rem 0 0; font-size: var(--t-14); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--ls-label); }
+.panel__note { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); opacity: 0.7; max-width: 62ch; }
+
+.panel__list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.8rem 0; }
+.panel__list li { position: relative; padding-left: 1.6rem; font-size: var(--t-16); line-height: var(--lh-body); max-width: 62ch; }
+.panel__list li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 0.25em; height: 0.25em; border-radius: 99px; background: currentColor; }
+.panel__list--missing li::before { display: none; }
+.panel__list--missing li { padding-left: 0; }
+
+.panel__stats { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 1.2rem 2.5rem; font-size: var(--t-16); }
+.panel__stats dt { font-weight: var(--fw-medium); }
+.panel__stats dd { margin: 0; }
+
+/* Legal, while unreviewed. */
+.panel__banner {
+  padding: 2rem;
+  border: 1px solid #ff0055;
+  border-radius: var(--radius-md);
+  background: rgb(255 0 85 / 0.06);
+}
+.panel__banner strong { display: block; font-size: var(--t-18); margin-bottom: 0.8rem; }
+.panel__banner p { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); }
+
+.panel__doc { display: flex; flex-direction: column; gap: 1.5rem 0; padding-top: 2.5rem; border-top: var(--border-hairline); }
+.panel__doc-title { margin: 0; font-family: var(--font-display); font-size: var(--t-26); line-height: var(--lh-h5); letter-spacing: var(--ls-tight); font-weight: var(--fw-regular); }
+.panel__doc-status { margin: 0; font-size: var(--t-14); line-height: var(--lh-body); opacity: 0.75; font-style: italic; max-width: 62ch; }
+
+/* Floorplans */
+.plans__tabs { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.plans__tab {
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--c-warm-20);
+  border-radius: var(--radius-sm);
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: var(--t-14);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.plans__tab[aria-selected='true'] { background: var(--c-warm); color: var(--c-white); border-color: transparent; }
+.plans__stage { background: var(--c-white); border: var(--border-hairline); border-radius: var(--radius-md); overflow: hidden; }
+.plans__stage .picture { background-color: var(--c-white); }
+.plans__stage .picture__img { height: auto; object-fit: contain; }
+.plans__download { align-self: flex-start; font-size: var(--t-14); font-weight: var(--fw-medium); text-transform: uppercase; letter-spacing: var(--ls-label); color: inherit; text-decoration: none; }
+
+/* Menu footer row */
+.menu__footer {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: 3rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0 2.5rem;
+  font-size: var(--t-12);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+}
+.menu__footer-link { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; }
+.menu__footer-phone { margin-left: auto; font-family: var(--font-display); font-size: var(--t-26); text-transform: none; letter-spacing: normal; }
+
+/* ==========================================================================
+   Contact card — sections.md S7.
+   ========================================================================== */
+.contact {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--gutter);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media (min-width: 650px) { .contact { align-items: center; } }
+
+.contact__card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 52.5rem;
+  padding: 5rem 4rem;
+  margin-bottom: 9rem;
+  background: var(--c-white);
+  color: var(--c-warm);
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem 0;
+}
+
+@media (min-width: 650px) {
+  .contact__card { padding: 5rem 7.5rem; margin-bottom: 0; }
+}
+
+.contact__eyebrow { margin: 0; font-size: var(--t-12); letter-spacing: var(--ls-label); }
+
+/* The only uppercase display type on the site — loose in both axes, which is
+   why it reads as an invitation rather than a monument. */
+.contact__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-26);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) { .contact__title { font-size: var(--t-40); } }
+
+.contact__rule { display: block; width: 5.5rem; height: 1px; background: var(--c-warm-40); transform-origin: center; }
+.contact__subtitle { margin: 0; font-size: var(--t-15); line-height: var(--lh-body); max-width: 34ch; }
+
+@media (min-width: 650px) { .contact__subtitle { font-size: var(--t-18); } }
+
+.contact__details { margin: 0; display: grid; gap: 0.6rem 0; justify-items: center; }
+.contact__details dt { font-size: var(--t-12); letter-spacing: var(--ls-label); opacity: 0.6; }
+.contact__details dd { margin: 0 0 1.5rem; font-size: var(--t-16); }
+.contact__details dd:last-child { margin-bottom: 0; }

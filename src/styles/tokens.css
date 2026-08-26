@@ -2,7 +2,7 @@
    tokens.css — 223 Waverly Avenue
 
    Structure, scale and motion are taken from the quadplex80.com teardown
-   (the unmodified capture is at docs/capture/tokens.css — that file is the
+   (the unmodified capture is at spec/tokens.css — that file is the
    specification and should not be edited). The palette is ours.
 
    RE-SKIN, per REBUILD.md §4 "steal the structure, not the hue":
@@ -30,6 +30,20 @@
      --------------------------------------------------------------------- */
   --design-width: 390;                    /* mobile design width in px */
   --rem-cap: 12px;
+  /*
+   * A floor the reference does not have, and is worse for. Dividing by a fixed
+   * 1500 design width at every landscape size means the further below 1500 you
+   * are the smaller everything gets: responsive.md §1 measures a 1024-wide
+   * laptop at a 6.83px root — smaller type and a tighter gutter than a phone
+   * gets at 10px. An 8px floor binds below 1200px and hands over to the fluid
+   * rule exactly at 1200, where 10 x 1200 / 1500 is also 8. No discontinuity,
+   * one number, and the miniature-laptop case disappears.
+   *
+   * A second --size step for the 650-1200 band was the other option. It cannot
+   * be made continuous: two curves of the form 10w/size only meet where the
+   * sizes are equal, so any step change puts a visible jump at the boundary.
+   */
+  --rem-floor: 8px;
 
   /* ---------------------------------------------------------------------
      2. COLOUR — three, and only three.
@@ -37,7 +51,16 @@
   --c-warm: #715f47;        /* rgb(113 95 71) — clay/oak, sampled from the
                                interior renderings. Type on light, hairline
                                borders, contact card, captions, buttons.
-                               The only brand colour. */
+                               The only brand colour.
+
+                               ONCE, IT INVERTS: the full-screen menu overlay
+                               uses it as a solid ground with white Teodor
+                               links on top and indices in a lighter tint of
+                               the same hue (tokens.md §2). That single
+                               inversion is why the menu reads as a different
+                               room rather than a panel. Phase 3 builds it. */
+  --c-warm-tint: #a08868;   /* menu indices on the warm ground — the plaster
+                               value straight off the entrance rendering */
   --c-white: #ffffff;       /* page ground, contact card, curtain masks */
   --c-black: #000000;       /* only ever used at low alpha, never solid */
 
@@ -51,7 +74,7 @@
 
   /* The bottom scrim that lifts white type off the imagery. Black, not a
      fourth hue — see the re-skin note above. */
-  --scrim-desktop: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.34));
+  --scrim-desktop: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.30));
   --scrim-mobile:  linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.60));
   --scrim-h-desktop: 17rem;
   --scrim-h-mobile: 40rem;
@@ -129,7 +152,7 @@
 
 /* Fluid root: 10px per --design-width, capped at 12px. */
 html {
-  font-size: clamp(1px, 10 * 100vw / var(--design-width), var(--rem-cap));
+  font-size: clamp(var(--rem-floor), 10 * 100vw / var(--design-width), var(--rem-cap));
 }
 
 @media (min-width: 650px) {

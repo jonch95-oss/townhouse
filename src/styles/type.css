@@ -1,0 +1,228 @@
+/* ==========================================================================
+   type.css — type roles and layout primitives, from tokens.md §3–§4.
+   Every size is in rem; there is not one font-size media query below.
+   ========================================================================== */
+
+.site-max {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--grid-gap);
+}
+
+/* Mask for an unsplit line, so yPercent: 100 reads as rising out of nothing. */
+.mask {
+  display: block;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Underlines. Twenty lines of CSS, enormous return — REBUILD.md §2 Phase 2.
+   Both wipe out the way they came in by swapping the transform origin.
+   -------------------------------------------------------------------------- */
+.uline,
+.uline-double {
+  display: inline-flex;
+  position: relative;
+  white-space: nowrap;
+  --bottom: 0;
+}
+
+.uline::before,
+.uline-double::before,
+.uline-double::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--bottom);
+  background-color: currentColor;
+  /* Optically proportional to the type, but never sub-pixel and invisible. */
+  height: 0.05em;
+  min-height: 1px;
+}
+
+.uline::before {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-expo-out);
+}
+
+/*
+ * The double: the resting line retracts to the right while a new one draws in
+ * from the left, 200ms behind it. The delays are the whole trick.
+ */
+.uline-double::before {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-expo-out);
+  transition-delay: 0.5s;
+}
+
+.uline-double::after {
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-base) var(--ease-expo-out);
+  transition-delay: 0s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .uline:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .uline-double:hover::before {
+    transform: scaleX(0);
+    transform-origin: right;
+    transition-delay: 0s;
+  }
+  .uline-double:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition-delay: 0.2s;
+  }
+}
+
+/* The plus/minus: the vertical bar rotates away rather than disappearing. */
+.plus {
+  position: relative;
+  display: block;
+  width: 1rem;
+  height: 0.15rem;
+  min-height: 2px;
+}
+
+.plus::before,
+.plus::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+}
+
+.plus::after {
+  transform: rotate(-90deg);
+  transition: transform var(--dur-base) var(--ease-expo-out);
+}
+
+.plus.is-active::after {
+  transform: rotate(0);
+}
+
+/* --------------------------------------------------------------------------
+   Intro gate headline.
+
+   tokens.md §3 gives 5rem mobile / 8rem tablet portrait / 10rem desktop at
+   .375em tracking. That works for a reference whose longest word is CLOUDS,
+   at six characters. Ours is TERRACOTTA, at ten: measured at 5rem/.375em it
+   needs 514px against the 350px available at 390.
+
+   So below 650 it drops to 4rem/.2em, which fits at 341px. Everything above
+   keeps the spec'd sizes and the wide .375em tracking — that tracking is what
+   makes the gate read as a threshold rather than a heading, and a global .2em
+   would make it look like the contact card.
+   -------------------------------------------------------------------------- */
+.intro__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--t-40);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) {
+  .intro__title {
+    font-size: var(--t-100);
+    letter-spacing: var(--ls-widest);
+  }
+}
+
+/*
+ * The 650-1100 band. tokens.md §3 steps 8rem here but scopes it to portrait,
+ * which leaves landscape on the >=650 rule while the root is pinned to the 8px
+ * floor — 10rem is 80px at 650, and TERRACOTTA needs 671px into 618px. So the
+ * step is right and the scope is not: 8rem applies to both orientations here.
+ *
+ * That makes our ladder 4 / 8 / 10 against the reference's 5 / 8 / 10, which
+ * tracks. An earlier pass used 6.5rem, but that number was chosen while the
+ * webfonts were failing to load and the measurements were against a fallback
+ * serif much wider than Instrument Serif. In the real face 8rem clears the
+ * whole band with ~13% to spare, and the gate is the one screen where scale is
+ * the entire argument — three words and a button, with nothing else to carry
+ * it. Under-sizing the threshold costs more than under-sizing anything else.
+ */
+@media (min-width: 650px) and (max-width: 1100px) {
+  .intro__title { font-size: var(--t-80); }
+}
+
+/* --------------------------------------------------------------------------
+   The intro gate stack.
+
+   The gate component is Phase 4; this is the layout and type it will use, so
+   the short-viewport rule below has something real to act on and can be
+   verified before anything is built on top of it.
+   -------------------------------------------------------------------------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem 0;
+  padding-inline: var(--gutter);
+  color: var(--c-white);
+  text-align: center;
+}
+
+.intro__body {
+  margin: 0;
+  font-size: var(--t-16);
+  line-height: var(--lh-body);
+  max-width: 47.5rem;
+  opacity: 0.7;
+}
+
+.intro__secondary {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--t-14);
+}
+
+/*
+ * Short and wide.
+ *
+ * The width table cannot see vertical crowding, and at 650x400 and at phone
+ * landscape the stack overflows: the button runs into the pinned secondary
+ * link and the headline presses against the top edge. It does that at every
+ * size in the 650-1100 band, so it is a height problem, not a type-size one.
+ *
+ * responsive.md §2 records the mechanism the reference uses for exactly this —
+ * aspect-ratio queries stepping type down on short, wide windows without
+ * touching the width breakpoints. Aspect alone is not enough of a
+ * discriminator here, because an ordinary 1440x900 desktop is 1.6 and would be
+ * caught; pairing it with a height ceiling separates a phone in landscape from
+ * a laptop.
+ *
+ * Two things happen: the headline drops a step, and the secondary link comes
+ * out of its pinned position into the flow, which removes the collision by
+ * construction rather than by leaving just enough room.
+ */
+@media (min-aspect-ratio: 3/2) and (max-height: 600px) {
+  .intro { gap: 2rem 0; }
+  .intro__title { font-size: var(--t-40); }
+  .intro__secondary {
+    position: static;
+    transform: none;
+  }
+}

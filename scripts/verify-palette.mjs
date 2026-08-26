@@ -1,6 +1,6 @@
 /** Confirms the re-skin actually landed: three colours, no reference hues. */
-import { chromium } from 'playwright';
-const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
+import { launchChromium } from './lib/browser.mjs';
+const browser = await launchChromium();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto('http://localhost:4173/', { waitUntil: 'networkidle' });
 await page.waitForSelector('body.is-ready');

@@ -3,26 +3,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>223 Waverly Avenue</title>
+    <title>223 Waverly Avenue — Clinton Hill, Brooklyn</title>
     <meta
       name="description"
-      content="A new four-storey townhouse on Waverly Avenue, in the Clinton Hill Historic District, Brooklyn."
+      content="A new four-storey house in the Clinton Hill Historic District, Brooklyn, in terracotta and brick. Architecture by StudioSC."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="/slides/00-hero.jpg" />
+    <!--
+      TK-ORIGIN is a placeholder, not a domain. No production origin has been
+      supplied, and og:url / og:image must be absolute for every crawler worth
+      having. scripts/check-tk.mjs fails while it is still here.
+    -->
+    <link rel="canonical" href="TK-ORIGIN/" />
+    <meta name="theme-color" content="#715f47" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="223 Waverly Avenue" />
+    <meta property="og:title" content="223 Waverly Avenue — Clinton Hill, Brooklyn" />
+    <meta
+      property="og:description"
+      content="A new four-storey house in the Clinton Hill Historic District, Brooklyn, in terracotta and brick. Architecture by StudioSC."
+    />
+    <meta property="og:url" content="TK-ORIGIN/" />
+    <meta property="og:image" content="TK-ORIGIN/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="223 Waverly Avenue seen from the street." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="223 Waverly Avenue — Clinton Hill, Brooklyn" />
+    <meta
+      name="twitter:description"
+      content="A new four-storey house in the Clinton Hill Historic District, Brooklyn, in terracotta and brick."
+    />
+    <meta name="twitter:image" content="TK-ORIGIN/og-image.jpg" />
+
+    <!-- The hero is the only image worth preloading: it is the first paint. -->
+    <link rel="preload" as="image" type="image/avif" media="(max-width: 649px)"
+          imagesrcset="/img/portrait/00-hero-390.avif 390w, /img/portrait/00-hero-640.avif 640w" imagesizes="100vw" />
+    <link rel="preload" as="image" type="image/avif" media="(min-width: 650px)"
+          imagesrcset="/img/landscape/00-hero-640.avif 640w, /img/landscape/00-hero-1024.avif 1024w, /img/landscape/00-hero-1440.avif 1440w, /img/landscape/00-hero-1920.avif 1920w, /img/landscape/00-hero-2440.avif 2440w" imagesizes="100vw" />
   </head>
   <body>
     <div class="gate" aria-hidden="true"></div>
     <main class="stage" id="stage" aria-label="223 Waverly Avenue"></main>
-    <div class="chrome" aria-hidden="true">
-      <p class="hint">Scroll</p>
-      <p class="counter"><span id="counter-current">01</span><span class="counter__total" id="counter-total"></span></p>
-    </div>
     <noscript>
       <p style="padding: 2rem; color: #fff">
-        223 Waverly Avenue — a new four-storey townhouse in the Clinton Hill
-        Historic District, Brooklyn, by StudioSC Architecture.
+        223 Waverly Avenue — a new four-storey house in the Clinton Hill
+        Historic District, Brooklyn, by StudioSC Architecture. Contact details
+        are on the Contact slide; this site needs JavaScript to run.
       </p>
     </noscript>
     <script type="module" src="/src/main.ts"></script>
