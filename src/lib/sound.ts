@@ -1,9 +1,9 @@
 /**
  * Ambient audio for the experience.
  *
- * Background: "Terrace Afterglow" by FreeVibeVault (CC BY 4.0) — a free
- * sundown / terrace lounge bed. See public/sound/README.md. Not Gin & Tonic's
- * "Sundown" (that track is not free to license here).
+ * Background: "Deep House" by Arulo via Mixkit (free commercial license) —
+ * a four-on-the-floor evening house bed closer to Gin & Tonic's "Sundown"
+ * than a lounge pad. See public/sound/README.md. Sundown itself is not free.
  *
  * Preference is remembered in sessionStorage so a "without sound" entry stays
  * quiet for the visit.
@@ -23,10 +23,9 @@ export class Sound {
       a.loop = true;
       a.preload = 'auto';
     }
-    // One clear bed + a soft filtered underlayer. Keep low so it sits under
-    // the rooms without competing with them.
-    this.background.volume = 0.22;
-    this.ambient.volume = 0.08;
+    // House groove should be audible; keep under the rooms, not club-loud.
+    this.background.volume = 0.28;
+    this.ambient.volume = 0.07;
 
     const stored = sessionStorage.getItem(STORAGE_KEY);
     this.enabled = stored === null ? true : stored === '1';

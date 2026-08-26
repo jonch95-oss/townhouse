@@ -101,8 +101,8 @@ export const copy = {
       ['M C Structural Engineering', 'Structural'],
       ['All City Engineering', 'Mechanical'],
       ['BMB Building Consultants', 'DOB consultant'],
-      // CC BY 4.0 — required attribution for the site bed.
-      ['FreeVibeVault — Terrace Afterglow', 'Music'],
+      // Mixkit Free Music License — optional attribution; we credit anyway.
+      ['Arulo — Deep House (Mixkit)', 'Music'],
     ],
   },
 } as const;
