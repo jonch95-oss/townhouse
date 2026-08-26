@@ -70,15 +70,24 @@ await p.evaluate(() => document.querySelectorAll('.menu-link')[3].click());
 await p.waitForTimeout(1600);
 ok('selecting a link jumps straight to that slide', (await p.evaluate(() => window.waverly.current)) === 3);
 
-// Floorplans has no slide and must not pretend to
+// Floorplans opens the plans panel
 await p.click('.menu-toggle'); await p.waitForTimeout(1600);
 const beforeFp = await p.evaluate(() => window.waverly.current);
 await p.evaluate(() => document.querySelectorAll('.menu-link')[4].click());
-await p.waitForTimeout(900);
-ok('Floorplans is inert and does not move the deck',
-   (await p.evaluate(() => window.waverly.current)) === beforeFp &&
-   (await p.evaluate(() => document.querySelectorAll('.menu-link')[4].getAttribute('aria-disabled'))) === 'true');
-await p.click('.menu-toggle'); await p.waitForTimeout(1600);
+await p.waitForTimeout(1800);
+const plans = await p.evaluate(() => ({
+  open: [...document.querySelectorAll('.panel')].some((n) => n.classList.contains('is-open')),
+  tabs: document.querySelectorAll('.plans__tab').length,
+  hasPlan: !!document.querySelector('.plans__stage .picture__img'),
+  download: document.querySelector('.plans__download')?.getAttribute('download'),
+  slide: window.waverly.current,
+}));
+ok('Floorplans opens the plans panel', plans.open === true);
+ok('five floor tabs', plans.tabs === 5, `${plans.tabs}`);
+ok('a plan is rendered', plans.hasPlan === true);
+ok('the plan is downloadable', !!plans.download, plans.download ?? '');
+ok('opening the panel did not move the deck', plans.slide === beforeFp);
+await p.keyboard.press('Escape'); await p.waitForTimeout(900);
 
 console.log('\n--- lightbox ---');
 await p.evaluate(() => window.waverly.instant(1));
@@ -91,7 +100,7 @@ const lb = await p.evaluate(() => ({
   live: document.querySelector('.lightbox__caption').getAttribute('aria-live'),
   nav: document.querySelector('.lightbox').classList.contains('has-nav'),
   focusInside: document.querySelector('.lightbox').contains(document.activeElement),
-  src: document.querySelector('.lightbox__img').getAttribute('src'),
+  src: document.querySelector('.lightbox__stage .picture__img')?.getAttribute('src') ?? null,
 }));
 console.log(' ', JSON.stringify(lb));
 ok('lightbox opens on an interior slide', lb.open === true);

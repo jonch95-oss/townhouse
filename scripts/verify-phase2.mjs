@@ -112,7 +112,7 @@ const after3 = await page.evaluate(() => ({
   title: document.querySelector('.section-label__title').textContent,
   heroVisible: getComputedStyle(document.querySelector('.hero')).visibility,
 }));
-ok('section label follows the slide', after3.index === '04' && after3.title === 'Third Floor', `${after3.index} / ${after3.title}`);
+ok('section label follows the slide', after3.index === '04' && after3.title === 'Primary Suite', `${after3.index} / ${after3.title}`);
 
 console.log('\n--- intro headline fit, measured against the shipped .intro__title rule ---');
 // Landscape in the 650-1100 band was the blind spot: the >=650 rule gives it
