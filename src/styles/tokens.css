@@ -74,10 +74,10 @@
 
   /* The bottom scrim that lifts white type off the imagery. Black, not a
      fourth hue — see the re-skin note above. */
-  --scrim-desktop: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.30));
-  --scrim-mobile:  linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.60));
-  --scrim-h-desktop: 17rem;
-  --scrim-h-mobile: 40rem;
+  --scrim-desktop: linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.38));
+  --scrim-mobile:  linear-gradient(180deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.72));
+  --scrim-h-desktop: 19rem;
+  --scrim-h-mobile: 48rem;
 
   /* NO DARK MODE — light-only by design, as the reference is. */
 

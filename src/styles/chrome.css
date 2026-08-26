@@ -623,6 +623,13 @@
   text-align: center;
   /* Clears the scroll hint at 9.5rem and the 7rem label bar beneath it. */
   padding-bottom: 16rem;
+  /*
+   * Soft halo so thin white caps stay sharp over bright brick and sky — without
+   * it the address reads as blurry against the terracotta texture.
+   */
+  text-shadow:
+    0 0 0.35em rgb(0 0 0 / 0.45),
+    0 0.08em 0.55em rgb(0 0 0 / 0.35);
 }
 
 @media (min-width: 650px) {
@@ -638,7 +645,13 @@
   .hero__col { grid-column: 2 / span 10; }
 }
 
-.hero__eyebrow { margin: 0 0 2rem; }
+.hero__eyebrow {
+  margin: 0 0 2rem;
+  font-size: var(--t-13);
+  letter-spacing: var(--ls-label);
+  font-weight: var(--fw-medium);
+  -webkit-font-smoothing: antialiased;
+}
 
 .hero__title {
   margin: 0 0 2.5rem;

@@ -41,8 +41,8 @@ console.log(' ', JSON.stringify(hero));
 ok('hero headline split into lines, not characters', hero.titleLines === 2 && hero.chars === 0, `${hero.titleLines} lines, ${hero.chars} chars`);
 ok('hero body split into lines', hero.bodyLines >= 1, `${hero.bodyLines} lines`);
 ok('lines are masked (overflow hidden wrapper)', hero.masked === 'hidden' || hero.masked === 'clip');
-ok('eyebrow settles at 0.7, not 1', Math.abs(hero.eyebrowAlpha - 0.7) < 0.02, hero.eyebrowAlpha.toFixed(3));
-ok('body settles at 0.7, not 1', Math.abs(hero.bodyAlpha - 0.7) < 0.02, hero.bodyAlpha.toFixed(3));
+ok('eyebrow settles at full opacity (address must stay sharp)', Math.abs(hero.eyebrowAlpha - 1) < 0.02, hero.eyebrowAlpha.toFixed(3));
+ok('body settles slightly under the headline', Math.abs(hero.bodyAlpha - 0.85) < 0.02, hero.bodyAlpha.toFixed(3));
 ok('headline settles at 1', Math.abs(hero.titleAlpha - 1) < 0.02, hero.titleAlpha.toFixed(3));
 ok('price settles at 1', Math.abs(hero.priceAlpha - 1) < 0.02, hero.priceAlpha.toFixed(3));
 

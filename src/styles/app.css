@@ -64,14 +64,14 @@ body {
   bottom: 0;
   z-index: 5;
   height: var(--scrim-h-mobile);
-  background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.6));
+  background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.72));
   pointer-events: none;
 }
 
 @media (min-width: 650px) {
   .stage::after {
     height: var(--scrim-h-desktop);
-    background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.3));
+    background: linear-gradient(180deg, rgb(var(--scrim-value) / 0), rgb(var(--scrim-value) / 0.38));
   }
 }
 

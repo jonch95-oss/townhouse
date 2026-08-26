@@ -9,10 +9,9 @@ import { renderCopy } from './tk';
  * motion-spec.md §3.2.
  *
  * Four elements 0.35s apart, each running 1.5s, so they overlap heavily and
- * read as one gesture rather than four. Note the eyebrow and the paragraph
- * animate to alpha 0.7, not 1 — secondary copy never reaches full white. It
- * costs one character in the tween and it is the difference between a
- * hierarchy and a list.
+ * read as one gesture rather than four. The address settles at full opacity —
+ * thin caps at 0.7 over brick looked soft and blurry. Body copy stays slightly
+ * under so the headline still leads.
  */
 export class Hero {
   readonly el: HTMLElement;
@@ -61,9 +60,9 @@ export class Hero {
     gsap.set(this.el, { autoAlpha: 1 });
     this.timeline = gsap
       .timeline({ defaults: { duration: duration(1.5), stagger: stagger(0.1), ease: 'unmask' } })
-      .fromTo(this.eyebrow, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 0.7 }, 0.35)
+      .fromTo(this.eyebrow, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 1 }, 0.35)
       .from(this.lines.title, { y: '3rem', alpha: 0 }, 0.5)
-      .fromTo(this.lines.body, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 0.7 }, 0.7)
+      .fromTo(this.lines.body, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 0.85 }, 0.7)
       .from(this.price, { yPercent: 100, alpha: 0 }, 0.9);
   }
 
