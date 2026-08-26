@@ -65,6 +65,8 @@ This One Should Be Experienced.
 
 **Phone:** `718-702-7500`
 
+**Email:** `info@waverlylth.com`
+
 ## Overview panel
 
 **Title:** `Quiet Luxury, / Designed for Living`

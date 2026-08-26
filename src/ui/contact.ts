@@ -3,7 +3,7 @@ import { copy } from '../data/copy';
 import { duration, stagger } from '../lib/motion';
 
 /**
- * The contact card — closing CTA with phone only.
+ * The contact card — closing CTA with phone and email.
  */
 export class Contact {
   readonly el: HTMLElement;
@@ -22,8 +22,14 @@ export class Contact {
         <p class="contact__lead js-fade-up">${copy.contact.lead}</p>
         <p class="contact__subtitle js-fade-up">${copy.contact.disclaimer}</p>
         <div class="contact__action js-fade-up">
-          <p class="contact__phone-label label">${copy.contact.phoneLabel}</p>
-          <a class="contact__phone uline-double" href="tel:+17187027500">${copy.contact.phone}</a>
+          <div class="contact__channel">
+            <p class="contact__channel-label label">${copy.contact.phoneLabel}</p>
+            <a class="contact__link uline-double" href="tel:+17187027500">${copy.contact.phone}</a>
+          </div>
+          <div class="contact__channel">
+            <p class="contact__channel-label label">${copy.contact.emailLabel}</p>
+            <a class="contact__link uline-double" href="mailto:${copy.contact.email}">${copy.contact.email}</a>
+          </div>
         </div>
       </div>`;
   }

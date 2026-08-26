@@ -57,6 +57,8 @@ export const copy = {
       'Both townhouses are in development, with completion anticipated in Spring 2027. To review the plans in person, please be in touch.',
     phoneLabel: 'Phone',
     phone: '718-702-7500',
+    emailLabel: 'Email',
+    email: 'info@waverlylth.com',
   },
 
   menuFooter: {
