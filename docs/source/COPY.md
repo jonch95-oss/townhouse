@@ -60,7 +60,7 @@ This One Should Be Experienced.
 
 **Lead:** `Request a private introduction.`
 
-**Disclaimer:** Houses not yet built; plans by appointment.
+**Disclaimer:** Both townhouses in development; completion anticipated Spring 2027. Plans by appointment.
 
 **Phone:** `718-702-7500`
 

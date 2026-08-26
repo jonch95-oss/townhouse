@@ -54,7 +54,7 @@ export const copy = {
     headline: ['Some Homes Are Shown.', 'This One Should Be Experienced.'],
     lead: 'Request a private introduction.',
     disclaimer:
-      'The houses are not yet built. To arrange a viewing of the plans, get in touch.',
+      'Both townhouses are in development, with completion anticipated in Spring 2027. To review the plans in person, please be in touch.',
     phoneLabel: 'Phone',
     phone: '718-702-7500',
   },
