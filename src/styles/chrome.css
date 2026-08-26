@@ -683,11 +683,16 @@
 
 .hero__eyebrow {
   margin: 0 0 2rem;
+  display: inline-block;
   font-size: var(--t-14);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   font-weight: var(--fw-medium);
-  color: rgb(255 250 242 / 0.96);
+  color: #fffaf2;
   -webkit-font-smoothing: antialiased;
+  text-shadow:
+    0 0 0.5em rgb(0 0 0 / 0.65),
+    0 0 1em rgb(0 0 0 / 0.45),
+    0 1px 3px rgb(0 0 0 / 0.55);
 }
 
 .hero__title {

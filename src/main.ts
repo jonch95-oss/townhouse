@@ -42,6 +42,8 @@ if (!stage) throw new Error('Stage markup is missing — check index.html');
 const layers = slides.map((slide, i) => {
   const layer = document.createElement('div');
   layer.className = 'slide';
+  if (i === 0) layer.classList.add('slide--hero');
+  if (i === 3) layer.classList.add('slide--primary');
 
   if (slide.image) {
     layer.appendChild(

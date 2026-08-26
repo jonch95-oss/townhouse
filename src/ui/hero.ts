@@ -46,7 +46,9 @@ export class Hero {
     if (this.built) return;
     this.built = true;
     this.fillPrice();
-    this.eyebrow = mask(this.el.querySelector('.hero__eyebrow') as HTMLElement);
+    // Address is not masked — overflow:hidden clipped its halo and made thin
+    // caps look soft over brick. Fade + slight rise only.
+    this.eyebrow = this.el.querySelector('.hero__eyebrow') as HTMLElement;
     this.price = mask(this.el.querySelector('.hero__price') as HTMLElement);
     this.lines = {
       title: splitLines(this.el.querySelector('.hero__title') as HTMLElement),
@@ -60,7 +62,7 @@ export class Hero {
     gsap.set(this.el, { autoAlpha: 1 });
     this.timeline = gsap
       .timeline({ defaults: { duration: duration(1.5), stagger: stagger(0.1), ease: 'unmask' } })
-      .fromTo(this.eyebrow, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 1 }, 0.35)
+      .fromTo(this.eyebrow, { y: '1.2rem', alpha: 0 }, { y: 0, alpha: 1 }, 0.35)
       .from(this.lines.title, { y: '3rem', alpha: 0 }, 0.5)
       .fromTo(this.lines.body, { yPercent: 100, alpha: 0 }, { yPercent: 0, alpha: 0.85 }, 0.7)
       .from(this.price, { yPercent: 100, alpha: 0 }, 0.9);

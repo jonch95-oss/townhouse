@@ -52,6 +52,20 @@ body {
 }
 
 /*
+ * Hero + primary are inherently high-key (sky, plaster, tub). A light CSS
+ * grade pulls glare down without another JPEG re-bake.
+ */
+.slide--hero .picture__img,
+.slide--hero .slide__img {
+  filter: brightness(0.9) contrast(1.08) saturate(1.06);
+}
+
+.slide--primary .picture__img,
+.slide--primary .slide__img {
+  filter: brightness(0.86) contrast(1.1) saturate(1.04);
+}
+
+/*
  * The bottom scrim. Not decoration: it exists so white chrome stays legible
  * over an image nobody has vetted. tokens.md §2 — 17rem at 0 to 30% on
  * desktop, 40rem at 0 to 60% on mobile.
