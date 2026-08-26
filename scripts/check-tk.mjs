@@ -15,6 +15,18 @@ for (const f of FILES) {
   });
 }
 
+/**
+ * The share-card metadata needs an absolute origin and nobody has supplied a
+ * domain. Inventing one would put a URL that resolves to somebody else's site
+ * into every Slack and iMessage preview of this page, so it is a placeholder
+ * and it is gated here with the rest.
+ */
+const html = await readFile('index.html', 'utf8');
+html.split('\n').forEach((line, i) => {
+  if (line.includes('TK-ORIGIN') && !line.trim().startsWith('TK-ORIGIN is'))
+    found.push({ f: 'index.html', line: i + 1, what: 'production origin (og:url, canonical)' });
+});
+
 if (found.length === 0) {
   console.log('No TK markers. Copy is complete.');
   process.exit(0);
