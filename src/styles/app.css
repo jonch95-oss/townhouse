@@ -62,7 +62,7 @@ body {
 
 .slide--primary .picture__img,
 .slide--primary .slide__img {
-  filter: brightness(0.86) contrast(1.1) saturate(1.04);
+  filter: brightness(0.92) contrast(1.06) saturate(1.03);
 }
 
 /*

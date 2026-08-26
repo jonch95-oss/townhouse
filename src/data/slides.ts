@@ -67,7 +67,9 @@ export const slides: Slide[] = [
   },
   {
     label: 'Primary Suite',
-    chrome: 'dark',
+    // Vanity + skylights are mid-bright plaster; warm chrome + white scrim was
+    // veiling the plate. Light chrome (white ink, black scrim) reads cleaner.
+    chrome: 'light',
     image: '03-third-floor',
     alt: 'The primary bathroom vanity under the slanted skylight wall, marble and oak with a cognac leather stool.',
   },
