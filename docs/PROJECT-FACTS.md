@@ -101,9 +101,9 @@ set alone suggested.
 - Inner court 200 SF · 2nd-floor terrace 93.32 SF · roof terraces 164.38 + 220.97 SF
 - Living Room 294.19 SF · Dining Room 200.00 SF · Kitchen 176.25 SF · Library 133.94 SF · Foyer 46.01 SF
 
-### Room counts (GC programme, each house)
-- **3 bedrooms** — bedroom 1 (2nd), primary bedroom (3rd), bedroom (4th)
-- **3.5 bathrooms** — powder (1st), full bath (2nd), primary bath (3rd), full bath (4th)
+### Room counts (each house — client confirmed)
+- **4 bedrooms**
+- **4.5 bathrooms**
 
 ## Construction & finishes (from wall types / details)
 - **Glen Gery Potenza Raw brick veneer** with vertical/corbelled coursing
